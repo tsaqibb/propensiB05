@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
-        <title>Ruang Guru</title>
+        <title>Dashboard Admin</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,6 @@
             <div class="row">
                 <div class="navbar-header">
                     <a class="navbar-brand visible-xs" href="#"><img src="images/logo-kelas-2.png" height="60"></a>
-                    <button type="button" class="filter-toggle collapsed visible-xs" data-toggle="collapse" data-target="#list-orange" aria-expanded="false" aria-controls="navbar">Filter</button>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -45,8 +44,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="active"><a href="#">Kelas</a></li>
+                        <li class="active"><a href="#">Kelas Online</a></li>
                         <li><a href="#about">Privat</a></li>
+                        <li><a href="#about">Kelas Berkelompok</a></li>
                         <li><a href="#contact">FAQ</a></li>
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
@@ -60,16 +60,12 @@
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <div class="sidebar">
-                    <div class="profile-image-wrap">
-                        <img src="images/user.png" alt="" class="img-responsive">
-                        <a href="#"><span class="edit"><i class="fa fa-pencil"></i></span></a>
-                    </div>
-                    <h3 class="profile-name text-center">Halo, [Nama]</h3>
-
+                    <br>
+                    <h4 class="text-center">Halo, [Nama Admin]</h4>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-user"></i> Kelas</a>
+                            <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
                         </li>
                         <li role="presentation">
                             <a href="#partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
@@ -85,7 +81,7 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
-                                    <a href="#published" aria-controls="published" role="tab" data-toggle="tab">Published</a>
+                                    <a href="#published" aria-controls="published" role="tab" data-toggle="tab" aria-expanded="true" >Published</a>
                                 </li>
                                 <li role="presentation">
                                     <a href="#pending-pub" aria-controls="pending-pub" role="tab" data-toggle="tab">Pending Publish</a>
@@ -126,8 +122,7 @@
                                                     <td>2</td>
                                                     <td>Web Programming - Advance</td>
                                                     <td class="status">
-                                                        <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
-                                                    </td>
+                                                        <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
                                                     <td class="text-center">
                                                         <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
                                                     </td>
@@ -160,7 +155,8 @@
                                                     <td>3</td>
                                                     <td>Java Programming - Basic</td>
                                                     <td class="status">
-                                                        <a href="#" class="publish icon-circle" title="Request publish"><i class="fa fa-upload"></i></a>
+                                                        <a href="#" class="publish icon-circle" title="Publish"><i class="fa fa-upload"></i></a>
+                                                        <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
@@ -170,7 +166,8 @@
                                                     <td>4</td>
                                                     <td>Java Programming - Advance</td>
                                                     <td class="status">
-                                                        <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
+                                                        <a href="#" class="publish icon-circle" title="Publish"><i class="fa fa-upload"></i></a>
+                                                        <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>

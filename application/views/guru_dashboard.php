@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
-        <title>Ruang Guru</title>
+        <title>Dashboard Admin</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,6 @@
             <div class="row">
                 <div class="navbar-header">
                     <a class="navbar-brand visible-xs" href="#"><img src="images/logo-kelas-2.png" height="60"></a>
-                    <button type="button" class="filter-toggle collapsed visible-xs" data-toggle="collapse" data-target="#list-orange" aria-expanded="false" aria-controls="navbar">Filter</button>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -45,8 +44,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="active"><a href="#">Kelas</a></li>
+                        <li class="active"><a href="#">Kelas Online</a></li>
                         <li><a href="#about">Privat</a></li>
+                        <li><a href="#about">Kelas Berkelompok</a></li>
                         <li><a href="#contact">FAQ</a></li>
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
@@ -60,19 +60,15 @@
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <div class="sidebar">
-                    <div class="profile-image-wrap">
-                        <img src="images/user.png" alt="" class="img-responsive">
-                        <a href="#"><span class="edit"><i class="fa fa-pencil"></i></span></a>
-                    </div>
-                    <h3 class="profile-name text-center">Halo, [Nama]</h3>
-
+                    <br>
+                    <h4 class="text-center">Halo, [Nama Guru]</h4>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-user"></i> Kelas</a>
+                            <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                         </li>
                         <li role="presentation">
-                            <a href="#partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
+                            <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
                         </li>
                     </ul>
                 </div><!-- sidebar -->
@@ -85,16 +81,10 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
-                                    <a href="#published" aria-controls="published" role="tab" data-toggle="tab">Published</a>
+                                    <a href="#published" aria-controls="published" role="tab" data-toggle="tab" aria-expanded="true" >Published</a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#pending-pub" aria-controls="pending-pub" role="tab" data-toggle="tab">Pending Publish</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#pending-unpub" aria-controls="pending-unpub" role="tab" data-toggle="tab">Pending Unpublish</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#pending-approve" aria-controls="pending-approve" role="tab" data-toggle="tab">Pending Approve</a>
+                                    <a href="#draft" aria-controls="draft" role="tab" data-toggle="tab">Draft</a>
                                 </li>
                             </ul>
 
@@ -107,8 +97,8 @@
                                                 <tr class="text-center">
                                                     <td>ID</td>
                                                     <td>Nama Kelas</td>
-                                                    <td>Action</td>
-                                                    <td>Go to web</td>
+                                                    <td>Status</td>
+                                                    <td>Preview</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -116,10 +106,10 @@
                                                     <td>1</td>
                                                     <td>Web Programming - Basic</td>
                                                     <td class="status">
-                                                        <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
+                                                        <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -127,9 +117,8 @@
                                                     <td>Web Programming - Advance</td>
                                                     <td class="status">
                                                         <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
-                                                    </td>
                                                     <td class="text-center">
-                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -144,36 +133,66 @@
                                         </ol>
                                     </div>
                                 </div><!-- published -->
-                                <div role="tabpanel" class="tab-pane " id="pending-pub">
+                                <div role="tabpanel" class="tab-pane " id="draft">
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr class="text-center">
                                                     <td>ID</td>
                                                     <td>Nama Kelas</td>
-                                                    <td>Action</td>
-                                                    <td>Go to web</td>
+                                                    <td>Status</td>
+                                                    <td>Edit</td>
+                                                    <td>Preview</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>3</td>
-                                                    <td>Java Programming - Basic</td>
+                                                    <td>PHP Programming - Basic</td>
                                                     <td class="status">
-                                                        <a href="#" class="publish icon-circle" title="Request publish"><i class="fa fa-upload"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                        <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Java Programming - Basic</td>
+                                                    <td class="status">
+                                                        <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
-                                                    <td>Java Programming - Advance</td>
+                                                    <td>PHP Programming - Advance</td>
                                                     <td class="status">
-                                                        <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
+                                                        <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                        <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Java Programming - Advance</td>
+                                                    <td class="status">
+                                                        <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
