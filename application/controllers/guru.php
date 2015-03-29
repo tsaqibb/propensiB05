@@ -5,8 +5,12 @@ class Guru extends CI_Controller {
 	{
 		$this->load->view('guru_dashboard');
 	}
-	public function admin()
+	public function kelas()
 	{
-		$this->load->view('admin_dashboard');
+		$this->load->view('guru_dashboard');
+	}
+	public function tambahkelas()
+	{
+		$this->load->view('tambah_kelas');
 	}
 }

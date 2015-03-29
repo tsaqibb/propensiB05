@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "guru";
+$route['default_controller'] = "guru/tambahkelas";
 $route['404_override'] = '';
 
 
