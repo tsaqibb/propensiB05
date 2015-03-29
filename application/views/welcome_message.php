@@ -50,14 +50,6 @@
                         <li><a href="#contact">FAQ</a></li>
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="user-login">
-                            Hello, <a href="#">Kelas</a>
-                        </li>
-                        <li class="sign-out">
-                            <a href="#">Sign Out</a>
-                        </li>
-                    </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
@@ -72,47 +64,37 @@
                         <img src="images/user.png" alt="" class="img-responsive">
                         <a href="#"><span class="edit"><i class="fa fa-pencil"></i></span></a>
                     </div>
-                    <h3 class="profile-name text-center">Nama Vendor</h3>
-
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        60% 
-                      </div>
-                    </div>
+                    <h3 class="profile-name text-center">Halo, [Nama]</h3>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation">
-                            <a href="#profil" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-user"></i> Profil</a>
+                        <li role="presentation" class="active">
+                            <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-user"></i> Kelas</a>
                         </li>
                         <li role="presentation">
-                            <a href="#reponsible" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Penganggungjawab</a>
-                        </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-users"></i> Kelas Anda</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-plus"></i> Tambah Kelas</a>
+                            <a href="#partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
                         </li>
                     </ul>
                 </div><!-- sidebar -->
             </div>
             <div class="col-md-9 col-sm-12">
                 <div class="panel panel-default">
-                    <h2 class="block-title text-uppercase">PROFIL PENYELENGGARA</h2>
+                    <h2 class="block-title text-uppercase">Kelas</h2>
                     <div class="panel-body">
                         <div role="tabpanel" class="sub-vendor">
-
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
                                     <a href="#published" aria-controls="published" role="tab" data-toggle="tab">Published</a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#draft" aria-controls="draft" role="tab" data-toggle="tab">Draft</a>
+                                    <a href="#pending-pub" aria-controls="draft" role="tab" data-toggle="tab">Pending Publish</a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#past" aria-controls="past" role="tab" data-toggle="tab">Past</a>
+                                    <a href="#pending-unpub" aria-controls="past" role="tab" data-toggle="tab">Pending Unpublish</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#pending-approve" aria-controls="past" role="tab" data-toggle="tab">Pending Approve</a>
                                 </li>
                             </ul>
 
@@ -125,12 +107,7 @@
                                                 <tr class="text-center">
                                                     <td>ID</td>
                                                     <td>Nama Kelas</td>
-                                                    <td>Harga Kelas (Rp)</td>
-                                                    <td>Jumlah Sesi</td>
-                                                    <td>Tipe Kelas</td>
-                                                    <td>Jumlah Murid</td>
-                                                    <td>Status</td>
-                                                    <td>Pengaturan</td>
+                                                    <td>Action</td>
                                                     <td>Go to web</td>
                                                 </tr>
                                             </thead>
@@ -138,16 +115,8 @@
                                                 <tr>
                                                     <td>1</td>
                                                     <td>Web Programming - Basic</td>
-                                                    <td>75,000,-</td>
-                                                    <td>5</td>
-                                                    <td>Series</td>
-                                                    <td><a href="#">1 Orang</a></td>
                                                     <td class="status">
-                                                        <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
-                                                        <a href="#" class="unpublish icon-circle" title="Request Unpublish"><i class="fa fa-download"></i> </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="#" class="manage icon-circle" title="Pengaturan"><i class="fa fa-gears"></i></a>
+                                                        <a href="#" class="publish icon-circle" title="Request Unpublish"><i class="fa fa-download"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
@@ -155,17 +124,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
-                                                    <td>CV and Cover Letter Writing</td>
-                                                    <td>0,-</td>
-                                                    <td>0</td>
-                                                    <td>Single</td>
-                                                    <td><a href="#">0 Orang</a></td>
+                                                    <td>Web Programming - Advance</td>
                                                     <td class="status">
-                                                        <span class="pending icon-circle" title="Pending"><i class="fa fa-ellipsis-h"></i></span>
-                                                        <a href="#" class="publish icon-circle" title="Publish Class"><i class="fa fa-upload"></i></a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="#" class="manage icon-circle" title="Pengaturan"><i class="fa fa-gears"></i></a>
+                                                        <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
@@ -178,14 +139,55 @@
                                         <p> Catatan: </p>
                                         <ol>
                                             <li>
-                                                Untuk kelas yang sudah live, Anda hanya dapat mengedit dengan mengubah foto. Jika Anda ingin mengubah detilnya, <a class="blue underline" href="mailto:info@ruangguru.com?Subject=Edit%20Kelas">hubungi kami</a>
-                                            </li>
-                                            <li>
-                                                Anda hanya dapat melihat daftar murid dan menghubungi mereka yang sudah melakukan pembayaran. Untuk melihat daftar murid , klik "<b>Jumlah Murid</b>"
+                                                Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
                                             </li>
                                         </ol>
                                     </div>
                                 </div><!-- published -->
+                                <div role="tabpanel" class="tab-pane " id="pending-pub">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <td>ID</td>
+                                                    <td>Nama Kelas</td>
+                                                    <td>Action</td>
+                                                    <td>Go to web</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Java Programming - Basic</td>
+                                                    <td class="status">
+                                                        <a href="#" class="publish icon-circle" title="Request publish"><i class="fa fa-upload"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Java Programming - Advance</td>
+                                                    <td class="status">
+                                                        <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table-responsive -->
+                                    <div id="class-notes">
+                                        <p> Catatan: </p>
+                                        <ol>
+                                            <li>
+                                                Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div><!-- pending publish -->
                                 <div role="tabpanel" class="tab-pane" id="draft">Kelas tidak tersedia </div><!-- draft -->
                                 <div role="tabpanel" class="tab-pane" id="past">Kelas tidak tersedia </div><!-- past -->
                             </div><!-- tab-content -->
