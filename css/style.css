@@ -915,7 +915,7 @@ a.remove {
 
 .sub-vendor a.cancel:hover{
   color: #fff;
-  background-color: #FF1919;
+  background-color: #ee4035;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -944,7 +944,7 @@ a.remove {
   background-color: #3bc4e6;
 }
 .approve.icon-button {
-  border: #3bc4e6 2px solid;
+  border: #3bc4e6 3px solid;
   color: #3bc4e6;
 }
 .approved.icon-circle {
@@ -954,11 +954,11 @@ a.remove {
   background-color: #95a5a6;
 }
 .cancel.icon-circle {
-  background-color: #FF1919;
+  background-color: #ef4135;
 }
 .cancel.icon-button {
-  border: #FF1919 2px solid;
-   color: #FF1919;
+  border: #ef4135 3px solid;
+  color: #ef4135;
 }
 .sub-vendor .icon-circle i {
   margin-right: 0;
