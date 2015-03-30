@@ -1120,6 +1120,19 @@ text-decoration: none;
 
 
 
+/*bagian materi */
+.panel-group .panel-default .panel-heading{
+
+  line-height: 24px;
+  width:100%;
+  display:inherit;
+}
+
+
+
+
+
+
 .list-kelas .section-heading{
   padding:5px 5px;
   text-align: center;

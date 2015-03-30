@@ -69,7 +69,134 @@
                                 </p>
                                 <button type="submit" class="btn btn-default main-button register">Daftar</button>
                             </div><!-- detil-kelas -->
-                            <div role="tabpanel" class="tab-pane" id="materi">Akan berisi nama-nama topik </div><!-- draft -->
+
+                            <!-- start Tab Materi -->
+                           <div role="tabpanel" class="tab-pane" id="materi">
+                              <div class="panel-group" id="accordion">
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasma"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMA</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasma" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasmp"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMP</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasmp" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasd"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMP</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasd" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+                              </div>
+
+
+                              <!-- <div class="panel panel-default">
+                                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Matematika</button>
+                                 <div id="demo" class="collapse">
+                                    <ul class="list-groups">
+                                             <a href="/cg/46/matematika-sma-kelas-10">
+                                             <li class="list-group-item">Matematika SMA Kelas 10</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="/cg/47/fisika-sma-kelas-10">
+                                             <li class="list-group-item">Fisika SMA Kelas 10</li>
+                                             </a>
+                                          </ul>
+                                 </div>
+                              </div> -->
+
+
+                              <!-- <div class="panel-group" id="accordion-c">
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                        <a class="pull-left c-dropdesc" data-toggle="collapse" data-parent="#accordion" href="#41-pelajaran-sma-kelas-10">
+                                        <i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                          </a>
+                                       <a href="#">
+                                       <div class="c-content">SMA</div>
+                                       </a>
+                                       </h4>
+                                    </div>                           
+                                 <div id="41-pelajaran-sma-kelas-10" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                       <div>
+                                          <ul class="list-groups">
+                                             <a href="/cg/46/matematika-sma-kelas-10">
+                                             <li class="list-group-item">Matematika SMA Kelas 10</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="/cg/47/fisika-sma-kelas-10">
+                                             <li class="list-group-item">Fisika SMA Kelas 10</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div> -->
+                     </div>  
+
+                            <!-- end tab materi -->
                             <div role="tabpanel" class="tab-pane" id="review">Bagian ini akan menjelaskan review dari kelas </div><!-- <p></p>ast -->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                                 <div class="table-responsive">
