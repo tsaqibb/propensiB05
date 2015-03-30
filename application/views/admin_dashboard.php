@@ -51,7 +51,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Web Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
@@ -61,7 +61,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
+                                                <td class="text-center">2</td>
                                                 <td>Web Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
@@ -95,7 +95,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Java Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
@@ -106,7 +106,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
+                                                <td class="text-center">2</td>
                                                 <td>Java Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
@@ -140,7 +140,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Tes Kelas - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a><br></br>
@@ -175,7 +175,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Tes Kelas - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"Approve><i class="fa fa-check"></i>Approve</a> <br></br>
