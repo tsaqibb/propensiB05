@@ -7,10 +7,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
+                        <a href="" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
                     </li>
                     <li role="presentation">
-                        <a href="#partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
+                        <a href="<?php echo base_url();?>admin/partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->
