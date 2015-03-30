@@ -18,7 +18,7 @@
                 <div class="col-sm-3">
                     <div class="footer-about-detail">
                         <span id="socmed-icon">
-                        <a href="http://www.facebook.com/ruanggurucom" target="_blank" rel='nofollow'><img src="images/fb-icon.png"/></a>&nbsp;<a href="http://www.twitter.com/ruangguru" target="_blank" rel='nofollow'><img src="images/twitter-icon.png"/></a>&nbsp;<a href="http://ruangguru.tumblr.com" target="_blank" rel='nofollow'><img src="images/tumblr-icon.png"/></a>&nbsp;<a href="http://www.instagram.com/ruangguru" target="_blank" rel='nofollow'><img src="images/insta-icon.png"/></a>
+                        <a href="http://www.facebook.com/ruanggurucom" target="_blank" rel='nofollow'><img src="<?php echo base_url();?>images/fb-icon.png"/></a>&nbsp;<a href="http://www.twitter.com/ruangguru" target="_blank" rel='nofollow'><img src="<?php echo base_url();?>images/twitter-icon.png"/></a>&nbsp;<a href="http://ruangguru.tumblr.com" target="_blank" rel='nofollow'><img src="<?php echo base_url();?>images/tumblr-icon.png"/></a>&nbsp;<a href="http://www.instagram.com/ruangguru" target="_blank" rel='nofollow'><img src="<?php echo base_url();?>images/insta-icon.png"/></a>
                         </span>
                     </div>
                     <div class="footer-copyright">

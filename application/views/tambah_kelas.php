@@ -6,10 +6,10 @@
                 <h4 class="text-center">Halo, [Nama Guru]</h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
+                    <li role="presentation">
                         <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" class="active">
                         <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
@@ -33,34 +33,32 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="detil-kelas">
-                                <div class="table-responsive">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
-                                            </div>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Seo" class="col-sm-3 control-label">Harga</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Seo" class="col-sm-3 control-label">Harga</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="attachment" class="col-sm-3 control-label">Tags</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="tag" placeholder="">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="attachment" class="col-sm-3 control-label">Tags</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="tag" placeholder="">
                                         </div>
-                                    </form>
-                                </div><!-- table-responsive -->
+                                    </div>
+                                </form>
                                 <div id="class-notes">
                                     <div class="btn btn-default main-button register">
                                         Lanjut >>

@@ -43,15 +43,15 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Detil</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Web Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
@@ -61,7 +61,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
+                                                <td class="text-center">2</td>
                                                 <td>Web Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
@@ -76,7 +76,8 @@
                                     <p> Catatan: </p>
                                     <ol>
                                         <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                            Untuk kelas yang sudah <em>live</em>, Anda tidak diizinkan untuk melakukan perubahan. 
+                                            Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
                                         </li>
                                     </ol>
                                 </div>
@@ -86,15 +87,15 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Detil</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>3</td>
+                                                <td class="text-center">1</td>
                                                 <td>Java Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
@@ -105,7 +106,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>4</td>
+                                                <td class="text-center">2</td>
                                                 <td>Java Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
@@ -122,7 +123,7 @@
                                     <p> Catatan: </p>
                                     <ol>
                                         <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                            Jika Anda memilih pilihan <em>Unpublish</em>, status kelas akan diubah menjadi <em>Unapproved</em>.
                                         </li>
                                     </ol>
                                 </div>
@@ -132,14 +133,14 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Detil</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <td>4</td>
+                                                <td class="text-center">1</td>
                                                 <td>Tes Kelas - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a><br></br>
@@ -156,7 +157,7 @@
                                     <p> Catatan: </p>
                                     <ol>
                                         <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                            Jika Anda memilih pilihan <em>Reject</em>, status kelas akan kembali menjadi <em>Publish</em>. Jika Anda memilih pilihan <em>Unpublish</em>, status kelas akan diubah menjadi <em>Approved</em>
                                         </li>
                                     </ol>
                                 </div>
@@ -166,15 +167,15 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Detil</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>3</td>
+                                                <td class="text-center">1</td>
                                                 <td>Tes Kelas - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"Approve><i class="fa fa-check"></i>Approve</a> <br></br>
@@ -191,7 +192,7 @@
                                     <p> Catatan: </p>
                                     <ol>
                                         <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                            Jika Anda memilih pilihan <em>Unapprove</em>, status kelas akan kembali menjadi <em>Unapproved</em>
                                         </li>
                                     </ol>
                                 </div>

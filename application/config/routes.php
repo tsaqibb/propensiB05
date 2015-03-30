@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "murid";
+$route['default_controller'] = "kelas";
 $route['404_override'] = '';
 
 

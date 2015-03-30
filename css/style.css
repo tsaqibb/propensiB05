@@ -632,6 +632,7 @@ thead {
 .detail-label.label-blue,
 .panel-default .panel-heading {
   background-color: #3bc4e6;
+  color: #fff;
 }
 .panel-default {
   border-color: #3bc4e6;
@@ -922,17 +923,29 @@ a.remove {
 
 
 .icon-button {
-  border-radius: 10%;
-  display: inline-block;
+  border-radius: 20px;
+  display: inlin28block;
   height: 30px;
   padding: 5px;
   text-align: center;
   width: 100px;
 }
 .sub-vendor .status {
-  width: 130px;
+  width: 128px;
   text-align: center;
+  line-height: 0.5;
 }
+
+.sub-vendor .statusid {
+  width: 50px;
+  text-align: center;
+} 
+
+.sub-vendor .statusdetil {
+  width: 60px;
+  text-align: center;
+} 
+
 .sub-vendor .status .icon-circle {
   margin-bottom: 10px;
   margin-left: 5px;
@@ -944,7 +957,7 @@ a.remove {
   background-color: #3bc4e6;
 }
 .approve.icon-button {
-  border: #3bc4e6 3px solid;
+  border: #3bc4e6 2px solid;
   color: #3bc4e6;
 }
 .approved.icon-circle {
@@ -957,7 +970,7 @@ a.remove {
   background-color: #ef4135;
 }
 .cancel.icon-button {
-  border: #ef4135 3px solid;
+  border: #ef4135 2px solid;
   color: #ef4135;
 }
 .sub-vendor .icon-circle i {
@@ -1697,4 +1710,70 @@ text-decoration: none;
     list-style: outside none none;
     padding: 0 20px;
   }
+
+  .feedback {
+    color: #fff;
+    text-align: center;
+   } 
+  .chat
+  {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  }
+
+  .chat li
+  {
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px dotted #B3A9A9;
+  }
+
+  .chat li.left .chat-body
+  {
+      margin-left: 60px;
+  }
+
+  .chat li.right .chat-body
+  {
+      margin-right: 60px;
+  }
+
+
+  .chat li .chat-body p
+  {
+      margin: 0;
+      color: #777777;
+  }
+
+  .panel .slidedown .glyphicon, .chat .glyphicon
+  {
+      margin-right: 5px;
+  }
+
+  .panel-body
+  {
+      overflow-y: scroll;
+      height: 250px;
+  }
+
+  ::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar
+  {
+      width: 12px;
+      background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-thumb
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #555;
+  }
+
+
 }
