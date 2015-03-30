@@ -925,13 +925,14 @@ a.remove {
   border-radius: 20px;
   display: inlin28block;
   height: 30px;
-  padding: 3px;
+  padding: 5px;
   text-align: center;
   width: 100px;
 }
 .sub-vendor .status {
   width: 128px;
   text-align: center;
+  line-height: 0.5;
 }
 
 .sub-vendor .statusid {
@@ -955,7 +956,7 @@ a.remove {
   background-color: #3bc4e6;
 }
 .approve.icon-button {
-  border: #3bc4e6 3px solid;
+  border: #3bc4e6 2px solid;
   color: #3bc4e6;
 }
 .approved.icon-circle {
@@ -968,7 +969,7 @@ a.remove {
   background-color: #ef4135;
 }
 .cancel.icon-button {
-  border: #ef4135 3px solid;
+  border: #ef4135 2px solid;
   color: #ef4135;
 }
 .sub-vendor .icon-circle i {
