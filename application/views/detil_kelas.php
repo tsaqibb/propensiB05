@@ -40,7 +40,7 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="detil-kelas">
+                            <div role="tabpanel" class="tab-pane active" id="detil">
                                 <h5 class="title-label">Deskripsi</h5>
                                 <p>
                                 Kelas ini akan menjelaskan bla bla bla bla dan bla bla bal bla bla.
@@ -54,6 +54,11 @@
                                 <i>IPA, </i>
                                 <i>SMA</i>
                             </div><!-- detil-kelas -->
+                            <div role="tabpanel" class="tab-pane" id="materi">Akan berisi nama-nama topik </div><!-- draft -->
+
+                            <div role="tabpanel" class="tab-pane" id="review">Bagian ini akan menjelaskan review dari kelas </div><!-- <p></p>ast -->
+                            <div role="tabpanel" class="tab-pane" id="partisipan">Bagian ini akan menyantumkan daftar partisipan </div><!-- <p></p>ast -->
+                             <div role="tabpanel" class="tab-pane" id="feedback">Bagian ini akan menjelaskan feedback dari partisipan </div><!-- <p></p>ast -->
                         </div><!-- tab-content -->
 
                     </div><!-- tabpanel kelas -->

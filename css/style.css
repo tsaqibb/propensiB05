@@ -1097,6 +1097,25 @@ a.remove {
   margin-bottom: 30px;
 }
 
+/*Galeri kelas */
+.list-kelas .section-kelas h3{
+color:white;
+font-family: Ubuntu;
+font-size: 18px;
+text-decoration: none;
+}
+
+
+
+.list-kelas .section-heading{
+  padding:5px 5px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #3bc4e6;
+  text-decoration: none;
+}
+
+
 /*manage page*/
 .section-heading {
   background-color: #3bc4e6;
