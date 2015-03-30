@@ -33,34 +33,32 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="detil-kelas">
-                                <div class="table-responsive">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
-                                            </div>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Seo" class="col-sm-3 control-label">Harga</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Seo" class="col-sm-3 control-label">Harga</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="attachment" class="col-sm-3 control-label">Tags</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="tag" placeholder="">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="attachment" class="col-sm-3 control-label">Tags</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="tag" placeholder="">
                                         </div>
-                                    </form>
-                                </div><!-- table-responsive -->
+                                    </div>
+                                </form>
                                 <div id="class-notes">
                                     <div class="btn btn-default main-button register">
                                         Lanjut >>
