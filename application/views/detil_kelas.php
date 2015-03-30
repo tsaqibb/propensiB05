@@ -40,7 +40,7 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="detil-kelas">
+                            <div role="tabpanel" class="tab-pane active" id="detil">
                                 <h5 class="title-label">Deskripsi</h5>
                                 <p>
                                 Kelas ini akan menjelaskan bla bla bla bla dan bla bla bal bla bla.

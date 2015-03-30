@@ -11,7 +11,7 @@
         <title>Dashboard Admin</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script type="text/javascript" src="js/jquery.fancybox.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
@@ -52,3 +52,4 @@
                 </div>
             </div>
         </nav>
+        <?php echo base_url();?>
