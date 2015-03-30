@@ -6,10 +6,10 @@
                 <h4 class="text-center">Halo, [Nama Guru]</h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
+                    <li role="presentation">
                         <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" class="active">
                         <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
