@@ -46,7 +46,7 @@
                                                 <td>ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Go to web</td>
+                                                <td>Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -89,7 +89,7 @@
                                                 <td>ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td>Action</td>
-                                                <td>Go to web</td>
+                                                <td>Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -127,6 +127,75 @@
                                     </ol>
                                 </div>
                             </div><!-- pending publish -->
+                            <div role="tabpanel" class="tab-pane " id="pending-unpub">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <td>ID</td>
+                                                <td>Nama Kelas</td>
+                                                <td>Action</td>
+                                                <td>Detil</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <td>4</td>
+                                                <td>Tes Kelas - Advance</td>
+                                                <td class="status">
+                                                    <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Reject</a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!-- table-responsive -->
+                                <div id="class-notes">
+                                    <p> Catatan: </p>
+                                    <ol>
+                                        <li>
+                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div><!-- pending unpublish -->
+                            <div role="tabpanel" class="tab-pane " id="pending-approve">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <td>ID</td>
+                                                <td>Nama Kelas</td>
+                                                <td>Action</td>
+                                                <td>Detil</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Tes Kelas - Basic</td>
+                                                <td class="status">
+                                                    <a href="#" class="publish icon-circle" title="Approve"><i class="fa fa-check"></i></a>
+                                                    <a href="#" class="cancel icon-circle" title="Unapprove"><i class="fa fa-times"></i></a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!-- table-responsive -->
+                                <div id="class-notes">
+                                    <p> Catatan: </p>
+                                    <ol>
+                                        <li>
+                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div><!-- pending approve -->
                             <div role="tabpanel" class="tab-pane" id="draft">Kelas tidak tersedia </div><!-- draft -->
                             <div role="tabpanel" class="tab-pane" id="past">Kelas tidak tersedia </div><!-- past -->
                         </div><!-- tab-content -->

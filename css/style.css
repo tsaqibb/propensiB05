@@ -895,9 +895,8 @@ a.remove {
   margin-bottom: 10px;
   padding: 5px;
 }
-.sub-vendor a {
-  width: auto;
-}
+
+
 .sub-vendor .icon-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -908,8 +907,18 @@ a.remove {
   text-align: center;
   width: 30px;
 } 
+.icon-button {
+  border-radius: 10%;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+  width: 100px;
+}
 .sub-vendor .status {
-  width: 95px;
+  width: 130px;
   text-align: center;
 }
 .sub-vendor .status .icon-circle {
@@ -919,7 +928,8 @@ a.remove {
 .manage.icon-circle,
 .unpublish.icon-circle,
 .publish.icon-circle,
-.link.icon-circle {
+.link.icon-circle,
+.approve.icon-button {
   background-color: #3bc4e6;
 }
 .approved.icon-circle {
@@ -928,7 +938,8 @@ a.remove {
 .pending.icon-circle {
   background-color: #95a5a6;
 }
-.cancel.icon-circle {
+.cancel.icon-circle,
+.cancel.icon-button  {
   background-color: red;
 }
 .sub-vendor .icon-circle i {
