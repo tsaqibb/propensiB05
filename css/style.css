@@ -907,10 +907,22 @@ a.remove {
   text-align: center;
   width: 30px;
 } 
+.sub-vendor a.approve:hover {
+  color: #fff;
+  background-color: #3bc4e6;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sub-vendor a.cancel:hover{
+  color: #fff;
+  background-color: #FF1919;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+
 .icon-button {
   border-radius: 10%;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-  color: #fff;
   display: inline-block;
   height: 30px;
   padding: 5px;
@@ -928,9 +940,12 @@ a.remove {
 .manage.icon-circle,
 .unpublish.icon-circle,
 .publish.icon-circle,
-.link.icon-circle,
-.approve.icon-button {
+.link.icon-circle {
   background-color: #3bc4e6;
+}
+.approve.icon-button {
+  border: #3bc4e6 2px solid;
+  color: #3bc4e6;
 }
 .approved.icon-circle {
   background-color: #fcb336;
@@ -938,9 +953,12 @@ a.remove {
 .pending.icon-circle {
   background-color: #95a5a6;
 }
-.cancel.icon-circle,
-.cancel.icon-button  {
-  background-color: red;
+.cancel.icon-circle {
+  background-color: #FF1919;
+}
+.cancel.icon-button {
+  border: #FF1919 2px solid;
+   color: #FF1919;
 }
 .sub-vendor .icon-circle i {
   margin-right: 0;

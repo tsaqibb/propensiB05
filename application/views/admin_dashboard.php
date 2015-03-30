@@ -54,19 +54,19 @@
                                                 <td>1</td>
                                                 <td>Web Programming - Basic</td>
                                                 <td class="status">
-                                                    <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Web Programming - Advance</td>
                                                 <td class="status">
-                                                    <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -97,22 +97,22 @@
                                                 <td>3</td>
                                                 <td>Java Programming - Basic</td>
                                                 <td class="status">
-                                                    <a href="#" class="publish icon-circle" title="Publish"><i class="fa fa-upload"></i></a>
-                                                    <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
+                                                    <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
+                                                    <a href="#" class="cancel icon-button" title=""><i class="fa fa-times"></i>Unpublish</a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Java Programming - Advance</td>
                                                 <td class="status">
-                                                    <a href="#" class="publish icon-circle" title="Publish"><i class="fa fa-upload"></i></a>
-                                                    <a href="#" class="cancel icon-circle" title="Unpublish"><i class="fa fa-close"></i></a>
+                                                    <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Unpublish</a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -142,11 +142,11 @@
                                                 <td>4</td>
                                                 <td>Tes Kelas - Advance</td>
                                                 <td class="status">
-                                                    <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a>
+                                                    <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a><br></br>
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Reject</a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -177,11 +177,11 @@
                                                 <td>3</td>
                                                 <td>Tes Kelas - Basic</td>
                                                 <td class="status">
-                                                    <a href="#" class="publish icon-circle" title="Approve"><i class="fa fa-check"></i></a>
-                                                    <a href="#" class="cancel icon-circle" title="Unapprove"><i class="fa fa-times"></i></a>
+                                                    <a href="#" class="approve icon-button"Approve><i class="fa fa-check"></i>Approve</a> <br></br>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unapprove</a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="Link"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
