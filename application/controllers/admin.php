@@ -3,10 +3,8 @@
 class Admin extends CI_Controller {
 	public function index()
 	{
+		$this->load->view('layout/header');
 		$this->load->view('admin_dashboard');
-	}
-	public function guru()
-	{
-		$this->load->view('guru_dashboard');
+		$this->load->view('layout/footer');
 	}
 }
