@@ -183,62 +183,52 @@
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="table-responsive">
                                     <div class="col-md-12 col-sm-6">
-                                        <div class="panel-heading">
+                                        <div class="panel-heading-feedback">
                                             <i class="fa fa-list-ul"></i>
                                             <span>Daftar Feedback</span>
                                         </div>
-                                        <div class="panel-bodyfeedback">
+                                        <div class="panel-body">
                                             <div class="chat">
-                                                <div class="left clearfix"><span class="chat-img pull-left">
-                                                    <i class="admin-circle">RG</i>
-                                                </span>
-                                                    <div class="feedback-body clearfix">
+                                                <div class="left clearfix">
+                                                    <div class="panel-feedback clearfix">
                                                         <div class="header">
                                                             <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
                                                                 <span class="fa fa-clock-o"></span>10 mins ago</small>
                                                         </div>
+                                                        <span class="chat-img pull-left">
+                                                            <i class="admin-circle">RG</i>
+                                                        </span>
                                                         <p>
                                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                             dolor, quis ullamcorper ligula sodales.
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div class="right clearfix"><span class="chat-img pull-right">
-                                                    <i class="guru-circle">Saya</i>
-                                                </span>
-                                                    <div class="feedback-body clearfix">
+                                                <div class="right clearfix">
+                                                    <div class="panel-tanggapan clearfix">
                                                         <div class="header">
                                                             <small class=" text-muted"><span class="fa fa-clock-o"></span>11 mins ago</small>
                                                             <strong class="pull-right primary-font">Dev Patel</strong>
                                                         </div>
+                                                        <span class="chat-img pull-right">
+                                                            <i class="guru-circle">Saya</i>
+                                                        </span>
                                                         <p>
                                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                             dolor, quis ullamcorper ligula sodales.
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div class="left clearfix"><span class="chat-img pull-left">
-                                                    <i class="admin-circle">RG</i>
-                                                </span>
-                                                    <div class="feedback-body clearfix">
+                                                <br></br>
+                                                <div class="left clearfix">
+                                                    <div class="panel-feedback clearfix">
                                                         <div class="header">
                                                             <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
                                                                 <span class="fa fa-clock-o"></span>14 mins ago</small>
                                                         </div>
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                            dolor, quis ullamcorper ligula sodales.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="right clearfix"><span class="chat-img pull-right">
-                                                    <i class="guru-circle">Saya</i>
-                                                </span>
-                                                    <div class="feedback-body clearfix ">
-                                                        <div class="header">
-                                                            <small class=" text-muted"><span class="fa fa-clock-o"></span>15 mins ago</small>
-                                                            <strong class="pull-right primary-font">Dev Patel</strong>
-                                                        </div>
+                                                        <span class="chat-img pull-left">
+                                                            <i class="admin-circle">RG</i>
+                                                        </span>
                                                         <p>
                                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                             dolor, quis ullamcorper ligula sodales.

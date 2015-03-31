@@ -647,18 +647,36 @@ thead {
   position: relative;
 }
 
-.panel-defaultfeedback {
-  border-color: #3bc4e6;
+.panel-default .panel-heading-feedback {
   border-radius: 5px;
-  font-size: 17px;
+  background-color: #3bc4e6;
+  color: #fff;
+  height: 60px;
+  /*font-family: Roboto Bold;*/
+  font-size: 20px;
+  padding:12px;
+  position: relative;
+}
+
+.panel-default .panel-feedback {
+  background-color: #fff;
+  font-size: 15px;
   color: #3a3a3a;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  position: relative;
+}
+
+.panel-default .panel-tanggapan {
+  background-color: #f8f5fd;
+  font-size: 15px;
+  color: #3a3a3a;
   padding: 8px;
   position: relative;
 }
 
 .panel-body {
   padding: 20px;
+  background-color: #fff;
 }
 .detail-label {
   border-radius: 5px;
@@ -1815,6 +1833,16 @@ text-decoration: none;
       list-style: none;
   }
 
+  .chat .chat-feedback {
+    padding: 5px;
+    background-color: #eee
+  }
+
+  .chat .chat-tanggapan {
+    padding: 5px;
+    background-color: #eee
+  }
+
   .chat li
   {
       list-style-type: none;
@@ -1842,18 +1870,6 @@ text-decoration: none;
   .panel .slidedown .glyphicon, .chat .glyphicon
   {
       margin-right: 5px;
-  }
-
-  .panel-bodyfeedback
-  {
-      overflow-y: scroll;
-      height: 250px;
-      list-style: none;
-  }
-
-  .feedback-body {
-    padding: 5px;
-    background-color: #eee
   }
 
   ::-webkit-scrollbar-track
