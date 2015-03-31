@@ -1006,6 +1006,15 @@ height:auto;
   padding: 5px;
 }
 
+/*Tambahan untuk sub content*/
+
+.sub-content td {
+  text-align: center;
+}
+
+.sub-content td.nama {
+  text-align: left;
+}
 
 .sub-content .icon-circle {
   border-radius: 100%;
@@ -1118,6 +1127,7 @@ height:auto;
   display: inline;
   margin: 0;
 }
+/*end sub-content added*/
 
 /*profile*/
 .sidebar .nav li {

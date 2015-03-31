@@ -46,19 +46,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Web Programming - Basic</td>
-                                                <td class="text-center">
+                                                <td class="nama">Web Programming - Basic</td>
+                                                <td>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Web Programming - Advance</td>
-                                                <td class="text-center">
+                                                <td class="nama">Web Programming - Advance</td>
+                                                <td>
                                                     <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
@@ -80,7 +80,7 @@
                                         <thead>
                                             <tr class="text-center">
                                                 <td class="statusid">ID</td>
-                                                <td>Nama Kelas</td>
+                                                <td class="nama">Nama Kelas</td>
                                                 <td class="statusdetil">Status</td>
                                                 <td class="statusdetil">Edit</td>
                                                 <td class="statusdetil">Detil</td>
@@ -89,50 +89,50 @@
                                         <tbody>
                                             <tr>
                                                 <td>3</td>
-                                                <td>PHP Programming - Basic</td>
-                                                <td class="text-center">
+                                                <td class="nama">PHP Programming - Basic</td>
+                                                <td>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Java Programming - Basic</td>
-                                                <td class="text-center">
+                                                <td class="nama">Java Programming - Basic</td>
+                                                <td>
                                                     <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>PHP Programming - Advance</td>
-                                                <td class="text-center">
+                                                <td class="nama">PHP Programming - Advance</td>
+                                                <td>
                                                     <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>Java Programming - Advance</td>
-                                                <td class="text-center">
+                                                <td class="nama">Java Programming - Advance</td>
+                                                <td>
                                                     <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>

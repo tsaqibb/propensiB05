@@ -51,21 +51,21 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Web Programming - Basic</td>
+                                                <td>1</td>
+                                                <td class="nama">Web Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center">2</td>
-                                                <td>Web Programming - Advance</td>
+                                                <td>2</td>
+                                                <td class="nama">Web Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unpublish</a>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
@@ -95,24 +95,24 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Java Programming - Basic</td>
+                                                <td>1</td>
+                                                <td class="nama">Java Programming - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
                                                     <a href="#" class="cancel icon-button" title=""><i class="fa fa-times"></i>Unpublish</a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center">2</td>
-                                                <td>Java Programming - Advance</td>
+                                                <td>2</td>
+                                                <td class="nama">Java Programming - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-upload"></i>Publish</a><br></br>
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Unpublish</a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
@@ -140,13 +140,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <td class="text-center">1</td>
-                                                <td>Tes Kelas - Advance</td>
+                                                <td>1</td>
+                                                <td class="nama">Tes Kelas - Advance</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Unpublish</a><br></br>
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Reject</a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
@@ -175,13 +175,13 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Tes Kelas - Basic</td>
+                                                <td>1</td>
+                                                <td class="nama">Tes Kelas - Basic</td>
                                                 <td class="status">
                                                     <a href="#" class="approve icon-button"Approve><i class="fa fa-check"></i>Approve</a> <br></br>
                                                     <a href="#" class="cancel icon-button"><i class="fa fa-times"></i>Unapprove</a>
                                                 </td>
-                                                <td class="text-center">
+                                                <td>
                                                     <a href="#" class="link icon-circle" title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
