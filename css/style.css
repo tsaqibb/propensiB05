@@ -658,7 +658,7 @@ thead {
   position: relative;
 }
 
-.panel-default .panel-feedback {
+.panel-default .panel-tanggapan {
   background-color: #fff;
   font-size: 15px;
   color: #3a3a3a;
@@ -666,7 +666,7 @@ thead {
   position: relative;
 }
 
-.panel-default .panel-tanggapan {
+.panel-default .panel-feedback {
   background-color: #f8f5fd;
   font-size: 15px;
   color: #3a3a3a;
@@ -678,6 +678,17 @@ thead {
   padding: 20px;
   background-color: #fff;
 }
+
+.panel-body .panel-body-feedback {
+  padding: 20px;
+  background-color: #fff;
+  border-color: #f8f5fd;
+}
+
+.panel-body .feedback-package {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
 .detail-label {
   border-radius: 5px;
   margin-bottom: 20px;
