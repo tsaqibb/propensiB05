@@ -7,7 +7,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
+                        <a href="" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
                     <li role="presentation">
                         <a href="<?php echo base_url();?>guru/tambahkelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
@@ -37,30 +37,29 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
-                                                <td>Status</td>
-                                                <td>Preview</td>
+                                                <td class="statusdetil">Status</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Web Programming - Basic</td>
-                                                <td class="status">
-                                                    <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
+                                                <td class="text-center">
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Web Programming - Advance</td>
-                                                <td class="status">
+                                                <td class="text-center">
                                                     <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -75,66 +74,66 @@
                                     </ol>
                                 </div>
                             </div><!-- published -->
-                            <div role="tabpanel" class="tab-pane " id="draft">
+                            <div role="tabpanel" class="tab-pane" id="draft">
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
-                                                <td>Status</td>
-                                                <td>Edit</td>
-                                                <td>Preview</td>
+                                                <td class="statusdetil">Status</td>
+                                                <td class="statusdetil">Edit</td>
+                                                <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>3</td>
                                                 <td>PHP Programming - Basic</td>
-                                                <td class="status">
+                                                <td class="text-center">
                                                 </td>
                                                 <td class="text-center">
                                                     <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Java Programming - Basic</td>
-                                                <td class="status">
+                                                <td class="text-center">
                                                     <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
                                                 </td>
                                                 <td class="text-center">
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>PHP Programming - Advance</td>
-                                                <td class="status">
+                                                <td class="text-center">
                                                     <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
                                                 </td>
                                                 <td class="text-center">
                                                     <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
                                                 <td>Java Programming - Advance</td>
-                                                <td class="status">
+                                                <td class="text-center">
                                                     <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
                                                 </td>
                                                 <td class="text-center">
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
