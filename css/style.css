@@ -664,6 +664,7 @@ thead {
   color: #3a3a3a;
   padding: 8px;
   position: relative;
+  text-align: right;
 }
 
 .panel-default .panel-feedback {

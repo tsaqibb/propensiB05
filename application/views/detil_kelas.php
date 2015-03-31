@@ -210,7 +210,8 @@
                                                     </span>
                                                     <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
+                                                        dolor, quis ullamcorper ligula sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis.
                                                     </p>
                                                 </div>
                                             </div>
@@ -243,7 +244,8 @@
                                                     </span>
                                                     <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
+                                                        dolor, quis ullamcorper ligula sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis.
                                                     </p>
                                                 </div>
                                             </div>
