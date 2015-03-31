@@ -9,7 +9,21 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('layout/header');
-		$this->load->view('admin_dashboard');
+		$this->load->view('admin/kelas');
 		$this->load->view('layout/footer');
 	}
+
+	public function kelas()
+	{
+		$this->load->view('layout/header');
+		$this->load->view('admin/kelas');
+		$this->load->view('layout/footer');
+	}
+
+	public function partisipan()
+	{
+		$this->load->view('layout/header');
+		$this->load->view('admin/partisipan');
+		$this->load->view('layout/footer');
+	}	
 }

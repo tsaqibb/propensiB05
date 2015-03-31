@@ -10,18 +10,18 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     
-                    <li class="active">
-                        <a href="#"><i class="fa fa-list"></i> Galeri Kelas</a>
+                    <li >
+                        <a href="<?php echo base_url();?>murid/galerikelas"><i class="fa fa-list"></i> Galeri Kelas</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-users"></i> Kelas Anda</a>
+                    <li class="active">
+                        <a href=""><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->
         </div>
         <div class="col-sm- col-md-9">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">GALERI KELAS</h2>    
+                <h2 class="block-title text-uppercase">Kelas Anda</h2>    
                 <div class="list-kelas">
                     <div class="row">
                         <div class="col-md-4 col-sm-8">
