@@ -182,90 +182,83 @@
                             </div><!-- tab-partisipan -->
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="table-responsive">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="panel panel-primary">
-                                                    <div class="panel-heading">
-                                                        <i class="fa fa-list-ul"></i>
-                                                        <span>Daftar Feedback</span>
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <ul class="chat">
-                                                            <li class="left clearfix"><span class="chat-img pull-left">
-                                                                <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
-                                                            </span>
-                                                                <div class="chat-body clearfix">
-                                                                    <div class="header">
-                                                                        <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                                                            <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                                                                    </div>
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                                        dolor, quis ullamcorper ligula sodales.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="right clearfix"><span class="chat-img pull-right">
-                                                                <img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" class="img-circle">
-                                                            </span>
-                                                                <div class="chat-body clearfix">
-                                                                    <div class="header">
-                                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                                                    </div>
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                                        dolor, quis ullamcorper ligula sodales.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="left clearfix"><span class="chat-img pull-left">
-                                                                <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
-                                                            </span>
-                                                                <div class="chat-body clearfix">
-                                                                    <div class="header">
-                                                                        <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                                                            <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                                                                    </div>
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                                        dolor, quis ullamcorper ligula sodales.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="right clearfix"><span class="chat-img pull-right">
-                                                                <img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" class="img-circle">
-                                                            </span>
-                                                                <div class="chat-body clearfix">
-                                                                    <div class="header">
-                                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                                                    </div>
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                                        dolor, quis ullamcorper ligula sodales.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="panel-footer">
-                                                        <div class="input-group">
-                                                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
-                                                            <span class="input-group-btn">
-                                                                <button class="btn btn-warning btn-sm" id="btn-chat">
-                                                                    Send</button>
-                                                            </span>
+                                    <div class="col-md-12 col-sm-6">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-list-ul"></i>
+                                            <span>Daftar Feedback</span>
+                                        </div>
+                                        <div class="panel-bodyfeedback">
+                                            <div class="chat">
+                                                <div class="left clearfix"><span class="chat-img pull-left">
+                                                    <i class="admin-circle">RG</i>
+                                                </span>
+                                                    <div class="feedback-body clearfix">
+                                                        <div class="header">
+                                                            <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
+                                                                <span class="fa fa-clock-o"></span>10 mins ago</small>
                                                         </div>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                            dolor, quis ullamcorper ligula sodales.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="right clearfix"><span class="chat-img pull-right">
+                                                    <i class="guru-circle">Saya</i>
+                                                </span>
+                                                    <div class="feedback-body clearfix">
+                                                        <div class="header">
+                                                            <small class=" text-muted"><span class="fa fa-clock-o"></span>11 mins ago</small>
+                                                            <strong class="pull-right primary-font">Dev Patel</strong>
+                                                        </div>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                            dolor, quis ullamcorper ligula sodales.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="left clearfix"><span class="chat-img pull-left">
+                                                    <i class="admin-circle">RG</i>
+                                                </span>
+                                                    <div class="feedback-body clearfix">
+                                                        <div class="header">
+                                                            <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
+                                                                <span class="fa fa-clock-o"></span>14 mins ago</small>
+                                                        </div>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                            dolor, quis ullamcorper ligula sodales.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="right clearfix"><span class="chat-img pull-right">
+                                                    <i class="guru-circle">Saya</i>
+                                                </span>
+                                                    <div class="feedback-body clearfix ">
+                                                        <div class="header">
+                                                            <small class=" text-muted"><span class="fa fa-clock-o"></span>15 mins ago</small>
+                                                            <strong class="pull-right primary-font">Dev Patel</strong>
+                                                        </div>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                            dolor, quis ullamcorper ligula sodales.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="panel-footer">
+                                            <div class="input-group">
+                                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Berikan pesan Anda di sini...">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                                        Kirim</button>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div><!-- tab-Feedback -->
+                            </div><!-- tab-feedback -->
                         </div><!-- tab-content -->
                     </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
