@@ -902,6 +902,14 @@ a.remove {
   color:white;
 }
 
+.panel-topik {
+  padding-right: 5px;
+  padding-left: 5px;
+  border-right-width : 1px;
+  border-bottom-width: 1px;
+  border-color: #3bc4e6;
+}
+
 .tab-panemateri .judul-topik{
   color:white;
   display:inline;
