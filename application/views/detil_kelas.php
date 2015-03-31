@@ -191,7 +191,7 @@
                                                             <span class="fa fa-clock-o"></span>17 mins ago</small>
                                                     </div>
                                                     <span class="chat-img pull-left">
-                                                        <i class="admin-circle">RG</i>
+                                                        <i class="admin-circle"></i>
                                                     </span>
                                                     <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -224,7 +224,7 @@
                                                             <span class="fa fa-clock-o"></span>12 mins ago</small>
                                                     </div>
                                                     <span class="chat-img pull-left">
-                                                        <i class="admin-circle">RG</i>
+                                                        <i class="admin-circle"></i>
                                                     </span>
                                                     <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -257,7 +257,7 @@
                                                             <span class="fa fa-clock-o"></span>10 mins ago</small>
                                                     </div>
                                                     <span class="chat-img pull-left">
-                                                        <i class="admin-circle">RG</i>
+                                                        <i class="admin-circle"></i>
                                                     </span>
                                                     <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
