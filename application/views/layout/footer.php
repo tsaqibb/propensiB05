@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-sm-5">
                     <div class="footer-link">
-                        <a href="">Tentang Kami</a> | <a href="lowongan" class="underline bold">Lowongan</a> | <a href="http://ruangguru.tumblr.com" target="_blank" rel='nofollow'>Blog</a> | <a href="kebijakan_privasi" target="_blank">Kebijakan Privasi</a> | <a href="http://indonesianfutureleaders.org/" target="_blank" rel='nofollow'>Mitra</a> | <a href="kontak_kami" target="_blank" rel='nofollow'>Kontak</a>
+                        <a href="">Tentang Kami</a> | <a href="lowongan" class="underline bold">Lowongan</a> | <a href="http://ruangguru.tumblr.com" target="_blank" rel='nofollow'>Blog</a> | <a href="kebijakan_privasi" target="_blank">Kebijakan Privasi</a> | <a href="http://indonesianfutureleaders.org/" target="_blank" rel='nofollow'>Mitra</a> | <a href="http://www.ruangguru.com/kontak_kami" target="_blank" rel='nofollow'>Kontak</a>
                     </div>
                     <div id="footer-addr">
                         <p> PT. Ruang Raya Indonesia </p>

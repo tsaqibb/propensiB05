@@ -203,7 +203,7 @@
                                                         <strong class="pull-right primary-font">Dev Patel</strong>
                                                     </div>
                                                     <span class="chat-img pull-right">
-                                                        <i class="guru-circle">Saya</i>
+                                                        <i class="guru-circle"></i>
                                                     </span>
                                                     <p class="isi-tanggapan">
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -237,7 +237,7 @@
                                                         <strong class="pull-right primary-font">Dev Patel</strong>
                                                     </div>
                                                     <span class="chat-img pull-right">
-                                                        <i class="guru-circle">Saya</i>
+                                                        <i class="guru-circle"></i>
                                                     </span>
                                                     <p class="isi-tanggapan">
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -268,7 +268,7 @@
                                                 <div class="input-group">
                                                     <input id="btn-input" type="text" class="form-control input-sm" placeholder="Berikan pesan Anda di sini...">
                                                     <span class="input-group-btn">
-                                                        <button class="btn btn-warning btn-sm" id="btn-chat">
+                                                        <button class="btn btn-primary btn-sm" id="btn-chat">
                                                             Kirim</button>
                                                     </span>
                                                 </div>

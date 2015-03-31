@@ -341,9 +341,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   font-weight: 700;
   margin: 0 0 10px;
 }
+/*
 .footer .col-sm-4 {
   margin-bottom: 50px;
 }
+*/
 #socmed-icon img {
   margin: 0 5px;
 }
@@ -754,7 +756,7 @@ thead {
 .panel-body a {
   display: inline-block;
   margin-top: 10px;
-  width: 100%;
+  /*width: 100%;*/
 }
 .support a {
   color: #3a3a3a;
@@ -916,6 +918,10 @@ a.remove {
   margin-bottom: 5px;
 }
 
+.tab-panemateri .panel-body a {
+  width: 100%;
+}
+
 /* end bagian Tab Materi */ 
 
 /* Bagian akses materi */
@@ -1042,12 +1048,15 @@ height:auto;
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
-  background-color: #3bc4e6;
+  background: url("../images/user.png") no-repeat #3bc4e6;
+  background-position: center;
+  background-size: 50px 50px;
   display: inline-block;
-  height: 55px;
+  height: 53px;
   padding: 12px;
   text-align: center;
-  width: 55px;
+  width: 53px;
+  border: 2px #3bc4e6 solid;
   margin-left: 15px;
 } 
 
@@ -1057,10 +1066,10 @@ height:auto;
   height: 30px;
   padding: 5px;
   text-align: center;
-  width: 100px;
+  width: 110px;
 }
 .sub-content .status {
-  width: 128px;
+  width: 115px;
   text-align: center;
   line-height: 0.5;
 }
@@ -1218,7 +1227,7 @@ height:auto;
   border-bottom: 2px solid;
   color: #3bc4e6;
   font-size: 26px;
-  margin: 0 0 30px;
+  margin: 0 0 10px;
   padding-bottom: 10px;
 }
 #profil .review-title {
@@ -1236,7 +1245,7 @@ height:auto;
   vertical-align: middle;
 }
 .kelas .nav.nav-tabs {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 /*Galeri kelas */
