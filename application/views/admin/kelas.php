@@ -19,7 +19,7 @@
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">Kelas</h2>
                 <div class="panel-body">
-                    <div role="tabpanel" class="sub-vendor">
+                    <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">

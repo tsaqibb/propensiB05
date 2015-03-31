@@ -641,7 +641,7 @@ thead {
 .panel-default .panel-heading {
   border-radius: 0px;
   color: #3a3a3a;
-  height: 60px;
+  height: 50px;
   /*font-family: Roboto Bold;*/
   font-size: 20px;
   position: relative;
@@ -898,21 +898,15 @@ a.remove {
 
 /* Bagian tab materi */
 
-.tab-panemateri.panel-default{
-  height: 50px;
-  padding:5px 0;
-}
 .tab-materi .panel-group .panel-default .panel-heading .panel-title{
   color:white;
 }
 
-.tab-panemateri .panel-title {
-  font-size: 14px;
+.tab-panemateri .judul-topik{
   color:white;
-  padding-bottom:10px;
   display:inline;
-  
-  }
+  margin-bottom: 5px;
+}
 
 /* end bagian Tab Materi */ 
 
@@ -962,7 +956,7 @@ height:auto;
 .kelas .nav-tabs {
   border: medium none;
 }
-.sub-vendor .nav-tabs li a {
+.sub-content .nav-tabs li a {
   background-color: #fefefe;
   border-color: #3bc4e6;
   border-radius: 0;
@@ -978,7 +972,7 @@ height:auto;
   color: #fff;
   outline: medium none;
 }
-.sub-vendor .tab-content {
+.sub-content .tab-content {
   box-shadow: none !important;
 }
 .kelas #published td {
@@ -999,7 +993,7 @@ height:auto;
 }
 
 
-.sub-vendor .icon-circle {
+.sub-content .icon-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -1009,19 +1003,19 @@ height:auto;
   text-align: center;
   width: 30px;
 } 
-.sub-vendor a.approve:hover {
+.sub-content a.approve:hover {
   color: #fff;
   background-color: #3bc4e6;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-.sub-vendor a.cancel:hover{
+.sub-content a.cancel:hover{
   color: #fff;
   background-color: #ee4035;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-.sub-vendor .admin-circle {
+.sub-content .admin-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -1036,11 +1030,11 @@ height:auto;
   margin-right: 15px;
 } 
 
-.sub-vendor .guru-circle {
+.sub-content .guru-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
-  background-color: #ff5f5f;
+  background-color: #3bc4e6;
   display: inline-block;
   height: 55px;
   padding: 12px;
@@ -1057,23 +1051,23 @@ height:auto;
   text-align: center;
   width: 100px;
 }
-.sub-vendor .status {
+.sub-content .status {
   width: 128px;
   text-align: center;
   line-height: 0.5;
 }
 
-.sub-vendor .statusid {
+.sub-content .statusid {
   width: 50px;
   text-align: center;
 } 
 
-.sub-vendor .statusdetil {
+.sub-content .statusdetil {
   width: 60px;
   text-align: center;
 } 
 
-.sub-vendor .status .icon-circle {
+.sub-content .status .icon-circle {
   margin-bottom: 10px;
   margin-left: 5px;
 }
@@ -1100,7 +1094,7 @@ height:auto;
   border: #ef4135 2px solid;
   color: #ef4135;
 }
-.sub-vendor .icon-circle i {
+.sub-content .icon-circle i {
   margin-right: 0;
 }
 #class-notes a {

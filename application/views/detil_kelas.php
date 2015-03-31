@@ -19,7 +19,7 @@
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">[Nama Kelas]</h2>
                 <div class="panel-body">
-                    <div role="tabpanel" class="sub-vendor">
+                    <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
@@ -73,12 +73,12 @@
                             <!-- start Tab Materi -->
                            <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">
-                                 <div class="panel panel-default">
+                                 <div class="panel panel-topik">
                                     <div class="panel-heading">
-                                       <div class="panel-title">
-                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasma"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                          href="#matematikasma">
+                                          <i class="fa fa-chevron-circle-down"></i>
                                              Matematika SMA </a> 
-                                       </div>
                                     </div>
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">
@@ -94,15 +94,14 @@
                                           </ul>
                                        </div>
                                     </div>
-
                                  </div>
 
-                                 <div class="panel panel-default">
+                                 <div class="panel panel-topik">
                                     <div class="panel-heading">
-                                       <h4 class="panel-title">
-                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasmp"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                          href="#matematikasmp">
+                                          <i class="fa fa-chevron-circle-down"></i>
                                              Matematika SMP</a>
-                                       </h4>
                                     </div>
                                     <div id="matematikasmp" class="panel-collapse collapse">
                                        <div class="panel-body">
@@ -118,15 +117,13 @@
                                           </ul>
                                        </div>
                                     </div>
-
                                  </div>
 
-                                 <div class="panel panel-default">
+                                 <div class="panel panel-topik">
                                     <div class="panel-heading">
-                                       <h4 class="panel-title">
-                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasd"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
-                                             Matematika SMP</a>
-                                       </h4>
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                          href="#matematikasd"><i class="fa fa-chevron-circle-down"></i>
+                                             Matematika SD</a>
                                     </div>
                                     <div id="matematikasd" class="panel-collapse collapse">
                                        <div class="panel-body">
