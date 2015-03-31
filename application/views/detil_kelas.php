@@ -71,14 +71,14 @@
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->
-                           <div role="tabpanel" class="tab-pane" id="materi">
+                           <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">
                                  <div class="panel panel-default">
                                     <div class="panel-heading">
-                                       <h4 class="panel-title">
+                                       <div class="panel-title">
                                           <a data-toggle="collapse" data-parent="#accordion" href="#matematikasma"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
-                                             Matematika SMA</a>
-                                       </h4>
+                                             Matematika SMA </a> 
+                                       </div>
                                     </div>
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">

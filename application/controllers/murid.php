@@ -9,7 +9,7 @@ class Murid extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('layout/header');
-		$this->load->view('murid/kelas_anda');
+		$this->load->view('murid/galeri_kelas');
 		$this->load->view('layout/footer');
 	}
 
@@ -26,4 +26,14 @@ class Murid extends CI_Controller {
 		$this->load->view('murid/galeri_kelas');
 		$this->load->view('layout/footer');
 	}
+
+	public function aksesmateri()
+	{
+		$this->load->view('layout/header');
+		$this->load->view('murid/akses_materi');
+		$this->load->view('layout/footer');
+	}
+
+
+
 }

@@ -864,6 +864,64 @@ a.remove {
   width: 200px;
 }
 
+/* Bagian tab materi */
+
+.tab-panemateri.panel-default{
+  height: 50px;
+  padding:5px 0;
+}
+.tab-materi .panel-group .panel-default .panel-heading .panel-title{
+  color:white;
+}
+
+.tab-panemateri .panel-title {
+  font-size: 14px;
+  color:white;
+  padding-bottom:10px;
+  display:inline;
+  
+  }
+
+/* end bagian Tab Materi */ 
+
+/* Bagian akses materi */
+.panel-video .panel-heading-materi{
+  display: inline-block;
+}
+.panel-video .panel-title{
+  height: 100px;
+}
+
+
+
+.space-video{
+margin-top: 100px;
+}
+
+
+.panel-video{
+width: 1000px;
+height:auto;
+
+}
+
+
+.panel-video .videoplayer{
+width:100%;
+height:auto;
+}
+
+
+
+/* end akses materi */
+
+
+
+
+
+
+
+
 /*kelas-anda*/
 .kelas .tab-content {
   border: medium none;
