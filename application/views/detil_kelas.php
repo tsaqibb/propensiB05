@@ -208,7 +208,7 @@
                                                     <span class="chat-img pull-right">
                                                         <i class="guru-circle">Saya</i>
                                                     </span>
-                                                    <p>
+                                                    <p class="isi-tanggapan">
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                         dolor, quis ullamcorper ligula sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                         dolor, quis.
@@ -242,10 +242,10 @@
                                                     <span class="chat-img pull-right">
                                                         <i class="guru-circle">Saya</i>
                                                     </span>
-                                                    <p>
+                                                    <p class="isi-tanggapan">
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
                                                         dolor, quis ullamcorper ligula sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis.
+                                                        dolor, quis ullamcorper ligula sodales.
                                                     </p>
                                                 </div>
                                             </div>
