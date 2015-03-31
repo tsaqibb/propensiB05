@@ -69,7 +69,87 @@
                                 </p>
                                 <button type="submit" class="btn btn-default main-button register">Daftar</button>
                             </div><!-- detil-kelas -->
-                            <div role="tabpanel" class="tab-pane" id="materi">Akan berisi nama-nama topik </div><!-- draft -->
+
+                            <!-- start Tab Materi -->
+                           <div role="tabpanel" class="tab-pane" id="materi">
+                              <div class="panel-group" id="accordion">
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasma"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMA</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasma" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasmp"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMP</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasmp" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#matematikasd"><i class="fa fa-chevron-circle-down fa fa-2x"></i>
+                                             Matematika SMP</a>
+                                       </h4>
+                                    </div>
+                                    <div id="matematikasd" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+
+                                 </div>
+                              </div>
+
+
+                     </div>  
+
+                            <!-- end tab materi -->
                             <div role="tabpanel" class="tab-pane" id="review">Bagian ini akan menjelaskan review dari kelas </div><!-- <p></p>ast -->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                                 <div class="table-responsive">
