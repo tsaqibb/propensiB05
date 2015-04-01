@@ -955,13 +955,6 @@ height:auto;
 
 /* end akses materi */
 
-
-
-
-
-
-
-
 /*kelas-anda*/
 .kelas .tab-content {
   border: medium none;
@@ -1128,6 +1121,44 @@ height:auto;
   margin: 0;
 }
 /*end sub-content added*/
+
+/* tab-detil-kelas */
+
+#detil .tag {
+  border: 1px #3bc4e6 solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 1px;
+}
+
+/* end tab-detil-kelas */
+
+/*partisipan*/
+
+.actived-partisipan {
+  margin: 5px 0px 5px;
+}
+
+.actived-partisipan .img-circle {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  left: -305px;
+  border: 2px #3bc4e6 solid;
+}
+
+.actived-partisipan .nama {
+  background-color: #3bc4e6;
+  width: 300px;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 5px 15px 5px 65px;
+  position: relative;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/*end partisipan*/
 
 /*profile*/
 .sidebar .nav li {

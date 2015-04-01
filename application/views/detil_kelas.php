@@ -50,10 +50,11 @@
                                 <h5 class="title-label">Harga</h5>
                                 <p>Rp 300.000,00</p>
                                 <h5 class="title-label">Tag</h5>
-                                <i class="tag">MTK, </i>
-                                <i>IPA, </i>
-                                <i>SMA</i>
                                 <br>
+                                <span class="tag">#MTK</span>
+                                <span class="tag">#IPA</span>
+                                <span class="tag">#SMA</span>
+                                <br><br><br>
                                 <p>
                                 Untuk mendaftar kelas, Anda dapat membayar dengan Cash ataupun Transfer.<br>
                                 Anda memiliki waktu 24 jam dari sekarang untuk melaksanakan pembayaran.<br>
@@ -232,7 +233,7 @@
                               Bagian ini akan menjelaskan review dari kelas
                             </div><!-- end tab review -->
                             
-                            <div role="tabpanel" class="tab-pane" id="partisipan">
+                            <div role="tabpanel" class="tab-pane active" id="partisipan">
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -267,6 +268,19 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <h3>Untuk tampilan murid&guru</h3>
+                                  <div class="actived-partisipan">
+                                    <span class="nama">Nama Murid I</span>
+                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
+                                  </div>
+                                  <div class="actived-partisipan">
+                                    <span class="nama">Nama Murid II</span>
+                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
+                                  </div>
+                                  <div class="actived-partisipan">
+                                    <span class="nama">Nama Murid II</span>
+                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
+                                  </div>
                             </div><!-- tab-partisipan -->
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
