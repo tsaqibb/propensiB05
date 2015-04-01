@@ -51,9 +51,11 @@
                                 <p>Rp 300.000,00</p>
                                 <h5 class="title-label">Tag</h5>
                                 <br>
-                                <span class="tag">#MTK</span>
-                                <span class="tag">#IPA</span>
-                                <span class="tag">#SMA</span>
+                                <i class="tag">#MTK</i>
+                                <i class="tag">#IPA</i>
+                                <i class="tag">#SMA</i>
+                                <i class="tag">#aljabar</i>
+                                <i class="tag">#trigonometri</i>
                                 <br><br><br>
                                 <p>
                                 Untuk mendaftar kelas, Anda dapat membayar dengan Cash ataupun Transfer.<br>
