@@ -77,12 +77,11 @@
                            <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
-                                          href="#matematikasma">
-                                          <i class="fa fa-chevron-circle-down"></i>
-                                             Matematika SMA </a> 
-                                    </div>
+                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                        href="#matematikasma">
+                                        <i class="fa fa-chevron-circle-down"></i>
+                                        Matematika SMA 
+                                    </a> 
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -100,12 +99,11 @@
                                  </div>
 
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
-                                          href="#matematikasmp">
-                                          <i class="fa fa-chevron-circle-down"></i>
-                                             Matematika SMP</a>
-                                    </div>
+                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                        href="#matematikasmp">
+                                        <i class="fa fa-chevron-circle-down"></i>
+                                           Matematika SMP
+                                    </a>
                                     <div id="matematikasmp" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -123,11 +121,9 @@
                                  </div>
 
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#matematikasd"><i class="fa fa-chevron-circle-down"></i>
                                              Matematika SD</a>
-                                    </div>
                                     <div id="matematikasd" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -145,11 +141,9 @@
                                  </div>
 
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik1"><i class="fa fa-chevron-circle-down"></i>
                                              Topik 1</a>
-                                    </div>
                                     <div id="topik1" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -166,11 +160,9 @@
                                     </div>
                                  </div>
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik2"><i class="fa fa-chevron-circle-down"></i>
                                              Topik 2</a>
-                                    </div>
                                     <div id="topik2" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -187,11 +179,9 @@
                                     </div>
                                  </div>
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik3"><i class="fa fa-chevron-circle-down"></i>
                                              Topik 3</a>
-                                    </div>
                                     <div id="topik3" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -208,11 +198,9 @@
                                     </div>
                                  </div>
                                  <div class="panel panel-topik">
-                                    <div class="panel-heading">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik"
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik4"><i class="fa fa-chevron-circle-down"></i>
                                              Topik 4</a>
-                                    </div>
                                     <div id="topik4" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
