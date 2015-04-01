@@ -50,6 +50,12 @@
                             <li><a href="#contact">FAQ</a></li>
                             <li><a href="#contact">Kontak</a></li>
                         </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="user-login">
+                                Halo, <a href="#">
+                                    Nama User</a>
+                            </li>
+                        </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>

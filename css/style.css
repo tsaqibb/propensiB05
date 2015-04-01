@@ -56,8 +56,7 @@ body.have-bar {
   /*font-family: Roboto Condensed Bold; */
   background: none repeat scroll 0 0 transparent;
   color: #4c4c4c;
-  font-size: 19px;
-  text-transform: uppercase;
+  font-size: 15px;
 }
 .navbar-default .navbar-nav .active a, 
 .navbar-default .navbar-nav .active a:hover, 
@@ -67,6 +66,7 @@ body.have-bar {
   border-bottom: 3px solid;
   color: #3bc4e6;
 }
+
 .navbar-right .dropdown,
 .navbar.navbar-default .navbar-nav .sign-out {
   margin-left: 15px;
