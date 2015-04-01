@@ -10,7 +10,7 @@
                         <a href="" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
                     </li>
                     <li role="presentation">
-                        <a href="<?php echo base_url();?>admin/partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Partisipan</a>
+                        <a href="<?php echo base_url();?>admin/partisipan" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Calon Partisipan</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->

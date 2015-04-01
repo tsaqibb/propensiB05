@@ -34,7 +34,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
                                           </td>
                                         </tr>
                                         <tr>
@@ -46,7 +46,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
                                           </td>
                                         </tr>
                                         <tr>
@@ -58,7 +58,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
                                           </td>
                                         </tr>
                                       </table>
