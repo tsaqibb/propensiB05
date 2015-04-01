@@ -1125,9 +1125,7 @@ height:auto;
 /* tab-detil-kelas */
 
 #detil .tag {
-  border: 1px #3bc4e6 solid;
-  border-radius: 10px;
-  padding: 5px;
+  border-bottom: 1px #3bc4e6 solid;
   margin: 1px;
 }
 
