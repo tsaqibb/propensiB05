@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
 	public function partisipan()
 	{
 		$this->load->view('layout/header');
-		$this->load->view('admin/partisipan');
+		$this->load->view('admin/calon_partisipan');
 		$this->load->view('layout/footer');
 	}	
 }

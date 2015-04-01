@@ -80,7 +80,7 @@
                                         <thead>
                                             <tr class="text-center">
                                                 <td class="statusid">ID</td>
-                                                <td class="nama">Nama Kelas</td>
+                                                <td>Nama Kelas</td>
                                                 <td class="statusdetil">Status</td>
                                                 <td class="statusdetil">Edit</td>
                                                 <td class="statusdetil">Detil</td>

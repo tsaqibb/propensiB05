@@ -66,7 +66,6 @@ body.have-bar {
   border-bottom: 3px solid;
   color: #3bc4e6;
 }
-
 .navbar-right .dropdown,
 .navbar.navbar-default .navbar-nav .sign-out {
   margin-left: 15px;
@@ -1132,11 +1131,96 @@ height:auto;
 /* end tab-detil-kelas */
 
 /*partisipan*/
+.pinkfont{
+  color:rgb(225, 0, 101);
+}
+.btn-payment2{
+  background-color: #fff;
+  width:17%;
+  text-align:left;
+  border:1px solid rgb (221,221,221);
+  border-top-color: rgb(221, 221, 221);
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding: 6px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.btn-payment2.active {
+  background-color: rgb(225, 0, 101);
+  color: #fafafa;
+}
+.cancel.icon-button{
 
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-left: 10px;
+    border-top-width: 2px;
+
+}
+.status{
+    border-top-width: 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    width: 110px;
+    height: 41px;
+}
+.matkul{
+  text-align: left;
+  font-weight: lighter;
+}
+.nama{
+  text-align: left;
+  font-weight: bold;
+}
+.panel-partisipan{
+  background-color: #f8f5fd;
+  font-size: 15px;
+  color: #3a3a3a;
+  padding: 8px;
+  box-shadow: 0 2px 5px #999;
+  margin-top: 19px;
+}
+.main-button.register {
+  display: table;
+  width: 115px;
+  color:white;
+  margin-right: 250px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.main-button.register2 {
+  display: table;
+  width: 115px;
+  float:right;
+  color:white;
+  margin-right: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.main-button.register3{
+  display: table;
+  float:right ;
+  color:white;
+  width: 110px;
+  margin-top: 0px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
 .actived-partisipan {
   margin: 5px 0px 5px;
 }
-
 .actived-partisipan .img-circle {
   height: 60px;
   width: 60px;
@@ -1144,7 +1228,6 @@ height:auto;
   left: -305px;
   border: 2px #3bc4e6 solid;
 }
-
 .actived-partisipan .nama {
   background-color: #3bc4e6;
   width: 300px;

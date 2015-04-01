@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">[Nama Kelas]</h2>
+                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>murid/daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -57,20 +57,6 @@
                                 <i class="tag">#aljabar</i>
                                 <i class="tag">#trigonometri</i>
                                 <br><br><br>
-                                <p>
-                                Untuk mendaftar kelas, Anda dapat membayar dengan Cash ataupun Transfer.<br>
-                                Anda memiliki waktu 24 jam dari sekarang untuk melaksanakan pembayaran.<br>
-
-                                Jika dalam batas waktu tersebut, Anda belum melakukan pembayaran, maka pesanan Anda akan dianggap dibatalkan, dan Anda harus mengulang proses pemesanan dari awal.<br>
-
-                                Anda dapat melakukan pembayaran langsung ke:<br>
-
-                                Ruangguru.com HQ<br>
-                                d/a Jalan Tebet Raya 32A Jakarta Selatan<br>
-                                (patokan: depan Wisma Tebet)<br>
-                                Telp: 021-9200-3040<br>
-                                </p>
-                                <button type="submit" class="btn btn-default main-button register">Daftar</button>
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->
@@ -223,41 +209,49 @@
                               Bagian ini akan menjelaskan review dari kelas
                             </div><!-- end tab review -->
                             
-                            <div role="tabpanel" class="tab-pane active" id="partisipan">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td class="statusdetil">ID</td>
-                                                <td>Nama Murid</td>
-                                                <td class="status">Action</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="nama">Nama Murid I</td>
-                                                <td class="status">
-                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td class="nama">Nama Murid II</td>
-                                                <td class="status">
-                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td class="nama">Nama Murid III</td>
-                                                <td class="status">
-                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <!--tab partisipan-->
+                            <div role="tabpanel" class="tab-pane" id="partisipan">
+                              <div class="tab-content">
+                                <input type="checkbox">select all</input>
+                                  <button type="submit" class="btn btn-default main-button register2">Inactive all</button>
+                                    <div class="panel-partisipan"> 
+                                      <table class="table">
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                  </div>
                                 <h3>Untuk tampilan murid&guru</h3>
                                   <div class="actived-partisipan">
                                     <span class="nama">Nama Murid I</span>
@@ -270,8 +264,9 @@
                                   <div class="actived-partisipan">
                                     <span class="nama">Nama Murid II</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>
+                                  </div>           
                             </div><!-- tab-partisipan -->
+                            
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
