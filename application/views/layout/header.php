@@ -13,9 +13,11 @@
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome.min.css">
-        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.fancybox.css" media="screen"/>
-        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox-media.js?v=1.0.6"></script>
+        <!--
+        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>js/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+        -->
 
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">

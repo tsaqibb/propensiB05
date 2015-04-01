@@ -50,7 +50,7 @@
                                 <h5 class="title-label">Harga</h5>
                                 <p>Rp 300.000,00</p>
                                 <h5 class="title-label">Tag</h5>
-                                <i>MTK, </i>
+                                <i class="tag">MTK, </i>
                                 <i>IPA, </i>
                                 <i>SMA</i>
                                 <br>
@@ -226,35 +226,42 @@
                                     </div>
                                  </div>
                               </div>
-
-
-                     </div>  
-
-                            <!-- end tab materi -->
-                            <div role="tabpanel" class="tab-pane" id="review">Bagian ini akan menjelaskan review dari kelas </div><!-- <p></p>ast -->
+                            </div><!-- end tab materi -->
+                            
+                            <div role="tabpanel" class="tab-pane" id="review">
+                              Bagian ini akan menjelaskan review dari kelas
+                            </div><!-- end tab review -->
+                            
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <td>ID</td>
+                                                <td class="statusdetil">ID</td>
                                                 <td>Nama Murid</td>
-                                                <td>Action</td>
+                                                <td class="status">Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Saqib</td>
+                                                <td class="nama">Nama Murid I</td>
                                                 <td class="status">
-                                                    <a href="#" class="cancel icon-circle" title="Unapprove"><i class="fa fa-check"></i></a>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Saqib 2</td>
+                                                <td class="nama">Nama Murid II</td>
                                                 <td class="status">
-                                                    <a href="#" class="cancel icon-circle" title="Unapprove"><i class="fa fa-check"></i></a>
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td class="nama">Nama Murid III</td>
+                                                <td class="status">
+                                                    <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
                                                 </td>
                                             </tr>
                                         </tbody>
