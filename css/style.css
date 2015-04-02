@@ -45,6 +45,7 @@ body.have-bar {
 .navbar-default {
   background-color: #fff;
   border-bottom: 3px solid #3bc4e6;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);  
 }
 .navbar-brand {
   height: auto;
