@@ -65,80 +65,150 @@
                                     </div>
                                 </div>
                             </div><!-- published -->
-                            <div role="tabpanel" class="tab-pane " id="materi">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td>ID</td>
-                                                <td>Nama Kelas</td>
-                                                <td>Status</td>
-                                                <td>Edit</td>
-                                                <td>Preview</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>PHP Programming - Basic</td>
-                                                <td class="status">
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Java Programming - Basic</td>
-                                                <td class="status">
-                                                    <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
-                                                </td>
-                                                <td class="text-center">
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>PHP Programming - Advance</td>
-                                                <td class="status">
-                                                    <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Java Programming - Advance</td>
-                                                <td class="status">
-                                                    <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
-                                                </td>
-                                                <td class="text-center">
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Preview"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div><!-- table-responsive -->
-                                <div id="class-notes">
-                                    <p> Catatan: </p>
-                                    <ol>
-                                        <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div><!-- pending publish -->
+                             <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
+                              <div class="panel-group" id="accordion">
+                                 <div class="panel panel-topik">
+                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                        href="#matematikasma">
+                                        <i class="fa fa-chevron-circle-down"></i>
+                                        Matematika SMA 
+                                    </a> 
+                                    <div id="matematikasma" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="panel panel-topik">
+                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                        href="#matematikasmp">
+                                        <i class="fa fa-chevron-circle-down"></i>
+                                           Matematika SMP
+                                    </a>
+                                    <div id="matematikasmp" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="panel panel-topik">
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#matematikasd"><i class="fa fa-chevron-circle-down"></i>
+                                             Matematika SD</a>
+                                    <div id="matematikasd" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="panel panel-topik">
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 1</a>
+                                    <div id="topik1" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="panel panel-topik">
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#topik2"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 2</a>
+                                    <div id="topik2" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="panel panel-topik">
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#topik3"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 3</a>
+                                    <div id="topik3" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="panel panel-topik">
+                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#topik4"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 4</a>
+                                    <div id="topik4" class="panel-collapse collapse">
+                                       <div class="panel-body">
+                                          <ul class="list-groups">
+                                             <a href="#">
+                                             <li class="list-group-item">Aljabar</li>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             </a>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                            </div><!-- end tab materi -->
                             <div role="tabpanel" class="tab-pane" id="draft">Kelas tidak tersedia </div><!-- draft -->
                             <div role="tabpanel" class="tab-pane" id="past">Kelas tidak tersedia </div><!-- past -->
                         </div><!-- tab-content -->

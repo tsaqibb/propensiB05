@@ -677,7 +677,7 @@ thead {
 }
 
 .panel-default .isi-tanggapan {
-  text-align: right;
+  text-align:justify;
 }
 
 .panel-body {
