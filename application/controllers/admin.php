@@ -13,17 +13,24 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
-	public function kelas()
+	public function new_class()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('admin/kelas');
-		$this->load->view('layout/footer');
+		$this->load->view('layout/header-admin');
+		$this->load->view('admin/new_class');
+		$this->load->view('layout/footer-admin');
 	}
 
 	public function partisipan()
 	{
-		$this->load->view('layout/header');
+		$this->load->view('layout/header-admin');
 		$this->load->view('admin/calon_partisipan');
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer-admin');
+	}
+
+	public function contoh()
+	{
+		$this->load->view('layout/header-admin');
+		$this->load->view('admin/contoh');
+		$this->load->view('layout/footer-admin');
 	}	
 }
