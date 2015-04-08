@@ -248,6 +248,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .grid-bottom {
   position: relative;
 }
+.grid-bottom .icon {
+  color: #fcb33b;
+}
 
 .block-title {
   color: #fcb33b;
@@ -276,7 +279,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   color: #e11667;
 }
 .review .tag {
-  color: #e11667;
   text-decoration: underline;
 }
 .description {
@@ -300,9 +302,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .rating {
   float: right;
   text-align: right;
-}
-.rating .fa-star {
-  color: #e11667;
 }
 .rating-info i {
   margin-right: 3px;
