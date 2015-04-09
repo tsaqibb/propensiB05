@@ -219,6 +219,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .grid-bottom {
   position: relative;
+  line-height: 1.0;
 }
 .grid-bottom .icon {
   color: #fcb33b;
@@ -241,7 +242,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-color: #fcb33b;
   border-radius: 0;
   color: #000;
-  height: 42px;
   padding: 10px 20px;
   position: absolute;
   right: 0;
@@ -1584,9 +1584,9 @@ text-decoration: none;
 	  padding: 10px;
 	}
 	.rating {
-	  float: none;
-	  margin-top: 10px;
-	}
+	  font-size: 15px;
+    padding: 0 10px 0 10px;
+  }
   
   /*detail*/
   .price-big-wrap:before {
@@ -1691,7 +1691,7 @@ text-decoration: none;
 	  padding: 7px 10px;
 	}
 	.navbar-default .navbar-toggle {
-	  border-color: #fcb33b;
+	  /*border-color: #fcb33b;*/
 	}
 	.list-orange.collapse.in {
 	  left: 0;
