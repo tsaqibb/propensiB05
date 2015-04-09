@@ -61,7 +61,7 @@
                                 </form>
                                 <div id="class-notes">
                                     <div class="btn btn-default main-button register">
-                                        Lanjut >>
+                                        Upload materi >>
                                     </div>
                                 </div>
                             </div><!-- published -->

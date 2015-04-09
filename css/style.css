@@ -1,19 +1,3 @@
-/*@font-face { 
-  font-family: Roboto; 
-  src: url('../fonts/Roboto-Regular.ttf'); 
-}
-@font-face { 
-  font-family: Roboto Semibold; 
-  src: url('../fonts/Roboto-Medium.ttf'); 
-}
-@font-face { 
-  font-family: Roboto Bold; 
-  src: url('../fonts/Roboto-Bold.ttf'); 
-}
-@font-face { 
-  font-family: Roboto Condensed Bold; 
-  src: url('../fonts/RobotoCondensed-Bold.ttf'); 
-}*/
 @font-face { 
   font-family: Ubuntu; 
   src: url('../fonts/Ubuntu-R.ttf'); 
@@ -65,7 +49,7 @@ body.have-bar {
 .navbar-default .navbar-nav .active a:focus {
   background-color: transparent;
   border-bottom: 3px solid;
-  color: #fcb33b;
+  color: #3bc4e6;
 }
 .navbar-right .dropdown,
 .navbar.navbar-default .navbar-nav .sign-out {
@@ -93,6 +77,12 @@ body.have-bar {
   color: #fcb33b;
   margin-right: 20px;
   padding: 0;
+}
+.navbar-nav .phone {
+    color: #767676 !important;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 13px 12px;
 }
 ul.dropdown-menu {
   padding: 0;
@@ -148,7 +138,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   padding-top: 2px;
 }
 .title-filter {
-  /*font-family: Roboto Semibold; */
   font-size: 16px;
   padding: 5px 10px;
 }
@@ -162,34 +151,18 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-bottom: 30px;
 }
 .block-title {
-  /*font-family: Roboto Condensed Bold;*/
 }
 .content-grid {
   box-shadow: 0 2px 5px #999;
   margin-bottom: 30px;
-  min-height: 385px;
+  min-height: 320px;
   position: relative;
 }
-/*.content-grid.diskon:before {
-  background-color: #e43;
-  color: #fff;
-  content: "Diskon Spesial";
-  font-family: Roboto Condensed Bold;
-  font-size: 14px;
-  padding: 3px 0;
-  position: absolute;
-  right: -35px;
-  text-align: center;
-  text-transform: uppercase;
-  top: 35px;
-  transform: rotate(45deg);
-  width: 170px;
-  z-index: 1;
-}*/
 .grid-top {
   background-size: cover;
   height: 200px;
   position: relative;
+  background-image: url('../images/image_300x300.gif');
 }
 .diskon-label {
   background-color: #e11667;
@@ -241,7 +214,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .grid-title {
   color: #fff;
-  /*font-family: Roboto Semibold;*/
   font-size: 18px;
   margin: 0;
 }
@@ -250,6 +222,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .grid-bottom .icon {
   color: #fcb33b;
+  margin-right: 5px;
 }
 
 .block-title {
@@ -268,7 +241,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-color: #fcb33b;
   border-radius: 0;
   color: #000;
-  height: 43px;
+  height: 42px;
   padding: 10px 20px;
   position: absolute;
   right: 0;
@@ -283,18 +256,20 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .description {
   border-bottom: 1px solid #ddd;
-  min-height: 70px;
+  height: 77px;
   padding: 10px 15px;
+  line-height: 1;
+  font-size: 13px;
+  text-align: justify;
 }
 .icon {
   float: left;
-  width: 10%;
 }
 .date {
   display: inline-block;
   width: 90%;
 }
-.review {
+.grid-bottom .nama-guru {
   display: inline-block;
   padding: 10px 15px;
   width: 100%;
@@ -302,6 +277,14 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .rating {
   float: right;
   text-align: right;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 5px 15px;
+  color: #ddd;
+}
+.rating .blue {
+  color: #3bc4e6;
 }
 .rating-info i {
   margin-right: 3px;
@@ -356,7 +339,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .footer-link a {
   color: inherit;
-  /*font-family: Roboto Semibold;*/
 }
 .footer-about-detail {
   margin-bottom: 10px;
@@ -397,7 +379,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 /*detail page*/
 .entry-title {
   color: #444;
-  /*font-family: Roboto Condensed Bold;*/
   margin-bottom: 15px;
 }
 .add-info {
@@ -407,11 +388,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .info-label {
   color: #fcb33b;
-  /*font-family: Roboto Condensed Bold;*/
 }
 .info-label a {
   color: #333;
-  /*font-family: Roboto Semibold;*/
   text-decoration: underline;
   text-transform: none;
 }
@@ -419,26 +398,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   overflow: hidden;
   position: relative;
 }
-/*.hero-detail.discount:before {
-  background-color: #e43;
-  color: #fff;
-  content: "Diskon Spesial";
-  font-family: Roboto Condensed Bold;
-  font-size: 18px;
-  height: 110px;
-  padding: 70px 0 0;
-  position: absolute;
-  right: -65px;
-  text-align: center;
-  text-transform: uppercase;
-  top: -22px;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  width: 200px;
-  z-index: 1;
-}*/
 .img-wrap {
   margin-bottom: 30px;
 }
@@ -450,7 +409,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   border-bottom: 1px solid #fcb33b;
 }
 .nav-tabs li a {
-  /*font-family: Roboto Condensed Bold;*/
   font-size: 18px;
   background-color: #fefefe;
   border-color: #fcb33b #fcb33b #ddd;
@@ -577,7 +535,6 @@ thead {
 .review-title {
   border-bottom: 2px solid #fcb33b;
   color: #fcb33b;
-  /*font-family: Roboto Bold;*/
   padding-bottom: 5px;
 }
 .rating-wrap .rate {
@@ -871,9 +828,6 @@ a.remove {
 }
 .kelas .panel-default {
   margin-top: 20px;
-}
-.fa-question-circle {
-  margin-left: 20px;
 }
 .submit-form .main-button {
   border-color: #fcb33b;
