@@ -23,7 +23,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#detil" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true" >Detil</a>
+                                <a href="#detil" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true" >Detail</a>
                             </li>
                             <li role="presentation">
                                 <a href="#materi" aria-controls="materi" role="tab" data-toggle="tab">Materi</a>
@@ -32,7 +32,7 @@
                                 <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a>
                             </li>
                             <li role="presentation">
-                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Partisipan</a>
+                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
@@ -212,47 +212,7 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <input type="checkbox">select all</input>
-                                  <button type="submit" class="btn btn-default main-button register2">Inactive all</button>
-                                    <div class="panel-partisipan"> 
-                                      <table class="table">
-                                        <tr>
-                                          <td>
-                                            <input type="checkbox"></input>
-                                          </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
-                                          </td>
-                                          <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>
-                                            <input type="checkbox"></input>
-                                          </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
-                                          </td>
-                                          <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>
-                                            <input type="checkbox"></input>
-                                          </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
-                                          </td>
-                                          <td class="status">
-                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
-                                          </td>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                  </div>
-                                <h3>Untuk tampilan murid&guru</h3>
+                                <h3>Daftar Murid</h3>
                                   <div class="actived-partisipan">
                                     <span class="nama">Nama Murid I</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
@@ -264,7 +224,8 @@
                                   <div class="actived-partisipan">
                                     <span class="nama">Nama Murid II</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>           
+                                  </div>          
+                              </div> 
                             </div><!-- tab-partisipan -->
                             
                             <div role="tabpanel" class="tab-pane" id="feedback">
