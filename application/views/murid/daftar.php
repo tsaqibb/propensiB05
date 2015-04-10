@@ -1,6 +1,8 @@
 <div class="container content kelas vendor">
     <div class="row">
+        
         <div class="col-sm-12 col-md-3">
+            
             <div class="sidebar">
                 <br>
                 <h4 class="text-center">Halo, [Nama User]</h4>
@@ -14,7 +16,9 @@
                     </li>
                 </ul>
             </div><!-- sidebar -->
+
         </div>
+
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">[Nama Kelas]</h2>
@@ -37,73 +41,119 @@
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
                             </li>
-                            <li role="presentation" class="active">
-                                <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Daftar</a>
-                            </li>
                         </ul><br>
+                        
+                        <div class="panel-heading heading-label">Term Pendaftaran</div>
+                      
                         <div class="panel-partisipan">
-                        <div class="pinkfont text-16">Untuk mengikuti kelas ini, terdapat beberapa term yang harus diperhatikan :</div>
+                        <pseudo:before><pseudo:before>
+                        <h4 class="review-title">Untuk mengikuti kelas ini, terdapat beberapa term yang harus diperhatikan :</h4>
+                       
                             <ol>
                                 <li>Data yang Anda masukkan ke dalam sistem ruangguru.com adalah benar dan dapat dipertanggungjawabkan</li>
                                 <li>Mematuhi segala peraturan dari ruangguru.com dan kelas yang bersangkutan </li>
                                 <li>Bersedia untuk membayar biaya pendaftaran kelas online pada waktu yang telah ditentukan.<br>
                                 Anda dapat membayar dengan Cash ataupun Transfer. </li><br>
                             </ol>
-                        </div>
+                        </div> <!--panel term-->
+
                         <div class="panel-partisipan">
-                        <div class="pinkfont text-16">Pilih metode pembayaran</div>
+                            <div class="pinkfont text-16">Pilih metode pembayaran</div>
                             Anda tidak akan dikenakan biaya tambahan!<br>
                             
-                            <button data-toggle="collapse" data-parent="#accordion" href="#cash" class="btn-payment2"id="payment_cash"><img src="http://kelas.ruangguru.com//images/payment/uang.png" width="30px"> Cash</button>
-                            <button data-toggle="collapse" data-parent="#accordion" href="#transfer" class="btn-payment2"id="payment_cash"><img src="http://kelas.ruangguru.com//images/payment/atm-bersama.png" width="25px"> Transfer</button>
-                            <br><br>
+                                
+                                    <button class="btn-payment2" id="payment_cash">
+                                        <img src="http://kelas.ruangguru.com//images/payment/uang.png" width="30px">
+                                        Cash
+                                    </button>
+                               
+                                    <button href="#transfer_info" data-toggle="collapse" class="btn-payment2" id="payment_atm">
+                                        <img src="http://kelas.ruangguru.com//images/payment/atm-bersama.png" width="25px">
+                                        Bank Transfer
+                                    </button>
+                                
+                                <!--                            <button data-toggle="collapse" data-parent="#accordion" href="#transfer_info" class="btn-payment2"id="payment_cash"><img src="http://kelas.ruangguru.com//images/payment/atm-bersama.png" width="25px"> Transfer</button>
+                            --><br><br>
 
-                        <div id="cash" class="panel-collapse collapse">
-                        <div class="pinkfont text-16">Anda memiliki waktu 24 jam dari sekarang untuk melaksanakan pembayaran.</div>
-                            Jika dalam batas waktu tersebut, Anda belum melakukan pembayaran, maka pesanan Anda akan dianggap dibatalkan, dan Anda harus mengulang proses pemesanan dari awal.<br>
-                            Anda dapat melakukan pembayaran langsung ke:<br><br>
+                        <!--<div id="cash" class="panel-collapse collapse">-->
+                                <div id="cash_info" class="content-segment payment_info" style="display: block;">
+                                    <p class="pinkfont bottom-10">
+                                        Anda memiliki waktu <span>24 jam</span>
+                                        dari sekarang untuk melaksanakan pembayaran.
+                                    </p>
+                                    <p>
+                                        Jika dalam batas waktu tersebut, Anda belum melakukan pembayaran, maka pesanan Anda
+                                        akan dianggap dibatalkan, dan Anda harus mengulang proses pemesanan dari awal.
+                                    </p>
+                                    <p>
+                                        Anda dapat melakukan pembayaran langsung ke:
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">Ruangguru.com HQ</span><br>
+                                        d/a Jalan Tebet Raya 32A Jakarta Selatan<br>
+                                        (patokan: depan Wisma Tebet)<br>
+                                        Telp: 021-9200-3040
+                                    </p>
+                                </div>
+                        <!--</div>-->
 
-                            Ruangguru.com HQ<br>
-                            d/a Jalan Tebet Raya 32A Jakarta Selatan<br>
-                            (patokan: depan Wisma Tebet)<br>
-                            Telp: 021-9200-3040<br>
-                            <br>
-                            <br>
+                        <!--<div id="transfer" class="panel-collapse collapse">-->
+                                <div id="transfer_info" class="panel-collapse collapse" style="display: none;">
+                                    <p class="pinkfont bottom-10">
+                                        Anda memiliki waktu <span>24 jam</span>
+                                        dari sekarang untuk melaksanakan pembayaran.
+                                    </p>
+                                    <p>
+                                        Jika dalam batas waktu tersebut, Anda belum melakukan pembayaran, maka pesanan Anda
+                                        akan dianggap dibatalkan, dan Anda harus mengulang proses pemesanan dari awal.
+                                    </p>
+                                    <p>
+                                        Anda dapat melakukan transfer ke salah satu rekening Bank dibawah ini.
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">BANK BCA</span><br>
+                                        No. Rekening: 2611-3655-11<br>
+                                        Atas nama: PT. RUANG RAYA INDONESIA
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">BANK Mandiri</span><br>
+                                        No. Rekening: 157-00-0398209-8<br>
+                                        Atas nama: PT. RUANG RAYA INDONESIA
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">BANK BNI</span><br>
+                                        No. Rekening: 033-1469330<br>
+                                        Atas nama: PT. RUANG RAYA INDONESIA
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">BANK BRI</span><br>
+                                        No. Rekening: 2080-01-000124-30-3<br>
+                                        Atas nama: PT. RUANG RAYA INDONESIA
+                                    </p>
+                                    <p>
+                                        <span class="pinkfont">BANK Permata</span><br>
+                                        No. Rekening: 411-0463893<br>
+                                        Atas nama: PT. RUANG RAYA INDONESIA
+                                    </p>
+                                    <p class="bottom-10">
+                                        Setelah transfer, Anda dapat melakukan konfirmasi pembayaran.<br>
+                                        (link untuk konfirmasi juga kami kirimkan melalui email)
+                                    </p>
+                                </div>
+                       <!-- </div> -->
+
+                        <div class="checkbox bottom-30">
+                            <label>
+                                <input type="checkbox" id="iagree">
+                                Pendaftaran sudah sesuai.<br>
+                                Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
+                                underline">persyaratan dan ketentuan</a> yang berlaku
+                            </label><br><br>
+                            <button type="submit" class=" fa fa-user btn btn-default main-button register"> DAFTAR</button>                 
                         </div>
 
-                        <div id="transfer" class="panel-collapse collapse">
-                        <div class="pinkfont text-16">Anda memiliki waktu 24 jam dari sekarang untuk melaksanakan pembayaran.</div>
-                            Jika dalam batas waktu tersebut, Anda belum melakukan pembayaran, maka pesanan Anda akan dianggap dibatalkan, dan Anda harus mengulang proses pemesanan dari awal.<br>
-                            Anda dapat melakukan transfer ke salah satu rekening Bank dibawah ini.<br><br>
+                    </div> <!--panel methode-->
 
-                            BANK BCA
-                            <br>No. Rekening: 2611-3655-11
-                            <br>Atas nama: PT. RUANG RAYA INDONESIA
-                            <br>
-                            <br>BANK Mandiri
-                            <br>No. Rekening: 157-00-0398209-8
-                            <br>Atas nama: PT. RUANG RAYA INDONESIA
-                            <br>
-                            <br>BANK BNI
-                            <br>No. Rekening: 033-1469330
-                            <br>Atas nama: PT. RUANG RAYA INDONESIA
-                            <br>
-                            <br>BANK BRI
-                            <br>No. Rekening: 2080-01-000124-30-3
-                            <br>Atas nama: PT. RUANG RAYA INDONESIA
-                            <br>
-                            <br>BANK Permata
-                            <br>No. Rekening: 411-0463893
-                            <br>Atas nama: PT. RUANG RAYA INDONESIA
-                            <br>
-                            <br>Setelah transfer, Anda dapat melakukan konfirmasi pembayaran.
-                            <br>(link untuk konfirmasi juga kami kirimkan melalui email)
-                            <br><br>
-                            </div>
-                        <input type="checkbox">Pendaftaran sudah sesuai.<br>
-                            Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran">persyaratan dan ketentuan</a> yang berlaku.</input><br>
-                            <br><button type="submit" class=" fa fa-user btn btn-default main-button register"> DAFTAR</button><br>
-                        </div>
                     </div>
                 </div>
             </div>
