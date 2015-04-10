@@ -6,14 +6,14 @@ class Admin extends CI_Controller {
 		$this->load->helper('url');
 	}
 	
-	public function index()
+	public function lama()
 	{
 		$this->load->view('layout/header');
 		$this->load->view('admin/kelas');
 		$this->load->view('layout/footer');
 	}
 
-	public function new_class()
+	public function index()
 	{
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/new_class');

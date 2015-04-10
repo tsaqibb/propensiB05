@@ -22,8 +22,8 @@
                     <div role="tabpanel" class="sub-vendor">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#detil" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true">Detil</a>
+                            <li role="presentation" >
+                                <a href="<?php echo base_url();?>kelas" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true">Detail</a>
                             </li>
                             <li role="presentation">
                                 <a href="#materi" aria-controls="materi" role="tab" data-toggle="tab">Materi</a>
@@ -32,10 +32,13 @@
                                 <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a>
                             </li>
                             <li role="presentation">
-                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Partisipan</a>
+                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
+                            </li>
+                            <li role="presentation" class="active">
+                                <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Daftar</a>
                             </li>
                         </ul><br>
                         <div class="panel-partisipan">
