@@ -1,6 +1,8 @@
 <div class="container content kelas vendor">
     <div class="row">
+        
         <div class="col-sm-12 col-md-3">
+            
             <div class="sidebar">
                 <br>
                 <h4 class="text-center">Halo, [Nama User]</h4>
@@ -14,7 +16,9 @@
                     </li>
                 </ul>
             </div><!-- sidebar -->
+        
         </div>
+        
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>murid/daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
@@ -40,6 +44,7 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
+                        <!--detil kelas-->
                             <div role="tabpanel" class="tab-pane active" id="detil">
                                 <h5 class="title-label">Deskripsi</h5>
                                 <p>
@@ -212,17 +217,26 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <h3>Daftar Murid</h3>
+                                <h3 class="block-title text-uppercase">Daftar Murid</h3>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Nama Murid I</span>
+                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                    </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Nama Murid II</span>
+                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                    </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Nama Murid II</span>
+                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                    </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>          
                               </div> 
@@ -231,6 +245,7 @@
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
+                                        
                                         <div class="feedback-package">
                                             <div class="left clearfix">
                                                 <div class="panel-feedback clearfix">
@@ -264,7 +279,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <br>
+                                        <br> <!--feedback package -->
+
                                         <div class="feedback-package">
                                             <div class="left clearfix">
                                                 <div class="panel-feedback clearfix">
@@ -297,7 +313,8 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> <!-- feedback package-->
+                                        
                                         <br>
                                             <div class="feedback-package">
                                             <div class="left clearfix">
@@ -324,14 +341,16 @@
                                                     </span>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->
+
                         </div><!-- tab-content -->
                     </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
             </div><!-- panel -->
-        </div>
-    </div>
+        </div> <!-- col -->
+    </div> <!-- row -->
 </div> <!-- /container -->
