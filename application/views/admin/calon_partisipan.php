@@ -11,7 +11,7 @@
                         <a href="<?php echo base_url();?>admin/kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
                     </li>
                     <li role="presentation" class="active">
-                        <a href="" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Calon Partisipan</a>
+                        <a href="" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Calon Murid</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->
@@ -19,10 +19,10 @@
         
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">Daftar Calon Partisipan</h2>
+                <h2 class="block-title text-uppercase">Daftar Calon Murid</h2>
                     <div role="tabpanel" class="tab-pane active" id="partisipan">
                         <input type="checkbox">select all</input>
-                            <button type="submit" class="btn btn-default main-button register2">Active all</button>
+                            <button type="submit" class="btn btn-default main-button register2">Activate all</button>
                                 <div class="panel-partisipan"> 
                                     <table class="table">
                                         <tr>
@@ -34,7 +34,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
@@ -46,7 +46,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
@@ -58,7 +58,7 @@
                                             <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Active</a>
+                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                       </table>
