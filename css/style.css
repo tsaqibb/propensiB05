@@ -1087,10 +1087,38 @@ height:auto;
 /*partisipan*/
 .pinkfont{
   color:rgb(225, 0, 101);
+  font-weight: bold;
+}
+.bluefont{
+color: blue;
+font-weight: bold;
+}
+.btn-orange, .btn-orange2 {
+  background-color: rgb(252, 166, 10);
+  width: 100%;
+  margin-bottom: 15px;
+}
+.grey {
+  width: 100%;
+  background-color: rgba(200,200,200,0.9);
+  margin-bottom: -41px;
+  border-radius: 22px;
+  height: 45px;
+  z-index: 2000;
+  top: -60px;
+  position: relative;
+}
+.payment-howto {
+  padding: 5px 2px;
+}
+.content-segment {
+  width: 100%;
+  height: auto;
+  padding: 15px;
 }
 .btn-payment2{
   background-color: #fff;
-  width:17%;
+  width:25%;
   text-align:left;
   border:1px solid rgb (221,221,221);
   border-top-color: rgb(221, 221, 221);
@@ -1102,6 +1130,10 @@ height:auto;
   font-size: 16px;
 }
 .btn-payment2.active {
+  background-color: rgb(225, 0, 101);
+  color: #fafafa;
+}
+.btn-payment:hover, .btn-payment.active, .btn-payment2:hover, .btn-payment2.active {
   background-color: rgb(225, 0, 101);
   color: #fafafa;
 }
@@ -1130,13 +1162,31 @@ height:auto;
   text-align: left;
   font-weight: bold;
 }
-.panel-partisipan{
-  background-color: #f8f5fd;
-  font-size: 15px;
+.panel-default .panel-heading {
+  border-radius: 0px;
   color: #3a3a3a;
+  height: 60px;
+  /* font-family: Roboto Bold; */
+  font-size: 20px;
+  position: relative;
+  padding-top: 15px;
+}
+.detail-label.label-blue, .panel-default .panel-heading {
+  background-color: #3bc4e6;
+}
+.review-title {
+  border-bottom: 2px solid #fcb33b;
+  color: #fcb33b;
+  padding-bottom: 5px;
+}
+.panel-partisipan{
+  background-color: #FOF8FF;
+  font-size: 15px;
+  color: #00008B;
   padding: 8px;
-  box-shadow: 0 2px 5px #999;
-  margin-top: 19px;
+  /*box-shadow: 0 2px 5px #999;*/
+  margin-top: 0px;
+  border: 1px #3bc4e6 solid;
 }
 .main-button.register {
   display: table;
@@ -1176,12 +1226,12 @@ height:auto;
   margin: 5px 0px 5px;
 }
 .actived-partisipan .img-circle {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   position: relative;
   left: -440px;
   border: 2px #fcb33b solid;
-  top: -10px;
+  top: -20px;
 }
 .actived-partisipan .nama {
   background-color: #fcb33b;
