@@ -41,6 +41,5 @@
 $route['default_controller'] = "murid/kelas_anda";
 $route['404_override'] = '';
 
-
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

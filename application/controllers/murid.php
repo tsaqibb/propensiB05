@@ -24,7 +24,7 @@ class Murid extends CI_Controller {
 
 	public function galerikelas()
 	{
-		$kelas_model = new Kelas();
+		$kelas_model = new Kelas_Model();
 		$list_kelas = $kelas_model->get_published_list_kelas();
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));

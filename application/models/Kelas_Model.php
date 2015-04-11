@@ -1,6 +1,6 @@
 <?php
 
-class Kelas extends DataMapper {
+class Kelas_Model extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
@@ -53,6 +53,11 @@ class Kelas extends DataMapper {
 	//   Add your own custom methods here to enhance the model.
 	// --------------------------------------------------------------------
 
+	function get_list_kelas()
+	{
+		return $this->get();
+	}
+
 	function get_published_list_kelas()
 	{
 		//return $this->where('status_kelas =', 4)->get();
@@ -60,12 +65,9 @@ class Kelas extends DataMapper {
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 
-	function get_pending_list_kelas()
+	function get_new_list_kelas()
 	{
-		return array(
-			'pending_aprrove' => $this->where('status_kelas =', 1)->get(),
-			'pending_publish' => $this->where('status_kelas =', 3)->get(),
-			);
+		return $this->where('status_kelas =', 1)->get();
 	}
 
 	function get_created_list_kelas($id_guru)
@@ -73,11 +75,10 @@ class Kelas extends DataMapper {
 		return $this->where('id_guru =', $id_guru)->get();
 	}
 
-	function get_kelas($id_kelas)
+	function get_class($var)
 	{
-		return $this->where('id_kelas =', $id_kelas)->get();
+		return $this->where($var)->get();
 	}
-	
 	// --------------------------------------------------------------------
 	// Custom Validation Rules
 	//   Add custom validation rules for this model here.
