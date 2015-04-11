@@ -72,7 +72,7 @@
                                         href="#matematikasma">
                                         <i class="fa fa-chevron-circle-down"></i>
                                         Matematika SMA 
-                                    </a> 
+                                    </a>
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -219,23 +219,23 @@
                               <div class="tab-content">
                                 <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                            <small class="matkul text-muted"></small>
                                     </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                            <small class="matkul text-muted"></small>
                                     </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
+                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
+                                            <small class="matkul text-muted"></small>
                                     </span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>          
