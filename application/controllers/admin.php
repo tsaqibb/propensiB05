@@ -28,9 +28,15 @@ class Admin extends CI_Controller {
 	}
 	public function galerikelas()
 	{
-		$this->load->view('layout/header-admin');
+		$this->load->view('layout/header');
 		$this->load->view('admin/galeri_kelas_admin');
-		$this->load->view('layout/footer-admin');
+		$this->load->view('layout/footer');
+	}
+	public function detilkelas()
+	{
+		$this->load->view('layout/header');
+		$this->load->view('admin/detil_kelas_admin');
+		$this->load->view('layout/footer');
 	}
 	public function contoh()
 	{
