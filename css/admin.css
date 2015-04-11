@@ -1,3 +1,56 @@
+.block-title {
+  color: #B22222;
+  font-weight: bold;
+  text-align: left;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.line{
+  border-width: 3px;
+}
+.judul{
+  margin-left: 580px;
+  text-decoration: uppercase;
+}
+.table{
+  margin-left: 445px;
+  width: 500px;
+}
+.table td{ 
+  background:#F0FFFF;  
+  border-radius:5px; 
+  padding:8px 10px; 
+}
+.checkbox1{
+    margin-left: 445px;
+}
+.checkbox{
+    margin-left: 5px;
+}
+.main-button.register2 {
+  background-color: orange;
+  float:right;
+  color:white;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-left: 50px;
+  margin-right: 433px;
+  border-radius: 5px;
+  border: 5px;
+}
+.approve.icon-button {
+  border: #fcb33b 2px solid;
+  color: #fcb33b;
+}
+.icon-button {
+  border-radius: 20px;
+  padding: 5px;
+  text-align: center;
+  margin-left: 11px;
+}
 * { padding:0; margin:0; outline:0; }
 body {
 	background:#f9ebae;
@@ -275,6 +328,7 @@ a.column_edit:hover{
 
 .center{
     text-align: center !important;
+    float:center;
 }
 .bold{
     font-weight: bold;

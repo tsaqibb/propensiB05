@@ -1,73 +1,58 @@
- <div class="container content kelas vendor">
-    <div class="row">
-        
-        <div class="col-sm-12 col-md-3">   
-            <div class="sidebar">
-                <br>
-                <h4 class="text-center">Halo, [Nama Admin]</h4>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" >
-                        <a href="<?php echo base_url();?>admin/kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas</a>
-                    </li>
-                    <li role="presentation" class="active">
-                        <a href="" aria-controls="reponsible" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Calon Murid</a>
-                    </li>
-                </ul>
-            </div><!-- sidebar -->
-        </div>
-        
-        <div class="col-md-9 col-sm-12">
-            <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">Daftar Calon Murid</h2>
-                    <div role="tabpanel" class="tab-pane active" id="partisipan">
-                        <input type="checkbox">select all</input>
-                            <button type="submit" class="btn btn-default main-button register2">Activate all</button>
-                                <div class="panel-partisipan"> 
+<script type="text/javascript">
+  function show_confirm()
+  {
+    var r=confirm("Apakah Anda yakin akan mengaktifkan murid?");
+    if (r==true)
+    {
+      alert("Approve berhasil");
+    }
+    else
+    {
+      alert("Approval Anda telah dibatalkan");
+    }
+  }
+</script>
+                <h2 class="block-title judul text-uppercase">Daftar Calon Murid</h2><br><hr class="line"><br>
+                    <!--<div role="tabpanel" class="tab-pane active" id="partisipan">-->
+                        <input class ="checkbox1" type="checkbox">select all</input>
+                            <a type="button" onclick="show_confirm()" value="Show confirm box" class="main-button register2">Activate all</a>
+                                <br><br>
                                     <table class="table">
                                         <tr>
                                           <td>
-                                            <input type="checkbox"></input>
+                                            <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <a class ="matkul" href="">Dasar-dasar Pemrograman </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          <td class="nama">Nama Murid Pendaftar Pertama - <a href=""> 1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online I</a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
-                                            <input type="checkbox"></input>
+                                            <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <a class ="matkul" href="">Dasar-dasar Pemrograman </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          <td class="nama">Nama Murid Pendaftar Kedua - <a href=""> 1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online II</a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
-                                            <input type="checkbox"></input>
+                                            <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
-                                            <a class ="matkul" href="">Dasar-dasar Pemrograman </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          <td class="nama">Nama Murid Pendaftar Ketiga - <a href=""> 1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online III</a>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
                                           </td>
                                           <td class="status">
-                                            <a href="#" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
-                                      </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>                                
-</div>
+                                      </table><br><br>   
+ 
