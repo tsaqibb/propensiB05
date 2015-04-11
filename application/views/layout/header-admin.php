@@ -74,6 +74,38 @@
 								</li>
 							</ul>
 						</li>
+						<li>
+	                        <a href="" >
+								<span>Calon Murid</span>
+							</a>
+							<ul>
+								<li>
+									<a href="#" class="active">
+										New Class Confirm
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										Pending Published Class
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										Pending Unpublished Class
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										Published Class
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										Calon Murid
+									</a>
+								</li>
+							</ul>
+						</li>
                     </ul>
                 <!-- End Main Nav -->
             </div>

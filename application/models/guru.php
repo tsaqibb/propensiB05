@@ -1,11 +1,11 @@
 <?php
 
-class Feedback extends DataMapper {
+class Guru extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'feedback';
-	var $table = 'feedback';
+	var $model = 'guru';
+	var $table = 'guru';
 
 	// You can override the database connections with this option
 	// var $db_params = 'db_config_name';
@@ -16,10 +16,10 @@ class Feedback extends DataMapper {
 	// --------------------------------------------------------------------
 
 	// Insert related models that Kelas can have just one of.
-	var $has_one = array('kelas');
+	var $has_one = array();
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('tanggapan');
+	var $has_many = array('kelas');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
@@ -27,7 +27,7 @@ class Feedback extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('id_feedback' => 'asc');
+	var $default_order_by = array('id_guru' => 'desc');
 
 	// --------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ class Feedback extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($id_feedback);
+		parent::__construct($id);
     }
 
 	// --------------------------------------------------------------------
@@ -53,9 +53,9 @@ class Feedback extends DataMapper {
 	//   Add your own custom methods here to enhance the model.
 	// --------------------------------------------------------------------
 
-	function get_feedback($id_feedback)
+	function get_guru($id_guru)
 	{
-		return $this->where('id_feedback =', $id_feedback)->get();
+		return $this->where('id =', $id_guru)->get();
 	}
 	
 	// --------------------------------------------------------------------

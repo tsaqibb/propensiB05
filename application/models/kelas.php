@@ -1,11 +1,11 @@
 <?php
 
-class Feedback extends DataMapper {
+class Kelas extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'feedback';
-	var $table = 'feedback';
+	var $model = 'kelas';
+	var $table = 'kelas';
 
 	// You can override the database connections with this option
 	// var $db_params = 'db_config_name';
@@ -16,10 +16,10 @@ class Feedback extends DataMapper {
 	// --------------------------------------------------------------------
 
 	// Insert related models that Kelas can have just one of.
-	var $has_one = array('kelas');
+	var $has_one = array('guru');
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('tanggapan');
+	var $has_many = array('topik', 'feedback');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
@@ -27,7 +27,7 @@ class Feedback extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('id_feedback' => 'asc');
+	var $default_order_by = array('id_kelas' => 'desc');
 
 	// --------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ class Feedback extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($id_feedback);
+		parent::__construct($id);
     }
 
 	// --------------------------------------------------------------------
@@ -53,9 +53,29 @@ class Feedback extends DataMapper {
 	//   Add your own custom methods here to enhance the model.
 	// --------------------------------------------------------------------
 
-	function get_feedback($id_feedback)
+	function get_published_list_kelas()
 	{
-		return $this->where('id_feedback =', $id_feedback)->get();
+		//return $this->where('status_kelas =', 4)->get();
+		$this->where('status_kelas =', 4);
+		return $this->order_by('tgl_mulai desc')->get();
+	}
+
+	function get_pending_list_kelas()
+	{
+		return array(
+			'pending_aprrove' => $this->where('status_kelas =', 1)->get(),
+			'pending_publish' => $this->where('status_kelas =', 3)->get(),
+			);
+	}
+
+	function get_created_list_kelas($id_guru)
+	{
+		return $this->where('id_guru =', $id_guru)->get();
+	}
+
+	function get_kelas($id_kelas)
+	{
+		return $this->where('id_kelas =', $id_kelas)->get();
 	}
 	
 	// --------------------------------------------------------------------
@@ -75,5 +95,5 @@ class Feedback extends DataMapper {
 	*/
 }
 
-/* End of file guru.php */
-/* Location: ./application/models/guru.php */
+/* End of file kelas.php */
+/* Location: ./application/models/kelas.php */
