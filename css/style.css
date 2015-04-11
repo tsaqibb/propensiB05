@@ -1197,16 +1197,16 @@ font-weight: bold;
 }
 .panel-default .panel-heading {
   border-radius: 0px;
-  color: #3a3a3a;
+  color: #fff;
   height: 60px;
   /* font-family: Roboto Bold; */
   font-size: 20px;
   position: relative;
   padding-top: 15px;
 }
-.detail-label.label-blue, .panel-default .panel-heading {
+/*.detail-label.label-blue, .panel-default .panel-heading {
   background-color: #3bc4e6;
-}
+}*/
 .btn-blue, .btn-orange, .btn-payment, .btn-payment2 {
   padding: 8px 12px;
   border-radius: 22px;

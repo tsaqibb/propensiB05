@@ -164,8 +164,9 @@
                                              <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
-                                           <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
+                                           
                                        </div>
+                                       <button onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </button>
                                     </div>
                                  </div>
 
@@ -187,12 +188,10 @@
 
 <script>
     function tambahMateri(){
-        var a = "<ul class="list-groups">";
-        var b = "<a href="#">";
-        var c = "<button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>";
-        var d = "</a>";
-        var e = "</ul>";
-        $(".panel-body").append(a,b,c,d,e);
+        var a = "<ul class='list-groups'><a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a></ul>";
+        var b = "<a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a>";
+        var c = "<button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button>";
+        $(".panel-body").append(a);
 
     }
 
