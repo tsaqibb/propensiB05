@@ -19,7 +19,7 @@ class Guru_Model extends DataMapper {
 	var $has_one = array();
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('kelas');
+	var $has_many = array('kelas_model');
 
 	// --------------------------------------------------------------------
 	// Default Ordering

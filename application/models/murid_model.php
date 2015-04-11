@@ -1,10 +1,10 @@
 <?php
 
-class Murid extends DataMapper {
+class Murid_Model extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'murid';
+	var $model = 'murid_model';
 	var $table = 'murid';
 
 	// You can override the database connections with this option
