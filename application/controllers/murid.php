@@ -37,11 +37,4 @@ class Murid extends CI_Controller {
 		$this->load->view('murid/akses_materi');
 		$this->load->view('layout/footer');
 	}
-
-	public function daftar()
-	{
-		$this->load->view('layout/header');
-		$this->load->view('murid/mendaftar_kelas');
-		$this->load->view('layout/footer');
-	}
 }
