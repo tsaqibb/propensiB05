@@ -1,10 +1,10 @@
 <?php
 
-class Guru extends DataMapper {
+class Guru_Model extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'guru';
+	var $model = 'guru_model';
 	var $table = 'guru';
 
 	// You can override the database connections with this option
@@ -55,7 +55,7 @@ class Guru extends DataMapper {
 
 	function get_guru($id_guru)
 	{
-		return $this->where('id =', $id_guru)->get();
+		return $this->where('id_guru =', $id_guru)->get();
 	}
 	
 	// --------------------------------------------------------------------

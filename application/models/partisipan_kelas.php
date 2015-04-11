@@ -4,8 +4,8 @@ class Partisipan_Kelas extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'Partisipan_Kelas';
-	var $table = 'Partisipan_Kelas';
+	var $model = 'partisipan_Kelas';
+	var $table = 'partisipan_Kelas';
 
 	// You can override the database connections with this option
 	// var $db_params = 'db_config_name';
@@ -16,7 +16,7 @@ class Partisipan_Kelas extends DataMapper {
 	// --------------------------------------------------------------------
 
 	// Insert related models that Kelas can have just one of.
-	var $has_one = array();
+	var $has_one = array('kelas');
 
 	// Insert related models that Kelas can have more than one of.
 	var $has_many = array();
