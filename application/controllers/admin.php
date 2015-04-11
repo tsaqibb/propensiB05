@@ -20,10 +20,10 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer-admin');
 	}
 
-	public function partisipan()
+	public function calonpartisipan()
 	{
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/calon_partisipan');
+		$this->load->view('admin/calon_partisipan_kelas');
 		$this->load->view('layout/footer-admin');
 	}
 	public function galerikelas()
