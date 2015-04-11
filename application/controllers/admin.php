@@ -28,8 +28,10 @@ class Admin extends CI_Controller {
 	}
 	public function galerikelas()
 	{
+		$kelas_model = new Kelas();
+		$list_kelas = $kelas_model->get_published_list_kelas();
 		$this->load->view('layout/header');
-		$this->load->view('admin/galeri_kelas_admin');
+		$this->load->view('admin/galeri_kelas_admin', array('list_kelas' => $list_kelas));
 		$this->load->view('layout/footer');
 	}
 	public function detilkelas()
