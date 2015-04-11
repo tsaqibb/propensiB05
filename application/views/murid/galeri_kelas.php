@@ -35,10 +35,10 @@
                         </span>
                     </div><!-- description -->
                     <div class="nama-guru" data-toggle="tooltip" data-placement="right"
-                      title="<?php echo $kelas->guru_model->nama?>" data-original-title="<?php echo $kelas->guru_model->nama?>">
+                      title="<?php echo $kelas->teacher->nama?>" data-original-title="<?php echo $kelas->teacher->nama?>">
                         <div class="icon tag"><i class="fa fa-user fa-2"></i></div>
                         <a href="#">
-                            <?php echo character_limiter($kelas->guru_model->nama, 25); ?>
+                            <?php echo character_limiter($kelas->teacher->nama, 25); ?>
                         </a>
                     </div>
                 </div><!-- grid-bottom -->

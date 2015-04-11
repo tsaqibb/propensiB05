@@ -1,58 +1,16 @@
 <?php
 
-class Partisipan_Kelas extends DataMapper {
+class Students_Class extends DataMapper {
 
-	// Uncomment and edit these two if the class has a model name that
-	//   doesn't convert properly using the inflector_helper.
-	var $model = 'partisipan_Kelas';
-	var $table = 'partisipan_Kelas';
-
-	// You can override the database connections with this option
-	// var $db_params = 'db_config_name';
-
-	// --------------------------------------------------------------------
-	// Relationships
-	//   Configure your relationships below
-	// --------------------------------------------------------------------
-
-	// Insert related models that Kelas can have just one of.
 	var $has_one = array('kelas');
-
-	// Insert related models that Kelas can have more than one of.
 	var $has_many = array();
 
-	// --------------------------------------------------------------------
-	// Default Ordering
-	//   Uncomment this to always sort by 'name', then by
-	//   id descending (unless overridden)
-	// --------------------------------------------------------------------
-
 	var $default_order_by = array('id_murid' => 'asc');
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Constructor: calls parent constructor
-	 */
     function __construct($id = NULL)
 	{
 		parent::__construct($id);
     }
-
-	// --------------------------------------------------------------------
-	// Post Model Initialisation
-	//   Add your own custom initialisation code to the Model
-	// The parameter indicates if the current config was loaded from cache or not
-	// --------------------------------------------------------------------
-	function post_model_init($from_cache = FALSE)
-	{
-	}
-
-	// --------------------------------------------------------------------
-	// Custom Methods
-	//   Add your own custom methods here to enhance the model.
-	// --------------------------------------------------------------------
-
+    
 	// mengembalikan status suatu ID tertentu
 	function get_status($id)
 	{
