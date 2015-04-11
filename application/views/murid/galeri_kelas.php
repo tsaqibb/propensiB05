@@ -25,7 +25,7 @@
                 </a>
                 <div class="grid-bottom">
                     <span class="price">Rp <?php echo $kelas->harga; ?>,-</span>
-                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id_kelas; ?>">
+                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                         <span class="details">Details</span>
                     </a>
                     <div class="description">

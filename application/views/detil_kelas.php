@@ -61,7 +61,7 @@
                                 <i class="tag">#trigonometri</i>
                                 <br><br><br>
                                 <?php 
-                                echo $data_kelas->guru_model->nama; ?>
+                                echo $data_kelas->teacher->nama; ?>
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->

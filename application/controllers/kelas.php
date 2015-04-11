@@ -16,8 +16,8 @@ class Kelas extends CI_Controller {
 	public function detail($id)
 	{
 		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_class(array('id_kelas' => $id));
-		if(empty($data_kelas->id_kelas)) {
+		$data_kelas = $kelas_model->get_class(array('id' => $id));
+		if(empty($data_kelas->id)) {
 			show_404();
 			return;
 		}
