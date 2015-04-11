@@ -217,29 +217,46 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
+                                <input type="checkbox">select all</input>
+                                  <button type="submit" class="btn btn-default main-button register2">Inactive all</button>
+                                    <div class="panel-partisipan"> 
+                                      <table class="table">
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
                                   </div>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Wahyu Retnowati <a href=""> - 1206238715</a><br>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span> 25 Desember 2015</small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>          
-                              </div> 
                             </div><!-- tab-partisipan -->
                             
                             <div role="tabpanel" class="tab-pane" id="feedback">
