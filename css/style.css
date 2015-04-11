@@ -1089,6 +1089,9 @@ height:auto;
   color:rgb(225, 0, 101);
   font-weight: bold;
 }
+.text{
+  margin-left: 12px;
+}
 .bluefont{
 color: blue;
 font-weight: bold;
@@ -1097,6 +1100,11 @@ font-weight: bold;
   background-color: rgb(252, 166, 10);
   width: 100%;
   margin-bottom: 15px;
+}
+.btn-orange {
+  background-color: #fcb33b;
+  color: #fff;
+  /* border-color: #fcb33b; */
 }
 .grey {
   width: 100%;
@@ -1118,9 +1126,8 @@ font-weight: bold;
 }
 .btn-payment2{
   background-color: #fff;
-  width:25%;
-  text-align:left;
-  border:1px solid rgb (221,221,221);
+  width:100%;
+  text-align:center;
   border-top-color: rgb(221, 221, 221);
   border-top-style: solid;
   border-top-width: 1px;
@@ -1128,6 +1135,7 @@ font-weight: bold;
   border-radius: 20px;
   font-weight: bold;
   font-size: 16px;
+  margin-left: 0px;
 }
 .btn-payment2.active {
   background-color: rgb(225, 0, 101);
@@ -1138,12 +1146,10 @@ font-weight: bold;
   color: #fafafa;
 }
 .cancel.icon-button{
-
     padding-right: 10px;
     padding-top: 4px;
     padding-left: 10px;
     border-top-width: 2px;
-
 }
 .status{
     border-top-width: 1px;
@@ -1176,6 +1182,12 @@ font-weight: bold;
 .detail-label.label-blue, .panel-default .panel-heading {
   background-color: #3bc4e6;
 }
+.btn-blue, .btn-orange, .btn-payment, .btn-payment2 {
+  padding: 8px 12px;
+  border-radius: 22px;
+  font-weight: bold;
+  font-size: 18px;
+}
 .review-title {
   border-bottom: 2px solid #fcb33b;
   color: #fcb33b;
@@ -1189,6 +1201,12 @@ font-weight: bold;
   /*box-shadow: 0 2px 5px #999;*/
   margin-top: 0px;
   border: 1px #3bc4e6 solid;
+}
+.payment-howto:first-child {
+  padding-right: 2px !important;
+}
+.payment-howto {
+  padding: 5px 2px;
 }
 .main-button.register {
   display: table;
