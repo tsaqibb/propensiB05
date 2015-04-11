@@ -21,7 +21,7 @@
         
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>murid/daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -341,12 +341,10 @@
                                                     </span>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->
-
                         </div><!-- tab-content -->
                     </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
