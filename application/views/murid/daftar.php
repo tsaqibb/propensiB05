@@ -1,3 +1,18 @@
+<script type="text/javascript">
+function show_confirm()
+{
+var r=confirm("Apakah Anda yakin akan mendaftar?");
+if (r==true)
+{
+alert("Terima kasih atas pendaftarannya. Tunggu konfirmasi selanjutnya");
+}
+else
+{
+alert("Pendaftaran Anda telah dibatalkan");
+}
+}
+
+</script>
 <div class="container content kelas vendor">
     <div class="row">
         
@@ -149,7 +164,7 @@
                                 Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
                                 underline">persyaratan dan ketentuan</a> yang berlaku
                             </label><br><br>
-                            <button type="submit" class=" fa fa-user btn btn-default main-button register"> DAFTAR</button>                 
+                            <button type="submit" onclick="show_confirm()" value="Show confirm box" class=" fa fa-user btn btn-default main-button register"> DAFTAR</button>                 
                         </div>
 
                     </div> <!--panel methode-->
