@@ -30,7 +30,8 @@ class Course extends DataMapper {
 
 	function get_list_kelas_pending()
 	{
-		return $this->where('status_kelas =', 1)->or_where('status_kelas =', 3)->get();
+		$this->where('status_kelas =', 1)->or_where('status_kelas =', 3);
+		return $this->order_by('status_kelas')->get();
 	}
 
 	function get_list_kelas_request_unpublish() 
