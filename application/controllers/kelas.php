@@ -27,9 +27,27 @@ class Kelas extends CI_Controller {
 			return;
 		}
 		$data_kelas->teacher = $data_kelas->teacher->get();
+		
+		$feedback_model = new feedback();
+		$data_feedback = $feedback_model->get_by_id($id);
+
 		$this->load->view('layout/header');
-		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas));
+		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 'data_feedback'=>$data_feedback));
 		$this->load->view('layout/footer');
 		
+	}
+
+	public function aksesmateri($id)
+	{	
+
+		$materi_model = new Resource();
+		$open_materi = $materi_model->get_by_id($id);
+
+		$topik = $open_materi->topic->get();
+		$kelas = $topik->course->get();
+		
+		$this->load->view('layout/header'); 
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 'topik' => $topik ,'open_materi' => $open_materi));
+		$this->load->view('layout/footer');
 	}
 }

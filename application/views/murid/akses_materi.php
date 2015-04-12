@@ -19,16 +19,16 @@
 
 
 
-            <div class="group-materi">
-                <h3> &nbsp;Daftar Materi </h3>
+            <div class="group-materi"> 
+                <h3> &nbsp;Daftar Materi  </h3>
                  <?php
-                    $this->load->helper('text');
+                    $list_materi = $topik->resource->get();
                     foreach ($list_materi as $materi) : 
                     ?>
 
                 <ul class="list-group">
                    
-                    <li class="list-group-item"><span class="badge"> pdf</span><a href=""> <?php echo $materi->judul; ?> </a></li>
+                    <li class="list-group-item"><span class="badge"> video</span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
 
                     <!--<li class="list-group-item"><span class="badge"> video</span><a href=""> Fungsi Kuadrat </a></li>  
                     <li class="list-group-item"><span class="badge">video</span><a href=""> Matriks </a></li>
@@ -49,11 +49,11 @@
                     <div class="bredcrumbs">
                       <ul>
                         <li>  Now, You are in : </li>
-                        <li>  <a href="#"> Nama Kelas &nbsp;</a> </i>  </li>
+                        <li>  <a href="#"> <?php echo $kelas->nama;?> &nbsp;</a> </i>  </li>
                         <li> <i class="fa fa-hand-o-right"></i> &nbsp;</li>
-                        <li>  <a href="#">Topik &nbsp; </a> </li>
+                        <li>  <?php echo $topik->judul;?> &nbsp;  </li>
                         <li> <i class="fa fa-hand-o-right"></i> &nbsp;</li>
-                        <li>  Nama Materi &nbsp;</li>
+                        <li>  <?php echo $open_materi->judul; ?> &nbsp;</li>
                       </ul>
                     </div>
               </div>      
