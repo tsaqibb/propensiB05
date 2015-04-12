@@ -878,31 +878,56 @@ a.remove {
 /* end bagian Tab Materi */ 
 
 /* Bagian akses materi */
-.panel-video .panel-heading-materi{
-  display: inline-block;
+.heading-materi{
+  
+  
 }
-.panel-video .panel-title{
-  height: 100px;
+
+.bredcrumbs ul li {
+  text-decoration: none;
+  display: inline;  
+  list-style-type: none;
+  font-weight: 600;
+ font-family: Roboto Condensed bold;
+ font-size: 16px;
 }
 
 
+.bredcrumbs ul li a {
+  color: #fcb33b;
+}
+
+
+.content-video{
+  width: 100%;
+}
+
+.panel.panel-content{
+  padding: 0;
+}
 
 .space-video{
-margin-top: 100px;
+  width: 100%;
 }
 
+.group-materi{
+padding-top: 20px;
+text-align: center;
+}
 
-.panel-video{
-width: 1000px;
-height:auto;
+.group-materi .list-group a{
+  text-decoration: none;
+  color:#fcb33b;;
 
 }
 
+.panel-topik .hapus-topik{
+  text-decoration: none;
+  color:black;
+} 
 
-.panel-video .videoplayer{
-width:100%;
-height:auto;
-}
+
+
 
 
 

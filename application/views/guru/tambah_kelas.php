@@ -1,9 +1,9 @@
-<div class="container content kelas vendor">
+<div class="container-fluid content kelas vendor">
     <div class="row">
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="text-center">Halo, [Nama Guru]</h4>
+                <h4 class="profile-name text-center">Halo, [Nama Guru]</h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation">
@@ -14,7 +14,7 @@
                     </li>
                 </ul>
             </div><!-- sidebar -->
-        </div>
+        </div>  
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">Kelas</h2>
@@ -23,7 +23,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#detil-kelas" aria-controls="detil-kelas" role="tab" data-toggle="tab" aria-expanded="true" >Detil Kelas</a>
+                                <a href="#detil-kelas" aria-controls="detil-kelas" role="tab" data-toggle="tab" aria-expanded="true">Detil Kelas</a>
                             </li>
                             <li role="presentation">
                                 <a href="#materi" aria-controls="materi" role="tab" data-toggle="tab">Materi</a>
@@ -32,8 +32,9 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="detil-kelas">
+                            <div role="tabpanel" class="tab-pane" id="detil-kelas">
                                 <form class="form-horizontal">
+
                                     <div class="form-group">
                                         <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">
@@ -64,153 +65,114 @@
                                         Upload materi >>
                                     </div>
                                 </div>
+
                             </div><!-- published -->
-                             <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
-                              <div class="panel-group" id="accordion">
-                                 <div class="panel panel-topik">
+
+
+                                
+                        <div role="tabpanel" class="tab-pane tab-panemateri active " id="materi">
+                              <div class="panel-group" id="accordion">   
+
+                                <div class="panel panel-btn">
+                                    <div class="row">
+                                    <div class="col-md-5">
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" id="lg" placeholder="Tuliskan nama topik disini">
+                                    </div>
+                                    <div class="col-md-2">      
+                                        <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()"><i class="fa fa-pencil-square-o"></i>Tambah Topik</button>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <br>
+   
+                               
+
+                                <div class="panel panel-topik">
+                                   <a href="#" class="hapus-topik">Hapus Topik <i class="fa fa-times"></i></a>
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                        href="#matematikasma">
-                                        <i class="fa fa-chevron-circle-down"></i>
-                                        Matematika SMA 
-                                    </a> 
-                                    <div id="matematikasma" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="panel panel-topik">
-                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                        href="#matematikasmp">
-                                        <i class="fa fa-chevron-circle-down"></i>
-                                           Matematika SMP
-                                    </a>
-                                    <div id="matematikasmp" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#matematikasd"><i class="fa fa-chevron-circle-down"></i>
-                                             Matematika SD</a>
-                                    <div id="matematikasd" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 1</a>
-                                    <div id="topik1" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik2"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 2</a>
-                                    <div id="topik2" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik3"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 3</a>
+                                             Topik 1</a> 
+                                     
                                     <div id="topik3" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
                                              <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
                                           <ul class="list-groups">
                                             <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+
+                                          <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik4"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 4</a>
-                                    <div id="topik4" class="panel-collapse collapse">
+                               </div>
+
+                               <div class="panel panel-topik">
+                                   <a href="#" class="hapus-topik">Hapus Topik <i class="fa fa-times"></i></a>
+                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 2</a> 
+                                     
+                                    <div id="topik1" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
                                              <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
                                           <ul class="list-groups">
                                             <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+                                          <ul class="list-groups">
+                                            <a href="#">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             </a>
+                                          </ul>
+                                           <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+
+                               </div>
                             </div><!-- end tab materi -->
-                            <div role="tabpanel" class="tab-pane" id="draft">Kelas tidak tersedia </div><!-- draft -->
-                            <div role="tabpanel" class="tab-pane" id="past">Kelas tidak tersedia </div><!-- past -->
+
+                           
                         </div><!-- tab-content -->
 
                     </div><!-- tabpanel kelas -->
@@ -219,3 +181,19 @@
         </div>
     </div>
 </div> <!-- /container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    function tambahMateri(){
+        var a = "<ul class="list-groups">";
+        var b = "<a href="#">";
+        var c = "<button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>";
+        var d = "</a>";
+        var e = "</ul>";
+        $(".panel-body").append(a,b,c,d,e);
+
+    }
+
+</script>

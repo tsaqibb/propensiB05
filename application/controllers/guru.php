@@ -26,4 +26,11 @@ class Guru extends CI_Controller {
 		$this->load->view('guru/tambah_kelas');
 		$this->load->view('layout/footer');
 	}
+
+	public function tambahmateri(){
+		$this->load->view('layout/header');
+		$this->load->view('guru/tambah_materi');
+		$this->load->view('layout/footer');
+
+	}
 }
