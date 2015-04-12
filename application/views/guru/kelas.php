@@ -39,29 +39,29 @@
                                             <tr class="text-center">
                                                 <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
-                                                <td class="statusdetil">Status</td>
+                                                <td class="statusdetil">Edit</td>
                                                 <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach ($list_published_kelas as $kelas) : ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td class="nama">Web Programming - Basic</td>
+                                                <td><?php echo $kelas->id; ?></td>
+                                                <td class="nama"><?php echo $kelas->nama ?></td>
+                                                <?php if($kelas->status_kelas == 5) : ?>
                                                 <td>
+                                                    <span class="pending icon-circle" title="" data-original-title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
                                                 </td>
+                                                <?php else: ?>
                                                 <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                </td>
+                                                <?php endif; ?>
+                                                <td>
+                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td class="nama">Web Programming - Advance</td>
-                                                <td>
-                                                    <span class="pending icon-circle" title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
-                                                <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div><!-- table-responsive -->
@@ -87,18 +87,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach ($list_draft_kelas as $kelas) : ?>
                                             <tr>
                                                 <td>3</td>
                                                 <td class="nama">PHP Programming - Basic</td>
                                                 <td>
+                                                    <?php if($kelas->status_kelas == 1 ) : ?>
+                                                        <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
+                                                    <?php elseif($kelas->status_kelas == 2 ) : ?>
+                                                        <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
+                                                    <?php elseif($kelas->status_kelas == 3 ) : ?>
+                                                        <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
+                                                    <?php else : ?>
+                                                        <span class="cancel icon-circle" title="Rejected"><i class="fa fa-close"></i></span>
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    <?php if($kelas->status_kelas == 1 || $kelas->status_kelas == 3) : ?>
+                                                        <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td>
                                                     <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
+                                        <?php endforeach; ?>
                                             <tr>
                                                 <td>3</td>
                                                 <td class="nama">Java Programming - Basic</td>
