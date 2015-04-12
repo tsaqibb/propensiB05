@@ -2,20 +2,6 @@
 
 class Feedback extends DataMapper {
 
-	// Uncomment and edit these two if the class has a model name that
-	//   doesn't convert properly using the inflector_helper.
-	var $model = 'feedback';
-	var $table = 'feedback';
-
-	// You can override the database connections with this option
-	// var $db_params = 'db_config_name';
-
-	// --------------------------------------------------------------------
-	// Relationships
-	//   Configure your relationships below
-	// --------------------------------------------------------------------
-
-	// Insert related models that Kelas can have just one of.
 	var $has_one = array('kelas');
 
 	// Insert related models that Kelas can have more than one of.
@@ -36,7 +22,7 @@ class Feedback extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($id_feedback);
+		parent::__construct($id);
     }
 
 	// --------------------------------------------------------------------

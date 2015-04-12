@@ -36,11 +36,6 @@ class Course extends DataMapper {
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 
-	function get_created_list_kelas($id_guru)
-	{
-		return $this->where('teacher_id =', $id_guru)->get();
-	}
-
 	function get_class($var)
 	{
 		return $this->where($var)->get();
