@@ -19,7 +19,7 @@ class Feedback extends DataMapper {
 	var $has_one = array('kelas');
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array();
+	var $has_many = array('tanggapan');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
