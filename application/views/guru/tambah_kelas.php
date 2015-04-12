@@ -92,12 +92,20 @@
                                
 
                                 <div class="panel panel-topik">
-                                   <a href="#" class="hapus-topik">Hapus Topik <i class="fa fa-times"></i></a>
+                                    <div class="panel-judul-topik">
+                                      <div class="row">   
+                                        <div class="col-md-10">                                                           
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik3"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 1</a> 
-                                     
-                                    <div id="topik3" class="panel-collapse collapse">
+                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 1 </a> 
+                                        </div>
+                                        <div class="col-md-2">
+                                             <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>
+                                        </div>
+                                           </div>
+                                     </div>
+
+                                     <div id="topik1" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
                                              <a href="#">
@@ -131,13 +139,21 @@
                                  </div>
                                </div>
 
-                               <div class="panel panel-topik">
-                                   <a href="#" class="hapus-topik">Hapus Topik <i class="fa fa-times"></i></a>
+                                <div class="panel panel-topik">
+                                    <div class="panel-judul-topik">
+                                      <div class="row">   
+                                        <div class="col-md-10">                                                           
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 2</a> 
+                                          href="#topik2"><i class="fa fa-chevron-circle-down"></i>
+                                             Topik 1 </a> 
+                                        </div>
+                                        <div class="col-md-2">
+                                             <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>
+                                        </div>
+                                           </div>
+                                     </div>
                                      
-                                    <div id="topik1" class="panel-collapse collapse">
+                                     <div id="topik2" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
                                              <a href="#">
@@ -164,12 +180,11 @@
                                              <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
-                                           
+
+                                          <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                        </div>
-                                       
                                     </div>
                                  </div>
-
                                </div>
                             </div><!-- end tab materi -->
 
@@ -184,7 +199,7 @@
 </div> <!-- /container -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 
 <script>
     function tambahMateri(){

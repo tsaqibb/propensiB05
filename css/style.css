@@ -910,6 +910,10 @@ a.remove {
   width: 100%;
 }
 
+.videoplayer{
+  width: 100%;
+  height:auto;
+}
 .group-materi{
 padding-top: 20px;
 text-align: center;
@@ -923,7 +927,9 @@ text-align: center;
 
 .panel-topik .hapus-topik{
   text-decoration: none;
-  color:black;
+  color:grey;
+  padding-top: 3px;
+
 } 
 
 
@@ -1198,7 +1204,7 @@ font-weight: bold;
 .panel-default .panel-heading {
   border-radius: 0px;
   color: #fff;
-  height: 35px;
+  height: 30px;
   /* font-family: Roboto Bold; */
   font-size: 17px;
   position: relative;

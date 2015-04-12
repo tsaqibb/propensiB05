@@ -1,9 +1,9 @@
-<div class="container content kelas vendor">
+<div class="container-fluid content kelas vendor">
     <div class="row">
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="profile-name text-center">Hello Gama</h4>
+                <h4 class="profile-name text-center">Nama User</h4>
               
 
                 <!-- Nav tabs -->
@@ -21,13 +21,24 @@
 
             <div class="group-materi">
                 <h3> &nbsp;Daftar Materi </h3>
+                 <?php
+                    $this->load->helper('text');
+                    foreach ($list_materi as $materi) : 
+                    ?>
+
                 <ul class="list-group">
-                    <li class="list-group-item"><span class="badge"> pdf</span><a href=""> Persamaan garis lurus </a></li>
-                    <li class="list-group-item"><span class="badge"> video</span><a href=""> Fungsi Kuadrat </a></li>  
+                   
+                    <li class="list-group-item"><span class="badge"> pdf</span><a href=""> <?php echo $materi->judul; ?> </a></li>
+
+                    <!--<li class="list-group-item"><span class="badge"> video</span><a href=""> Fungsi Kuadrat </a></li>  
                     <li class="list-group-item"><span class="badge">video</span><a href=""> Matriks </a></li>
                     <li class="list-group-item"><span class="badge"> pdf</span> <a href="">Integral </a></li>
                     <li class="list-group-item"><span class="badge"> video</span> <a href=""> Lingkaran </a></li>  
-                    <li class="list-group-item"><span class="badge">video</span> <a href="">Trigonometri </a></li>
+                    <li class="list-group-item"><span class="badge">video</span> <a href="">Trigonometri </a></li> -->
+
+                    <?php
+                     endforeach;
+                    ?>
                 </ul>
             </div>
         </div>

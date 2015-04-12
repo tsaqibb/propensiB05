@@ -8,7 +8,7 @@ class Murid extends CI_Controller {
 
 	public function index()
 	{
-		$kelas_model = new Class();
+		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));
@@ -24,7 +24,7 @@ class Murid extends CI_Controller {
 
 	public function galerikelas()
 	{
-		$kelas_model = new Class();
+		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));
@@ -32,9 +32,11 @@ class Murid extends CI_Controller {
 	}
 
 	public function aksesmateri()
-	{
-		$this->load->view('layout/header');
-		$this->load->view('murid/akses_materi');
+	{	
+		$materi_model = new Resources();
+		$list_materi = $materi_model->get_list_materi();
+		$this->load->view('layout/header'); 
+		$this->load->view('murid/akses_materi', array('list_materi' => $list_materi));
 		$this->load->view('layout/footer');
 	}
 }
