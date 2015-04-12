@@ -67,29 +67,43 @@
                             <!-- start Tab Materi -->
                            <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">
+                               
+                                <?php 
+                                $list_topik = $data_topik;
+                               
+                                foreach ( $list_topik as $topik ):
+                                ?>
                                  <div class="panel panel-topik">
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                        href="#matematikasma">
+                                        href="#topik<?php echo $topik->id; ?>">
                                         <i class="fa fa-chevron-circle-down"></i>
-                                        Matematika SMA 
+                                   <?php echo $topik->judul; ?>
                                     </a>
-                                    <div id="matematikasma" class="panel-collapse collapse">
+                                    <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse">
                                        <div class="panel-body">
+                                        <?php  $list_materi = $topik->resource->get();
+                                        foreach ($list_materi as $materi) :
+                                        ?>
                                           <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
+                                             <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                             <li class="list-group-item"> <?php echo $materi->judul; ?></li>
                                              </a>
                                           </ul>
-                                          <ul class="list-groups">
+                                        <?php endforeach ?>
+                                          <!-- <ul class="list-groups">
                                             <a href="#">
                                              <li class="list-group-item">Persamaan Kuadrat</li>
                                              </a>
-                                          </ul>
+                                          </ul> -->
                                        </div>
                                     </div>
                                  </div>
 
-                                 <div class="panel panel-topik">
+                                 <?php
+                                  endforeach;
+                                 ?>
+
+                                 <!-- <div class="panel panel-topik">
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                         href="#matematikasmp">
                                         <i class="fa fa-chevron-circle-down"></i>
@@ -206,8 +220,8 @@
                                           </ul>
                                        </div>
                                     </div>
-                                 </div>
-                              </div>
+                                 </div> -->
+                              </div> 
                             </div><!-- end tab materi -->
                             
                             <div role="tabpanel" class="tab-pane" id="review">
