@@ -24,8 +24,10 @@ class Admin extends CI_Controller {
 
 	public function calonpartisipan()
 	{
+		$partisipan_kelas = new partisipan_kelas();
+		$list_partisipan = $partisipan_kelas->get_list_partisipan_nonactive($id);
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/calon_partisipan_kelas');
+		$this->load->view('admin/calon_partisipan_kelas', array('list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
 	}
 	public function galerikelas()
@@ -44,8 +46,10 @@ class Admin extends CI_Controller {
 	}
 	public function partisipan()
 	{
+		$partisipan_kelas = new partisipan_kelas();
+		$list_partisipan = $partisipan_kelas->get_list_partisipan_active($id);
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/partisipan_kelas');
+		$this->load->view('admin/partisipan_kelas', array('list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
 	}
 	public function contoh()
