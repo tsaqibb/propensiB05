@@ -32,9 +32,11 @@ class Murid extends CI_Controller {
 	}
 
 	public function aksesmateri()
-	{
-		$this->load->view('layout/header');
-		$this->load->view('murid/akses_materi');
+	{	
+		$materi_model = new Resources();
+		$list_materi = $materi_model->get_list_materi();
+		$this->load->view('layout/header'); 
+		$this->load->view('murid/akses_materi', array('list_materi' => $list_materi));
 		$this->load->view('layout/footer');
 	}
 }

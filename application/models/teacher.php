@@ -4,8 +4,7 @@ class Teacher extends DataMapper {
 
 	var $has_one = array();
 	var $has_many = array('course');
-	var $default_order_by = array('id' => 'desc');
-
+	
     function __construct($id = NULL)
 	{
 		parent::__construct($id);
