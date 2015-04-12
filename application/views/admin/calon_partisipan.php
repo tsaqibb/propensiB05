@@ -1,3 +1,54 @@
+<script>
+  function toggle(source) 
+  {
+  checkboxes = document.getElementsByTagName('input');
+    for(var i=0, n=checkboxes.length;i<n;i++) 
+    {
+      checkboxes[i].checked = source.checked;
+    }
+  }
+</script>
+
+<script type=text/javascript>
+    function validate()
+    {
+      var masukan = document.getElementsByTagName("input");
+        if (masukan.checked)
+        {
+            var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+            if (r==true)
+            {
+                alert("Approval berhasil");
+            }
+            else
+            {
+                alert("Approval Anda telah dibatalkan");
+            }
+        }
+        else
+        {
+            alert("Anda belum memilih murid")
+        }
+    }
+</script>
+<script type=text/javascript>
+function confirm()
+    {
+            var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+            if (r==true)
+            {
+                alert("Approval berhasil");
+            }
+            else
+            {
+                alert("Approval Anda telah dibatalkan");
+            }
+    }
+</script>
+<br><h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2><br>
+                  <hr class="line"><br>
+                    <input class ="checkbox1" type="checkbox" onclick="toggle(this)"><strong>select all</strong></input>
+                      <span><a type="button" class="main-button register2" onclick="validate()" >Activate all</a></span>
 <div id="container" class="kelas-online">
     <div class="shell">
         <!-- Main -->
@@ -10,7 +61,7 @@
 
                     <!-- Box Head -->
                     <div class="box-head">
-                        <h2 class="left">Calon Murid</h2>
+                        <h2 class="left ">Calon Murid</h2>
                     </div>
                     <!-- End Box Head -->
 

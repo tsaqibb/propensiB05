@@ -3,11 +3,7 @@
 class Course extends DataMapper {
 
 	var $has_one = array('teacher');
-<<<<<<< HEAD
 	var $has_many = array('topic', 'feedback', 'students_class', 'student');
-=======
-	var $has_many = array('topic', 'feedback');
->>>>>>> 11571f2af7ef8e57f94fc7420f4364750b11e309
 
 	var $default_order_by = array('id' => 'desc');
     
