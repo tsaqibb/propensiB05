@@ -36,7 +36,7 @@ class Partisipan_Kelas extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($id_murid);
+		parent::__construct($id);
     }
 
 	// --------------------------------------------------------------------
@@ -62,14 +62,14 @@ class Partisipan_Kelas extends DataMapper {
 	}
 	
 	//menampilkan partisipan didalam suatu kelas
-	function get_list_partisipan_active($id)
+	function get_list_partisipan_active()
 	{
-		 $query = "id_kelas ='id' AND isActive = '1'"; 
+		$query = "id_kelas ='id' AND isActive = '1'"; 
 		return $this->where($query);
 	}
 
 	//menampilkan calon partisipan
-	function get_list_partisipan_nonactive($id)
+	function get_list_partisipan_nonactive()
 	{
 		$query = "isActive = '0'"; 
 		$this->where($query);
