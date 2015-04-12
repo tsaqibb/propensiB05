@@ -49,7 +49,7 @@
                     <div class="bredcrumbs">
                       <ul>
                         <li>  Now, You are in : </li>
-                        <li>  <a href="#"> <?php echo $kelas->nama;?> &nbsp;</a> </i>  </li>
+                        <li>  <a href="<?php echo base_url();?>kelas/detail/<?php echo $kelas->id;?>"> <?php echo $kelas->nama;?> &nbsp;</a> </i>  </li>
                         <li> <i class="fa fa-hand-o-right"></i> &nbsp;</li>
                         <li>  <?php echo $topik->judul;?> &nbsp;  </li>
                         <li> <i class="fa fa-hand-o-right"></i> &nbsp;</li>
