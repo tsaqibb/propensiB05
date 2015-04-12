@@ -35,11 +35,6 @@ class Course extends DataMapper {
 		return $this->where('status_kelas =', 1)->or_where('status_kelas =', 3)->get();
 	}
 
-	function get_created_list_kelas($id_guru)
-	{
-		return $this->where('id_guru =', $id_guru)->get();
-	}
-
 	function get_class($var)
 	{
 		return $this->where($var)->get();
