@@ -61,7 +61,7 @@
             <div class="panel content-video">
               <div class="space-video">
                 <video class="videoplayer" controls>                  
-                  <source src="<?php echo base_url(); ?>/video1.mp4" type="video/mp4">         
+                  <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
                 </video>
               </div>
             </div>
