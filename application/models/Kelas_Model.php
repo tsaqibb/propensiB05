@@ -4,7 +4,7 @@ class Kelas_Model extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'kelas';
+	var $model = 'kelas_model';
 	var $table = 'kelas';
 
 	// You can override the database connections with this option
@@ -16,7 +16,7 @@ class Kelas_Model extends DataMapper {
 	// --------------------------------------------------------------------
 
 	// Insert related models that Kelas can have just one of.
-	var $has_one = array('guru');
+	var $has_one = array('guru_model');
 
 	// Insert related models that Kelas can have more than one of.
 	var $has_many = array('topik', 'feedback');

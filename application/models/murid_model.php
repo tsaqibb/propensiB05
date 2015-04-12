@@ -1,11 +1,11 @@
 <?php
 
-class Guru extends DataMapper {
+class Murid_Model extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
-	var $model = 'guru';
-	var $table = 'guru';
+	var $model = 'murid_model';
+	var $table = 'murid';
 
 	// You can override the database connections with this option
 	// var $db_params = 'db_config_name';
@@ -19,7 +19,7 @@ class Guru extends DataMapper {
 	var $has_one = array();
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('kelas');
+	var $has_many = array('kelas', 'materi');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
@@ -27,7 +27,7 @@ class Guru extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('id_guru' => 'desc');
+	var $default_order_by = array('nama' => 'asc');
 
 	// --------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ class Guru extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($id);
+		parent::__construct($nama);
     }
 
 	// --------------------------------------------------------------------
@@ -53,9 +53,9 @@ class Guru extends DataMapper {
 	//   Add your own custom methods here to enhance the model.
 	// --------------------------------------------------------------------
 
-	function get_guru($id_guru)
+	function get_murid($id)
 	{
-		return $this->where('id =', $id_guru)->get();
+		return $this->where('id =', $id)->get();
 	}
 	
 	// --------------------------------------------------------------------

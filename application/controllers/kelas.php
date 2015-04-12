@@ -5,7 +5,7 @@ class Kelas extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 	}
-	public function index($id)
+	public function index()
 	{
 		$kelas_model = new Kelas_Model();
 		$list_kelas = $kelas_model->get_published_list_kelas();
@@ -21,8 +21,9 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
+//		var_dump($data_kelas->guru_model); exit;
 		$this->load->view('layout/header');
-		$this->load->view('detil_kelas', $data_kelas);
+		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas));
 		$this->load->view('layout/footer');
 	}
 }
