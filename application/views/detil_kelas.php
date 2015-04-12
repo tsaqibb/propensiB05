@@ -218,27 +218,33 @@
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
                                 <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
+
                                   <div class="actived-partisipan">
                                     <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
                                             <small class="matkul text-muted"></small>
-                                    </span>
+                                    </span> <span><a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a></span>
+
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
+
                                   <div class="actived-partisipan">
                                     <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
                                             <small class="matkul text-muted"></small>
-                                    </span>
+                                    </span><span><a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a></span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
+                                  
+
                                   <div class="actived-partisipan">
                                     <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
                                             <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
                                             <small class="matkul text-muted"></small>
-                                    </span>
+                                    </span><span><a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a></span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>          
+                                </div>
+
                               </div> 
                             </div><!-- tab-partisipan -->
                             

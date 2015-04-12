@@ -18,12 +18,12 @@ class Kelas extends CI_Controller {
 	public function detail($id)
 	{
 		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_class(array('id' => $id));
+		$data_kelas = $kelas_model->get_by_id($id);
 		if(empty($data_kelas->id)) {
 			show_404();
 			return;
 		}
-//		var_dump($data_kelas->guru_model); exit;
+		var_dump($data_kelas->teacher); exit;
 		$this->load->view('layout/header');
 		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas));
 		$this->load->view('layout/footer');

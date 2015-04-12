@@ -1049,10 +1049,10 @@ text-align: center;
 .icon-button {
   border-radius: 20px;
   display: inlin28block;
-  height: 30px;
   padding: 5px;
   text-align: center;
   width: 115px;
+  float:right;
 }
 .sub-content .status {
   width: 115px;
@@ -1083,6 +1083,7 @@ text-align: center;
 .approve.icon-button {
   border: #fcb33b 2px solid;
   color: #fcb33b;
+  margin-right: 10%;
 }
 .approved.icon-circle {
   background-color: #fcb336;
@@ -1202,13 +1203,14 @@ font-weight: bold;
   padding-top: 0px;
 }
 .panel-default .panel-heading {
-  border-radius: 0px;
   color: #fff;
+<<<<<<< HEAD
   height: 30px;
   /* font-family: Roboto Bold; */
   font-size: 17px;
+=======
+>>>>>>> origin/master
   position: relative;
-  padding-top: 0;
 }
 /*.detail-label.label-blue, .panel-default .panel-heading {
   background-color: #3bc4e6;
@@ -1227,11 +1229,12 @@ font-weight: bold;
 .panel-partisipan{
   background-color: #FOF8FF;
   font-size: 15px;
-  color: #00008B;
+  color: #8B1000;
   padding: 8px;
   /*box-shadow: 0 2px 5px #999;*/
   margin-top: 0px;
   border: 1px #3bc4e6 solid;
+  border-top: 0px;
 }
 .payment-howto:first-child {
   padding-right: 2px !important;
@@ -1274,15 +1277,15 @@ font-weight: bold;
   padding-bottom: 8px;
 }
 .actived-partisipan {
-  margin: 0px 0px 1px 60px;
+  margin: 0px 0px -50px 60px;
 }
 .actived-partisipan .img-circle {
   height: 90px;
   width: 90px;
   position: relative;
-  left: -390px;
+  left: -30px;
   border: 2px #fcb33b solid;
-  top: -14px;
+  top: -69px;
 }
 .actived-partisipan .nama {
   background-color: #fcb33b;
@@ -1294,7 +1297,6 @@ font-weight: bold;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
 }
-
 /*end partisipan*/
 
 /*profile*/
