@@ -21,7 +21,7 @@
         
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>murid/daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -36,7 +36,7 @@
                                 <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a>
                             </li>
                             <li role="presentation">
-                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
+                                <a href="<?php echo base_url();?>admin/partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
