@@ -603,7 +603,7 @@ thead {
   /*font-family: Roboto Bold;*/
   font-size: 20px;
   position: relative;
-}
+} 
 
 .panel-default .panel-heading-feedback {
   border-radius: 5px;
@@ -1198,11 +1198,11 @@ font-weight: bold;
 .panel-default .panel-heading {
   border-radius: 0px;
   color: #fff;
-  height: 60px;
+  height: 35px;
   /* font-family: Roboto Bold; */
-  font-size: 20px;
+  font-size: 17px;
   position: relative;
-  padding-top: 15px;
+  padding-top: 0;
 }
 /*.detail-label.label-blue, .panel-default .panel-heading {
   background-color: #3bc4e6;

@@ -166,7 +166,7 @@
                                           </ul>
                                            
                                        </div>
-                                       <button onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </button>
+                                       
                                     </div>
                                  </div>
 
