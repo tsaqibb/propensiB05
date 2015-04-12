@@ -1,126 +1,151 @@
 <script>
-function toggle(source) {
-  checkboxes = document.getElementsByTagName('input');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-</script>
-<script type="text/javascript">
-  function show_confirm()
+  function toggle(source) 
   {
-    var r=confirm("Apakah Anda yakin akan mengaktifkan murid?");
-    if (r==true)
+  checkboxes = document.getElementsByTagName('input');
+    for(var i=0, n=checkboxes.length;i<n;i++) 
     {
-      alert("Approve berhasil");
-    }
-    else
-    {
-      alert("Approval Anda telah dibatalkan");
+      checkboxes[i].checked = source.checked;
     }
   }
 </script>
-                <h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2><br><hr class="line"><br>
-                    <!--<div role="tabpanel" class="tab-pane active" id="partisipan">-->
-                        <input class ="checkbox1" type="checkbox" onclick="toggle(this)">select all</input>
-                            <a type="button" onclick="show_confirm()" value="Show confirm box" class="main-button register2">Activate all</a>
-                                <br><br>
-                                    <table class="table">
+
+<script type=text/javascript>
+    function validate()
+    {
+      var masukan = document.getElementsByTagName("input");
+        if (masukan.checked)
+        {
+            var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+            if (r==true)
+            {
+                alert("Approval berhasil");
+            }
+            else
+            {
+                alert("Approval Anda telah dibatalkan");
+            }
+        }
+        else
+        {
+            alert("Anda belum memilih murid")
+        }
+    }
+</script>
+<script type=text/javascript>
+function confirm()
+    {
+            var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+            if (r==true)
+            {
+                alert("Approval berhasil");
+            }
+            else
+            {
+                alert("Approval Anda telah dibatalkan");
+            }
+    }
+</script>
+              <br><h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2><br>
+                  <hr class="line"><br>
+                    <input class ="checkbox1" type="checkbox" onclick="toggle(this)"><strong>select all</strong></input>
+                      <a type="button" class="main-button register2" onclick="validate()" >Activate all</a>
+                        <br><br>
+                                    <table class="table" name="table">
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Pertama - <a href=""> 1206238715</a><br>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
                                             <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                            <a class ="matkul"href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Kedua - <a href=""> 1206238715</a><br>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
                                             <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()"class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Ketiga - <a href=""> 1206238715</a><br>
-                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid keempat - <a href=""> 1206238715</a><br>
-                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                          <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid kelima - <a href=""> 1206238715</a><br>
-                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Keenam - <a href=""> 1206238715</a><br>
-                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                          <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Ketujuh - <a href=""> 1206238715</a><br>
-                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online</a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
                                           </td>
-                                          <td class="nama">Nama Murid Kedelapan - <a href=""> 1206238715</a><br>
+                                          <td class="nama">Fransiska Ayu Dewi Kusumaningtyas <a href="">1206238715</a><br>
                                             <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
-                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>30 Desember 2015</small>
+                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com</a>
                                           </td>
                                           <td class="status">
-                                            <a href="#" onclick="show_confirm()" value="Show confirm box" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                           </td>
                                         </tr>
-                                      </table><br><br>   
+                                      </table>   
  

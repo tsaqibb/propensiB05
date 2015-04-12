@@ -1,25 +1,33 @@
+/*calon partisipan*/
+@font-face { 
+  font-family: Ubuntu; 
+  src: url('../fonts/Ubuntu-R.ttf'); 
+}
 .block-title {
   color: #B22222;
   font-weight: bold;
   text-align: left;
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 5px;
+  font-family: Ubuntu; 
+  src: url('../fonts/Ubuntu-R.ttf');
 }
 .line{
-  border-width: 3px;
+  border-width: 5px;
 }
 .judul{
-  margin-left: 580px;
+  margin-left: 560px;
   text-decoration: uppercase;
 }
 .table{
   margin-left: 445px;
-  width: 500px;
+  width: 550px;
 }
 .table td{ 
-  background:#F0FFFF;  
+  background:#F0FFFF;
+  border-bottom: solid 1px #F56B08;  
   border-radius:5px; 
-  padding:8px 10px; 
+  padding:10px 10px; 
 }
 .checkbox1{
     margin-left: 445px;
@@ -37,13 +45,17 @@
   padding-right: 8px;
   padding-left: 8px;
   margin-left: 50px;
-  margin-right: 433px;
+  margin-right: 376px;
   border-radius: 5px;
   border: 5px;
 }
+.approved.icon-button.active {
+  background-color: rgb(225, 0, 101);
+  color: #fafafa;
+}
 .approve.icon-button {
-  border: #fcb33b 2px solid;
-  color: #fcb33b;
+  border: #D86746 2px solid;
+  color: #FCA93B;
 }
 .icon-button {
   border-radius: 20px;
@@ -51,11 +63,22 @@
   text-align: center;
   margin-left: 11px;
 }
+.nama{
+  text-align: left;
+  font-weight: bold;
+  font-size: 12px;
+}
+.matkul{
+  text-align: left;
+  font-weight: lighter;
+}
+/*end 0f calon partisipan*/
+
 * { padding:0; margin:0; outline:0; }
 body {
 	background:#f9ebae;
-	font-family: Verdana, sans-serif;
-	font-size:11px;
+	font-family: Ubuntu;
+	font-size:12px;
 	line-height:14px;
 	color:#5e5e5e;
 }
@@ -207,7 +230,7 @@ h3 a{ text-decoration: none; }
 
 .table {}
 .table th{ background:#fffdfa url(../images/admin/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
-.table td{ background:#fbfcfc;  border-bottom:solid 1px #e0e0e0; padding:8px 10px; }
+
 .table tr.odd td{ background:#f8f8f8; }
 .table tr:hover td{ background:#fff9e1; }
 .table a.ico{ }
