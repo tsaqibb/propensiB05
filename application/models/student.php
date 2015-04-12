@@ -11,14 +11,6 @@ class Student extends DataMapper {
 		parent::__construct($nama);
     }
 	
-	function post_model_init($from_cache = FALSE)
-	{
-	}
-
-	function get_murid($id)
-	{
-		return $this->where('id =', $id)->get();
-	}
 }
 
 /* End of file guru.php */
