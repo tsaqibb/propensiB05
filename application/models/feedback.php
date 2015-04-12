@@ -19,7 +19,7 @@ class Feedback extends DataMapper {
 	var $has_one = array('kelas');
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('tanggapan');
+	// var $has_many = array('tanggapan');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
@@ -27,7 +27,7 @@ class Feedback extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('id_feedback' => 'asc');
+	var $default_order_by = array('id' => 'asc');
 
 	// --------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ class Feedback extends DataMapper {
 
 	function get_feedback($id_feedback)
 	{
-		return $this->where('id_feedback =', $id_feedback)->get();
+		return $this->where('id =', $id_feedback)->get();
 	}
 	
 	// --------------------------------------------------------------------

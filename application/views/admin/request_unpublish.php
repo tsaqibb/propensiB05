@@ -19,12 +19,13 @@
                                     <th>ID Kelas</th>
                                     <th>Nama Kelas</th>
                                     <th>Status Kelas</th>
+                                    <th class="center">E-mail Guru</th>
                                     <th class="center">Action</th>
                                     <th class="center">Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($list_kelas_pending as $kelas) : ?>
+                                <?php foreach ($list_kelas_request_unpublish as $kelas) : ?>
                                 <tr>
                                     <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">
                                         <?php echo $kelas->id; ?></a>
@@ -33,25 +34,14 @@
                                         <?php echo $kelas->nama; ?>
                                     </td>
                                     <td>
-                                        <?php 
-                                        if ($kelas->status_kelas=='1') {
-                                            echo "Pending Approve"; 
-                                        }       
-                                        elseif ($kelas->status_kelas=='3') {
-                                            echo "Pending Publish";
-                                        }
-                                        ?>
+                                        <?php echo "Requested to Unpublish"; ?>
                                     </td>
                                     <td class="center action">
-                                        <?php if($kelas->status_kelas=='1') : ?>
-                                            <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                            <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
-                                        <?php endif; ?>
-
-                                        <?php if($kelas->status_kelas=='3') : ?>
-                                             <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
-                                             <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
-                                        <?php endif; ?>
+                                        <?php echo $kelas->teacher->get()->e_mail; ?>
+                                    </td>
+                                    <td class="center action">
+                                        <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Unpublish</a>
+                                        <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>   
                                     </td>
                                     <td class="center">
                                         <a href="#detilkelas" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>

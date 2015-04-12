@@ -43,7 +43,7 @@
 							</a>
 							<ul>
 								<li>
-									<a href="#" class="active">
+									<a href="#pendingclasses" class="active">
 										Class Confirmation
 									</a>
 								</li>
@@ -53,7 +53,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="#" class="">
+									<a href="#publishedclasses" class="">
 										Published Classes
 									</a>
 								</li>
