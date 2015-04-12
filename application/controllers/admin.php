@@ -45,14 +45,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/detil_kelas_admin');
 		$this->load->view('layout/footer');
 	}
-	public function partisipan()
-	{
-		$partisipan_kelas = new Students_Class();
-		$list_partisipan = $partisipan_kelas->get_list_partisipan_active();
-		$this->load->view('layout/header-admin');
-		$this->load->view('admin/partisipan_kelas', array('list_partisipan' => $list_partisipan));
-		$this->load->view('layout/footer-admin');
-	}
+	
 
 	public function pendingclasses()
 	{
