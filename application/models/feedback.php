@@ -4,18 +4,7 @@ class Feedback extends DataMapper {
 
 	var $has_one = array('kelas');
 
-	// Insert related models that Kelas can have more than one of.
-	// var $has_many = array('tanggapan');
-
-	// --------------------------------------------------------------------
-	// Default Ordering
-	//   Uncomment this to always sort by 'name', then by
-	//   id descending (unless overridden)
-	// --------------------------------------------------------------------
-
 	var $default_order_by = array('waktu_kirim' => 'asc');
-
-	// --------------------------------------------------------------------
 
 	/**
 	 * Constructor: calls parent constructor
