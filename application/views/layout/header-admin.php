@@ -68,7 +68,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url();?>admin/galerikelas" class="">
+									<a href="<?php echo base_url();?>kelas" class="">
 										Galeri Kelas
 									</a>
 								</li>
