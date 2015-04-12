@@ -24,9 +24,15 @@ class Course extends DataMapper {
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 
-	function get_new_list_kelas()
+	function get_pendingapprove_list_kelas()
 	{
-		return $this->where('status_kelas =', 1)->get();
+		$this->where('status_kelas =', 2);
+		return $this->order_by('id')->get();
+	}
+
+	function get_list_kelas_pending()
+	{
+		return $this->where('status_kelas =', 1)->or_where('status_kelas =', 3)->get();
 	}
 
 	function get_created_list_kelas($id_guru)
