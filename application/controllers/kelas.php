@@ -32,8 +32,7 @@ class Kelas extends CI_Controller {
 		$data_feedback = $feedback_model->get_by_id($id);
 
 		$this->load->view('layout/header');
-		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas));
-		$this->load->view('detil_kelas/feedback', array('data_feedback'=>$data_feedback));
+		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 'data_feedback'=>$data_feedback));
 		$this->load->view('layout/footer');
 		
 	}
