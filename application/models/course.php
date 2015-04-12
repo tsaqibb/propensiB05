@@ -3,7 +3,11 @@
 class Course extends DataMapper {
 
 	var $has_one = array('teacher');
+<<<<<<< HEAD
 	var $has_many = array('topic', 'feedback', 'students_class', 'student');
+=======
+	var $has_many = array('topic', 'feedback');
+>>>>>>> 11571f2af7ef8e57f94fc7420f4364750b11e309
 
 	var $default_order_by = array('id' => 'desc');
     
@@ -24,20 +28,20 @@ class Course extends DataMapper {
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 
-	function get_pendingapprove_list_kelas()
-	{
-		$this->where('status_kelas =', 2);
-		return $this->order_by('id')->get();
-	}
-
 	function get_list_kelas_pending()
 	{
 		return $this->where('status_kelas =', 1)->or_where('status_kelas =', 3)->get();
 	}
 
+	function get_list_kelas_request_unpublish() 
+	{
+		$this->where('status_kelas =', 5);
+		return $this->order_by('tgl_mulai desc')->get();
+	}
+
 	function get_created_list_kelas($id_guru)
 	{
-		return $this->where('id_guru =', $id_guru)->get();
+		return $this->where('teacher_id =', $id_guru)->get();
 	}
 
 	function get_class($var)
