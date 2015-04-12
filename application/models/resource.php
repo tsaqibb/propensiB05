@@ -1,11 +1,11 @@
 <?php
 
-class Resources extends DataMapper {
+class Resource extends DataMapper {
 
 	var $has_one = array('topic');
 	//var $has_many = array('topic', 'feedback');
 
-	var $default_order_by = array('id' => 'desc');
+	var $default_order_by = array('no_urut_materi' => 'asc');
     
     function __construct($id = NULL)
 	{
@@ -16,6 +16,8 @@ class Resources extends DataMapper {
 	{
 		return $this->get();
 	}
+
+
 
 }
 

@@ -33,13 +33,15 @@ class Murid extends CI_Controller {
 
 	public function aksesmateri($id)
 	{	
-		$materi_models = new Resources();
-		$list_materi = $materi_models->get_list_materi();
 
-		$materi_model = new Resources();
+		$materi_model = new Resource();
 		$open_materi = $materi_model->get_by_id($id);
+
+		$topik = $open_materi->topic->get();
+		$kelas = $topik->course->get();
+		
 		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('list_materi' => $list_materi, 'open_materi' => $open_materi));
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 'topik' => $topik ,'open_materi' => $open_materi));
 		$this->load->view('layout/footer');
 	}
 }

@@ -8,7 +8,7 @@ class Topic extends DataMapper {
 	var $has_one = array('course');
 
 	// Insert related models that Kelas can have more than one of.
-	var $has_many = array('resources');
+	var $has_many = array('resource');
 
 	// --------------------------------------------------------------------
 	// Default Ordering
@@ -16,7 +16,7 @@ class Topic extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('no_urut' => 'asc');
+	
 
 	// --------------------------------------------------------------------
 
@@ -25,8 +25,14 @@ class Topic extends DataMapper {
 	 */
     function __construct($id = NULL)
 	{
-		parent::__construct($no_urut);
+		parent::__construct($id);
     }
+
+    function get_list_topic()
+	{
+		return $this->get();
+	}
+
 
 	
 }
