@@ -2,10 +2,12 @@
 
 class Students_Class extends DataMapper {
 
-	var $has_one = array('kelas');
+	var $table = 'Students_Classes';
+	
+	var $has_one = array('course','student');
 	var $has_many = array();
 
-	var $default_order_by = array('id_murid' => 'asc');
+	var $default_order_by = array('student_id' => 'asc');
     function __construct($id = NULL)
 	{
 		parent::__construct($id);
@@ -14,7 +16,7 @@ class Students_Class extends DataMapper {
 	// mengembalikan status suatu ID tertentu
 	function get_status($id)
 	{
-		 $this->where('id_murid = ', $id);
+		 $this->where('student_id = ', $id);
 		 return $this->get('isActive');
 
 	}
@@ -22,22 +24,21 @@ class Students_Class extends DataMapper {
 	//menampilkan partisipan didalam suatu kelas
 	function get_list_partisipan_active()
 	{
-		$query = "id_kelas ='id' AND isActive = '1'"; 
+		$query = "class_id ='id' AND isActive = '1'"; 
 		return $this->where($query);
 	}
 
 	//menampilkan calon partisipan
 	function get_list_partisipan_nonactive()
 	{
-		$query = "isActive = '0'"; 
-		$this->where($query);
-		return $this->get('isActive');
+		$this->where('isActive =',0);
+		return $this->get();
 	}
 
 	// mengaktifkan calon partisipan
 	function set_active_partisipan($id)
 	{
-		$query = "id_murid ='id' AND isActive = '0'"; 
+		$query = "student_id ='id' AND isActive = '0'"; 
 		$this->where($query);
 		$this->update('isActive',1);
 	}
@@ -45,7 +46,7 @@ class Students_Class extends DataMapper {
 	//menonaktifkan partisipan kelas
 	function set_nonactive_partisipan($id)
 	{
-		$query = "id_murid ='id' AND isActive = '1'"; 
+		$query = "student_id ='id' AND isActive = '1'"; 
 		$this->where($query);
 		$this->update('isActive',0);
 	}	
