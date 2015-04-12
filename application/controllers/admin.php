@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$kelas_model = new Class();
+		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_new_list_kelas();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/new_class', array('list_kelas' => $list_kelas));
@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
 	}
 	public function galerikelas()
 	{
-		$kelas_model = new Class();
+		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
 		$this->load->view('layout/header');
 		$this->load->view('admin/galeri_kelas_admin', array('list_kelas' => $list_kelas));
