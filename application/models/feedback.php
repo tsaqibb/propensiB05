@@ -27,7 +27,7 @@ class Feedback extends DataMapper {
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
 
-	var $default_order_by = array('id' => 'asc');
+	var $default_order_by = array('waktu_kirim' => 'asc');
 
 	// --------------------------------------------------------------------
 
@@ -53,11 +53,6 @@ class Feedback extends DataMapper {
 	//   Add your own custom methods here to enhance the model.
 	// --------------------------------------------------------------------
 
-	function get_feedback($id_feedback)
-	{
-		return $this->where('id =', $id_feedback)->get();
-	}
-	
 	// --------------------------------------------------------------------
 	// Custom Validation Rules
 	//   Add custom validation rules for this model here.
