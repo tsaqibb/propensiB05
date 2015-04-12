@@ -9,7 +9,7 @@
                 <div class="box">
                     <!-- Box Head -->
                     <div class="box-head">
-                        <h2 class="left">Status Kelas Pending</h2>
+                        <h2 class="left">Class Confirmation</h2>
                     </div>
                     <!-- End Box Head -->
                     <div class="table">
@@ -26,8 +26,8 @@
                             <tbody>
                                 <?php foreach ($list_kelas_pending as $kelas) : ?>
                                 <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">2</a>
-                                        <?php echo $kelas->id; ?>
+                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">
+                                        <?php echo $kelas->id; ?></a>
                                     </td>
                                     <td>
                                         <?php echo $kelas->nama; ?>
@@ -43,8 +43,18 @@
                                         ?>
                                     </td>
                                     <td class="center action">
-                                        <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                        <a href="#" class="no icon-button"><i class="fa fa-times"></i>Unapprove</a>
+                                        <?php if($kelas->status_kelas=='1') : ?>
+                                            <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
+                                            <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
+                                        <?php endif; ?>
+
+                                        <?php if($kelas->status_kelas=='3') : ?>
+                                             <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
+                                             <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
+                                        <?php endif; ?>
+                                        
+                                        
+
                                     </td>
                                     <td class="center">
                                         <a class="ico edit" href="#detail_vendor" data-id="6">Detail</a><br>

@@ -16,9 +16,9 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$kelas_model = new Course();
-		$list_kelas = $kelas_model->get_new_list_kelas();
+		$list_kelas = $kelas_model->get_list_kelas_pending();
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/new_class', array('list_kelas' => $list_kelas));
+		$this->load->view('admin/new_class', array('list_kelas_pending' => $list_kelas));
 		$this->load->view('layout/footer-admin');
 	}
 

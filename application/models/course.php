@@ -12,7 +12,7 @@ class Course extends DataMapper {
 		parent::__construct($id);
     }
 
-	function get_list_kelas()
+	function get_new_list_kelas()
 	{
 		return $this->get();
 	}

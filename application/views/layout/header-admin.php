@@ -44,22 +44,17 @@
 							<ul>
 								<li>
 									<a href="#" class="active">
-										New Class Confirm
+										Class Confirmation
 									</a>
 								</li>
 								<li>
 									<a href="#" class="">
-										Pending Published Class
+										Request to Unpublish
 									</a>
 								</li>
 								<li>
 									<a href="#" class="">
-										Pending Unpublished Class
-									</a>
-								</li>
-								<li>
-									<a href="#" class="">
-										Published Class
+										Published Classes
 									</a>
 								</li>
 								<li>
@@ -70,38 +65,6 @@
 								<li>
 									<a href="<?php echo base_url();?>kelas" class="">
 										Galeri Kelas
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-	                        <a href="" >
-								<span>Calon Murid</span>
-							</a>
-							<ul>
-								<li>
-									<a href="#" class="active">
-										New Class Confirm
-									</a>
-								</li>
-								<li>
-									<a href="#" class="">
-										Pending Published Class
-									</a>
-								</li>
-								<li>
-									<a href="#" class="">
-										Pending Unpublished Class
-									</a>
-								</li>
-								<li>
-									<a href="#" class="">
-										Published Class
-									</a>
-								</li>
-								<li>
-									<a href="#" class="">
-										Calon Murid
 									</a>
 								</li>
 							</ul>
