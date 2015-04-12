@@ -51,6 +51,27 @@ function confirm()
                       <a type="button" class="main-button register2" onclick="validate()" >Activate all</a>
                         <br><br>
                                     <table class="table" name="table">
+<?php
+    //var_dump($kelas); exit;
+    $this->load->helper('text');
+    foreach ($list_partisipan as $partisipan) :
+?>
+                                        <tr>
+                                          <td>
+                                            <input class ="checkbox" type="checkbox"></input>
+                                          </td>
+                                          <td class="nama"><?php echo $partisipan->nama; ?><a href=""><?php echo $partisipan->id; ?></a><br>
+                                            <a class ="matkul" href="">Nama Mata Kuliah Kuliah Online </a>
+                                            <a class ="matkul"href=""><?php echo $partisipan->email; ?></a>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                          </td>
+                                        </tr>
+<?php
+    endforeach;
+?>
+                                    <table class="table" name="table">
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
