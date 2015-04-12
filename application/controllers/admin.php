@@ -26,8 +26,9 @@ class Admin extends CI_Controller {
 	{
 		$partisipan_kelas = new Students_Class();
 		$list_partisipan = $partisipan_kelas->get_list_partisipan_nonactive();
+		//var_dump($list_partisipan); exit;
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/calon_partisipan_kelas', array('list_partisipan' => $list_partisipan));
+		$this->load->view('admin/calon_partisipan', array('list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
 	}
 	public function galerikelas()
