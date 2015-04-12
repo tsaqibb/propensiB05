@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer-admin');
 	}
 
-	public function classespending()
+	public function pendingclasses()
 	{
 		$kelas_pending = new Course();
 		$list_kelas_pending = $kelas_pending->get_list_kelas_pending();
@@ -62,14 +62,24 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer-admin');
 	}
 
-	public function pendingpublish()
+	public function publishedclasses()
 	{
-		$kelas_baru = new Course();
-		$list_kelas_baru = $kelas_baru->get_new_list_kelas();
+		$kelas_published = new Course();
+		$list_kelas_published = $kelas_published->get_published_list_kelas();
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/pending_publish', array('list_kelas_pending_publish' => $list_kelas_pending_publish));
+		$this->load->view('admin/published_classes', array('list_kelas_published' => $list_kelas_published));
 		$this->load->view('layout/footer-admin');
 	}
+	
+	public function requestunpublish()
+	{
+		$kelas_unpublish= new Course();
+		$list_kelas_request_unpublish = $kelas_unpublish->get_list_kelas_request_unpublish();
+		$this->load->view('layout/header-admin');
+		$this->load->view('admin/request_unpublish', array('list_kelas_request_unpublish' => $list_kelas_request_unpublish));
+		$this->load->view('layout/footer-admin');
+	}
+
 	public function feedback()
 	{
 		$model = new feedback();
