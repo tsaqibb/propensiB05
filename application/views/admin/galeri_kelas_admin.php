@@ -152,7 +152,7 @@
                 </a>
                 <div class="grid-bottom">
                     <span class="price">Rp 40.000,-</span>
-                    <a href="#<?php echo base_url();?>admin/detilkelas">
+                    <a href="<?php echo base_url();?>admin/detilkelas">
                         <span class="details">Details</span>
                     </a>
                     <div class="description">

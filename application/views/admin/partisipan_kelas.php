@@ -51,6 +51,28 @@ function confirm()
                       <a type="button" class="main-button register3" onclick="validate()" >Deactivate all</a>
                         <br><br>
                                     <table class="table tablep">
+<?php
+    //var_dump($kelas); exit;
+    $this->load->helper('text');
+    foreach ($list_partisipan as $partisipan) :
+?>
+                                        <tr>
+                                          <td>
+                                            <input class ="checkbox" type="checkbox"></input>
+                                          </td>
+                                          <td class="nama"><?php echo $partisipan->nama; ?><a href=""><?php echo $partisipan->id; ?></a><br>
+                                            
+                                            <a class ="matkul"href=""><?php echo $partisipan->email; ?></a>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" onclick="confirm()" class="approve icon-buttonp"><i class="fa fa-check"></i>Deactivate</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+<?php
+    endforeach;
+?>
+                                      <table class="table tablep">
                                         <tr>
                                           <td>
                                             <input class ="checkbox" type="checkbox"></input>
