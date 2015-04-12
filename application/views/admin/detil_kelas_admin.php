@@ -21,7 +21,7 @@
         
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -36,7 +36,7 @@
                                 <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a>
                             </li>
                             <li role="presentation">
-                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
+                                <a href="<?php echo base_url();?>admin/partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
@@ -48,10 +48,12 @@
                             <div role="tabpanel" class="tab-pane active" id="detil">
                                 <h5 class="title-label">Deskripsi</h5>
                                 <p>
-                                <?php echo $data_kelas->deskripsi; ?>
+                                Kelas ini akan menjelaskan bla bla bla bla dan bla bla bal bla bla.
+                                Selain itu juga akan dijelaskan bal bla bla bla bla dan bla bla bal bla bla.
+                                Murid diharapkan bisa bla bla bla bla dan bla bla bal bla bla setelah mengikuti seluruh pelajaran.
                                 </p>
                                 <h5 class="title-label">Harga</h5>
-                                <p>Rp <?php echo $data_kelas->harga; ?>,00</p>
+                                <p>Rp 300.000,00</p>
                                 <h5 class="title-label">Tag</h5>
                                 <br>
                                 <i class="tag">#MTK</i>
@@ -60,8 +62,6 @@
                                 <i class="tag">#aljabar</i>
                                 <i class="tag">#trigonometri</i>
                                 <br><br><br>
-                                <?php 
-                                echo $data_kelas->guru_model->nama; ?>
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->
@@ -72,7 +72,7 @@
                                         href="#matematikasma">
                                         <i class="fa fa-chevron-circle-down"></i>
                                         Matematika SMA 
-                                    </a>
+                                    </a> 
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -217,29 +217,46 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
+                                <input type="checkbox">select all</input>
+                                  <button type="submit" class="btn btn-default main-button register2">Inactive all</button>
+                                    <div class="panel-partisipan"> 
+                                      <table class="table">
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
                                   </div>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>
-                                  <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
-                                    <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>          
-                              </div> 
                             </div><!-- tab-partisipan -->
                             
                             <div role="tabpanel" class="tab-pane" id="feedback">
@@ -341,10 +358,12 @@
                                                     </span>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->
+
                         </div><!-- tab-content -->
                     </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->

@@ -23,9 +23,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($list_kelas as $kelas) : ?>
                                 <tr>
                                     <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">2</a>
-                                        (Nama Kelas 2)
+                                        <?php echo $kelas->nama; ?>
                                     </td>
                                     <td>Pending Approve</td>
                                     <td class="center action">
@@ -36,19 +37,7 @@
                                         <a class="ico edit" href="#detail_vendor" data-id="6">Detail</a><br>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="1" href="#class_detail">1</a>
-                                        (Nama Kelas 1)
-                                    </td>
-                                    <td>Pending Approve</td>
-                                    <td class="center action">
-                                        <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                        <a href="#" class="no icon-button"><i class="fa fa-times"></i>Unapprove</a>
-                                    </td>
-                                    <td class="center">
-                                        <a class="ico edit" href="#detail_vendor" data-id="6">Detail</a><br>
-                                    </td>
-                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

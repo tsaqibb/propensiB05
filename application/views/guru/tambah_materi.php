@@ -1,8 +1,6 @@
 <div class="container content kelas vendor">
     <div class="row">
-        
         <div class="col-sm-12 col-md-3">
-            
             <div class="sidebar">
                 <br>
                 <h4 class="text-center">Halo, [Nama User]</h4>
@@ -16,27 +14,25 @@
                     </li>
                 </ul>
             </div><!-- sidebar -->
-        
         </div>
-        
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+                <h2 class="block-title text-uppercase">[Nama Kelas]<a href="<?php echo base_url();?>murid/daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#detil" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true" >Detail</a>
+                            <li role="presentation" >
+                                <a href="#detil" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true" >Detil</a>
                             </li>
-                            <li role="presentation">
+                            <li role="presentation" class="active">
                                 <a href="#materi" aria-controls="materi" role="tab" data-toggle="tab">Materi</a>
                             </li>
                             <li role="presentation">
                                 <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Review</a>
                             </li>
                             <li role="presentation">
-                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
+                                <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Partisipan</a>
                             </li>
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
@@ -44,14 +40,15 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                        <!--detil kelas-->
-                            <div role="tabpanel" class="tab-pane active" id="detil">
+                            <div role="tabpanel" class="tab-pane" id="detil">
                                 <h5 class="title-label">Deskripsi</h5>
                                 <p>
-                                <?php echo $data_kelas->deskripsi; ?>
+                                Kelas ini akan menjelaskan bla bla bla bla dan bla bla bal bla bla.
+                                Selain itu juga akan dijelaskan bal bla bla bla bla dan bla bla bal bla bla.
+                                Murid diharapkan bisa bla bla bla bla dan bla bla bal bla bla setelah mengikuti seluruh pelajaran.
                                 </p>
                                 <h5 class="title-label">Harga</h5>
-                                <p>Rp <?php echo $data_kelas->harga; ?>,00</p>
+                                <p>Rp 300.000,00</p>
                                 <h5 class="title-label">Tag</h5>
                                 <br>
                                 <i class="tag">#MTK</i>
@@ -60,19 +57,17 @@
                                 <i class="tag">#aljabar</i>
                                 <i class="tag">#trigonometri</i>
                                 <br><br><br>
-                                <?php 
-                                echo $data_kelas->guru_model->nama; ?>
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->
-                           <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
+                           <div role="tabpanel" class="tab-pane tab-panemateri active" id="materi">
                               <div class="panel-group" id="accordion">
                                  <div class="panel panel-topik">
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                         href="#matematikasma">
                                         <i class="fa fa-chevron-circle-down"></i>
                                         Matematika SMA 
-                                    </a>
+                                    </a> 
                                     <div id="matematikasma" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
@@ -217,35 +212,64 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
+                                <input type="checkbox">select all</input>
+                                  <button type="submit" class="btn btn-default main-button register2">Inactive all</button>
+                                    <div class="panel-partisipan"> 
+                                      <table class="table">
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <input type="checkbox"></input>
+                                          </td>
+                                          <td class="nama">Nama Murid II<a href=""> - ID</a><br>
+                                            <small class="matkul text-muted"><span class="fa fa-clock-o"></span>17 mins ago</small>
+                                          </td>
+                                          <td class="status">
+                                            <a href="#" class="cancel icon-button"><i class="fa fa-close"></i>Inactive</a>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                  </div>
+                                <h3>Untuk tampilan murid&guru</h3>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
+                                    <span class="nama">Nama Murid I</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
+                                    <span class="nama">Nama Murid II</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   <div class="actived-partisipan">
-                                    <span class="nama">Agustina Fransiska Kusumaningtyas <a href=""> 1206238715</a>
-                                            <a class ="matkul" href="">retnowatiwahyu@gmail.com </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span>
+                                    <span class="nama">Nama Murid II</span>
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
-                                  </div>          
-                              </div> 
+                                  </div>           
                             </div><!-- tab-partisipan -->
                             
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
-                                        
                                         <div class="feedback-package">
                                             <div class="left clearfix">
                                                 <div class="panel-feedback clearfix">
@@ -279,8 +303,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <br> <!--feedback package -->
-
+                                        <br>
                                         <div class="feedback-package">
                                             <div class="left clearfix">
                                                 <div class="panel-feedback clearfix">
@@ -313,8 +336,7 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div> <!-- feedback package-->
-                                        
+                                        </div>
                                         <br>
                                             <div class="feedback-package">
                                             <div class="left clearfix">
@@ -349,6 +371,17 @@
                     </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
             </div><!-- panel -->
-        </div> <!-- col -->
-    </div> <!-- row -->
+        </div>
+    </div>
 </div> <!-- /container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+    jQuery(document).ready(function($){
+        $('.icon-circle').tooltip();
+    });
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

@@ -63,8 +63,13 @@
 									</a>
 								</li>
 								<li>
-									<a href="#" class="">
+									<a href="<?php echo base_url();?>admin/calonpartisipan" class="">
 										Calon Murid
+									</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url();?>admin/galerikelas" class="">
+										Galeri Kelas
 									</a>
 								</li>
 							</ul>
