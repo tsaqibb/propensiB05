@@ -26,13 +26,15 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
+		$list_partisipan = $data_kelas->students_class->get();
+		//var_dump($list_partisipan); exit;
 		$data_kelas->teacher = $data_kelas->teacher->get();
 		
 		$feedback_model = new feedback();
 		$data_feedback = $feedback_model->get_by_id($id);
 
 		$this->load->view('layout/header');
-		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 'data_feedback'=>$data_feedback));
+		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 'data_feedback'=>$data_feedback, 'list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer');
 		
 	}
