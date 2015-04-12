@@ -199,10 +199,6 @@
 </div> <!-- /container -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
 <script>
     function tambahMateri(){

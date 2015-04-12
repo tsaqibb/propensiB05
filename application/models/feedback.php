@@ -2,8 +2,7 @@
 
 class Feedback extends DataMapper {
 
-	var $has_one = array('kelas');
-
+	var $has_one = array('course');
 	var $default_order_by = array('waktu_kirim' => 'asc');
 
 	/**

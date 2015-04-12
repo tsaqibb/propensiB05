@@ -2,8 +2,6 @@
 
 class Topic extends DataMapper {
 
-	
-
 	// Insert related models that Kelas can have just one of.
 	var $has_one = array('course');
 
@@ -23,18 +21,13 @@ class Topic extends DataMapper {
 	/**
 	 * Constructor: calls parent constructor
 	 */
-    function __construct($id = NULL)
-	{
+    function __construct($id = NULL){
 		parent::__construct($id);
     }
 
-    function get_list_topic()
-	{
+    function get_list_topic(){
 		return $this->get();
 	}
-
-
-	
 }
 
 /* End of file topic.php */

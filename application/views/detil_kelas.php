@@ -1,3 +1,24 @@
+<script>
+  function toggle(source) {
+    checkboxes = document.getElementsByTagName('input');
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+      checkboxes[i].checked = source.checked;
+    }
+  }
+</script>
+
+<script type=text/javascript>
+  function konfirmasi()
+    {
+      var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
+      if (r==true){
+        alert("Deactivated berhasil");
+      }
+      else{
+        alert("Deactivated Anda telah dibatalkan");
+      }
+    }
+</script>
 <div class="container content kelas vendor">
     <div class="row">
         
@@ -59,7 +80,8 @@
                                 <i class="tag">#SMA</i>
                                 <i class="tag">#aljabar</i>
                                 <i class="tag">#trigonometri</i>
-                                <br><br><br>
+                                <br><br>
+                                <h5 class="title-label">Guru</h5><br>
                                 <?php 
                                 echo $data_kelas->teacher->nama; ?>
                             </div><!-- detil-kelas -->
@@ -90,11 +112,7 @@
                                              </a>
                                           </ul>
                                         <?php endforeach ?>
-                                          <!-- <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul> -->
+                                        
                                        </div>
                                     </div>
                                  </div>
@@ -103,127 +121,10 @@
                                   endforeach;
                                  ?>
 
-                                 <!-- <div class="panel panel-topik">
-                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                        href="#matematikasmp">
-                                        <i class="fa fa-chevron-circle-down"></i>
-                                           Matematika SMP
-                                    </a>
-                                    <div id="matematikasmp" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#matematikasd"><i class="fa fa-chevron-circle-down"></i>
-                                             Matematika SD</a>
-                                    <div id="matematikasd" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 1</a>
-                                    <div id="topik1" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik2"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 2</a>
-                                    <div id="topik2" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik3"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 3</a>
-                                    <div id="topik3" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="panel panel-topik">
-                                       <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik4"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 4</a>
-                                    <div id="topik4" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <li class="list-group-item">Aljabar</li>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <li class="list-group-item">Persamaan Kuadrat</li>
-                                             </a>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div> -->
                               </div> 
                             </div><!-- end tab materi -->
                             
+                            <!-- tab review -->
                             <div role="tabpanel" class="tab-pane" id="review">
                               Bagian ini akan menjelaskan review dari kelas
                             </div><!-- end tab review -->
@@ -231,22 +132,28 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <h3 class="block-title text-uppercase">Daftar Murid</h3><br>
-<?php foreach ($list_partisipan as $daftar) :
-$student = $daftar->student->get();
- ?>
+                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="#" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a></div>
+                                <?php foreach ($list_partisipan as $daftar) :
+                                  $student = $daftar->student->get();
+                                ?>
                                   <div class="actived-partisipan">
-                                    <span class="nama"><?php echo $student->nama; ?><a href=""> <?php echo $daftar->student_id; ?></a>
-                                            <a class ="matkul" href=""><?php echo $student->e_mail; ?> </a>
-                                            <small class="matkul text-muted"></small>
-                                    </span> <span><a href="#" onclick="confirm()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a></span>
+                                  <div class="row">
+                                    <div class="nama"><?php echo $student->nama; ?>
+                                    <br><a href=""><span><?php echo $daftar->student_id; ?></span></a>
+                                        <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
+                                    </div>
+                                    <span>
+                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
+                                    </span>
 
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
-<?php endforeach; ?>
+                                  </div>
+                                <?php endforeach; ?>
                               </div> 
                             </div><!-- tab-partisipan -->
                             
+                            <!-- tab feedback -->
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">

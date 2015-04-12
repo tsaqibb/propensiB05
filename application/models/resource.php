@@ -3,7 +3,6 @@
 class Resource extends DataMapper {
 
 	var $has_one = array('topic');
-	//var $has_many = array('topic', 'feedback');
 
 	var $default_order_by = array('no_urut_materi' => 'asc');
     

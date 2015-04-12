@@ -5,13 +5,11 @@ class Teacher extends DataMapper {
 	var $has_one = array();
 	var $has_many = array('course');
 	
-    function __construct($id = NULL)
-	{
+    function __construct($id = NULL){
 		parent::__construct($id);
     }
 
-	function get_guru($id_guru)
-	{
+	function get_guru($id_guru){
 		return $this->where('id =', $id_guru)->get();
 	}
 }
