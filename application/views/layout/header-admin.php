@@ -43,17 +43,17 @@
 							</a>
 							<ul>
 								<li>
-									<a href="#pendingclasses" class="active">
+									<a href="<?php echo base_url();?>admin/pendingclasses" class="active">
 										Class Confirmation
 									</a>
 								</li>
 								<li>
-									<a href="#" class="">
+									<a href="<?php echo base_url();?>admin/requestunpublish" class="">
 										Request to Unpublish
 									</a>
 								</li>
 								<li>
-									<a href="#publishedclasses" class="">
+									<a href="<?php echo base_url();?>admin/publishedclasses" class="">
 										Published Classes
 									</a>
 								</li>

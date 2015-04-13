@@ -1,3 +1,31 @@
+<script type=text/javascript>
+    function konfirmasiapprove(){
+        var r=confirm("Approve kelas ini?");
+        if (r==true){
+            alert("Approval berhasil");
+        }
+    }
+</script>
+
+<script type=text/javascript>
+    function konfirmasipublish(){
+        var r=confirm("Publish kelas ini?");
+        if (r==true){
+            alert("Kelas berhasil dipublish");
+        }
+    }
+</script>
+
+
+<script type=text/javascript>
+    function konfirmasireject(){
+        var r=confirm("Reject kelas ini?");
+        if (r==true){
+            alert("Approval kelas berhasil ditolak");
+        }
+    }
+</script>
+
 <div id="container" class="kelas-online">
     <div class="shell">
         <!-- Main -->
@@ -9,7 +37,7 @@
                 <div class="box">
                     <!-- Box Head -->
                     <div class="box-head">
-                        <h2 class="left">Class Confirmation</h2>
+                        <h2 class="left">Pending Class Confirmation</h2>
                     </div>
                     <!-- End Box Head -->
                     <div class="table">
@@ -26,7 +54,7 @@
                             <tbody>
                                 <?php foreach ($list_kelas_pending as $kelas) : ?>
                                 <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">
+                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                                         <?php echo $kelas->id; ?></a>
                                     </td>
                                     <td>
@@ -44,13 +72,13 @@
                                     </td>
                                     <td class="center action">
                                         <?php if($kelas->status_kelas=='1') : ?>
-                                            <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                            <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
+                                            <a href="#" onclick="konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
+                                            <a href="#" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
                                         <?php endif; ?>
 
                                         <?php if($kelas->status_kelas=='3') : ?>
-                                             <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
-                                             <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
+                                             <a href="#" onclick="konfirmasipublish()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
+                                             <a href="#" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
                                         <?php endif; ?>
                                     </td>
                                     <td class="center">
