@@ -75,19 +75,25 @@
                                 <p>Rp <?php echo $data_kelas->harga; ?>,00</p>
                                 <h5 class="title-label">Tag</h5>
                                 <br>
-                                <i class="tag">#MTK</i>
-                                <i class="tag">#IPA</i>
-                                <i class="tag">#SMA</i>
-                                <i class="tag">#aljabar</i>
-                                <i class="tag">#trigonometri</i>
+                                <?php
+                                $list_classes_tag = $data_kelas->classes_tag->get();
+                                foreach ($list_classes_tag as $classes_tag) :
+                                ?>
+                                    <i class="tag">
+                                        <?php 
+                                        $tag = $classes_tag->tag->get();
+                                        echo '#'.$tag->subjek; ?>
+                                    </i>
+                                <?php endforeach; ?>
                                 <br><br>
                                 <h5 class="title-label">Guru</h5><br>
                                 <?php 
-                                echo $data_kelas->teacher->nama; ?>
+                                $guru = $data_kelas->teacher->get();
+                                echo $guru->nama; ?>
                             </div><!-- detil-kelas -->
 
                             <!-- start Tab Materi -->
-                           <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
+                            <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">
                                
                                 <?php 

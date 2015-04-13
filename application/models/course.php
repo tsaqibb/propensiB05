@@ -3,7 +3,7 @@
 class Course extends DataMapper {
 
 	var $has_one = array('teacher');
-	var $has_many = array('topic', 'feedback', 'students_class', 'student');
+	var $has_many = array('topic', 'feedback', 'students_class', 'student', 'classes_tag');
 	var $default_order_by = array('id' => 'tgl_mulai');
     
     function __construct($id = NULL){
