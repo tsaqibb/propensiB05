@@ -60,4 +60,40 @@ class Kelas extends CI_Controller {
 			'open_materi' => $open_materi));
 		$this->load->view('layout/footer');
 	}
+
+	public function request($id)
+	{	
+
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		$status_kelas_new = $status_kelas + 1;
+		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
+		redirect('/kelas/detil_kelas', 'refresh');
+	}
+
+	public function approve($id)
+	{	
+
+		$kelas_model = new Course();
+		$kelas_model->where('id =', $id)->update('status_kelas', 2);
+		redirect('/admin/pendingclasses/', 'refresh');
+	}
+
+	public function publish($id)
+	{	
+
+		$kelas_model = new Course();
+		$kelas_model->where('id =', $id)->update('status_kelas', 4);
+		redirect('/admin/pendingclasses/', 'refresh');
+	}
+
+	public function reject($id)
+	{	
+
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		$status_kelas_new = $status_kelas - 1;
+		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
+		redirect('/admin/pendingclasses/', 'refresh');
+	}
 }
