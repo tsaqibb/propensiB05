@@ -9,9 +9,8 @@
 
 <script type=text/javascript>
     function validasi(){
-        var masukan = document.getElementsByTagName("input");
-        if (masukan.checked){
-            var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+        if (document.getElementById("all").checked){
+            var r=confirm("Apakah Anda yakin ingin menyetujui semua murid tersebut?");
             if (r==true){
                 alert("Approval berhasil");
             }
@@ -20,24 +19,20 @@
             }
         }
         else{
-            alert("Anda belum memilih murid")
+            if(document.getElementById("satu").checked){
+                var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+                if (r==true){
+                    alert("Approval berhasil");
+                }
+                else{
+                    alert("Approval Anda telah dibatalkan");
+                }
+            }
+            else(alert("Anda belum memilih murid"));
         }
     }
 </script>
-<script type=text/javascript>
-(function()){
-document.getElementsByTagName('input').onsubmit = function() {
-    // get reference to required checkbox
-    var terms = this.elements['terms'];
-    
-    if ( !terms.checked ) { // if it's not checked
-        // display error info (generally not an alert these days)
-        alert( 'Please signify your agreement with our terms.' );
-        return false; // don't submit
-    }
-    return true; // submit
-}
-};
+
 </script>
 <script type=text/javascript>
     function konfirmasi(){
@@ -54,11 +49,11 @@ document.getElementsByTagName('input').onsubmit = function() {
 <br>
 <hr class="line">
 <br>
-<input class ="checkbox1" type="checkbox" onclick="toggle(this)">
+<input id="all" class ="checkbox1" type="checkbox" onclick="toggle(this)">
     <strong>select all</strong>
 </input>
 <span>
-    <a href="#" type="button" class="main-button register2" onclick="function()">Activate all</a>
+    <a href="#" type="button" class="main-button register2" onclick="validasi()">Activate all</a>
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -94,7 +89,7 @@ document.getElementsByTagName('input').onsubmit = function() {
                                 ?>
                                 <tr>
                                     <td class ="center">
-                                        <input  type="checkbox"></input>
+                                        <input id ="satu" type="checkbox"></input>
                                     </td>
                                         
                                     <td class ="center">
