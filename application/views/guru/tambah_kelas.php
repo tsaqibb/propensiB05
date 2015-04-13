@@ -32,7 +32,7 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane" id="detil-kelas">
+                            <div role="tabpanel" class="tab-pane active" id="detil-kelas">
                                 <form class="form-horizontal">
 
                                     <div class="form-group">
@@ -64,8 +64,8 @@
                                     </div>
                                 </form>
                                 <div id="class-notes">
-                                    <div class="btn btn-default main-button register">
-                                        Upload materi >>
+                                    <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
+                                        Upload materi 
                                     </div>
                                 </div>
 
@@ -73,7 +73,7 @@
 
 
                                 
-                        <div role="tabpanel" class="tab-pane tab-panemateri active " id="materi">
+                        <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">   
 
                                 <div class="panel panel-btn">
@@ -202,6 +202,7 @@
 </div> <!-- /container -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 <script>
     function tambahMateri(){
