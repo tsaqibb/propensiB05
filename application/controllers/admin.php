@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
 		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_list_kelas_pending();
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/new_class', array('list_kelas_pending' => $list_kelas));
+		$this->load->view('admin/pending_classes', array('list_kelas_pending' => $list_kelas));
 		$this->load->view('layout/footer-admin');
 	}
 
@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 		$kelas_pending = new Course();
 		$list_kelas_pending = $kelas_pending->get_list_kelas_pending();
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/new_class', array('list_kelas_pending' => $list_kelas_pending));
+		$this->load->view('admin/pending_classes', array('list_kelas_pending' => $list_kelas_pending));
 		$this->load->view('layout/footer-admin');
 	}
 

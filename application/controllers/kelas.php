@@ -33,6 +33,7 @@ class Kelas extends CI_Controller {
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
+
 		$this->load->view('detil_kelas',
 			array(
 				'data_kelas'=>$data_kelas,
@@ -40,6 +41,7 @@ class Kelas extends CI_Controller {
 				'data_topik' => $data_topik,
 				'list_partisipan' => $list_partisipan)
 		);
+
 		$this->load->view('layout/footer');
 	}
 

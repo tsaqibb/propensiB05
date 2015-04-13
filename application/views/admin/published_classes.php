@@ -26,7 +26,7 @@
                             <tbody>
                                 <?php foreach ($list_kelas_published as $kelas) : ?>
                                 <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="#class_detail">
+                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                                         <?php echo $kelas->id; ?></a>
                                     </td>
                                     <td>

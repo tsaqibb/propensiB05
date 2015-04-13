@@ -246,7 +246,8 @@
                                             <div class="right clearfix">
                                                 <div class="panel-tanggapan clearfix">
                                                     <div class="header">
-                                                        <small class=" text-muted">
+                                                        <span class="fa fa-clock-o"></span>
+                                                        <small class="text-muted">
                                                         <?php
                                                             $time_now = strtotime(date('Y-m-d H:i:s'));
                                                             $time_sent = strtotime($feedback->waktu_kirim);
@@ -305,9 +306,9 @@
                                                                 echo "Few seconds ago";
                                                             }
                                                         ?>
-                                                        <span class="fa fa-clock-o"></span>
+                                                        
                                                         </small>
-                                                        <strong class="pull-right primary-font">  <?php echo $data_kelas->teacher->get()->nama; ?></strong>
+                                                        <strong class="pull-right primary-font"> <span> <?php echo $data_kelas->teacher->get()->nama; ?> </span> </strong>
                                                     </div>
                                                     <span class="chat-img pull-right">
                                                         <i class="guru-circle"></i>
