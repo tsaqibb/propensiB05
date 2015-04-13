@@ -10,12 +10,12 @@
 <script type=text/javascript>
   function konfirmasi()
     {
-      var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+      var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
       if (r==true){
-        alert("Approval berhasil");
+        alert("Deactivated berhasil");
       }
       else{
-        alert("Approval Anda telah dibatalkan");
+        alert("Deactivated Anda telah dibatalkan");
       }
     }
 </script>
@@ -132,7 +132,7 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="#" type="button" class="main-button register2" onclick="konfirmasi()">Activate all</a></div>
+                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="#" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a></div>
                                 <?php foreach ($list_partisipan as $daftar) :
                                   $student = $daftar->student->get();
                                 ?>
@@ -143,7 +143,7 @@
                                         <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
                                     </div>
                                     <span>
-                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
                                     </span>
 
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
