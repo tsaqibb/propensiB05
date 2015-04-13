@@ -74,7 +74,6 @@
                             <thead>
                                 <tr>
                                     <th class="center">Check</th>
-                                    <th class="center">No</th>
                                     <th class="center">Nama</th>
                                     <th class="center">ID Murid</th>
                                     <th class="center">Kelas</th>
@@ -92,9 +91,6 @@
                                         <input id ="satu" type="checkbox"></input>
                                     </td>
                                         
-                                    <td class ="center">
-                                    </td>
-
                                     <td>
                                         <a href="#"><?php echo $student->nama; ?></a>
                                     </td>
