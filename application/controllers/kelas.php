@@ -96,4 +96,12 @@ class Kelas extends CI_Controller {
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
+
+	public function unpublish($id)
+	{	
+
+		$kelas_model = new Course();
+		$kelas_model->where('id =', $id)->update('status_kelas', 0);
+		redirect('/admin/pendingclasses/', 'refresh');
+	}
 }
