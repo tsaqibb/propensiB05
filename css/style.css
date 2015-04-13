@@ -313,15 +313,21 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 /*Footer style*/
 .footer {
   background: none repeat scroll 0 0 #000;
-  color: #fff;
-  font-size: 12px;
-  padding: 30px 0;
+   color: #fff;
+   font-size: 12px;
+   padding: 30px 0;*/
+   
+    
 }
+
+
+
 .footer-label {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 10px;
+
 }
 /*
 .footer .col-sm-4 {
