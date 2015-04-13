@@ -7,10 +7,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
+                        <a href=""><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
                     <li role="presentation">
-                        <a href="<?php echo base_url();?>guru/tambahkelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
+                        <a href="<?php echo base_url();?>guru/tambahkelas"><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->
@@ -90,7 +90,7 @@
                                         <?php foreach ($list_draft_kelas as $kelas) : ?>
                                             <tr>
                                                 <td>3</td>
-                                                <td class="nama">PHP Programming - Basic</td>
+                                                <td class="nama"><?php echo $kelas->nama ?></td>
                                                 <td>
                                                     <?php if($kelas->status_kelas == 1 ) : ?>
                                                         <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
@@ -108,47 +108,10 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-                                            <tr>
-                                                <td>3</td>
-                                                <td class="nama">Java Programming - Basic</td>
-                                                <td>
-                                                    <span class="pending icon-circle" title="Pending Approve"><i class="fa fa-ellipsis-h"></i></span>
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td class="nama">PHP Programming - Advance</td>
-                                                <td>
-                                                    <span class="approved icon-circle" title="Approved"><i class="fa fa-check"></i></span>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td class="nama">Java Programming - Advance</td>
-                                                <td>
-                                                    <span class="pending icon-circle" title="Pending Publish"><i class="fa fa-upload"></i></span>
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div><!-- table-responsive -->
