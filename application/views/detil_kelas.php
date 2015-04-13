@@ -143,7 +143,7 @@
                                         <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
                                     </div>
                                     <span>
-                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
+                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
                                     </span>
 
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
