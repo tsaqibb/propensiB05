@@ -33,15 +33,14 @@ class Kelas extends CI_Controller {
 
 		$data_kelas->teacher = $data_kelas->teacher->get();
 		
-		$feedback_model = new feedback();
-		$data_feedback = $feedback_model->get_by_id($id);
+		$list_feedback = $data_kelas->feedback->get();
 
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
 
 		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 
-			'data_feedback'=>$data_feedback, 
+			'list_feedback'=>$list_feedback, 
 			'data_topik' => $data_topik, 
 			'list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer');
