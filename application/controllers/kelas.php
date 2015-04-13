@@ -29,19 +29,7 @@ class Kelas extends CI_Controller {
 		$list_partisipan = $data_kelas->students_class->get();
 
 		$list_feedback = $data_kelas->feedback->get();
-		
-<<<<<<< HEAD
-		$list_feedback = $data_kelas->feedback->get();
 
-		$data_topik = $data_kelas->topic->get();
-		
-		$this->load->view('layout/header');
-
-		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 
-			'list_feedback'=>$list_feedback, 
-			'data_topik' => $data_topik, 
-			'list_partisipan' => $list_partisipan));
-=======
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
@@ -52,7 +40,6 @@ class Kelas extends CI_Controller {
 				'data_topik' => $data_topik,
 				'list_partisipan' => $list_partisipan)
 		);
->>>>>>> origin/master
 		$this->load->view('layout/footer');
 	}
 
