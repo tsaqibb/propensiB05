@@ -7,10 +7,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation">
-                        <a href="<?php echo base_url();?>guru/kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
+                        <a href="<?php echo base_url();?>guru/kelas"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
                     <li role="presentation" class="active">
-                        <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
+                        <a href=""><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
             </div><!-- sidebar -->

@@ -11,10 +11,7 @@ class Kelas extends CI_Controller {
 		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
 		
-		foreach ($list_kelas as &$data_kelas) {
-			$data_kelas->teacher = $data_kelas->teacher->get();
-		}
-		
+		$this->load->helper('text');
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));
 		$this->load->view('layout/footer');
@@ -31,18 +28,15 @@ class Kelas extends CI_Controller {
 		
 		$list_partisipan = $data_kelas->students_class->get();
 
-		$data_kelas->teacher = $data_kelas->teacher->get();
+		$list_feedback = $data_kelas->feedback->get();
 		
-		$feedback_model = new feedback();
-		$data_feedback = $feedback_model->get_by_id($id);
-
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
 		$this->load->view('detil_kelas',
 			array(
 				'data_kelas'=>$data_kelas,
-				'data_feedback'=>$data_feedback,
+				'list_feedback'=>$list_feedback,
 				'data_topik' => $data_topik,
 				'list_partisipan' => $list_partisipan)
 		);
