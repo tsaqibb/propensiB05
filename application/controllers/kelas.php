@@ -10,9 +10,8 @@ class Kelas extends CI_Controller {
 	{
 		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
-		foreach ($list_kelas as &$data_kelas) {
-			$data_kelas->teacher = $data_kelas->teacher->get();
-		}
+		
+		$this->load->helper('text');
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));
 		$this->load->view('layout/footer');
@@ -26,23 +25,24 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
-		$list_partisipan = $data_kelas->students_class->get();
-		//var_dump($list_partisipan); exit;
-		$data_kelas->teacher = $data_kelas->teacher->get();
 		
-		$feedback_model = new feedback();
-		$data_feedback = $feedback_model->get_by_id($id);
+		$list_partisipan = $data_kelas->students_class->get();
 
+		$list_feedback = $data_kelas->feedback->get();
+		
 		$data_topik = $data_kelas->topic->get();
 		
-		
-
 		$this->load->view('layout/header');
 
-		$this->load->view('detil_kelas', array('data_kelas'=>$data_kelas, 'data_feedback'=>$data_feedback, 'list_partisipan' => $list_partisipan , 'data_topik' => $data_topik));
+		$this->load->view('detil_kelas',
+			array(
+				'data_kelas'=>$data_kelas,
+				'list_feedback'=>$list_feedback,
+				'data_topik' => $data_topik,
+				'list_partisipan' => $list_partisipan)
+		);
 
 		$this->load->view('layout/footer');
-		
 	}
 
 	public function aksesmateri($id)
@@ -55,7 +55,9 @@ class Kelas extends CI_Controller {
 		$kelas = $topik->course->get();
 		
 		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 'topik' => $topik ,'open_materi' => $open_materi));
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi));
 		$this->load->view('layout/footer');
 	}
 }

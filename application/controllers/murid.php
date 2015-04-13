@@ -41,7 +41,9 @@ class Murid extends CI_Controller {
 		$kelas = $topik->course->get();
 		
 		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 'topik' => $topik ,'open_materi' => $open_materi));
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi));
 		$this->load->view('layout/footer');
 	}
 }

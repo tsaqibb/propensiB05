@@ -1,13 +1,12 @@
 <div class="container content kelas vendor">
     <div class="row">
 <?php
-    //var_dump($kelas); exit;
-    $this->load->helper('text');
+//    var_dump($list_kelas->count()); exit;
     foreach ($list_kelas as $kelas) :
 ?>
         <div class="col-sm-4">
             <div class="content-grid">
-                <a href="#kelas/ddp">
+                <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                     <div class="grid-top">
                         <div class="rating">
                             <div class="icon tag">
@@ -38,7 +37,10 @@
                       title="<?php echo $kelas->teacher->nama?>" data-original-title="<?php echo $kelas->teacher->nama?>">
                         <div class="icon tag"><i class="fa fa-user fa-2"></i></div>
                         <a href="#">
-                            <?php echo character_limiter($kelas->teacher->nama, 25); ?>
+                            <?php
+                            $guru = $kelas->teacher->get();
+                            echo character_limiter($guru->nama, 25);
+                            ?>
                         </a>
                     </div>
                 </div><!-- grid-bottom -->
@@ -49,16 +51,3 @@
 ?>
     </div>
 </div> <!-- /container -->
-    
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script>
-    jQuery(document).ready(function($){
-        $('.icon-circle').tooltip();
-    });
-    </script>
-  </body>
-</html>

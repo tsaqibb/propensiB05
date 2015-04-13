@@ -8,7 +8,7 @@
   font-weight: bold;
   text-align: left;
   font-size: 25px;
-  margin-top: 5px;
+  margin-top: 10px;
   font-family: Ubuntu; 
   src: url('../fonts/Ubuntu-R.ttf');
 }
@@ -16,7 +16,7 @@
   border-width: 5px;
 }
 .judul{
-  margin-left: 125px;
+  margin-left: 130px;
   text-decoration: uppercase;
 }
 .judulp{
@@ -38,7 +38,7 @@
   padding:10px 10px; 
 }
 .checkbox1{
-    margin-left: 125px;
+    margin-left: 130px;
 }
 .checkbox{
     margin-left: 5px;

@@ -6,12 +6,11 @@ class Student extends DataMapper {
 	var $has_many = array('course', 'resource', 'students_class');
 	var $default_order_by = array('id' => 'asc');
 
-    function __construct($id = NULL)
-	{
+    function __construct($id = NULL){
 		parent::__construct($id);
     }
-    function get_student()
-	{
+    
+    function get_student(){
 		return $this->get();
 	}
 	

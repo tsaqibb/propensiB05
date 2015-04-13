@@ -1,24 +1,20 @@
 <script type=text/javascript>
-    function validate()
-    {
-        if (document.getElementById('iagree').checked)
-        {
+    function validate(){
+        if (document.getElementById('iagree').checked){
             var r=confirm("Apakah Anda yakin akan mendaftar?");
-            if (r==true)
-            {
+            if (r==true){
                 alert("Terima kasih atas pendaftarannya. Selanjutnya Anda akan mendapatkan email berupa link untuk konfirmasi pendaftaran.");
             }
-            else
-            {
+            else{
                 alert("Pendaftaran Anda telah dibatalkan");
             }
         }
-        else
-        {
+        else{
             alert("Anda belum menyetujui term")
         }
     }
 </script>
+
 <div class="container content kelas vendor">
     <div class="row">
         
@@ -42,7 +38,6 @@
 
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">[Nama Kelas]</h2>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-vendor">
                         <!-- Nav tabs -->
@@ -77,7 +72,7 @@
                             </ol>
                         </div> <!--panel term-->
 
-                        
+                        <br>
                             <div class="pinkfont text-16">Pilih metode pembayaran</div>
                             Anda tidak akan dikenakan biaya tambahan!<br>
 
