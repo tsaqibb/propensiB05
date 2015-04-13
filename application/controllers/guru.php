@@ -60,8 +60,10 @@ class Guru extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 	
-	public function tambahkelas()
+	public function tambahkelas($guru_id='1001')
 	{
+		$guru_model = new Teacher();
+		$data_guru = $guru_model->get_by_id($guru_id);
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_kelas');
 		$this->load->view('layout/footer');

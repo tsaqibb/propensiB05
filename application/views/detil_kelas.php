@@ -157,93 +157,162 @@
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
-                                        
-                                        <div class="feedback-package">
-                                            <div class="left clearfix">
-                                                <div class="panel-feedback clearfix">
-                                                    <div class="header">
-                                                        <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
-                                                            <span class="fa fa-clock-o"></span>17 mins ago</small>
-                                                    </div>
-                                                    <span class="chat-img pull-left">
-                                                        <i class="admin-circle"></i>
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="right clearfix">
-                                                <div class="panel-tanggapan clearfix">
-                                                    <div class="header">
-                                                        <small class=" text-muted"><span class="fa fa-clock-o"></span>16 mins ago</small>
-                                                        <strong class="pull-right primary-font">Dev Patel</strong>
-                                                    </div>
-                                                    <span class="chat-img pull-right">
-                                                        <i class="guru-circle"></i>
-                                                    </span>
-                                                    <p class="isi-tanggapan">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br> <!--feedback package -->
-
-                                        <div class="feedback-package">
-                                            <div class="left clearfix">
-                                                <div class="panel-feedback clearfix">
-                                                    <div class="header">
-                                                        <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
-                                                            <span class="fa fa-clock-o"></span>12 mins ago</small>
-                                                    </div>
-                                                    <span class="chat-img pull-left">
-                                                        <i class="admin-circle"></i>
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="right clearfix">
-                                                <div class="panel-tanggapan clearfix">
-                                                    <div class="header">
-                                                        <small class=" text-muted"><span class="fa fa-clock-o"></span>11 mins ago</small>
-                                                        <strong class="pull-right primary-font">Dev Patel</strong>
-                                                    </div>
-                                                    <span class="chat-img pull-right">
-                                                        <i class="guru-circle"></i>
-                                                    </span>
-                                                    <p class="isi-tanggapan">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div> <!-- feedback package-->
-                                        
                                         <br>
-                                            <div class="feedback-package">
+                                        <?php foreach ($list_feedback as $feedback) : ?>
+                                        <?php if($feedback->role=='0') : ?>
+                                        <div class="feedback-package">
                                             <div class="left clearfix">
                                                 <div class="panel-feedback clearfix">
                                                     <div class="header">
-                                                        <strong class="primary-font">Admin</strong> <small class="pull-right text-muted">
-                                                            <span class="fa fa-clock-o"></span>10 mins ago</small>
+                                                        <strong class="primary-font">Admin</strong>
+                                                        <small class="pull-right text-muted">
+                                                            <?php
+                                                                $time_now = strtotime(date('Y-m-d H:i:s'));
+                                                                $time_sent = strtotime($feedback->waktu_kirim);
+                                                                $time_elapsed = ($time_now - $time_sent);                                 
+                                                                $years = 60*60*24*365;
+                                                                $months = 60*60*24*30;
+                                                                $days = 60*60*24;
+                                                                $hours = 60*60;
+                                                                $minutes = 60;
+
+                                                                if(floor($time_elapsed/$years) > 1)
+                                                                {
+                                                                    echo floor($time_elapsed/$years)." years ago";
+                                                                }
+                                                                else if(floor($time_elapsed/$years) > 0)
+                                                                {
+                                                                    echo floor($time_elapsed/$years)." year ago";
+                                                                }
+                                                                else if(floor($time_elapsed/$months) > 1)
+                                                                {
+                                                                    echo floor($time_elapsed/$months)." months ago";
+                                                                }
+                                                                else if(floor(($time_elapsed/$months)) > 0)
+                                                                {
+                                                                    echo floor(($time_elapsed/$months))." month ago";
+                                                                }
+                                                                else if(floor(($time_elapsed/$days)) > 1)
+                                                                {
+                                                                    echo floor(($time_elapsed/$days))." days ago";
+                                                                }
+                                                                else if (floor(($time_elapsed/$days)) > 0) 
+                                                                {
+                                                                    echo floor(($time_elapsed/$days))." day ago";
+                                                                }
+                                                                else if (floor(($time_elapsed/$hours)) > 1) 
+                                                                {
+                                                                    echo floor(($time_elapsed/$hours))." hours ago";
+                                                                }
+                                                                else if (floor(($time_elapsed/$hours)) > 0) 
+                                                                {
+                                                                    echo floor(($time_elapsed/$hours))." hour ago";
+                                                                }
+                                                                else if (floor(($time_elapsed/$minutes)) > 1) 
+                                                                {
+                                                                    echo floor(($time_elapsed/$minutes))." minutes ago";
+                                                                }
+                                                                else if (floor(($time_elapsed/$minutes)) > 0) 
+                                                                {
+                                                                    echo floor(($time_elapsed/$minutes))." minute ago";
+                                                                }
+                                                                else if (floor(($time_elapsed)) > 1) 
+                                                                {
+                                                                    echo floor(($time_elapsed))." seconds ago";
+                                                                }else
+                                                                {
+                                                                    echo "Few seconds ago";
+                                                                }
+                                                            ?>
+                                                            <span class="fa fa-clock-o"></span>
+                                                        </small>
                                                     </div>
                                                     <span class="chat-img pull-left">
                                                         <i class="admin-circle"></i>
                                                     </span>
                                                     <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                        dolor, quis ullamcorper ligula sodales.
+                                                        <?php echo $feedback->pesan; ?>
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </div> <!--feedback package -->
+                                            <?php endif; ?>
+                                            <?php if($feedback->role=='1') : ?>
+                                            <div class="right clearfix">
+                                                <div class="panel-tanggapan clearfix">
+                                                    <div class="header">
+                                                        <small class=" text-muted">
+                                                        <?php
+                                                            $time_now = strtotime(date('Y-m-d H:i:s'));
+                                                            $time_sent = strtotime($feedback->waktu_kirim);
+                                                            $time_elapsed = ($time_now - $time_sent);                                 
+                                                            $years = 60*60*24*365;
+                                                            $months = 60*60*24*30;
+                                                            $days = 60*60*24;
+                                                            $hours = 60*60;
+                                                            $minutes = 60;
+
+                                                            if(floor($time_elapsed/$years) > 1)
+                                                            {
+                                                                echo floor($time_elapsed/$years)." years ago";
+                                                            }
+                                                            else if(floor($time_elapsed/$years) > 0)
+                                                            {
+                                                                echo floor($time_elapsed/$years)." year ago";
+                                                            }
+                                                            else if(floor($time_elapsed/$months) > 1)
+                                                            {
+                                                                echo floor($time_elapsed/$months)." months ago";
+                                                            }
+                                                            else if(floor(($time_elapsed/$months)) > 0)
+                                                            {
+                                                                echo floor(($time_elapsed/$months))." month ago";
+                                                            }
+                                                            else if(floor(($time_elapsed/$days)) > 1)
+                                                            {
+                                                                echo floor(($time_elapsed/$days))." days ago";
+                                                            }
+                                                            else if (floor(($time_elapsed/$days)) > 0) 
+                                                            {
+                                                                echo floor(($time_elapsed/$days))." day ago";
+                                                            }
+                                                            else if (floor(($time_elapsed/$hours)) > 1) 
+                                                            {
+                                                                echo floor(($time_elapsed/$hours))." hours ago";
+                                                            }
+                                                            else if (floor(($time_elapsed/$hours)) > 0) 
+                                                            {
+                                                                echo floor(($time_elapsed/$hours))." hour ago";
+                                                            }
+                                                            else if (floor(($time_elapsed/$minutes)) > 1) 
+                                                            {
+                                                                echo floor(($time_elapsed/$minutes))." minutes ago";
+                                                            }
+                                                            else if (floor(($time_elapsed/$minutes)) > 0) 
+                                                            {
+                                                                echo floor(($time_elapsed/$minutes))." minute ago";
+                                                            }
+                                                            else if (floor(($time_elapsed)) > 1) 
+                                                            {
+                                                                echo floor(($time_elapsed))." seconds ago";
+                                                            }else
+                                                            {
+                                                                echo "Few seconds ago";
+                                                            }
+                                                        ?>
+                                                        <span class="fa fa-clock-o"></span>
+                                                        </small>
+                                                        <strong class="pull-right primary-font">  <?php echo $data_kelas->teacher->get()->nama; ?></strong>
+                                                    </div>
+                                                    <span class="chat-img pull-right">
+                                                        <i class="guru-circle"></i>
+                                                    </span>
+                                                    <p class="isi-tanggapan">
+                                                        <?php echo $feedback->pesan; ?>
+                                                    </p>
+                                                </div>
+                                            </div> <!--feedback package -->
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                             <div class="panel-footer">
                                                 <div class="input-group">
                                                     <input id="btn-input" type="text" class="form-control input-sm" placeholder="Berikan pesan Anda di sini...">
@@ -253,7 +322,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> <!-- feedback package-->
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->

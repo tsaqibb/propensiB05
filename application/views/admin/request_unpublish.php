@@ -44,7 +44,7 @@
                                         <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>   
                                     </td>
                                     <td class="center">
-                                        <a href="#detilkelas" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>
+                                        <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

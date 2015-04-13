@@ -56,7 +56,10 @@
                                     <div class="form-group">
                                         <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="tag" placeholder="">
+                                            <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
+                                                <div class="bootstrap-tagsinput">
+                                                <input size="1" style="width: 3em ! important;" placeholder="" type="text">
+                                                </div>
                                         </div>
                                     </div>
                                 </form>

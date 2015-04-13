@@ -29,7 +29,7 @@ class Kelas extends CI_Controller {
 		$list_partisipan = $data_kelas->students_class->get();
 
 		$list_feedback = $data_kelas->feedback->get();
-		
+
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
