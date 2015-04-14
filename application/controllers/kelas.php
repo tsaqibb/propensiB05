@@ -105,4 +105,10 @@ class Kelas extends CI_Controller {
 		$kelas_model->where('id =', $id)->update('status_kelas', 0);
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
+	public function setAktif($id)
+	{
+		$this->load->model('students_class');
+		$this->students_class->set_active_partisipan($id);
+		redirect('/admin/calonpartisipan/', 'refresh');
+	}
 }
