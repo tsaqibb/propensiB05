@@ -111,4 +111,13 @@ class Kelas extends CI_Controller {
 		$this->students_class->set_active_partisipan($id);
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
+	public function setAllAktif()
+	{
+		$data=$this->input->post('id');
+		$this->load->model('students_class');
+		foreach ($data as $cek) {
+			$this->students_class->set_active_partisipan($cek);
+		}
+		redirect('/admin/calonpartisipan/', 'refresh');
+	}
 }
