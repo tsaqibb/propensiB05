@@ -7,7 +7,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href=""><i class="fa fa-users"></i> Kelas Anda</a>
+                        <a href="<?php echo base_url();?>guru/kelas"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
                     <li role="presentation">
                         <a href="<?php echo base_url();?>guru/tambahkelas"><i class="fa fa-plus"></i> Tambah Kelas</a>
@@ -18,6 +18,19 @@
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
+                <span class="info">Status:
+                <?php if($data_kelas->status == 0) : ?>
+                    <b class="rejected"> Rejected</b>
+                <?php elseif($data_kelas->status == 1) : ?>
+                    <b class="pending"> Pending Approve</b>
+                <?php elseif($data_kelas->status == 2) : ?>
+                    <b class="approve"> Approve</b>
+                <?php elseif($data_kelas->status == 3) : ?>
+                    <b class="pending"> Pending Publish</b>
+                <?php elseif($data_kelas->status == 4) : ?>
+                    <b class="publish"> Publish</b>
+                <?php endif; ?>
+                </span>
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -64,11 +77,22 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div id="class-notes">
-                                    <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
-                                        <i class="fa fa-upload"></i>
-                                        Upload materi 
+                                <div class="col-md-12 right">
+                                    <div class="btn main-button save" href="#save" role="tab" data-toggle="tab">
+                                        <i class="fa fa-floppy-o"></i>
+                                        Save 
                                     </div>
+                                    <?php if($data_kelas->status == 0) : ?>
+                                        <div class="btn btn-default-blue" href="#req_approve" role="tab" data-toggle="tab">
+                                            <i class="fa fa-check"></i>
+                                            Request to approve 
+                                        </div>
+                                    <?php elseif($data_kelas->status == 2) : ?>
+                                        <div class="btn btn-default-blue" href="#req_publish" role="tab" data-toggle="tab">
+                                            <i class="fa upload"></i>
+                                            Request to Publish 
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
 
                             </div><!-- published -->

@@ -36,14 +36,14 @@
             <div class="container">
                 <div class="row">
                     <div class="navbar-header">
-                        <a class="navbar-brand visible-xs" href="#"><img src="<?php echo base_url();?>images/logo-kelas-2.png" height="60"></a>
+                        <a class="navbar-brand visible-xs" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo-kelas-2.png" height="60"></a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand hidden-xs" href="#"><img src="<?php echo base_url();?>images/logo-kelas-2.png" height="60"></a>
+                        <a class="navbar-brand hidden-xs" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo-kelas-2.png" height="60"></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <button data-target=".navbar-collapse" data-toggle="collapse" class="close-toggle visible-xs" type="button">
@@ -51,11 +51,11 @@
                             <span class="icon-bar"></span>
                         </button>
                         <ul class="nav navbar-nav navbar-left">
-                            <li class="active"><a href="#">Kelas Online</a></li>
-                            <li><a href="#about">Privat</a></li>
-                            <li><a href="#about">Kelas Berkelompok</a></li>
-                            <li><a href="#contact">FAQ</a></li>
-                            <li><a href="#contact">Kontak</a></li>
+                            <li class="active"><a href="<?php echo base_url();?>">Kelas Online</a></li>
+                            <li><a href="http://www.ruangguru.com/cari_guru">Privat</a></li>
+                            <li><a href="http://www.kelas.ruangguru.com">Kelas Berkelompok</a></li>
+                            <li><a href="http://www.ruangguru.com/faq">FAQ</a></li>
+                            <li><a href="http://www.ruangguru.com/kontak-kami">Kontak</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="user-login">
