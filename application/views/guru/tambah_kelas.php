@@ -72,7 +72,7 @@
 
                                 
                         <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
-                              <div class="panel-group" id="accordion">   
+                            <div class="panel-group" id="accordion">   
 
                                 <div class="panel panel-btn">
                                     <div class="row">
@@ -109,18 +109,40 @@
                                      <div id="topik1" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
-                                             <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             <a href="#show">
+                                             <button type="button" class="btn btn-default" id="button1"  >Tambah Materi</button>
                                              </a>
                                           </ul>
+                                           <div id="show">
+                                            <form id="login" method="post" action="">
+                                                <fieldset>
+                                                    <label for="username">Username</label>
+                                                    <input type="text" id="username"/>
+                                                    <label for="username">Username</label>
+                                                    <input type="text" id="username"/>
+                                                    <label for="username">Username</label>
+                                                    <input type="text" id="username"/>
+                                                </fieldset>
+                                            </form>
+                                        </div>
                                           <ul class="list-groups">
                                             <a href="#">
                                              <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
                                              </a>
                                           </ul>
+
+                                       
+
+
+
+
+
+
+
+
                                           <ul class="list-groups">
                                             <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik() ">Tambah Materi</button>
                                              </a>
                                           </ul>
                                           <ul class="list-groups">
@@ -146,7 +168,7 @@
                                         <div class="col-md-10">                                                           
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                           href="#topik2"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 1 </a> 
+                                             Topik 2 </a> 
                                         </div>
                                         <div class="col-md-2">
                                              <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>
@@ -158,7 +180,7 @@
                                        <div class="panel-body">
                                           <ul class="list-groups">
                                              <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()" >Tambah Materi</button>
                                              </a>
                                           </ul>
                                           <ul class="list-groups">
@@ -186,8 +208,9 @@
                                        </div>
                                     </div>
                                  </div>
-                               </div>
+                               </div> <!-- end panel -- >
                             </div><!-- end tab materi -->
+
 
                            
                         </div><!-- tab-content -->
@@ -199,7 +222,7 @@
     </div>
 </div> <!-- /container -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 
 <script>
@@ -211,4 +234,11 @@
 
     }
 
+</script>
+
+<script type =" text/javascript">
+    $("document").ready(function(){
+        $("button#button1").fancybox();
+    });
+    
 </script>
