@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="../../favicon.ico">
 
         <title>Online Ruangguru</title>
 
@@ -15,6 +14,10 @@
         <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.fancybox.css" media="screen"/>
+        <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-tagsinput.css" type="text/css">
+        <script type="application/javascript" src="<?php echo base_url();?>js/jquery-2.1.1.min.js"></script>
+        <script type="application/javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="<?php echo base_url();?>js/bootstrap-tagsinput.min.js"></script>
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 
