@@ -30,21 +30,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/calon_partisipan', array('list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
 	}
-	public function galerikelas()
-	{
-		$kelas_model = new Course();
-		$list_kelas = $kelas_model->get_published_list_kelas();
-		$this->load->view('layout/header');
-		$this->load->view('admin/galeri_kelas_admin', array('list_kelas' => $list_kelas));
-		$this->load->view('layout/footer');
-	}
-	public function detilkelas()
-	{
-		$this->load->view('layout/header');
-		$this->load->view('admin/detil_kelas_admin');
-		$this->load->view('layout/footer');
-	}
-	
 
 	public function pendingclasses()
 	{
