@@ -25,8 +25,9 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
-		
-		$list_partisipan = $data_kelas->students_class->get();
+		//melihat list partisipan yang aktid pada suatu kelas
+		$list_partisipan = $data_kelas->students_class->get_list_partisipan_active();
+
 
 		$list_feedback = $data_kelas->feedback->get();
 
