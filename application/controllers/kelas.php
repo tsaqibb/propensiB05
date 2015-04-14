@@ -120,4 +120,15 @@ class Kelas extends CI_Controller {
 		}
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
+	public function setNonAktif($id)
+	{
+		$data=explode("_", $id);
+		$id=$data[0];
+		$course=$data[1];
+
+		$this->load->model('students_class');
+		$this->students_class->set_nonactive_partisipan($id);
+
+		redirect('/kelas/detail/'.$course, 'refresh');
+	}
 }
