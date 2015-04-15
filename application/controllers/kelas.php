@@ -131,4 +131,11 @@ class Kelas extends CI_Controller {
 
 		redirect('/kelas/detail/'.$course, 'refresh');
 	}
+	public function setAllNonAktif()
+	{
+
+		$this->load->model('students_class');
+		$this->students_class->set_nonactive_all_partisipan();
+		redirect('/kelas/', 'refresh');
+	}
 }
