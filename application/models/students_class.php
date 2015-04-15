@@ -31,9 +31,8 @@ class Students_Class extends DataMapper {
 	}
 
 	// mengaktifkan calon partisipan
-	function set_active_partisipan($id){
-		$query = "student_id ='id' AND isActive = '0'"; 
-		$this->where($query);
+	function set_active_partisipan($id){ 
+		$this->where('student_id =', $id);
 		$this->update('isActive',1);
 	}
 
