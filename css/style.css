@@ -302,6 +302,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-top: 10px;
   padding: 10px;
   width: 100%;
+  border: none;
+}
+.main-button:hover {
+  background: #E39E1F !important;
+  color: #fff !important;
 }
 
 /*related class*/
@@ -768,7 +773,6 @@ thead {
 .panel-body .form-control {
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: none;
   padding: 6px 12px;
 }
 textarea.form-control {
@@ -1111,6 +1115,9 @@ text-align: center;
   display: inline;
   margin: 0;
 }
+.bootstrap-tagsinput {
+  width: 100%;
+}
 /*end sub-content added*/
 
 /* tab-detil-kelas */
@@ -1434,8 +1441,6 @@ font-family: Ubuntu;
 font-size: 18px;
 text-decoration: none;
 }
-
-
 
 .list-kelas .section-heading{
   padding:5px 5px;
