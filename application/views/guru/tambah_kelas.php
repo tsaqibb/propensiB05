@@ -113,18 +113,7 @@
                                              <button type="button" class="btn btn-default" id="button1"  >Tambah Materi</button>
                                              </a>
                                           </ul>
-                                           <div id="show">
-                                            <form id="login" method="post" action="">
-                                                <fieldset>
-                                                    <label for="username">Username</label>
-                                                    <input type="text" id="username"/>
-                                                    <label for="username">Username</label>
-                                                    <input type="text" id="username"/>
-                                                    <label for="username">Username</label>
-                                                    <input type="text" id="username"/>
-                                                </fieldset>
-                                            </form>
-                                        </div>
+                                           
                                           <ul class="list-groups">
                                             <a href="#">
                                              <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
