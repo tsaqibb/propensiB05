@@ -40,7 +40,7 @@ body.have-bar {
 .navbar.navbar-default .navbar-nav a {
   /*font-family: Roboto Condensed Bold; */
   background: none repeat scroll 0 0 transparent;
-  color: #4c4c4c;
+  color: #3bc4e6;
   font-size: 15px;
 }
 .navbar-default .navbar-nav .active a, 
@@ -296,12 +296,27 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .main-button {
   background-color: #fcb33b;
   border-radius: 5px;
-  color: #333;
+  color: #fff;
   display: inline-block;
   font-size: 16px;
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
+  border: none;
+  margin: 5px;
+}
+.main-button:hover {
+  background: #E39E1F !important;
+  color: #fff !important;
+}
+.btn-default-blue {
+  background-color: #34B9D8 !important;
+  color: #fff;
+  margin: 5px;
+}
+.btn-default-blue:hover {
+  background-color: #02bfec !important;
+  color: #FFF;
+}
+.right>div {
+  float: right;
 }
 
 /*related class*/
@@ -493,7 +508,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   padding: 0 10px;
   width: 25%;
 }
-.main-button.register {
+.main-button.register{
   display: table;
   margin: 30px auto 15px;
   width: 200px;
@@ -768,7 +783,6 @@ thead {
 .panel-body .form-control {
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: none;
   padding: 6px 12px;
 }
 textarea.form-control {
@@ -1111,6 +1125,9 @@ text-align: center;
   display: inline;
   margin: 0;
 }
+.bootstrap-tagsinput {
+  width: 100%;
+}
 /*end sub-content added*/
 
 /* tab-detil-kelas */
@@ -1434,8 +1451,6 @@ font-family: Ubuntu;
 font-size: 18px;
 text-decoration: none;
 }
-
-
 
 .list-kelas .section-heading{
   padding:5px 5px;

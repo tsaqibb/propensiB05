@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>css/admin.css" type="text/css" media="all" />
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>
+        <script type="application/javascript" src="<?php echo base_url();?>js/jquery-2.1.1.min.js"></script>
+        <script type="application/javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script>
         <script type="text/javascript">
             var base_url = "<?php echo base_url();?>";
         </script>

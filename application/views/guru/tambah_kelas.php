@@ -57,14 +57,12 @@
                                         <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                         <div class="col-sm-8">
                                             <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
-                                                <div class="bootstrap-tagsinput">
-                                                <input size="1" style="width: 3em ! important;" placeholder="" type="text">
-                                                </div>
                                         </div>
                                     </div>
                                 </form>
                                 <div id="class-notes">
                                     <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
+                                        <i class="fa fa-upload"></i>
                                         Upload materi 
                                     </div>
                                 </div>
@@ -91,6 +89,7 @@
                                     <br>
                                
 
+
                                     <div class="panel panel-topik">
                                         <div class="panel-judul-topik">
                                             <div class="row">   
@@ -104,6 +103,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                               
 
                                          <div id="topik1" class="panel-collapse collapse">
                                             <div class="panel-body">

@@ -39,7 +39,7 @@
                                             <tr class="text-center">
                                                 <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
-                                                <td class="statusdetil">Edit</td>
+                                                <td class="statusdetil">Status</td>
                                                 <td class="statusdetil">Detil</td>
                                             </tr>
                                         </thead>
@@ -54,11 +54,10 @@
                                                 </td>
                                                 <?php else: ?>
                                                 <td>
-                                                    <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                 </td>
                                                 <?php endif; ?>
                                                 <td>
-                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Lihat Detil Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -89,7 +88,7 @@
                                         <tbody>
                                         <?php foreach ($list_draft_kelas as $kelas) : ?>
                                             <tr>
-                                                <td>3</td>
+                                                <td><?php echo $kelas->id ?></td>
                                                 <td class="nama"><?php echo $kelas->nama ?></td>
                                                 <td>
                                                     <?php if($kelas->status_kelas == 1 ) : ?>
@@ -103,12 +102,12 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <?php if($kelas->status_kelas == 1 || $kelas->status_kelas == 3) : ?>
-                                                        <a href="#" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    <?php if($kelas->status_kelas == 0 || $kelas->status_kelas == 2) : ?>
+                                                        <a href="<?php echo base_url().'guru/edit_kelas/'.$kelas->id; ?>" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="link icon-circle" title="" data-original-title="Lihat Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Lihat Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

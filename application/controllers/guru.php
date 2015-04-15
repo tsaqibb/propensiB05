@@ -75,4 +75,19 @@ class Guru extends CI_Controller {
 		$this->load->view('layout/footer');
 
 	}
+
+	public function edit_kelas($kelas_id='3002')
+	{
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($kelas_id);
+		$data_guru = $data_kelas->teacher->get();
+		$this->load->view('layout/header');
+		$this->load->view('guru/edit_kelas',
+			array(
+				'data_guru'=>$data_guru,
+				'data_kelas'=>$data_kelas
+			)
+		);
+		$this->load->view('layout/footer');
+	}
 }

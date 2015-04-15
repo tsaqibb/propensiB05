@@ -25,8 +25,9 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
-		
-		$list_partisipan = $data_kelas->students_class->get();
+		//melihat list partisipan yang aktid pada suatu kelas
+		$list_partisipan = $data_kelas->students_class->get_list_partisipan_active();
+
 
 		$list_feedback = $data_kelas->feedback->get();
 
@@ -103,5 +104,41 @@ class Kelas extends CI_Controller {
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 0);
 		redirect('/admin/pendingclasses/', 'refresh');
+	}
+	public function setAktif($id)
+	{
+		$this->load->model('students_class');
+		$this->students_class->set_active_partisipan($id);
+		redirect('/admin/calonpartisipan/', 'refresh');
+	}
+	public function setAllAktif()
+	{
+		$data=$this->input->post('id');
+		$this->load->model('students_class');
+		foreach ($data as $cek) {
+			$this->students_class->set_active_partisipan($cek);
+		}
+		redirect('/admin/calonpartisipan/', 'refresh');
+	}
+	public function setNonAktif($id)
+	{
+		$data=explode("_", $id);
+		$id=$data[0];
+		$course=$data[1];
+
+		$this->load->model('students_class');
+		$this->students_class->set_nonactive_partisipan($id);
+
+		redirect('/kelas/detail/'.$course, 'refresh');
+	}
+	public function setAllNonAktif()
+	{
+		//$data=explode("_", $id);
+		//$id=$data[0];
+		//$course=$data[1];
+		$this->load->model('students_class');
+		$this->students_class->set_nonactive_all_partisipan();
+		redirect('/kelas/', 'refresh');
+		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
 }
