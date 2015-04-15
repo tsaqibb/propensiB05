@@ -107,12 +107,10 @@
 
                                          <div id="topik1" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                <ul class="list-groups">
-                                                    
+                                                <ul class="list-groups">                                                    
                                                         <a class="fancybox" href="#inline1">
                                                             <button type="button" class="btn btn-default" id="button1" >Tambah Materi</button>
-                                                        </a>
-                                                    
+                                                        </a>                                                    
                                                 </ul>
                             <!-- FORM POP UP-->
                                                 <div id="inline1" style="width:400px; display: none;">
