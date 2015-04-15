@@ -138,9 +138,9 @@
                             <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="#" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a></div>
+                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="<?php echo base_url()."kelas/setAllNonAktif/"; ?>" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a></div>
                                 <?php foreach ($list_partisipan as $daftar) :
-                                  $student = $daftar->student->get();
+                                    $student = $daftar->student->get();
                                 ?>
                                   <div class="actived-partisipan">
                                   <div class="row">
