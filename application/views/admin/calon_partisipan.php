@@ -53,7 +53,9 @@
     <strong>select all</strong>
 </input>
 <span>
-    <a href="#" type="button" class="main-button register2" onclick="validasi()">Activate all</a>
+     <form method="POST" action="<?php echo base_url()."kelas/setAllAktif";?>" >
+    <input type="submit" value="Activate all"  class="main-button register2" onclick="validasi()">
+
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -82,13 +84,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php foreach ($list_partisipan as $Calon) :
                                 $course = $Calon->course->get();
                                 $student = $Calon->student->get();
                                 ?>
                                 <tr>
                                     <td class ="center">
-                                        <input id ="satu" type="checkbox"></input>
+                                        <input id ="satu" type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
                                     </td>
                                         
                                     <td>
@@ -112,6 +115,7 @@
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
+                            </form>
                             </tbody>
                         </table>
                     </div><!--class table-->
