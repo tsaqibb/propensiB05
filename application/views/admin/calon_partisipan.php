@@ -111,7 +111,7 @@
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="#" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setAktif/".$Calon->student_id; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
