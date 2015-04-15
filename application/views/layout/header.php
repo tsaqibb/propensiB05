@@ -18,6 +18,20 @@
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>js/jquery.fancybox.pack.js"></script>
+        <script src="<?php echo base_url();?>js/jquery.fancybox-media.js"></script>        
+        <script src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
+        <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+        
+
+
+
+
+
+
+
+
     </head>
     <body>
         <!-- Fixed navbar -->
