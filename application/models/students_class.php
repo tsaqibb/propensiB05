@@ -20,8 +20,8 @@ class Students_Class extends DataMapper {
 	
 	//menampilkan partisipan didalam suatu kelas
 	function get_list_partisipan_active(){
-		$query = "class_id ='id' AND isActive = '1'"; 
-		return $this->where($query);
+		$this->where('isActive =', 1);
+		return $this->get();
 	}
 
 	//menampilkan calon partisipan
