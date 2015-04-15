@@ -10,8 +10,6 @@ class Murid extends CI_Controller {
 	{
 		$kelas_model = new Course();
 		$list_kelas = $kelas_model->get_published_list_kelas();
-
-		$this->load->helper('text');
 		$this->load->view('layout/header');
 		$this->load->view('murid/galeri_kelas', array('list_kelas' => $list_kelas));
 		$this->load->view('layout/footer');
