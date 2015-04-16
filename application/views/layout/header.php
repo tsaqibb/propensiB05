@@ -28,9 +28,54 @@
         <!--Add Fancybox -->
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox-media.js"></script>
-        
+        <script type="application/javascript">
+        var sTO = null;
+        $(document).ready(function() {
+            if($('.notification').is('.on')) {
+                var timeout = $('.notification > div').is('.error')?
+                        30000:$('.notification > div').is('.warning')?20000:10000;
+                sTO = setTimeout('removeNotification()', timeout);
+            }
+            $('.close-notif').click(function(e){
+                e.preventDefault();
+                clearTimeout(sTO);
+                removeNotification();
+            });
+        });
+        </script>
     </head>
     <body>
+<?php
+$notice = strlen($this->session->flashdata('status.error'))?'error':
+        (strlen($this->session->flashdata('status.warning'))?'warning':
+                (strlen($this->session->flashdata('status.notice'))?'notice':''));
+?>
+        <div class="notification <?php echo !empty($notice)?'on':'';
+        echo $this->session->flashdata('status.large')=='TRUE'?' large':''; ?>">
+            <div class="<?php echo $notice;?>">
+                <div class="message">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-2 col-xs-12">
+                            <strong id="notification-title">
+                                <?php echo ucfirst($notice) ;?>
+                            </strong>
+                            <span id="notification-message">
+                                <?php echo $this->session->flashdata('status.'.$notice)?>
+                            </span>
+                            <span class="pull-right visible-xs-block close-notif">
+                                <i class="fa fa-close"></i> Close
+                            </span>
+                        </div>
+                        <div class="col-sm-1 hidden-xs close-notif" style="text-align: right">
+                            <i class="fa fa-close"></i> Close
+                        </div>
+                        <div class="col-sm-offset-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Fixed navbar -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -58,7 +103,7 @@
                             <li><a href="http://www.ruangguru.com/kontak-kami">Kontak</a></li>
                         </ul>
 <?php
-    if(empty($this->session->is_logged_in) || empty($user['id'])): // Not logged in
+    if($this->session->userdata('is_logged_in') == FALSE) : // Not logged in
 ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown sign-in">
@@ -121,25 +166,23 @@
             </div>
 <?php
     else: // logged in
-        switch($user['type']):
+        switch($this->session->userdata('user_type')):
             case        'guru':
                 $profile = base_url().'profile';
-                $logout = base_url().'guru/logout';
                 break;
             case        'murid':
                 $profile = base_url().'murid';
-                $logout = base_url().'murid/logout';
                 break;
             case        'admin':
                 $profile = base_url().'admin';
-                $logout = base_url().'admin/logout';
                 break;
         endswitch;
+        $logout = base_url().'user/logout';
 ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="user-login">
                             Halo, <a href="<?php echo $profile?>">
-                                <?php echo $user['name'];?>
+                                <?php echo $this->session->userdata('user_name');?>
                             </a>
                         </li>
                         <li class="sign-out">

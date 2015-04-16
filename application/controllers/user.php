@@ -4,6 +4,9 @@ class User extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
+		if (!isset($_SESSION)) {
+            session_start();
+        }
 	}
 
 	/** login */
@@ -24,16 +27,18 @@ class User extends CI_Controller {
 	            $this->session->set_flashdata('login_guru_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
 	            redirect('user/login');
 	        }else{
-	            $this->session->set_userdata('guru_id',$guru->id);
-	            $this->session->set_userdata('guru_nama',$guru->nama);
-	            $this->session->set_userdata('is_logged_in',TRUE);
-				$user = array(
+	            $user = array(
 					'type'	=> 'guru',
 					'name'	=> $guru->nama,
 					'email'	=> $guru->email,
 					'id'	=> $guru->id
 				);
 				//$this->exec_login($user);
+				$this->session->set_userdata('user_type', $user['type']);
+				$this->session->set_userdata('user_name', $user['name']);
+				$this->session->set_userdata('user_email', $user['email']);
+				$this->session->set_userdata('user_id', $user['id']);
+				$this->session->set_userdata('is_logged_in',TRUE);
 	            redirect('guru');
 	        }
 	    } elseif($role=="murid") {
@@ -43,9 +48,6 @@ class User extends CI_Controller {
 	            $this->session->set_flashdata('login_murid_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
 	            redirect('user/login');
 	        }else{
-	            $this->session->set_userdata('murid_id',$murid->id);
-	            $this->session->set_userdata('murid_nama',$murid->nama);
-	            $this->session->set_userdata('is_logged_in',TRUE);
 				$user = array(
 					'type'	=> 'murid',
 					'name'	=> $murid->nama,
@@ -53,13 +55,14 @@ class User extends CI_Controller {
 					'id'	=> $murid->id
 				);
 				//$this->exec_login($user);
+				$this->session->set_userdata('user_type', $user['type']);
+				$this->session->set_userdata('user_name', $user['name']);
+				$this->session->set_userdata('user_email', $user['email']);
+				$this->session->set_userdata('user_id', $user['id']);
+	            $this->session->set_userdata('is_logged_in',TRUE);
 	            redirect('murid');
 	        }
 	    }
-	    $this->session->set_userdata('user_type', $user['type']);
-		$this->session->set_userdata('user_name', $user['name']);
-		$this->session->set_userdata('user_email', $user['email']);
-		$this->session->set_userdata('user_id', $user['id']);
     }
 
     public function logout(){
