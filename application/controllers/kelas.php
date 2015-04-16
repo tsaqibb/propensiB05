@@ -138,4 +138,16 @@ class Kelas extends CI_Controller {
 		$this->students_class->set_nonactive_all_partisipan();
 		redirect('/kelas/', 'refresh');
 	}
+
+	public function update_kelas($id)
+	{
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+		$sucses = $data_kelas->update(array(
+			'nama' => $this->input->post('nama_kelas'),
+			'deskripsi'=>$this->input->post('deskripsi_kelas'),
+			'harga'=>$this->input->post('harga'),
+			));
+		redirect('/guru/edit_kelas', 'refresh');
+	}
 }

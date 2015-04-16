@@ -37,10 +37,5 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script>
-    jQuery(document).ready(function($){
-        $('.icon-circle').tooltip();
-    });
-    </script>
-  </body>
+    </body>
 </html>
