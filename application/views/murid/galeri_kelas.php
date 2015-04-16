@@ -1,5 +1,10 @@
 <div class="container content kelas vendor">
     <div class="row">
+        <div class="col-sm-12">
+            <h3 class="block-title text-center">Galery Kelas</h3>
+        </div>
+    </div>
+    <div class="row">
 <?php
 //    var_dump($list_kelas->count()); exit;
     foreach ($list_kelas as $kelas) :

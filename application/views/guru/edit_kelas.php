@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="panel panel-topik">
+                                <div class="panel panel-orange">
                                     <div class="panel-judul-topik">
                                       <div class="row">   
                                         <div class="col-md-10">                                                           
@@ -160,7 +160,7 @@
                                  </div>
                                </div>
 
-                                <div class="panel panel-topik">
+                                <div class="panel panel-orange">
                                     <div class="panel-judul-topik">
                                       <div class="row">   
                                         <div class="col-md-10">                                                           

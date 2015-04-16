@@ -35,7 +35,7 @@ body.have-bar {
   height: auto;
 }
 .nav.navbar-nav {
-  margin: 20px 0 0 50px;
+  margin: 20px 0 0 0px;
 }
 .navbar.navbar-default .navbar-nav a {
   /*font-family: Roboto Condensed Bold; */
@@ -269,7 +269,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   line-height: 1.0;
 }
 .grid-bottom .icon {
-  color: #fcb33b;
+  color: #3bc4e6;
   margin-right: 5px;
 }
 
@@ -668,9 +668,9 @@ thead {
   border-radius: 0px;
   color: #3a3a3a;
   height: 50px;
-  /*font-family: Roboto Bold;*/
   font-size: 20px;
-  position: relative;
+  margin: 0;
+  display: block;
 } 
 
 .panel-default .panel-heading-feedback {
@@ -924,7 +924,7 @@ a.remove {
   color:white;
 }
 
-.panel-topik {
+.panel-orange {
   padding-right: 5px;
   padding-left: 5px;
   border-right-width : 1px;
@@ -992,7 +992,7 @@ text-align: center;
 
 }
 
-.panel-topik .hapus-topik{
+.panel-orange .hapus-topik{
   text-decoration: none;
   color:grey;
   padding-top: 14px;

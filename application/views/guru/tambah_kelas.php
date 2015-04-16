@@ -17,52 +17,50 @@
         </div>  
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase">Kelas</h2>
+                <h2 class="block-title text-uppercase">Tambah Kelas</h2>
                 <div class="panel-body">
                     <div class="panel-group" id="accordion_edit_kelas">
-                        <div class="panel panel-topik">
+                        <div class="panel panel-orange">
                             <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading" href="#detail_kelas">
                                 <i class="fa fa-chevron-circle-down"></i>
                                 Detail Kelas
                             </a>
                             <div id="detail_kelas" class="panel-collapse collapse in">
-                                <div role="tabpanel" class="tab-pane" id="detil-kelas">
-                                    <form class="form-horizontal" action="">
-                                        <div class="form-group">
-                                            <label id="nama_kelas" name="nama_kelas" class="col-sm-3 control-label">Nama Kelas</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
-                                            </div>
+                                <form class="form-horizontal" action="">
+                                    <div class="form-group">
+                                        <label id="nama_kelas" name="nama_kelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
                                         </div>
-                                        <div class="form-group">
-                                            <label id="deskripsi_kelas" name="deskripsi_kelas" class="col-sm-3 control-label">Deskripsi Kelas</label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="deskripsi_kelas" name="deskripsi_kelas" class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label id="harga" name="harga" class="col-sm-3 control-label">Harga</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="harga" name="harga" class="col-sm-3 control-label">Harga</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="attachment" class="col-sm-3 control-label">Tags</label>
-                                            <div class="col-sm-8">
-                                                <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="attachment" class="col-sm-3 control-label">Tags</label>
+                                        <div class="col-sm-8">
+                                            <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
                                         </div>
+                                    </div>
 <?php /*
-                                        <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
-                                            <i class="fa fa-upload"></i>
-                                            Upload materi 
-                                        </div>
+                                    <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
+                                        <i class="fa fa-upload"></i>
+                                        Upload materi 
+                                    </div>
 */?>
-                                    </form>
-                                </div><!-- end tab panel -->
-                            </div>
-                        </div>
-                        <div class="panel panel-topik">
+                                </form>
+                            </div> 
+                        </div> <!-- end panel -->
+                        <div class="panel panel-orange">
                             <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading" href="#materi">
                                 <i class="fa fa-chevron-circle-down"></i>
                                 Materi
@@ -87,7 +85,7 @@
                                
 
 
-                                    <div class="panel panel-topik">
+                                    <div class="panel panel-orange">
                                         <div class="panel-judul-topik">
                                             <div class="row">   
                                                 <div class="col-md-10">                                                           
@@ -153,7 +151,7 @@
                                     </div> <!-- end panel topik -->
 
                                
-                                    <div class="panel panel-topik">
+                                    <div class="panel panel-orange">
                                         <div class="panel-judul-topik">
                                             <div class="row">   
                                                 <div class="col-md-10">                                                           
@@ -269,7 +267,7 @@
                                
 
 
-                                    <div class="panel panel-topik">
+                                    <div class="panel panel-orange">
                                         <div class="panel-judul-topik">
                                             <div class="row">   
                                                 <div class="col-md-10">                                                           
@@ -335,7 +333,7 @@
                                     </div> <!-- end panel topik -->
 
                                
-                                    <div class="panel panel-topik">
+                                    <div class="panel panel-orange">
                                         <div class="panel-judul-topik">
                                             <div class="row">   
                                                 <div class="col-md-10">                                                           
