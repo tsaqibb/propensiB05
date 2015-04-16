@@ -133,10 +133,13 @@ class Kelas extends CI_Controller {
 	}
 	public function setAllNonAktif()
 	{
-
+		//$data=explode("_", $id);
+		//$id=$data[0];
+		//$course=$data[1];
 		$this->load->model('students_class');
 		$this->students_class->set_nonactive_all_partisipan();
 		redirect('/kelas/', 'refresh');
+		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
 
 	public function update_kelas($id)
