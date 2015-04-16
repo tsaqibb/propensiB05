@@ -29,7 +29,6 @@
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>js/helpers/jquery.fancybox-media.js"></script>
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-        <script type="application/javascript" src="<?php echo base_url()?>js/jquery-2.1.1.min.js"></script>
         <script type="application/javascript">
         var base_url = "<?php echo base_url()?>";
         var sTO = null;
@@ -83,10 +82,10 @@
                             <a href="#" class="dropdown-toggle btn-blue" data-toggle="dropdown" role="button" aria-expanded="false">Masuk</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a class="fancybox" href="#inline1">sbg Murid</a>
+                                    <a class="fancybox" href="#login_murid">sbg Murid</a>
                                 </li>
                                 <li>
-                                    <a class="fancybox" href="#inline2">sbg Guru</a>
+                                    <a class="fancybox" href="#login_guru">sbg Guru</a>
                                 </li>
                             </ul>
                         </li>
@@ -103,7 +102,7 @@
                         </li>
                     </ul>
 <!-- Fancy Log -->
-            <div id="inline1" style="width:400px;display: none;">
+            <div id="login_murid" style="width:400px;display: none;">
                 <p class="text-14 bold">Masuk sebagai Murid</p>
                 <form id="login_form_murid" name="login_form_murid" method="post" action="https://ruangguru.com/murid/login_submit">
                     <p>
@@ -120,7 +119,7 @@
                     </p>
                 </form>
             </div>
-            <div id="inline2" style="width:400px;display: none;">
+            <div id="login_guru" style="width:400px;display: none;">
                 <p class="text-14 bold">Masuk sebagai Guru</p>
                 <form id="login_form_murid" name="login_form_murid" method="post" action="https://ruangguru.com/guru/login_submit">
                     <p>

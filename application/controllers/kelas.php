@@ -153,4 +153,14 @@ class Kelas extends CI_Controller {
 			));
 		redirect('/guru/edit_kelas', 'refresh');
 	}
+
+	public function create_kelas()
+	{
+		$kelas_model = new Course();
+		$kelas_model->$this->input->post('nama_kelas');
+		$kelas_model->$this->input->post('deskripsi_kelas');
+		$kelas_model->$this->input->post('harga');
+		$sucses = $kelas_model->save_as_new();
+		redirect('/guru/kelas', 'refresh');
+	}
 }

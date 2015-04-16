@@ -33,22 +33,22 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane" id="detil-kelas">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" action="">
 
                                     <div class="form-group">
-                                        <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                        <label id="nama_kelas" name="nama_kelas" class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                        <label id="deskripsi_kelas" name="deskripsi_kelas" class="col-sm-3 control-label">Deskripsi Kelas</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Seo" class="col-sm-3 control-label">Harga</label>
+                                        <label id="harga" name="harga" class="col-sm-3 control-label">Harga</label>
                                         <div class="col-sm-8">
                                             <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
                                         </div>
@@ -59,13 +59,13 @@
                                             <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
                                         </div>
                                     </div>
-                                </form>
-                                <div id="class-notes">
+                                    <button class="main-button btn-blue" role='submit'>Create</button>
                                     <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
                                         <i class="fa fa-upload"></i>
                                         Upload materi 
                                     </div>
                                 </div>
+                                </form>
                             </div><!-- end tab panel -->
 
 
