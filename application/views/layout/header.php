@@ -13,27 +13,27 @@
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.fancybox.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'.'?>/css/jquery.fancybox.css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-tagsinput.css" type="text/css">
+
+        <!-- Javascript -->
         <script type="application/javascript" src="<?php echo base_url();?>js/jquery-2.1.1.min.js"></script>
         <script type="application/javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script>
         <script type="application/javascript" src="<?php echo base_url();?>js/bootstrap-tagsinput.min.js"></script>
+
         <script src="<?php echo base_url();?>js/jquery.fancybox.pack.js"></script>
-        <script src="<?php echo base_url();?>js/jquery.fancybox-media.js"></script>        
-        <script src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
+  
+        <script type="application/javascript" src="<?php echo base_url()?>js/utility.js"></script>
 
         
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 
 
+
        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
        <script src="<?php echo base_url();?>js/bootstrap.min.js"></script> 
         -->
-
-        
-        
-        
 
 
 
@@ -70,13 +70,6 @@
                             <li><a href="http://www.ruangguru.com/faq">FAQ</a></li>
                             <li><a href="http://www.ruangguru.com/kontak-kami">Kontak</a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="user-login">
-                                Halo, <a href="#">
-                                    Nama User</a>
-                            </li>
-                        </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
-        </nav>

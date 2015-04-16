@@ -141,4 +141,26 @@ class Kelas extends CI_Controller {
 		redirect('/kelas/', 'refresh');
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
+
+	public function update_kelas($id)
+	{
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+		$sucses = $data_kelas->update(array(
+			'nama' => $this->input->post('nama_kelas'),
+			'deskripsi'=>$this->input->post('deskripsi_kelas'),
+			'harga'=>$this->input->post('harga'),
+			));
+		redirect('/guru/edit_kelas', 'refresh');
+	}
+
+	public function create_kelas()
+	{
+		$kelas_model = new Course();
+		$kelas_model->$this->input->post('nama_kelas');
+		$kelas_model->$this->input->post('deskripsi_kelas');
+		$kelas_model->$this->input->post('harga');
+		$sucses = $kelas_model->save_as_new();
+		redirect('/guru/kelas', 'refresh');
+	}
 }
