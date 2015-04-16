@@ -247,18 +247,3 @@
     }
 
 </script>
-<script>
-$(document).ready(function() {
-    $(".fancybox").fancybox({
-        maxWidth    : 400,
-        maxHeight   : 700,
-        fitToView   : false,
-        width       : '70%',
-        height      : '80%',
-        autoSize    : false,
-        closeClick  : false,
-        openEffect  : 'none',
-        closeEffect : 'none'
-    });
-});
-</script>

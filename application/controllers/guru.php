@@ -90,39 +90,4 @@ class Guru extends CI_Controller {
 		);
 		$this->load->view('layout/footer');
 	}
-
-	/** login */
-	public function login(){
-        $this->load->view('layout/header');
-        $this->load->view('guru/login');
-		$this->load->view('layout/footer');
-    }
-    
-    public function login_submit(){
-        $input['email'] = $this->input->post('email');
-        $input['password'] = $this->input->post('password');
-        $guru_model = new Teacher();
-		$guru = $guru_model->check_login($input);
-        if(empty($guru)){
-            $this->session->set_flashdata('login_guru_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
-            redirect('guru/login');
-        }else{
-            $this->session->set_userdata('guru_id',$guru->id);
-            $this->session->set_userdata('guru_nama',$guru->nama);
-            $this->session->set_userdata('is_logged_in',TRUE);
-			$user = array(
-				'type'	=> 'guru',
-				'name'	=> $guru->nama,
-				'email'	=> $guru->email,
-				'id'	=> $guru->id
-			);
-			//$this->exec_login($user);
-            redirect('guru');
-        }
-    }
-
-    public function logout(){
-	    $this->session->sess_destroy();
-        redirect('kelas');
-    }
 }

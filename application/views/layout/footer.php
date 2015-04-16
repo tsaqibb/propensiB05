@@ -39,3 +39,18 @@
     <!-- Placed at the end of the document so the pages load faster -->
     </body>
 </html>
+<script>
+$(document).ready(function() {
+    $(".fancybox").fancybox({
+        maxWidth    : 400,
+        maxHeight   : 700,
+        fitToView   : false,
+        width       : '70%',
+        height      : '80%',
+        autoSize    : false,
+        closeClick  : false,
+        openEffect  : 'none',
+        closeEffect : 'none'
+    });
+});
+</script>

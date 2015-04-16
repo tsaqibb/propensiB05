@@ -27,25 +27,8 @@
 
         <!--Add Fancybox -->
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
-        <script type="text/javascript" src="<?php echo base_url();?>js/helpers/jquery.fancybox-media.js"></script>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-        <script type="application/javascript">
-        var base_url = "<?php echo base_url()?>";
-        var sTO = null;
-        $(document).ready(function() {
-            if($('.notification').is('.on')) {
-                var timeout = $('.notification > div').is('.error')?
-                        30000:$('.notification > div').is('.warning')?20000:10000;
-                sTO = setTimeout('removeNotification()', timeout);
-            }
-            $('.close-notif').click(function(e){
-                e.preventDefault();
-                clearTimeout(sTO);
-                removeNotification();
-            });
-        });
-        </script>
-
+        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox-media.js"></script>
+        
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -93,10 +76,10 @@
                             <a href="#" class="dropdown-toggle btn-orange" data-toggle="dropdown" role="button" aria-expanded="false">Daftar</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?php echo base_url()?>murid/registrasi">sbg Murid</a>
+                                    <a href="ruangguru.com/murid/registrasi">sbg Murid</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url()?>guru/reg_guru">sbg Guru</a>
+                                    <a href="ruangguru.com/guru/reg_guru">sbg Guru</a>
                                 </li>
                             </ul>
                         </li>
@@ -104,7 +87,7 @@
 <!-- Fancy Log -->
             <div id="login_murid" style="width:400px;display: none;">
                 <p class="text-14 bold">Masuk sebagai Murid</p>
-                <form id="login_form_murid" name="login_form_murid" method="post" action="https://ruangguru.com/murid/login_submit">
+                <form id="login_form_murid" name="login_form_murid" method="post" action="<?php echo base_url();?>user/login_submit/murid">
                     <p>
                         <label for="login_name">Masuk: </label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="emailanda@email.com" />
@@ -112,7 +95,7 @@
                     <p>
                         <label for="login_pass">Password: </label>
                         <input type="password" class="form-control" id="password" name="password" />
-                        <a class="normal-link" href="<?php echo base_url()?>murid/reset_password">Lupa Password?</a>
+                        <a class="normal-link" href="ruangguru.com/murid/reset_password">Lupa Password?</a>
                     </p>
                     <p>
                         <button type="submit" class="btn btn-success btn-lg">Masuk</button>
@@ -121,7 +104,7 @@
             </div>
             <div id="login_guru" style="width:400px;display: none;">
                 <p class="text-14 bold">Masuk sebagai Guru</p>
-                <form id="login_form_murid" name="login_form_murid" method="post" action="https://ruangguru.com/guru/login_submit">
+                <form id="login_form_murid" name="login_form_murid" method="post" action="<?php echo base_url();?>user/login_submit/guru">
                     <p>
                         <label for="login_name">Masuk: </label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="emailanda@email.com" />
@@ -129,7 +112,7 @@
                     <p>
                         <label for="login_pass">Password: </label>
                         <input type="password" class="form-control" id="password" name="password" />
-                        <a class="normal-link" href="<?php echo base_url();?>guru/reset_password">Lupa Password?</a>
+                        <a class="normal-link" href="ruangguru.com/guru/reset_password">Lupa Password?</a>
                     </p>
                     <p>
                         <button type="submit" class="btn btn-success btn-lg">Masuk</button>

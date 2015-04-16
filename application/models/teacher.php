@@ -11,9 +11,7 @@ class Teacher extends DataMapper {
 
     function check_login($input){
         $this->where('email',$input['email']);
-        $this->where('password',md5($input['password']));
-        $result = $this->get();
-		return $result;
+        return where('password',md5($input['password']))->get();
     }
 }
 
