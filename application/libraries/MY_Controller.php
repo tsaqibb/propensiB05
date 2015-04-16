@@ -51,9 +51,6 @@ class MY_Controller extends CI_Controller{
 		if($force) $this->session->sess_destroy();
 	}
 	
-	protected function _login() {
-		
-	}
 }
 
 class Admin_Controller extends MY_Controller {

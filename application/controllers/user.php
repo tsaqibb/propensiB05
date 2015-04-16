@@ -14,12 +14,13 @@ class User extends CI_Controller {
     }
     
     public function login_submit($role){
-        $input['email'] = $this->input->post('login_name');
-        $input['password'] = $this->input->post('login_pass');
+        $input['email'] = $this->input->post('email');
+        $input['password'] = $this->input->post('password');
+        $user = array();
         if($role=="guru") {
 	        $guru_model = new Teacher();
 			$guru = $guru_model->check_login($input);
-	        if(empty($guru)){
+			if(empty($guru->id)){
 	            $this->session->set_flashdata('login_guru_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
 	            redirect('user/login');
 	        }else{
@@ -38,7 +39,7 @@ class User extends CI_Controller {
 	    } elseif($role=="murid") {
 	    	$murid_model = new Student();
 			$murid = $murid_model->check_login($input);
-	        if(empty($murid)){
+	        if(empty($murid->id)){
 	            $this->session->set_flashdata('login_murid_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
 	            redirect('user/login');
 	        }else{
@@ -55,6 +56,10 @@ class User extends CI_Controller {
 	            redirect('murid');
 	        }
 	    }
+	    $this->session->set_userdata('user_type', $user['type']);
+		$this->session->set_userdata('user_name', $user['name']);
+		$this->session->set_userdata('user_email', $user['email']);
+		$this->session->set_userdata('user_id', $user['id']);
     }
 
     public function logout(){

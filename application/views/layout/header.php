@@ -153,3 +153,4 @@
                 </div>
             </div>
         </nav>
+        <?php //var_dump($this->session->all_userdata()); ?>
