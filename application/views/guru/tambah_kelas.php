@@ -51,12 +51,11 @@
                                             <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
                                         </div>
                                     </div>
-<?php /*
                                     <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
                                         <i class="fa fa-upload"></i>
                                         Upload materi 
                                     </div>
-*/?>
+
                                 </form>
                             </div> 
                         </div> <!-- end panel -->
@@ -197,7 +196,7 @@
                         </div>
                     </div> <!-- end panel-group -->
                     
-<?php /*
+
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
@@ -266,8 +265,12 @@
                                     <br>
                                
 
+                                    <div class="panel panel-topik">
+
+
 
                                     <div class="panel panel-orange">
+
                                         <div class="panel-judul-topik">
                                             <div class="row">   
                                                 <div class="col-md-10">                                                           
@@ -378,7 +381,7 @@
                             </div><!-- end tab materi -->
                         </div><!-- tab-content -->
                     </div><!-- tabpanel kelas -->
-*/?>
+
                 </div><!-- panel-body -->
             </div><!-- panel -->
         </div> <!-- end col-md -->
