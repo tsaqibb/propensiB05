@@ -1,8 +1,6 @@
 <?php
 
-class Teacher extends DataMapper {
-
-	var $has_one = array();
+class Admin extends DataMapper {
 	
     function __construct($id = NULL){
 		parent::__construct($email);
