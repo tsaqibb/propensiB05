@@ -323,7 +323,7 @@
                                         <?php endforeach; ?>
                                             <div class="panel-footer">
                                                 <div class="input-group">
-                                                    <form method="post" action="<?php echo base_url(); ?>kelas/add_feedback">
+                                                    <form method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php $data_kelas->$id; ?>">
                                                         <input name ="pesan" id="pesan" type="text" class="form-control input-sm" placeholder="Berikan pesan Anda di sini...">
                                                         <span class="input-group-btn">
                                                             <button role="submit" class="btn btn-primary btn-sm" id="btn-chat">Kirim</button>
