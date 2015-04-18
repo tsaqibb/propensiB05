@@ -1,6 +1,6 @@
 <?php
 
-class Resources extends DataMapper {
+class Resource extends DataMapper {
 
 	var $has_one = array('topic');
 	//var $has_many = array('topic', 'feedback');
@@ -20,9 +20,8 @@ class Resources extends DataMapper {
 	function insertMateri($namaTable,$data){
        $result = $this->db->insert($namaTable,$data);
        return result;
-
     }
-
+    
 }
 
 /* End of file kelas.php */

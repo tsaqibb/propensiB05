@@ -1,13 +1,3 @@
-<?php 
-$conn = new mysqli("localhost","root","");
-mysql_select_db("propensi");
-
-if($conn->connect_error){
-    die("connection failed : " .$conn->connect_error);
-}
-
-?>
-
 <div class="container-fluid content kelas vendor">
     <div class="row">
         <div class="col-sm-12 col-md-3">
@@ -38,21 +28,21 @@ if($conn->connect_error){
                             <div id="detail_kelas" class="panel-collapse collapse in">
                                 <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kelas/create_kelas">
                                     <div class="form-group">
-                                        <label id="nama_kelas" name="nama_kelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                        <label class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
+                                            <input id="nama_kelas" name="nama_kelas" type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label id="deskripsi_kelas" name="deskripsi_kelas" class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                        <label class="col-sm-3 control-label">Deskripsi Kelas</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
+                                            <textarea id="deskripsi_kelas" name="deskripsi_kelas" class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label id="harga" name="harga" class="col-sm-3 control-label">Harga</label>
+                                        <label class="col-sm-3 control-label">Harga</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
+                                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
                                         </div>
                                     </div>
                                     <div class="form-group">
