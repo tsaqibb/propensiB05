@@ -4,10 +4,10 @@ class Guru extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
-		/*if($this->session->userdata('user_type') != 'guru') {
+		if($this->session->userdata('user_type') != 'guru') {
 			redirect();
 			return;
-		}*/
+		}
 		$id_guru = $this->session->userdata('user_id');
 		$guru_model = new Teacher();
 		$this->data_guru = $guru_model->get_by_id($id_guru);
@@ -44,12 +44,38 @@ class Guru extends CI_Controller {
 	
 	public function tambahkelas()
 	{
+		$upload = $this->teacher->insertMateri('resources',array(
+			'id' => ' ',
+			'no_urut_materi' => '',
+			'topic_id' => '',
+			'course_id' => '',
+			'teacher_id' => '',
+			'judul' => '',
+			'url' => '',
+			'notes' => ''
+		));
+
+		if(isset($_FILES['video']['name']) && $_FILES['video']['name'] !=''){
+			
+		}
+
+		$config['upload_path'] = './video/';
+		$config['allowed_types'] = 'mp4';
+
+		$this->load->library('upload' , $config);
+
+		if(! $this->upload->)
+
+
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_kelas');
 		$this->load->view('layout/footer');
 	}
 
 	public function tambahmateri(){
+		
+
+
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_materi');
 		$this->load->view('layout/footer');
@@ -70,4 +96,6 @@ class Guru extends CI_Controller {
 		);
 		$this->load->view('layout/footer');
 	}
+
+
 }
