@@ -176,9 +176,22 @@ class Kelas extends CI_Controller {
 		$list_tag = explode(',', $this->input->post('class_tags'));
 		foreach ($list_tag as $tag_name) {
 			$tag = new Tag();
-			$tag->subjek = $tag_name;
-			$tag->save_as_new();
+			$tag = $tag->where('subjek', $tag_name)->get();
+			if(empty($tag->id)) {
+				$tag = new Tag();
+				$tag->subjek = $tag_name;
+				$success = $tag->save_as_new();
+				$tag = $tag->where('subjek', $tag_name)->get();
+			}
 			$classes_tag = new Classes_tag();
+			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
+			if(empty($classes_tag->id)) {
+				$classes_tag = new Classes_tag();
+				$classes_tag->tag_id = $tag->id;
+				$classes_tag->course_id = $kelas_model->id;
+				$classes_tag->teacher_id = $kelas_model->teacher_id;
+				$classes_tag->save_as_new();
+			}
 		}
 		$sucses = $data_kelas->update(array(
 			'nama' => $this->input->post('nama_kelas'),
@@ -197,8 +210,28 @@ class Kelas extends CI_Controller {
 		$kelas_model->teacher_id = $this->session->userdata('user_id');
 		$kelas_model->status_kelas = 1;
 		$sucses = $kelas_model->save_as_new();
+		
+		$list_tag = explode(',', $this->input->post('class_tags'));
+		foreach ($list_tag as $tag_name) {
+			$tag = new Tag();
+			$tag = $tag->where('subjek', $tag_name)->get();
+			if(empty($tag)) {
+				$tag = new Tag();
+				$tag->subjek = $tag_name;
+				$success = $tag->save_as_new();
+				$tag = $tag->where('subjek', $tag_name)->get();
+			}
+			$classes_tag = new Classes_tag();
+			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
+			if(empty($classes_tag)) {
+				$classes_tag = new Classes_tag();
+				$classes_tag->tag_id = $tag->id;
+				$classes_tag->course_id = $kelas_model->id;
+				$classes_tag->teacher_id = $kelas_model->teacher_id;
+				$classes_tag->save_as_new();
+			}	
+		}
 		redirect('/guru/kelas', 'refresh');
-
 	}
 
 	public function create_topik($id){
