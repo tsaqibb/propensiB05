@@ -180,7 +180,8 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
                 $profile = base_url().'guru';
                 break;
             case        'murid':
-                $profile = base_url().'murid';
+                $galeri = base_url().'murid/galerikelas';
+                $kelas_anda = base_url().'murid/kelasanda';
                 break;
             case        'admin':
                 $profile = base_url().'admin';
@@ -200,9 +201,19 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
                                 <i class="fa fa-user fa-2x"></i>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a class="fancybox" href="<?php echo $profile; ?>">Dashboard</a>
-                                </li>
+                                <?php if(!empty($profile)) : ?>    
+                                    <li>
+                                        <a class="fancybox" href="<?php echo $profile; ?>">Dashboard</a>
+                                    </li>
+                                <?php endif;
+                                if(!empty($galeri) AND !empty($kelas_anda)) : ?>
+                                    <li>
+                                        <a class="fancybox" href="<?php echo $galeri; ?>">Galeri Kelas</a>
+                                    </li>
+                                    <li>
+                                        <a class="fancybox" href="<?php echo $kelas_anda; ?>">Kelas Anda</a>
+                                    </li>
+                                <?php endif; ?>
                                 <li>
                                     <a class="fancybox" href="<?php echo $logout;?>">Logout</a>
                                 </li>
