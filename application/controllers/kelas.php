@@ -172,6 +172,14 @@ class Kelas extends CI_Controller {
 	{
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
+
+		$list_tag = explode(',', $this->input->post('class_tags'));
+		foreach ($list_tag as $tag_name) {
+			$tag = new Tag();
+			$tag->subjek = $tag_name;
+			$tag->save_as_new();
+			$classes_tag = new Classes_tag();
+		}
 		$sucses = $data_kelas->update(array(
 			'nama' => $this->input->post('nama_kelas'),
 			'deskripsi'=>$this->input->post('deskripsi_kelas'),
