@@ -14,6 +14,8 @@ class Teacher extends DataMapper {
         $result = $this->where('password =',md5($input['password']));
         return $result->get();
     }
+
+    
 }
 
 /* End of file guru.php */

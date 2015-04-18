@@ -17,6 +17,12 @@ class Resources extends DataMapper {
 		return $this->get();
 	}
 
+	function insertMateri($namaTable,$data){
+       $result = $this->db->insert($namaTable,$data);
+       return result;
+
+    }
+
 }
 
 /* End of file kelas.php */

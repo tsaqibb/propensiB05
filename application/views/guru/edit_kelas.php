@@ -129,30 +129,46 @@
                                      <div id="topik1" class="panel-collapse collapse">
                                        <div class="panel-body">
                                           <ul class="list-groups">
-                                             <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
+                                             <a href="#inline1" class="fancybox">
+                                             <button type="button" class="btn btn-default" id="button1" onclick="">Tambah Materi</button>
                                              </a>
                                           </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
+
+
+                                           <div id="inline1" style="width:400px; display: none;">
+                                                    <p class="text-14 bold text-center"> [Nama Topik] </p>
+                                                    <form id="upload-materi" action="<?php echo base_url();?>kelas/create_topik" method="POST" enctype="multipart/form-data">
+                                                        <p>
+                                                            <label for="nama-materi">Nama Materi </label>
+                                                            <input type="text" class="form-control" id="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                                        </p>
+                                                        <p>
+                                                            <label for="note-materi">Note Materi </label>
+                                                            <input type="text" class="form-control" id="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                                        </p>
+                                                        <p>
+                                                            <label for="nama-materi">Jenis Materi </label>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="radio">
+                                                                        <label><input type="radio" name="optradio" id="video">Video</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="radio">
+                                                                        <label><input type="radio" name="optradio" id="pdf">Pdf</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                              
+                                                        </p>
+                                                        <input type="file" name="file" id="myFile" multiple size="50" onchange="uploadMateri()">
+                                                        <br>                                                        
+                                                        <button type="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
+                                                    </form> 
+                                            </div>
+                                          
 
                                           <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                        </div>
@@ -160,52 +176,7 @@
                                  </div>
                                </div>
 
-                                <div class="panel panel-orange">
-                                    <div class="panel-judul-topik">
-                                      <div class="row">   
-                                        <div class="col-md-10">                                                           
-                                    <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik2"><i class="fa fa-chevron-circle-down"></i>
-                                             Topik 1 </a> 
-                                        </div>
-                                        <div class="col-md-2">
-                                             <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>
-                                        </div>
-                                           </div>
-                                     </div>
-                                     
-                                     <div id="topik2" class="panel-collapse collapse">
-                                       <div class="panel-body">
-                                          <ul class="list-groups">
-                                             <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-                                          <ul class="list-groups">
-                                            <a href="#">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()">Tambah Materi</button>
-                                             </a>
-                                          </ul>
-
-                                          <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
-                                       </div>
-                                    </div>
-                                 </div>
+                               
                                </div>
                             </div><!-- end tab materi -->
 
