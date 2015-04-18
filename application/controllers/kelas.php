@@ -145,14 +145,18 @@ class Kelas extends CI_Controller {
 	public function add_feedback($id) 
 	{
 		$feedback_model = new Feedback();
+		
+		//Save pesan & course_id
 		$feedback_model->pesan = $this->input->post('pesan');
 		$feedback_model->course_id = $id;
 
+		//Save teacher_id
 		$kelas_model = new Course();
 		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
 		$feedback_model->teacher_id = $teacher_id;
-		$session_role = $this->session->userdata('user_type');
 		
+		//Save role
+		$session_role = $this->session->userdata('user_type');
 		if($session_role = 'guru') {
 			$feedback_model->role = 1;
 		}
