@@ -3,7 +3,7 @@
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="text-center">Halo, <?php echo $data_guru->nama; ?></h4>
+                <h4 class="text-center">Halo, <?php echo $this->session->userdata('user_name') ?></h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
@@ -46,42 +46,40 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="detil-kelas">
-                                <form class="form-horizontal">
-
-                                    <div class="form-group">
-                                        <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan"
-                                                value="<?php echo $data_kelas->nama; ?>" >
-                                        </div>
+                              <form class="form-horizontal" method="post" action="<?php echo base_url();?>kelas/update_kelas/<?php echo $data_kelas->id; ?>">
+                                <div class="form-group">
+                                    <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama dari kelas yang akan diselenggarakan"
+                                            value="<?php echo $data_kelas->nama; ?>" >
                                     </div>
-                                    <div class="form-group">
-                                        <label for="Seo" class="col-sm-3 control-label">Deskripsi Kelas</label>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"
-                                                ><?php echo $data_kelas->deskripsi; ?></textarea>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Deskripsi Kelas</label>
+                                    <div class="col-sm-8">
+                                        <textarea name="deskripsi_kelas" id="deskripsi_kelas" class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"
+                                            ><?php echo $data_kelas->deskripsi; ?></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="Seo" class="col-sm-3 control-label">Harga</label>
-                                        <div class="col-sm-8">
-                                            <input type="number" class="form-control" id="Seo" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis"
-                                                value="<?php echo $data_kelas->harga; ?>">
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Seo" class="col-sm-3 control-label">Harga</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis"
+                                            value="<?php echo $data_kelas->harga; ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="attachment" class="col-sm-3 control-label">Tags</label>
-                                        <div class="col-sm-8">
-                                            <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text"
-                                                >
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attachment" class="col-sm-3 control-label">Tags</label>
+                                    <div class="col-sm-8">
+                                        <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text"
+                                            >
                                     </div>
-                                </form>
+                                </div>
                                 <div class="col-md-12 right">
-                                    <div class="btn main-button save" href="#save" role="tab" data-toggle="tab">
+                                    <button class="btn main-button save" role="submit">
                                         <i class="fa fa-floppy-o"></i>
                                         Save 
-                                    </div>
+                                    </button>
                                     <?php if($data_kelas->status == 0) : ?>
                                         <div class="btn btn-default-blue" href="#req_approve" role="tab" data-toggle="tab">
                                             <i class="fa fa-check"></i>
@@ -94,7 +92,7 @@
                                         </div>
                                     <?php endif; ?>
                                 </div>
-
+                              </form>
                             </div><!-- published -->
 
                         <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
@@ -114,7 +112,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="panel panel-topik">
+                                <div class="panel panel-orange">
                                     <div class="panel-judul-topik">
                                       <div class="row">   
                                         <div class="col-md-10">                                                           
@@ -162,7 +160,7 @@
                                  </div>
                                </div>
 
-                                <div class="panel panel-topik">
+                                <div class="panel panel-orange">
                                     <div class="panel-judul-topik">
                                       <div class="row">   
                                         <div class="col-md-10">                                                           
@@ -221,9 +219,6 @@
     </div>
 </div> <!-- /container -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
 <script>
     function tambahMateri(){
         var a = "<ul class='list-groups'><a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a></ul>";
@@ -232,5 +227,4 @@
         $(".panel-body").append(a);
 
     }
-
 </script>

@@ -10,10 +10,10 @@ class Student extends DataMapper {
 		parent::__construct($id);
     }
     
-    function get_student(){
-		return $this->get();
-	}
-	
+    function check_login($input){
+        $this->where('email =',$input['email']);
+        return $this->where('password =',md5($input['password']))->get();
+    }
 }
 
 /* End of file guru.php */

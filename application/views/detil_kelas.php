@@ -101,7 +101,7 @@
                                
                                 foreach ( $list_topik as $topik ):
                                 ?>
-                                 <div class="panel panel-topik">
+                                 <div class="panel panel-orange">
                                     <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                                         href="#topik<?php echo $topik->id; ?>">
                                         <i class="fa fa-chevron-circle-down"></i>
