@@ -152,9 +152,9 @@ class Kelas extends CI_Controller {
 		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
 		$feedback_model->teacher_id = $teacher_id;
 		
-		$feedback_model->role 
+		$feedback_model->role = $this->session->userdata('user_type');
 		$success = $feedback_model->save_as_new();
-		redirect('kelas/detail/'.$id, 'refresh')
+		redirect('kelas/detail/'.$id, 'refresh');
 	}
 
 	public function update_kelas($id)
