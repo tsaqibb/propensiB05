@@ -40,7 +40,7 @@
                                                 <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td class="statusdetil">Status</td>
-                                                <td class="statusdetil">Detil</td>
+                                                <td class="statusdetil">Go to Web</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -81,8 +81,7 @@
                                                 <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td class="statusdetil">Status</td>
-                                                <td class="statusdetil">Edit</td>
-                                                <td class="statusdetil">Detil</td>
+                                                <td class="status_action">Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -104,10 +103,17 @@
                                                 <td>
                                                     <?php if($kelas->status_kelas == 0 || $kelas->status_kelas == 2) : ?>
                                                         <a href="<?php echo base_url().'guru/edit_kelas/'.$kelas->id; ?>" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    <?php else: ?>
+                                                        <span class="pending icon-circle"><i class="fa fa-gears"></i></span>
                                                     <?php endif; ?>
-                                                </td>
-                                                <td>
-                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Lihat Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                    <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
+                                                        class="cancel icon-circle" title="" data-original-title="Delete">
+                                                            <i class="fa fa-trash-o"></i>
+                                                    </a>
+                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"
+                                                        class="link icon-circle" title="" data-original-title="Lihat Kelas">
+                                                            <i class="fa fa-arrow-right"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

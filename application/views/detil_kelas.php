@@ -21,26 +21,7 @@
 </script>
 <div class="container content kelas vendor">
     <div class="row">
-        
-        <div class="col-sm-12 col-md-3">
-            
-            <div class="sidebar">
-                <br>
-                <h4 class="text-center">Halo, [Nama User]</h4>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#tambahkelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
-                    </li>
-                </ul>
-            </div><!-- sidebar -->
-        
-        </div>
-        
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-12 col-sm-8">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <div class="panel-body">

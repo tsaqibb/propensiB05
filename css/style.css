@@ -1139,15 +1139,22 @@ text-align: center;
   text-align: center;
 } 
 
+.sub-content .status_action {
+  width: 120px;
+  text-align: center;
+}
+
 .sub-content .status .icon-circle {
   margin-bottom: 10px;
   margin-left: 5px;
 }
 .manage.icon-circle,
 .unpublish.icon-circle,
-.publish.icon-circle,
-.link.icon-circle {
+.publish.icon-circle {
   background-color: #fcb33b;
+}
+.link.icon-circle {
+  background-color: #3bc4e6;
 }
 .approve.icon-button {
   border: #fcb33b 2px solid;

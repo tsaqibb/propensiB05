@@ -311,16 +311,12 @@ class Kelas extends CI_Controller {
 		$success = $materi_model->save_as_new();
 	
 		redirect('/guru/edit_kelas', 'refresh');
-}
+	}
 
 	public function delete($id) {
 		$kelas_model = new Course();
 		$kelas_model = $kelas_model->get_by_id($id);
 		$kelas_model = $kelas_model->delete();
-
+		redirect('guru/kelas');
 	}
-
-
-
-
 }
