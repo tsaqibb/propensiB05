@@ -161,8 +161,8 @@
                             </div><!-- tab-partisipan -->
                             
                             <!-- tab feedback -->
-                            <?php $session_role = $this->session->userdata('user_type');
-                            if($session_role = 'guru' || 'admin') : ?>
+                            <?php $session_role = $this->session->userdata('user_type'); ?>
+                            <?php if($session_role = 'guru' || 'admin') : ?>
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
@@ -334,6 +334,7 @@
                                                 </div>
                                             </div>
                                         </div> <!-- feedback package-->
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->
