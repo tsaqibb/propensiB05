@@ -170,7 +170,7 @@
                                         <?php foreach ($list_feedback as $feedback) : ?>
                                         <?php if($feedback->role=='0') : ?>
                                         <div class="feedback-package">
-                                            <div class="left clearfix">
+                                            <div>
                                                 <div class="panel-feedback clearfix">
                                                     <div class="header">
                                                         <strong class="primary-font">Admin</strong>
@@ -246,7 +246,7 @@
                                             </div> <!--feedback package -->
                                             <?php endif; ?>
                                             <?php if($feedback->role=='1') : ?>
-                                            <div class="right clearfix">
+                                            <div>
                                                 <div class="panel-tanggapan clearfix">
                                                     <div class="header">
                                                         <span class="fa fa-clock-o"></span>
