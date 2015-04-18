@@ -62,6 +62,26 @@ class User extends CI_Controller {
 	            $this->session->set_userdata('is_logged_in',TRUE);
 	            redirect('murid');
 	        }
+	    } elseif($role=="admin") {
+	    	$admin_model = new Admin();
+			$admin = $admin_model->check_login($input);
+	        if(empty($admin->email)){
+	            $this->session->set_flashdata('login_admin_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
+	            redirect('user/login');
+	        }else{
+				$user = array(
+					'type'	=> 'admin',
+					'nama'	=> 'Admin',
+					'email'	=> $admin->email
+				);
+				//$this->exec_login($user);
+				$this->session->set_userdata('user_type', $user['type']);
+				$this->session->set_userdata('user_name', $user['name']);
+				$this->session->set_userdata('user_email', $user['email']);
+				$this->session->set_userdata('user_id', $user['id']);
+	            $this->session->set_userdata('is_logged_in',TRUE);
+	            redirect('admin');
+	        }
 	    }
     }
 
