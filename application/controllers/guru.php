@@ -4,10 +4,10 @@ class Guru extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
-		if($this->session->userdata('user_type') != 'guru') {
+		/*if($this->session->userdata('user_type') != 'guru') {
 			redirect();
 			return;
-		}
+		}*/
 		$id_guru = $this->session->userdata('user_id');
 		$guru_model = new Teacher();
 		$this->data_guru = $guru_model->get_by_id($id_guru);
@@ -64,7 +64,7 @@ class Guru extends CI_Controller {
 
 		$this->load->library('upload' , $config);
 
-		if(! $this->upload->)
+		//if(! $this->upload->)
 
 
 		$this->load->view('layout/header');

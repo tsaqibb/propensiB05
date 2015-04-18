@@ -98,19 +98,22 @@
                         <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">   
 
+                                <form id="create-topik" method="POST" action="<?php echo base_url();?>kelas/create_topik/<?php echo $data_kelas->id;?>">
                                 <div class="panel panel-btn">
+                                  
                                     <div class="row">
-                                    <div class="col-md-5">
-                                    </div>
-                                    
-                                    <div class="col-md-3">
-                                        <input class="form-control" type="text" id="lg" placeholder="Tuliskan nama topik disini">
-                                    </div>
-                                    <div class="col-md-2">      
-                                        <button type="button" class="btn btn-default" id="button1" onclick="tambahTopik()"><i class="fa fa-pencil-square-o"></i>Tambah Topik</button>
-                                    </div>
-                                    </div>
+                                      <div class="col-md-5">
+                                      </div>                                  
+                                      <div class="col-md-3">
+                                        <input class="form-control" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini">
+                                      </div>
+                                      <div class="col-md-2">      
+                                        <button type="button" role="submit" class="btn btn-default" id="button1"><i class="fa fa-pencil-square-o"></i>Tambah Topik</button>
+                                      </div>
+                                  
+                                    </div>                                
                                 </div>
+                                  </form>
                                 <br>
                                 <div class="panel panel-orange">
                                     <div class="panel-judul-topik">
@@ -134,7 +137,7 @@
                                              </a>
                                           </ul>
 
-
+<!-- Pop Up-->
                                            <div id="inline1" style="width:400px; display: none;">
                                                     <p class="text-14 bold text-center"> [Nama Topik] </p>
                                                     <form id="upload-materi" action="<?php echo base_url();?>kelas/create_topik" method="POST" enctype="multipart/form-data">
@@ -163,12 +166,12 @@
                                                                 </div>
                                                             </div>                                                              
                                                         </p>
-                                                        <input type="file" name="file" id="myFile" multiple size="50" onchange="uploadMateri()">
+                                                        <input type="file" name="myFile" id="myFile" multiple size="50" onchange="uploadMateri()">
                                                         <br>                                                        
-                                                        <button type="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
+                                                        <button type="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                                     </form> 
                                             </div>
-                                          
+    <!-- Pop Up-->
 
                                           <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                        </div>

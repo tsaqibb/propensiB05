@@ -182,4 +182,23 @@ class Kelas extends CI_Controller {
 
 	}
 
+	public function create_topik($id){
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+
+		$topik_model = new Topic();
+		$topik_model->judul = $this->input->post('judul_topik');		
+		$topik_model->course_id = $id;
+		$topik_model->teacher_id = $data_kelas->teacher_id;
+
+		$success = $topik_model->save_as_new();
+		redirect('/guru/edit_kelas', 'refresh');
+
+
+
+
+
+
+	}
+
 }
