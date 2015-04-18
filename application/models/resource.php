@@ -17,10 +17,10 @@ class Resource extends DataMapper {
 		return $this->get();
 	}
 
-	function insertMateri($namaTable,$data){
+	/*function insertMateri($namaTable,$data){
        $result = $this->db->insert($namaTable,$data);
        return result;
-    }
+    }*/
     
 }
 

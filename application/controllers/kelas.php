@@ -202,10 +202,45 @@ class Kelas extends CI_Controller {
 		redirect('/guru/edit_kelas', 'refresh');
 
 
+	}
+
+	/*public function aksesmateri($id)
+	{	
+
+		$materi_model = new Resource();
+		$open_materi = $materi_model->get_by_id($id);
+
+		$topik = $open_materi->topic->get();
+		$kelas = $topik->course->get();
+		
+		$this->load->view('layout/header'); 
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi));
+		$this->load->view('layout/footer');
+	}
+*/
+	public function create_materi($id){
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+
+		$topik_model = new Topic();
 
 
-
+		$materi_model = new Resource();
+		$materi_model->judul = $this->input->post('namamateri');
+		$materi_model->notes = $this->input->post('notemateri');
+		$materi_model->teacher_id = $data_kelas->teacher_id;
+		$materi_model->topic_id = $topik_model->topic_id;
+		
+		
+		$success = $materi_model->save_as_new();
+	
+		redirect('/guru/edit_kelas', 'refresh');
 
 	}
+
+
+
 
 }
