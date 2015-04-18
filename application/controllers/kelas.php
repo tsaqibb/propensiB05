@@ -198,7 +198,7 @@ class Kelas extends CI_Controller {
 			'deskripsi'=>$this->input->post('deskripsi_kelas'),
 			'harga'=>$this->input->post('harga'),
 			));
-		redirect('/guru/edit_kelas', 'refresh');
+		redirect('/guru/edit_kelas'.$id, 'refresh');
 	}
 
 	public function create_kelas()
@@ -228,13 +228,13 @@ class Kelas extends CI_Controller {
 				$classes_tag->tag_id = $tag->id;
 				$classes_tag->course_id = $kelas_model->id;
 				$classes_tag->teacher_id = $kelas_model->teacher_id;
-				$classes_tag->save_as_new();
+				//$classes_tag->save_as_new();
 			}	
 		}
 		redirect('/guru/kelas', 'refresh');
 	}
 
-	public function create_topik($id){
+	public function create_topik($id) {
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 
@@ -245,12 +245,12 @@ class Kelas extends CI_Controller {
 
 		$success = $topik_model->save_as_new();
 		redirect('/guru/edit_kelas', 'refresh');
+	}
 
-
-
-
-
-
+	public function delete($id) {
+		$kelas_model = new Course();
+		$kelas_model = $kelas_model->get_by_id($id);
+		$kelas_model = $kelas_model->delete();
 	}
 
 }
