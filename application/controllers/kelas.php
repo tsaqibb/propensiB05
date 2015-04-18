@@ -145,14 +145,18 @@ class Kelas extends CI_Controller {
 	public function add_feedback($id) 
 	{
 		$feedback_model = new Feedback();
+		
+		//Save pesan & course_id
 		$feedback_model->pesan = $this->input->post('pesan');
 		$feedback_model->course_id = $id;
 
+		//Save teacher_id
 		$kelas_model = new Course();
 		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
 		$feedback_model->teacher_id = $teacher_id;
-		$session_role = $this->session->userdata('user_type');
 		
+		//Save role
+		$session_role = $this->session->userdata('user_type');
 		if($session_role = 'guru') {
 			$feedback_model->role = 1;
 		}
@@ -168,12 +172,33 @@ class Kelas extends CI_Controller {
 	{
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
+
+		$list_tag = explode(',', $this->input->post('class_tags'));
+		foreach ($list_tag as $tag_name) {
+			$tag = new Tag();
+			$tag = $tag->where('subjek', $tag_name)->get();
+			if(empty($tag->id)) {
+				$tag = new Tag();
+				$tag->subjek = $tag_name;
+				$success = $tag->save_as_new();
+				$tag = $tag->where('subjek', $tag_name)->get();
+			}
+			$classes_tag = new Classes_tag();
+			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
+			if(empty($classes_tag->id)) {
+				$classes_tag = new Classes_tag();
+				$classes_tag->tag_id = $tag->id;
+				$classes_tag->course_id = $kelas_model->id;
+				$classes_tag->teacher_id = $kelas_model->teacher_id;
+				$classes_tag->save_as_new();
+			}
+		}
 		$sucses = $data_kelas->update(array(
 			'nama' => $this->input->post('nama_kelas'),
 			'deskripsi'=>$this->input->post('deskripsi_kelas'),
 			'harga'=>$this->input->post('harga'),
 			));
-		redirect('/guru/edit_kelas', 'refresh');
+		redirect('/guru/edit_kelas'.$id, 'refresh');
 	}
 
 	public function create_kelas()
@@ -185,11 +210,31 @@ class Kelas extends CI_Controller {
 		$kelas_model->teacher_id = $this->session->userdata('user_id');
 		$kelas_model->status_kelas = 1;
 		$sucses = $kelas_model->save_as_new();
+		
+		$list_tag = explode(',', $this->input->post('class_tags'));
+		foreach ($list_tag as $tag_name) {
+			$tag = new Tag();
+			$tag = $tag->where('subjek', $tag_name)->get();
+			if(empty($tag)) {
+				$tag = new Tag();
+				$tag->subjek = $tag_name;
+				$success = $tag->save_as_new();
+				$tag = $tag->where('subjek', $tag_name)->get();
+			}
+			$classes_tag = new Classes_tag();
+			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
+			if(empty($classes_tag)) {
+				$classes_tag = new Classes_tag();
+				$classes_tag->tag_id = $tag->id;
+				$classes_tag->course_id = $kelas_model->id;
+				$classes_tag->teacher_id = $kelas_model->teacher_id;
+				//$classes_tag->save_as_new();
+			}	
+		}
 		redirect('/guru/kelas', 'refresh');
-
 	}
 
-	public function create_topik($id){
+	public function create_topik($id) {
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 
@@ -200,9 +245,11 @@ class Kelas extends CI_Controller {
 
 		$success = $topik_model->save_as_new();
 		redirect('/guru/edit_kelas', 'refresh');
-
-
 	}
+
+
+
+	
 
 	/*public function aksesmateri($id)
 	{	
@@ -237,6 +284,12 @@ class Kelas extends CI_Controller {
 		$success = $materi_model->save_as_new();
 	
 		redirect('/guru/edit_kelas', 'refresh');
+}
+
+	public function delete($id) {
+		$kelas_model = new Course();
+		$kelas_model = $kelas_model->get_by_id($id);
+		$kelas_model = $kelas_model->delete();
 
 	}
 

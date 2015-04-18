@@ -59,9 +59,12 @@
                             <li role="presentation">
                                 <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
-                            <li role="presentation">
-                                <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
-                            </li>
+                            <?php $session_role = $this->session->userdata('user_type'); ?>
+                            <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
+                                <li role="presentation">
+                                    <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -161,6 +164,8 @@
                             </div><!-- tab-partisipan -->
                             
                             <!-- tab feedback -->
+                            <?php $session_role = $this->session->userdata('user_type'); ?>
+                            <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
@@ -168,7 +173,7 @@
                                         <?php foreach ($list_feedback as $feedback) : ?>
                                         <?php if($feedback->role=='0') : ?>
                                         <div class="feedback-package">
-                                            <div class="left clearfix">
+                                            <div>
                                                 <div class="panel-feedback clearfix">
                                                     <div class="header">
                                                         <strong class="primary-font">Admin</strong>
@@ -244,7 +249,7 @@
                                             </div> <!--feedback package -->
                                             <?php endif; ?>
                                             <?php if($feedback->role=='1') : ?>
-                                            <div class="right clearfix">
+                                            <div>
                                                 <div class="panel-tanggapan clearfix">
                                                     <div class="header">
                                                         <span class="fa fa-clock-o"></span>
@@ -332,6 +337,7 @@
                                                 </div>
                                             </div>
                                         </div> <!-- feedback package-->
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div><!-- tab-feedback -->
