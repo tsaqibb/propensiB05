@@ -90,12 +90,12 @@
                                         Save 
                                     </button>
                                     <?php if($data_kelas->status == 0) : ?>
-                                        <div class="btn btn-default-blue" href="#req_approve" role="tab" data-toggle="tab">
+                                        <div class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" role="tab" data-toggle="tab">
                                             <i class="fa fa-check"></i>
                                             Request to approve 
                                         </div>
                                     <?php elseif($data_kelas->status == 2) : ?>
-                                        <div class="btn btn-default-blue" href="#req_publish" role="tab" data-toggle="tab">
+                                        <div class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" role="tab" data-toggle="tab">
                                             <i class="fa upload"></i>
                                             Request to Publish 
                                         </div>

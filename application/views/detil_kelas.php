@@ -135,7 +135,19 @@
                             
                             <!-- tab review -->
                             <div role="tabpanel" class="tab-pane" id="review">
-                              Bagian ini akan menjelaskan review dari kelas
+                                <div class="row">
+                                    <div class="col col-xs-6">
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col col-xs-6">
+                                                <img style="margin-right: 12px; width: 32px;" src="http://ruangguru.com/images/icon_rating.png" />
+                                                <strong>Rating</strong><span style="float: right;">:</span>
+                                            </div>
+                                            <div class="col col-xs-6" style="padding-left: 0;">
+                                            Nilai Rating
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div><!-- end tab review -->
                             
                                                         <!--tab partisipan-->
@@ -327,11 +339,11 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                             <div class="panel-footer">
-                                                <div class="input-group">
-                                                    <form method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
-                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-sm" placeholder="Berikan pesan Anda di sini...">
+                                                <div class="container-fluid">
+                                                    <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
+                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-lg" placeholder="Berikan pesan Anda di sini...">
                                                         <span class="input-group-btn">
-                                                            <button role="submit" class="btn btn-primary btn-sm" id="btn-chat">Kirim</button>
+                                                            <button role="submit" class="btn btn-primary btn-lg" id="btn-chat">Kirim</button>
                                                         </span>
                                                     </form>
                                                 </div>
