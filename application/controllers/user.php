@@ -71,7 +71,7 @@ class User extends CI_Controller {
 	        }else{
 				$user = array(
 					'type'	=> 'admin',
-					'nama'	=> 'Admin',
+					'name'	=> 'Admin',
 					'email'	=> $admin->email
 				);
 				//$this->exec_login($user);

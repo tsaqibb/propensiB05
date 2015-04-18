@@ -183,6 +183,11 @@ class Kelas extends CI_Controller {
 	public function update_kelas($id)
 	{
 		$kelas_model = new Course();
+		$success = $kelas_model->where('id', $id)->update(array(
+			'nama' => $this->input->post('nama_kelas'),
+			'deskripsi'=>$this->input->post('deskripsi_kelas'),
+			'harga'=>$this->input->post('harga'),
+			));
 		$data_kelas = $kelas_model->get_by_id($id);
 
 		$list_tag = explode(',', $this->input->post('class_tags'));
@@ -205,11 +210,6 @@ class Kelas extends CI_Controller {
 				$classes_tag->save_as_new();
 			}
 		}
-		$sucses = $data_kelas->update(array(
-			'nama' => $this->input->post('nama_kelas'),
-			'deskripsi'=>$this->input->post('deskripsi_kelas'),
-			'harga'=>$this->input->post('harga'),
-			));
 		redirect('/guru/edit_kelas/'.$id, 'refresh');
 	}
 
