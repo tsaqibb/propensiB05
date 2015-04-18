@@ -59,9 +59,12 @@
                             <li role="presentation">
                                 <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
-                            <li role="presentation">
-                                <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
-                            </li>
+                            <?php $session_role = $this->session->userdata('user_type'); ?>
+                            <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
+                                <li role="presentation">
+                                    <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -162,7 +165,7 @@
                             
                             <!-- tab feedback -->
                             <?php $session_role = $this->session->userdata('user_type'); ?>
-                            <?php if($session_role = 'guru' || 'admin') : ?>
+                            <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
                             <div role="tabpanel" class="tab-pane" id="feedback">
                                 <div class="panel-body-feedback">
                                     <div class="chat">
