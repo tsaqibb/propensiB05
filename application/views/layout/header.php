@@ -105,7 +105,7 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
                             <span class="icon-bar"></span>
                         </button>
                         <ul class="nav navbar-nav navbar-left">
-                            <li class="active"><a href="<?php echo base_url();?>">Kelas Online</a></li>
+                            <li><a href="<?php echo base_url();?>">Kelas Online</a></li>
                             <li><a href="http://www.ruangguru.com/cari_guru">Privat</a></li>
                             <li><a href="http://www.kelas.ruangguru.com">Kelas Berkelompok</a></li>
                             <li><a href="http://www.ruangguru.com/faq">FAQ</a></li>
@@ -177,7 +177,7 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
     else: // logged in
         switch($this->session->userdata('user_type')):
             case        'guru':
-                $profile = base_url().'profile';
+                $profile = base_url().'guru';
                 break;
             case        'murid':
                 $profile = base_url().'murid';
@@ -190,12 +190,23 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
 ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="user-login">
-                            Halo, <a href="<?php echo $profile?>">
+                            Halo,
+                            <br><span class="name">
                                 <?php echo $this->session->userdata('user_name');?>
-                            </a>
+                            </span>
                         </li>
-                        <li class="sign-out">
-                            <a href="<?php echo $logout;?>">Logout</a>
+                        <li class="dropdown profile-menu">
+                            <a href="#" class="btn btn-orange" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fa fa-user fa-2x"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a class="fancybox" href="<?php echo $profile; ?>">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a class="fancybox" href="<?php echo $logout;?>">Logout</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
 <?php

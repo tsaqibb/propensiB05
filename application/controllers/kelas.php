@@ -142,6 +142,21 @@ class Kelas extends CI_Controller {
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
 
+	public function add_feedback($id) 
+	{
+		$feedback_model = new Feedback();
+		$feedback_model->pesan = $this->input->post('pesan');
+		$feedback_model->course_id = $id;
+
+		$kelas_model = new Course();
+		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
+		$feedback_model->teacher_id = $teacher_id;
+		
+		$feedback_model->role = $this->session->userdata('user_type');
+		$success = $feedback_model->save_as_new();
+		redirect('kelas/detail/'.$id, 'refresh');
+	}
+
 	public function update_kelas($id)
 	{
 		$kelas_model = new Course();
@@ -157,10 +172,14 @@ class Kelas extends CI_Controller {
 	public function create_kelas()
 	{
 		$kelas_model = new Course();
-		$kelas_model->$this->input->post('nama_kelas');
-		$kelas_model->$this->input->post('deskripsi_kelas');
-		$kelas_model->$this->input->post('harga');
+		$kelas_model->nama = $this->input->post('nama_kelas');
+		$kelas_model->deskripsi = $this->input->post('deskripsi_kelas');
+		$kelas_model->harga = $this->input->post('harga');
+		$kelas_model->teacher_id = $this->session->userdata('user_id');
+		$kelas_model->status_kelas = 1;
 		$sucses = $kelas_model->save_as_new();
 		redirect('/guru/kelas', 'refresh');
+
 	}
+
 }
