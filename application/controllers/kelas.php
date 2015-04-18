@@ -142,6 +142,21 @@ class Kelas extends CI_Controller {
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
 
+	public function add_feedback($id) 
+	{
+		$feedback_model = new Feedback();
+		$feedback_model->pesan = $this->input->post('pesan');
+		$feedback_model->course_id = $id;
+
+		$kelas_model = new Course();
+		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
+		$feedback_model->teacher_id = $teacher_id;
+		
+		$feedback_model->role 
+		$success = $feedback_model->save_as_new();
+		redirect('kelas/detail/'.$id, 'refresh')
+	}
+
 	public function update_kelas($id)
 	{
 		$kelas_model = new Course();
@@ -164,5 +179,7 @@ class Kelas extends CI_Controller {
 		$kelas_model->status_kelas = 1;
 		$sucses = $kelas_model->save_as_new();
 		redirect('/guru/kelas', 'refresh');
+
 	}
+
 }
