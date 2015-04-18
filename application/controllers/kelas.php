@@ -141,4 +141,14 @@ class Kelas extends CI_Controller {
 		redirect('/kelas/', 'refresh');
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
+
+	public function add_feedback($id) 
+	{
+		$feedback_model = new Feedback();
+		$feedback_model->pesan = $this->input->post('pesan');
+		$feedback_model->course_id = $id;
+		// feedback_model->teacher_id = $this->session->userdata('user_id');
+		$success = $feedback_model->save_as_new();
+		redirect('kelas/detail/'.$id, 'refresh')
+	}
 }
