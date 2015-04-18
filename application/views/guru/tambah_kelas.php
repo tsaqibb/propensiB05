@@ -26,7 +26,7 @@
                                 Detail Kelas
                             </a>
                             <div id="detail_kelas" class="panel-collapse collapse in">
-                                <form class="form-horizontal" action="">
+                                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kelas/create_kelas">
                                     <div class="form-group">
                                         <label id="nama_kelas" name="nama_kelas" class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">
@@ -51,11 +51,9 @@
                                             <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
                                         </div>
                                     </div>
-                                    <div class="btn btn-default main-button register" href="#materi" role="tab" data-toggle="tab">
-                                        <i class="fa fa-upload"></i>
-                                        Upload materi 
-                                    </div>
-
+                                    <button class="btn btn-default main-button register" role="submit">
+                                        Create
+                                    </button>
                                 </form>
                             </div> 
                         </div> <!-- end panel -->
