@@ -78,16 +78,31 @@ class Kelas extends CI_Controller {
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
 
-		$this->load->library('email');
+		$config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'saqib.abud@gmail.com', // change it to yours
+			'smtp_pass' => 'allahuakbar', // change it to yours
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE
+		);
 
-		$this->email->from('saqib.abud@gmail.com', 'Ruangguru');
-		//$this->email->reply_to('info@ruangguru.com', 'Ruangguru');
-		$this->email->to('pravitasari.m@gmail.com'); 
-
-		$this->email->subject('Email Test');
-		$this->email->message('Testing the email class.');	
-
-		$this->email->send();
+	    $message = 'Hai Hai';
+	    $this->load->library('email', $config);
+      	$this->email->set_newline("\r\n");
+      	$this->email->from('saqib.abud@gmail.com'); // change it to yours
+      	$this->email->to('pravitasari.m@gmail.com');// change it to yours
+      	$this->email->subject('Test E-mail');
+      	$this->email->message($message);
+      	if($this->email->send())
+	    {
+	    	echo 'Email sent.';
+	    } else
+	    {
+	    	show_error($this->email->print_debugger());
+	    }
 
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
