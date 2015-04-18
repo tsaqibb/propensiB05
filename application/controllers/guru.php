@@ -44,7 +44,7 @@ class Guru extends CI_Controller {
 	
 	public function tambahkelas()
 	{
-		$upload = $this->teacher->insertMateri('resources',array(
+/*		$upload = $this->teacher->insertMateri('resources',array(
 			'id' => ' ',
 			'no_urut_materi' => '',
 			'topic_id' => '',
@@ -64,8 +64,12 @@ class Guru extends CI_Controller {
 
 		$this->load->library('upload' , $config);
 
+
 		//if(! $this->upload->)
 
+
+		if(! $this->upload->)
+*/
 
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_kelas');

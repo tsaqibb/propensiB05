@@ -151,8 +151,15 @@ class Kelas extends CI_Controller {
 		$kelas_model = new Course();
 		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
 		$feedback_model->teacher_id = $teacher_id;
+		$session_role = $this->session->userdata('user_type');
 		
-		$feedback_model->role = $this->session->userdata('user_type');
+		if($session_role = 'guru') {
+			$feedback_model->role = 1;
+		}
+		else {
+			$feedback_model->role = 0;
+		}
+		
 		$success = $feedback_model->save_as_new();
 		redirect('kelas/detail/'.$id, 'refresh');
 	}
