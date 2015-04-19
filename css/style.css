@@ -1218,6 +1218,9 @@ font-weight: bold;
   /* border-color: #fcb33b; */
 }
 .grey {
+  color:black;
+  font-family: ubuntu;
+  font-weight: bold;
   width: 100%;
   background-color: rgba(200,200,200,0.9);
   margin-bottom: -41px;
