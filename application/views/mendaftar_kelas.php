@@ -175,7 +175,7 @@
                                         }
                                     });
                                 </script><br><br><br>
-                                <button id="submit" type="submit" onclick="" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
+                                <button id="submit" type="submit" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
                             </form>
                             </div>
                         </div>

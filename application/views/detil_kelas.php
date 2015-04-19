@@ -28,7 +28,7 @@
             $id_kelas=$this->session->userdata('course_id');
             $id_murid=$this->session->userdata('user_id');
             
-            if($type_user == "murid"):
+            if($type_user == "murid" OR ($type_user != "guru" AND $type_user != "admin" AND $type_user != "murid")):
                 $exist = false;
                 foreach ($partisipan_all as $partisipan):
                     $student = $partisipan->student->get(); 
@@ -42,7 +42,7 @@
 
                     <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
                 <?php endif;?>
-            <?php elseif($type_user == "guru" OR $type_user == "admin" OR ($type_user != "guru" AND $type_user != "admin" AND $type_user != "murid")):?>
+            <?php elseif($type_user == "guru" OR $type_user == "admin"):?>
                     <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
             <?php endif;
             ?>                

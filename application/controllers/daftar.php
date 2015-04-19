@@ -26,14 +26,14 @@ class Daftar extends CI_Controller {
 			$murr = (new Student($id_murid));
 			$data_email = [
 				"sender" => "online.ruangguru@gmail.com",
-				"sender_name" => "Ruang Guru Online",
+				"sender_name" => "Kelas Online ruangguru.com",
 				"receiver" => $murr->email,
 				"receiver_name" => $murr->nama,
 			];
 
 			if ($harga==0){
 				$data_email["subject"] = "Registrasi Kelas Berhasil";
-				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas. Kamu sudah terdaftar sebagai peserta resmi kelas ini.";
+				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas->nama . Kamu sudah terdaftar sebagai peserta resmi kelas ini.";
 				if($this->_send_smtp_email($data_email))
 				{
 					$daftar_model->student_id = $id_murid;
@@ -50,7 +50,7 @@ class Daftar extends CI_Controller {
 
 			else{
 				$data_email["subject"] = "Registrasi Kelas Pending";
-				$data_email["message"] = "Hai $murr->nama, kamu ingin mendaftar di kelas $data_kelas? Silakan lunasi pembayaran supaya terdaftar di kelas ini.";
+				$data_email["message"] = "Hai $murr->nama, kamu ingin mendaftar di kelas $data_kelas->nama Silakan lunasi pembayaran supaya terdaftar di kelas ini.";
 				if($this->_send_smtp_email($data_email))
 				{
 					$daftar_model->student_id = $id_murid;
