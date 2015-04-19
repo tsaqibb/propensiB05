@@ -31,7 +31,7 @@ class Admin extends CI_Controller {
 
 	public function calonpartisipan()
 	{
-		$partisipan_kelas = new Students_Class();
+		$partisipan_kelas = new courses_student();
 		$list_partisipan = $partisipan_kelas->get_list_partisipan_nonactive();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/calon_partisipan', array('list_partisipan' => $list_partisipan));
