@@ -26,7 +26,7 @@ class Kelas extends CI_Controller {
 			return;
 		}
 		//melihat list partisipan yang aktid pada suatu kelas
-		$list_partisipan = $data_kelas->students_class->get_list_partisipan_active();
+		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 
 
 		$list_feedback = $data_kelas->feedback->get();
@@ -134,16 +134,16 @@ class Kelas extends CI_Controller {
 	}
 	public function setAktif($id)
 	{
-		$this->load->model('students_class');
-		$this->students_class->set_active_partisipan($id);
+		$this->load->model('courses_student');
+		$this->courses_student->set_active_partisipan($id);
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
 	public function setAllAktif()
 	{
 		$data=$this->input->post('id');
-		$this->load->model('students_class');
+		$this->load->model('courses_student');
 		foreach ($data as $cek) {
-			$this->students_class->set_active_partisipan($cek);
+			$this->courses_student->set_active_partisipan($cek);
 		}
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
@@ -153,8 +153,8 @@ class Kelas extends CI_Controller {
 		$id=$data[0];
 		$course=$data[1];
 
-		$this->load->model('students_class');
-		$this->students_class->set_nonactive_partisipan($id);
+		$this->load->model('courses_student');
+		$this->courses_student->set_nonactive_partisipan($id);
 
 		redirect('/kelas/detail/'.$course, 'refresh');
 	}
@@ -163,8 +163,8 @@ class Kelas extends CI_Controller {
 		//$data=explode("_", $id);
 		//$id=$data[0];
 		//$course=$data[1];
-		$this->load->model('students_class');
-		$this->students_class->set_nonactive_all_partisipan();
+		$this->load->model('courses_student');
+		$this->courses_student->set_nonactive_all_partisipan();
 		redirect('/kelas/', 'refresh');
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
