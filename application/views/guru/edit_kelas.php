@@ -148,7 +148,9 @@
                                              </a>
                                             </div>
                                             <div class="col-md-3">
-                                             <span class="hapus-topik pull-right">Hapus Materi <i class="fa fa-times"></i></span>
+                                              <form action="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id; ?>">
+                                                 <button role="button" width="70%" class="btn btn-delete" id="button-hapus-materi"><i class="fa fa-times"></i>Hapus materi</button>
+                                              </form>
                                             </div>
                                           </ul>
                                         <?php endforeach;?>
@@ -185,7 +187,7 @@
                                           </div>
                                         </div>                                                              
                                             </p>
-                                            <input type="file" name="myFile" id="myFile" multiple size="50" onchange="uploadMateri()">
+                                            <input type="file"  id="myFile" multiple size="50">
                                             <br>                                                        
                                             <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                             </form> 

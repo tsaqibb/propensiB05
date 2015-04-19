@@ -312,21 +312,23 @@ class Kelas extends CI_Controller {
 
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
-
 		$data_kelas = $data_topik->course->get();
-
 
 		$materi_model = new Resource();
 		$materi_model->judul = $this->input->post('namamateri');
 		$materi_model->notes = $this->input->post('notemateri');
-		$materi_model->teacher_id = $data_kelas->teacher_id;
-		//$materi_model->url = $this->input->post('myFile');		
+		$materi_model->teacher_id = $data_kelas->teacher_id;			
 		$materi_model->topic_id = $data_topik->id;
 		$materi_model->course_id = $data_kelas->id;	
-		
+
+		$config['upload_path'] ='./video/';
+		$config['allowed_types'] = 'mp4|jpg|doc';
+
+		$this->load->library('resource',$config);		
 		$success = $materi_model->save_as_new();	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+}
 
 			
 	public function delete($id)
@@ -363,6 +365,20 @@ class Kelas extends CI_Controller {
 		$id_kelas = $data_topik->course->get();
 		$this->load->database();
 		$this->db->delete('topics',array('id' => $id));
+
+		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
+	}
+
+
+	public function delete_materi($id){
+		$materi_model = new Resource();
+		$data_materi  = $materi_model->get_by_id($id);
+		
+		$id_topik = $data_materi->topic->get();
+		$id_kelas = $id_topik->course->get();
+
+		$this->load->database();
+		$this->db->delete('resources',array('id' => $id));
 
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
