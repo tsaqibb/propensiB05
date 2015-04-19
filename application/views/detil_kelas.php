@@ -23,7 +23,29 @@
     <div class="row">
         <div class="col-md-12 col-sm-8">
             <div class="panel panel-default">
-                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+            <?php
+            $type_user = $this->session->userdata('user_type');
+            $id_kelas=$this->session->userdata('course_id');
+            $id_murid=$this->session->userdata('user_id');
+            
+            if($type_user == "murid"):
+                $exist = false;
+                foreach ($partisipan_all as $partisipan):
+                    $student = $partisipan->student->get(); 
+                    
+                    if($id_murid == $student->id) :
+                        $exist=true;
+                        break;
+                    endif;
+                endforeach;
+                if ($exist == false) :?>
+
+                    <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+                <?php endif;?>
+            <?php elseif($type_user == "guru" OR $type_user == "admin" OR ($type_user != "guru" AND $type_user != "admin" AND $type_user != "murid")):?>
+                    <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
+            <?php endif;
+            ?>                
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -131,10 +153,18 @@
                                 </div>
                             </div><!-- end tab review -->
                             
-                                                        <!--tab partisipan-->
+                            <!--tab partisipan-->
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
-                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3><a href="<?php echo base_url()."kelas/setAllNonAktif/"; ?>" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a></div>
+                                <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3>
+                                <br>
+                                <?php
+                              $type_user = $this->session->userdata('user_type');
+                                if ($type_user == "admin"):?>
+                                <a href="<?php echo base_url()."kelas/setAllNonAktif/"; ?>" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a>
+                                
+                           <?php endif; ?>
+                                </div>
                                 <?php foreach ($list_partisipan as $daftar) :
                                     $student = $daftar->student->get();
                                 $course= $daftar->course_id; 
@@ -145,10 +175,15 @@
                                     <br><a href=""><span><?php echo $daftar->student_id; ?></span></a>
                                         <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
                                     </div>
-                                    <span>
-                                        <a href="<?php echo base_url()."kelas/setNonAktif/".($daftar->student_id)."_".$course; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
-                                    </span>
 
+                                    <span>
+                                    <?php
+                                    $type_user = $this->session->userdata('user_type');
+                                if ($type_user == "admin"):?>
+                                        <a href="<?php echo base_url()."kelas/setNonAktif/".($daftar->student_id)."_".$course; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
+                                    <?php endif; ?>
+                                    </span>
+                                    
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>
                                   </div>

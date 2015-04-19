@@ -1218,6 +1218,9 @@ font-weight: bold;
   /* border-color: #fcb33b; */
 }
 .grey {
+  color:black;
+  font-family: ubuntu;
+  font-weight: bold;
   width: 100%;
   background-color: rgba(200,200,200,0.9);
   margin-bottom: -41px;
@@ -1346,6 +1349,7 @@ font-weight: bold;
   padding-top: 10px;
   padding-bottom: 8px;
 }
+
 .actived-partisipan {
   margin: 0px 0px -50px 60px;
 }
@@ -1362,7 +1366,7 @@ font-weight: bold;
   opacity:100%;
   width: 360px;
   height: 50px;
-  display: inline-block;
+  /*display: inline-block;*/
   border-radius: 15px;
   padding: 0px 15px 0px 65px;
   position: relative;

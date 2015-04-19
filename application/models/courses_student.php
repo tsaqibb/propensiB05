@@ -1,8 +1,8 @@
 <?php
 
-class Students_Class extends DataMapper {
+class Courses_Student extends DataMapper {
 
-	var $table = 'Students_Classes';
+	var $table = 'Courses_Students';
 	var $has_one = array('course','student');
 	var $has_many = array();
 

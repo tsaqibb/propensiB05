@@ -4,7 +4,10 @@ class Murid extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
-		
+		if($this->session->userdata('user_type') != 'murid') {
+			redirect();
+			return;
+		}
 	}
 
 	public function index()

@@ -19,6 +19,7 @@ class Kelas extends CI_Controller {
 
 	public function detail($id)
 	{
+		$this->session->set_userdata('course_id', $id);
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 		if(empty($data_kelas->id)) {
@@ -26,7 +27,13 @@ class Kelas extends CI_Controller {
 			return;
 		}
 		//melihat list partisipan yang aktid pada suatu kelas
-		$list_partisipan = $data_kelas->students_class->get_list_partisipan_active();
+
+
+		$partisipan_all = $data_kelas->courses_student->get();
+		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+		
+		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+		$partisipan_all = $data_kelas->courses_student->get();
 
 		$list_feedback = $data_kelas->feedback->get();
 
@@ -39,7 +46,8 @@ class Kelas extends CI_Controller {
 				'data_kelas'=>$data_kelas,
 				'list_feedback'=>$list_feedback,
 				'data_topik' => $data_topik,
-				'list_partisipan' => $list_partisipan)
+				'list_partisipan' => $list_partisipan,
+				'partisipan_all' => $partisipan_all)
 		);
 
 		$this->load->view('layout/footer');
@@ -47,7 +55,10 @@ class Kelas extends CI_Controller {
 
 	public function aksesmateri($id)
 	{	
-
+		if($this->session->userdata('is_logged_in') == FALSE) {
+			redirect();
+			return;
+		}
 		$materi_model = new Resource();
 		$open_materi = $materi_model->get_by_id($id);
 
@@ -133,16 +144,16 @@ class Kelas extends CI_Controller {
 	}
 	public function setAktif($id)
 	{
-		$this->load->model('students_class');
-		$this->students_class->set_active_partisipan($id);
+		$this->load->model('courses_student');
+		$this->courses_student->set_active_partisipan($id);
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
 	public function setAllAktif()
 	{
 		$data=$this->input->post('id');
-		$this->load->model('students_class');
+		$this->load->model('courses_student');
 		foreach ($data as $cek) {
-			$this->students_class->set_active_partisipan($cek);
+			$this->courses_student->set_active_partisipan($cek);
 		}
 		redirect('/admin/calonpartisipan/', 'refresh');
 	}
@@ -152,8 +163,8 @@ class Kelas extends CI_Controller {
 		$id=$data[0];
 		$course=$data[1];
 
-		$this->load->model('students_class');
-		$this->students_class->set_nonactive_partisipan($id);
+		$this->load->model('courses_student');
+		$this->courses_student->set_nonactive_partisipan($id);
 
 		redirect('/kelas/detail/'.$course, 'refresh');
 	}
@@ -162,8 +173,8 @@ class Kelas extends CI_Controller {
 		//$data=explode("_", $id);
 		//$id=$data[0];
 		//$course=$data[1];
-		$this->load->model('students_class');
-		$this->students_class->set_nonactive_all_partisipan();
+		$this->load->model('courses_student');
+		$this->courses_student->set_nonactive_all_partisipan();
 		redirect('/kelas/', 'refresh');
 		//redirect('/kelas/detail/'.$course, 'refresh');
 	}
@@ -183,10 +194,10 @@ class Kelas extends CI_Controller {
 		
 		//Save role
 		$session_role = $this->session->userdata('user_type');
-		if($session_role = 'guru') {
+		if($session_role == 'guru') {
 			$feedback_model->role = 1;
 		}
-		else {
+		elseif($session_role == 'admin') {
 			$feedback_model->role = 0;
 		}
 		
@@ -290,9 +301,14 @@ class Kelas extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 */
+
 	public function create_materi($id){
 		//$kelas_model = new Course();
 		//$data_kelas = $kelas_model->get_by_id($id);
+
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+
 
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
@@ -311,13 +327,19 @@ class Kelas extends CI_Controller {
 		$success = $materi_model->save_as_new();	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
-}
-			
 
-	public function delete($id) {
+			
+	public function delete($id)
+	{
 		$kelas_model = new Course();
 		$kelas_model = $kelas_model->get_by_id($id);
+		$kelas_tag = new Classes_tag();
+		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
+		foreach ($kelas_tags as $kelas_tag) {
+			$kelas_tag->delete();
+		}
 		$kelas_model = $kelas_model->delete();
+
 	}
 
 
@@ -327,6 +349,11 @@ class Kelas extends CI_Controller {
 		$data_topik  = $topik_model->get_by_id($id);
 		$data_topik->where('id' , $data_topik->id)->get();
 		$data_topik->delete();
+		redirect('/guru/kelas#draft');	}
+	public function delete_topik($id)
+	{
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
 
 		$id_kelas = $data_topik->course->get();*/
 		$topik_model = new Topic();
@@ -339,8 +366,5 @@ class Kelas extends CI_Controller {
 
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
-
-
-
 
 }
