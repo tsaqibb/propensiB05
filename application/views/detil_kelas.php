@@ -157,7 +157,7 @@
                             <div role="tabpanel" class="tab-pane" id="partisipan">
                               <div class="tab-content">
                                 <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3>
-                                
+                                <br>
                                 <?php
                               $type_user = $this->session->userdata('user_type');
                                 if ($type_user == "admin"):?>
