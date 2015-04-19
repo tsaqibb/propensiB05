@@ -23,29 +23,77 @@ class Daftar extends CI_Controller {
 
 			
 			/*die("harga: $harga, id_guru: $id_guru");*/
-			if ($harga==0){	
-				$daftar_model->student_id = $id_murid;
-				$daftar_model->course_id = $id_kelas;
-				$daftar_model->teacher_id = $id_guru;
-				$daftar_model->isActive =1;
+			$murr = (new Student($id_murid));
+			$data_email = [
+				"sender" => "online.ruangguru@gmail.com",
+				"sender_name" => "Ruang Guru Online",
+				"receiver" => $murr->email,
+				"receiver_name" => $murr->nama,
+			];
 
-				$daftar_model->save_as_new();
-				redirect('/kelas/detail/'.$id_kelas );
-				
+			if ($harga==0){
+				$data_email["subject"] = "Registrasi Kelas Berhasil";
+				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas. Kamu sudah terdaftar sebagai peserta resmi kelas ini.";
+				if($this->_send_smtp_email($data_email))
+				{
+					$daftar_model->student_id = $id_murid;
+					$daftar_model->course_id = $id_kelas;
+					$daftar_model->teacher_id = $id_guru;
+					$daftar_model->isActive =1;
+
+					$daftar_model->save_as_new();
+					redirect('/kelas/detail/'.$id_kelas );
+				} else
+					redirect('/daftar/');
+
 			}
 
 			else{
-				$daftar_model->student_id = $id_murid;
-				$daftar_model->course_id = $id_kelas;
-				$daftar_model->teacher_id = $id_guru;
-				$daftar_model->isActive =0;
+				$data_email["subject"] = "Registrasi Kelas Pending";
+				$data_email["message"] = "Hai $murr->nama, kamu ingin mendaftar di kelas $data_kelas? Silakan lunasi pembayaran supaya terdaftar di kelas ini.";
+				if($this->_send_smtp_email($data_email))
+				{
+					$daftar_model->student_id = $id_murid;
+					$daftar_model->course_id = $id_kelas;
+					$daftar_model->teacher_id = $id_guru;
+					$daftar_model->isActive =0;
 
-				$daftar_model->save_as_new();
-				redirect('/kelas/');
+					$daftar_model->save_as_new();
+					redirect('/kelas/');
+				} else
+					redirect('/kelas/');
 			}
 		}
 		$this->load->view('layout/header');
 		$this->load->view('mendaftar_kelas');
 		$this->load->view('layout/footer');
 	}
+
+	function _send_smtp_email($data)
+  {
+    // $data: sender, sender_name, receiver, receiver_name, subject, message
+    extract($data);
+    require_once('application/libraries/mailer/PHPMailerAutoload.php');
+    $mail = new PHPMailer();
+    $mail->IsSMTP();                       // telling the class to use SMTP
+    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
+    $mail->SMTPAuth = true;                // enable SMTP authentication 
+    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
+    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
+    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
+
+    $mail->Username = "online.ruangguru";         // Gmail username
+    $mail->Password = "kelasonlineruangguru";      // Gmail password
+
+    // $mail->CharSet = 'windows-1250';
+    $mail->SetFrom ($sender, @$sender_name);
+    $mail->Subject = @$subject;
+    $mail->ContentType = 'text/html';
+    $mail->IsHTML(TRUE);
+    $mail->Body = @$message; 
+    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
+    $mail->AddAddress ($receiver, @$receiver_name);
+    // you may also use this format $mail->AddAddress ($recipient);
+    return $mail->Send();
+  }
 }

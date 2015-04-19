@@ -149,7 +149,7 @@
                               </div>
                             </div>
                             <div class="checkbox bottom-30">
-                                <form class="form-horizontal" onclick="x()"method="post" action="<?php echo base_url();?>daftar">
+                                <form class="form-horizontal" method="post" action="<?php echo base_url();?>daftar">
                                 <label>
                                     <input value="" name="agree" type="checkbox" id="iagree">
                                     Pendaftaran sudah sesuai.<br>
@@ -160,12 +160,22 @@
 
 
                                <script type="text/javascript">
-                               function x(){
+                               /*function x(){
                                document.getElementById("submit").style.background='orange';
-                                }
-                                   /* $("#iagree").change(function(){$("#submit").slideToggle();});*/
+                                }*/
+                                    $("#iagree").change(function(){
+                                        if($("#submit").attr("style") == "background: grey") {
+                                            $("#submit").attr("style", "background: orange");
+                                            $("#submit").removeAttr("disabled");
+                                        }
+                                        else
+                                        {
+                                            $("#submit").attr("style", "background: grey");
+                                            $("#submit").attr("disabled", "disabled");
+                                        }
+                                    });
                                 </script><br><br><br>
-                                <button id="submit" type="submit" onclick="" class="grey">Lanjutkan</button>           
+                                <button id="submit" type="submit" onclick="" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
                             </form>
                             </div>
                         </div>
