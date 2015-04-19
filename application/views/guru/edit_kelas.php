@@ -1,3 +1,14 @@
+<script type="text/javascript">
+  <?php
+      $class_tags = $data_kelas->classes_tag->get();
+      $tags = array();
+      foreach ($class_tags as $class_tag ) :
+        $tag = $class_tag->tag->get(); ?>    
+  $('#class_tags').tagsinput('add',
+      "<?php echo $tag->subjek; ?>");
+  <?php endforeach; ?>
+    
+</script>
 <div class="container-fluid content kelas vendor">
     <div class="row">
         <div class="col-sm-12 col-md-3">
@@ -71,7 +82,14 @@
                                 <div class="form-group">
                                     <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                     <div class="col-sm-8">
-                                        <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
+                                        <input id="class_tags" name="class_tags" type="text" class="form-control" 
+                                          value="<?php
+                                            $class_tags = $data_kelas->classes_tag->get();
+                                            $tags = array();
+                                            foreach ($class_tags as $class_tag ) {
+                                              $tag = $class_tag->tag->get();
+                                              echo $tag->subjek.',';
+                                            }?>">
                                     </div>
                                 </div>
                                 <div class="col-md-12 right">
@@ -219,16 +237,5 @@
         var b = "<a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a>";
         var c = "<button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button>";
         $(".panel-body").append(a);
-
     }
-
-    $('#class_tags').tagsinput('add',
-      "<?php
-      $class_tags = $data_kelas->classes_tag->get();
-      $tags = array();
-      foreach ($class_tags as $class_tag ) {
-        $tag = $class_tag->tag->get();
-        array_push($tags, $tag->subjek);
-      }
-      $add_tag = implode(',', $tags); echo $add_tag;?>");
 </script>

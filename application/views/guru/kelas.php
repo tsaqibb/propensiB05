@@ -108,7 +108,7 @@
                                                     <?php endif; ?>
                                                     <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
                                                         class="cancel icon-circle" title="" data-original-title="Delete"
-                                                        onclick="konfirmasidelete(<?php echo $kelas->nama.'(id:'.$kelas->id.')'?>)">
+                                                        onclick="konfirmasidelete">
                                                             <i class="fa fa-trash-o"></i>
                                                     </a>
                                                     <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"
@@ -141,8 +141,8 @@
     </div>
 </div> <!-- /container -->
 <script type=text/javascript>
-    function konfirmasidelete(par){
-        var r=confirm("Apakah anda yakin untuk hapus ".$par." ?");
+    function konfirmasidelete(){
+        var r=confirm("Apakah anda yakin untuk hapus kelas ?");
         if (r==true){
             alert("Kelas berhasil dihapus");
         }

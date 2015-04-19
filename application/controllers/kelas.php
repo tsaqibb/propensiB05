@@ -208,17 +208,41 @@ class Kelas extends CI_Controller {
 	public function update_kelas($id)
 	{
 		$kelas_model = new Course();
-		$success = $kelas_model->where('id', $id)->update(array(
+		$success_update = $kelas_model->where('id', $id)->update(array(
 			'nama' => $this->input->post('nama_kelas'),
 			'deskripsi'=>$this->input->post('deskripsi_kelas'),
 			'harga'=>$this->input->post('harga'),
 			));
 		$data_kelas = $kelas_model->get_by_id($id);
+		
+		//list hasil input tag
+		$input_list_tag = explode(',', $this->input->post('class_tags'));
+		//list tag yang dimiliki
+		$kelas_tags = $data_kelas->classes_tag->get();
+		
+		//loop untuk setiap tag yang sudah dimiliki kelas pada database
+		foreach ($kelas_tags as $kelas_tag) {
+			$tag = $kelas_tag->tag->get();
+			$delete = true;
+			foreach ($input_list_tag as $tag_name) {
+				if($tag->subjek == $tag_name) {
+					$delete = false;
+				}
+			}
+			if($delete) {
+				$classes_tag_model = new Classes_tag();
+				$success_delete_tag = $kelas_tag->delete();
+				if(!$success_delete_tag) {
+					$this->session->set_flashdata('status.error','Gagal hapus tag kelas!');
+				}
+			}
+		}
 
-		$list_tag = explode(',', $this->input->post('class_tags'));
-		foreach ($list_tag as $tag_name) {
+		//loop untuk setiap tag yg dimasukan
+		foreach ($input_list_tag as $tag_name) {
 			$tag = new Tag();
 			$tag = $tag->where('subjek', $tag_name)->get();
+			//membuat tag baru
 			if(empty($tag->id)) {
 				$tag = new Tag();
 				$tag->subjek = $tag_name;
@@ -232,8 +256,17 @@ class Kelas extends CI_Controller {
 				$classes_tag->tag_id = $tag->id;
 				$classes_tag->course_id = $kelas_model->id;
 				$classes_tag->teacher_id = $kelas_model->teacher_id;
-				$classes_tag->save_as_new();
+				$success_add_tag = $classes_tag->save_as_new();
+				if(!$success_add_tag) {
+					$this->session->set_flashdata('status.error','Gagal tambah tag kelas!');
+				}
 			}
+		}
+		if($success_update) {
+			$this->session->set_flashdata('status.notice','Berhasil update kelas!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal update kelas!');
 		}
 		redirect('/guru/edit_kelas/'.$id, 'refresh');
 	}
@@ -246,29 +279,48 @@ class Kelas extends CI_Controller {
 		$kelas_model->harga = $this->input->post('harga');
 		$kelas_model->teacher_id = $this->session->userdata('user_id');
 		$kelas_model->status_kelas = 1;
-		$sucses = $kelas_model->save_as_new();
-		
-		$list_tag = explode(',', $this->input->post('class_tags'));
-		foreach ($list_tag as $tag_name) {
-			$tag = new Tag();
-			$tag = $tag->where('subjek', $tag_name)->get();
-			if(empty($tag)) {
+		$success = $kelas_model->save_as_new();
+		if($success) {
+			$new_class = new Course();
+			$new_class = $new_class->select_max('id');
+			$list_tag = explode(',', $this->input->post('class_tags'));
+			foreach ($list_tag as $tag_name) {
 				$tag = new Tag();
-				$tag->subjek = $tag_name;
-				$success = $tag->save_as_new();
 				$tag = $tag->where('subjek', $tag_name)->get();
-			}
-			$classes_tag = new Classes_tag();
-			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
-			if(empty($classes_tag)) {
+				if(empty($tag->id)) {
+					$tag = new Tag();
+					$tag->subjek = $tag_name;
+					$success_add_tag = $tag->save_as_new();
+					if(!$success_add_tag) {
+						$this->session->set_flashdata('status.error','Gagal menambahkan objek tag!');
+					}
+					$tag = $tag->where('subjek', $tag_name)->get();
+				}
 				$classes_tag = new Classes_tag();
-				$classes_tag->tag_id = $tag->id;
-				$classes_tag->course_id = $kelas_model->id;
-				$classes_tag->teacher_id = $kelas_model->teacher_id;
-				//$classes_tag->save_as_new();
-			}	
+				$tag_id = $tag->id;
+				//$new_class_id = $new_class->id;
+				$new_class_id = '3002';
+				$classes_tag = $classes_tag->where(
+					array('tag_id ='=> $tag_id, 'course_id ='=> $new_class_id))->get();
+				if(empty($classes_tag->id)) {
+					$classes_tag = new Classes_tag();
+					$classes_tag->tag_id = $tag->id;
+					//$classes_tag->course_id = $new_class->id;
+					$classes_tag->course_id = '3002';
+					$classes_tag->teacher_id = $kelas_model->teacher_id;
+					$success_add_tag = $classes_tag->save_as_new();
+					if(!$success_add_tag) {
+						$this->session->set_flashdata('status.error','Gagal menambahkan tag kelas!');
+					}
+				}	
+			}
+			$this->session->set_flashdata('status.notice','Berhasil membuat kelas!');
+			redirect('/guru/kelas', 'refresh');
 		}
-		redirect('/guru/kelas', 'refresh');
+		else{
+			$this->session->set_flashdata('status.error','Gagal membuat kelas!');
+			redirect('/guru/tambahkelas');
+		}
 	}
 
 	public function create_topik($id) {
@@ -281,6 +333,12 @@ class Kelas extends CI_Controller {
 		$topik_model->teacher_id = $data_kelas->teacher_id;	
 
 		$success = $topik_model->save_as_new();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil membuat topik!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal membuat topik!');
+		}
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
@@ -327,7 +385,7 @@ class Kelas extends CI_Controller {
 		$success = $materi_model->save_as_new();	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
-
+	}
 			
 	public function delete($id)
 	{
@@ -338,8 +396,14 @@ class Kelas extends CI_Controller {
 		foreach ($kelas_tags as $kelas_tag) {
 			$kelas_tag->delete();
 		}
-		$kelas_model = $kelas_model->delete();
-
+		$success = $kelas_model->delete();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil memnghapus kelas!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menghapus kelas!');
+		}
+		redirect('guru/kelas#draft');
 	}
 
 
