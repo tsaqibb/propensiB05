@@ -60,10 +60,10 @@
             
             <div class="panel content-video">
               <div class="space-video">
-                <!-- <video class="videoplayer" controls>                  
+                <video class="videoplayer" controls>                  
                   <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
-                </video>-->
-                <embed src="<?php echo base_url().$open_materi->url; ?>" width="560" height="315"></embed>
+                </video>
+               
               </div>
             </div>
         </div>
