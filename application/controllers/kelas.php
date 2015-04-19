@@ -183,10 +183,10 @@ class Kelas extends CI_Controller {
 		
 		//Save role
 		$session_role = $this->session->userdata('user_type');
-		if($session_role = 'guru') {
+		if($session_role == 'guru') {
 			$feedback_model->role = 1;
 		}
-		elseif($session_role - 'admin') {
+		elseif($session_role == 'admin') {
 			$feedback_model->role = 0;
 		}
 		
