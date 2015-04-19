@@ -29,6 +29,12 @@ class Kelas extends CI_Controller {
 		//melihat list partisipan yang aktid pada suatu kelas
 		$partisipan_all = $data_kelas->courses_student->get();
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+<<<<<<< HEAD
+=======
+
+		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+		$partisipan_all = $data_kelas->courses_student->get();
+>>>>>>> origin/master
 
 		$list_feedback = $data_kelas->feedback->get();
 
@@ -79,35 +85,10 @@ class Kelas extends CI_Controller {
 
 	public function approve($id)
 	{	
-
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
 
-		$config = Array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'saqib.abud@gmail.com', // change it to yours
-			'smtp_pass' => 'allahuakbar', // change it to yours
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1',
-			'wordwrap' => TRUE
-		);
-
-	    $message = 'Hai Hai';
-	    $this->load->library('email', $config);
-      	$this->email->set_newline("\r\n");
-      	$this->email->from('saqib.abud@gmail.com'); // change it to yours
-      	$this->email->to('pravitasari.m@gmail.com');// change it to yours
-      	$this->email->subject('Test E-mail');
-      	$this->email->message($message);
-      	if($this->email->send())
-	    {
-	    	echo 'Email sent.';
-	    } else
-	    {
-	    	show_error($this->email->print_debugger());
-	    }
+		
 
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
@@ -324,6 +305,11 @@ class Kelas extends CI_Controller {
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 }
+<<<<<<< HEAD
+=======
+
+		
+>>>>>>> origin/master
 	public function delete($id)
 	{
 		$kelas_model = new Course();
