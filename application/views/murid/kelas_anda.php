@@ -4,10 +4,10 @@
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">Kelas Anda</h2>    
                 <div class="list-kelas">
-                    <div class="row">
+                    <div class="row center">
                         <?php
                         $i = 1;
-                        $list_classes_student = $data_murid->students_class->get();
+                        $list_classes_student = $data_murid->courses_student->get();
                         foreach ($list_classes_student as $class_student) :
                             if($i % 4 == 0) {
                                 echo "</div> <div class='row'>";
