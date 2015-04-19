@@ -90,13 +90,17 @@
                                         Save 
                                     </button>
                                     <?php if($data_kelas->status_kelas == 0) : ?>
-                                        <a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" role="tab" data-toggle="tab">
-                                            <i class="fa fa-check"></i>
-                                            Request to approve 
-                                    <?php elseif($data_kelas->status_kelas == 2) : ?>
-                                        <a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" role="tab" data-toggle="tab">
-                                            <i class="fa upload"></i>
-                                            Request to Publish
+                                        <div> <a href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" class="btn btn-default-blue">
+                                            <i class="fa fa-check"></i>Request to approve</a>
+                                        </div>
+                                    <?php elseif($data_kelas->status_kelas ==2) : ?>
+                                        <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
+                                            <i class="fa fa-upload"></i>Request to Publish</a>
+                                        </div>
+                                    <?php elseif($data_kelas->status_kelas ==4) : ?>
+                                        <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
+                                            <i class="fa fa-exclamation-triangle"></i>Request to Unpublish</a>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                               </form>
