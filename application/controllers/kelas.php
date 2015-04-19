@@ -328,7 +328,7 @@ class Kelas extends CI_Controller {
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 
-			
+		}
 	public function delete($id)
 	{
 		$kelas_model = new Course();

@@ -14,15 +14,15 @@ class Daftar extends CI_Controller {
 		if($type_user != "murid") redirect('user/login');
 		
 		if ($this->input->SERVER('REQUEST_METHOD') == 'POST'){
-			$daftar_model = new Students_Class();
+			$daftar_model = new courses_student();
 			$id_kelas=$this->session->userdata('course_id');
 			$kelas_model = new Course();
 			$data_kelas = $kelas_model->get_by_id($id_kelas);
 			$harga = $data_kelas->harga;
 			$id_guru = $data_kelas->teacher_id;
 
-			// die("harga: $harga, id_guru: $id_guru");
 			
+			/*die("harga: $harga, id_guru: $id_guru");*/
 			if ($harga==0){	
 				$daftar_model->student_id = $id_murid;
 				$daftar_model->course_id = $id_kelas;
@@ -31,7 +31,9 @@ class Daftar extends CI_Controller {
 
 				$daftar_model->save_as_new();
 				redirect('/kelas/detail/'.$id_kelas );
+				
 			}
+
 			else{
 				$daftar_model->student_id = $id_murid;
 				$daftar_model->course_id = $id_kelas;
