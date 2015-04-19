@@ -123,33 +123,50 @@
                                 <br/>
 
                                 <div class="panel panel-orange">
+
                                    <?php 
-                                        $list_topik = $data_topik;
-                               
+                                        $list_topik = $data_topik;                               
                                           foreach ($list_topik as $topik):
                                           ?>
                                     <div class="panel-judul-topik">
                                       <div class="row">   
                                         <div class="col-md-10">                                         
                                           <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
-                                          href="#topik1"><i class="fa fa-chevron-circle-down"></i>
+                                          href="#<?php echo $topik->id; ?>"><i class="fa fa-chevron-circle-down"></i>
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
                                         <div class="col-md-2">
-                                             <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>
+                                              <form action="<?php echo base_url();?>kelas/delete_topik/<?php echo $data_kelas->id;?>"
+                                             <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $data_kelas->id;?>"> <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span></a>
+                                           </form>
                                         </div>
                                       </div>
                                     </div>
 
-                                      <div id="topik1" class="panel-collapse collapse">
+                                      <div id="<?php echo $topik->id;?>" class="panel-collapse collapse">
                                        <div class="panel-body">
+                                        <?php  $list_materi = $topik->resource->get();
+                                        foreach ($list_materi as $materi) :
+                                        ?>
+                                          <ul class="list-groups"> 
+                                            <div class="col-md-8">                                
+                                              <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                             <li class="list-group-item"> <?php echo $materi->judul; ?></li>
+                                             </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                             <span class="hapus-topik pull-right">Hapus Materi <i class="fa fa-times"></i></span>
+                                            </div>
+                                          </ul>
+                                        <?php endforeach;?>
                                           <ul class="list-groups">
-                                             <a href="#inline1" class="fancybox">
+                                              <a href="#inline1" class="fancybox">
                                              <button type="button" class="btn btn-default" id="button1" onclick="">Tambah Materi</button>
                                              </a>
                                           </ul>
                                         </div>
                                       </div>
+                                      <br/>
                                     <?php endforeach;?>
 <!-- Pop Up-->
                                       <div id="inline1" style="width:400px; display: none;">
