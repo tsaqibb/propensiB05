@@ -292,9 +292,9 @@ class Kelas extends CI_Controller {
 		$materi_model->course_id = $data_kelas->id;	
 
 		$config['upload_path'] ='./video/';
-		$config['allowed_types'] = 'mp4|jpg|doc';
+		$config['allowed_types'] = 'mp4|jpg|pdf';
 
-		$this->load->library('resource',$config);		
+		$this->load->library('upload',$config);	
 		$success = $materi_model->save_as_new();	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
