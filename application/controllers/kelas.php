@@ -77,6 +77,18 @@ class Kelas extends CI_Controller {
 
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
+
+		$this->load->library('email');
+
+		$this->email->from('saqib.abud@gmail.com', 'Ruangguru');
+		//$this->email->reply_to('info@ruangguru.com', 'Ruangguru');
+		$this->email->to('pravitasari.m@gmail.com'); 
+
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class.');	
+
+		$this->email->send();
+
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
 

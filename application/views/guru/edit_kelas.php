@@ -19,10 +19,11 @@
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
                 <span class="info">Status:
+                <?php if($data_kelas->status_kelas == 0) : ?>
                     <b class="rejected"> Rejected</b>
-                <?php elseif($data_kelas->status == 1) : ?>
+                <?php elseif($data_kelas->status_kelas == 1) : ?>
                     <b class="pending"> Pending Approve</b>
-                <?php elseif($data_kelas->status == 2) : ?>
+                <?php elseif($data_kelas->status_kelas == 2) : ?>
                     <b class="approve"> Approve</b>
                 <?php elseif($data_kelas->status_kelas == 3) : ?>
                     <b class="pending"> Pending Publish</b>
