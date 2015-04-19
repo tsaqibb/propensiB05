@@ -86,7 +86,7 @@ class Guru extends CI_Controller {
 
 	}
 
-	public function edit_kelas()
+	public function edit_kelas($kelas_id)
 	{
 		$kelas_model = new Course();		
 		$data_kelas = $kelas_model->get_by_id($kelas_id);

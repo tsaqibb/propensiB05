@@ -198,7 +198,7 @@ class Kelas extends CI_Controller {
 			'deskripsi'=>$this->input->post('deskripsi_kelas'),
 			'harga'=>$this->input->post('harga'),
 			));
-		redirect('/guru/edit_kelas'.$id, 'refresh');
+		redirect('/guru/edit_kelas/'.$id, 'refresh');
 	}
 
 	public function create_kelas()
