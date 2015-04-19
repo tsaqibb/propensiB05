@@ -186,7 +186,7 @@ class Kelas extends CI_Controller {
 		if($session_role = 'guru') {
 			$feedback_model->role = 1;
 		}
-		else {
+		elseif($session_role - 'admin') {
 			$feedback_model->role = 0;
 		}
 		
