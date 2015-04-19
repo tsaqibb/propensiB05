@@ -290,7 +290,8 @@ class Kelas extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 */
-	public function create_materi($id){
+	public function create_materi($id)
+	{
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 
@@ -310,19 +311,24 @@ class Kelas extends CI_Controller {
 	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
-}
-
+	}
 			
-
-	public function delete($id) {
+	public function delete($id)
+	{
 		$kelas_model = new Course();
 		$kelas_model = $kelas_model->get_by_id($id);
+		$kelas_tag = new Classes_tag();
+		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
+		foreach ($kelas_tags as $kelas_tag) {
+			$kelas_tag->delete();
+		}
 		$kelas_model = $kelas_model->delete();
-
+		redirect('/guru/kelas#draft');
 	}
 
 
-	public function delete_topik($id){
+	public function delete_topik($id)
+	{
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 
