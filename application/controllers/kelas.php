@@ -69,7 +69,7 @@ class Kelas extends CI_Controller {
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas + 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
-		redirect('/kelas/detil_kelas', 'refresh');
+		redirect('/guru/edit_kelas', 'refresh');
 	}
 
 	public function approve($id)
