@@ -220,13 +220,13 @@
 
     }
 
-    $('input').tagsinput('add',
-      '<?php
+    $('#class_tags').tagsinput('add',
+      "<?php
       $class_tags = $data_kelas->classes_tag->get();
       $tags = array();
       foreach ($class_tags as $class_tag ) {
         $tag = $class_tag->tag->get();
         array_push($tags, $tag->subjek);
       }
-      $add_tag = implode(',', $tags); echo $add_tag;?>');
+      $add_tag = implode(',', $tags); echo $add_tag;?>");
 </script>
