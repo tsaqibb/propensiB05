@@ -62,9 +62,7 @@
                             <li role="presentation">
                                 <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
-                            <li role="presentation">
-                                <a role="tab" data-toggle="tab" href="<?php echo base_url();?>kelas">Kembali ke Galeri Kelas</a>
-                            </li>
+
                             <?php $session_role = $this->session->userdata('user_type'); ?>
                             <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
                                 <li role="presentation">
