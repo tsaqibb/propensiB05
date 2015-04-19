@@ -41,7 +41,7 @@
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-vendor">
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
+                        <!-- <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" >
                                 <a href="<?php echo base_url();?>kelas" aria-controls="detil" role="tab" data-toggle="tab" aria-expanded="true">Detail</a>
                             </li>
@@ -57,7 +57,9 @@
                             <li role="presentation">
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
                             </li>
-                        </ul><br>
+                        </ul> -->
+                        <a class="btn btn-default main-button register" href="<?php echo base_url();?>kelas">Kembali ke Galeri Kelas</a>
+                        <br>
                         
                         <div class="panel-heading heading-label">Term Pendaftaran</div>
                       
@@ -147,13 +149,24 @@
                               </div>
                             </div>
                             <div class="checkbox bottom-30">
+                                <form class="form-horizontal" onclick="x()"method="post" action="<?php echo base_url();?>daftar">
                                 <label>
-                                    <input type="checkbox" id="iagree">
+                                    <input value="" name="agree" type="checkbox" id="iagree">
                                     Pendaftaran sudah sesuai.<br>
                                     Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
                                     underline">persyaratan dan ketentuan</a> yang berlaku
-                                </label><br><br>
-                                <button type="submit" onclick="validate()" class="btn-orange" id="btn_next">Lanjutkan</button>           
+                                    </label>
+                                <br><br>
+
+
+                               <script type="text/javascript">
+                               function x(){
+                               document.getElementById("submit").style.background='orange';
+                                }
+                                   /* $("#iagree").change(function(){$("#submit").slideToggle();});*/
+                                </script><br><br><br>
+                                <button id="submit" type="submit" onclick="validate()" class="grey">Lanjutkan</button>           
+                            </form>
                             </div>
                         </div>
                     </div>
