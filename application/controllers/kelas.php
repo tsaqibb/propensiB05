@@ -19,6 +19,7 @@ class Kelas extends CI_Controller {
 
 	public function detail($id)
 	{
+		$this->session->set_userdata('course_id', $id);
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 		if(empty($data_kelas->id)) {
@@ -26,7 +27,12 @@ class Kelas extends CI_Controller {
 			return;
 		}
 		//melihat list partisipan yang aktid pada suatu kelas
+<<<<<<< HEAD
+		$list_partisipan = $data_kelas->students_class->get_list_partisipan_active();
+		$partisipan_all = $data_kelas->students_class->get();
+=======
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+>>>>>>> origin/master
 
 		$list_feedback = $data_kelas->feedback->get();
 
@@ -39,7 +45,8 @@ class Kelas extends CI_Controller {
 				'data_kelas'=>$data_kelas,
 				'list_feedback'=>$list_feedback,
 				'data_topik' => $data_topik,
-				'list_partisipan' => $list_partisipan)
+				'list_partisipan' => $list_partisipan,
+				'partisipan_all' => $partisipan_all)
 		);
 
 		$this->load->view('layout/footer');
