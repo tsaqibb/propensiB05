@@ -4,6 +4,7 @@ class Murid extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
+		
 	}
 
 	public function index()
@@ -18,8 +19,15 @@ class Murid extends CI_Controller {
 
 	public function kelasanda()
 	{
+		if($this->session->userdata('user_type') != 'murid') {
+			redirect();
+			return;
+		}
+		$murid_id = $this->session->userdata('user_id');
+		$murid_model = new Student();
+		$data_murid = $murid_model->get_by_id($murid_id);
 		$this->load->view('layout/header');
-		$this->load->view('murid/kelas_anda');
+		$this->load->view('murid/kelas_anda', array('data_murid' => $data_murid));
 		$this->load->view('layout/footer');
 	}
 

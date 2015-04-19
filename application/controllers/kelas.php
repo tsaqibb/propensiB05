@@ -68,7 +68,7 @@ class Kelas extends CI_Controller {
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas + 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
-		redirect('/kelas/detil_kelas', 'refresh');
+		redirect('/guru/edit_kelas', 'refresh');
 	}
 
 	public function approve($id)
@@ -76,6 +76,33 @@ class Kelas extends CI_Controller {
 
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
+
+		$config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'saqib.abud@gmail.com', // change it to yours
+			'smtp_pass' => 'allahuakbar', // change it to yours
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE
+		);
+
+	    $message = 'Hai Hai';
+	    $this->load->library('email', $config);
+      	$this->email->set_newline("\r\n");
+      	$this->email->from('saqib.abud@gmail.com'); // change it to yours
+      	$this->email->to('pravitasari.m@gmail.com');// change it to yours
+      	$this->email->subject('Test E-mail');
+      	$this->email->message($message);
+      	if($this->email->send())
+	    {
+	    	echo 'Email sent.';
+	    } else
+	    {
+	    	show_error($this->email->print_debugger());
+	    }
+
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
 
@@ -170,6 +197,11 @@ class Kelas extends CI_Controller {
 	public function update_kelas($id)
 	{
 		$kelas_model = new Course();
+		$success = $kelas_model->where('id', $id)->update(array(
+			'nama' => $this->input->post('nama_kelas'),
+			'deskripsi'=>$this->input->post('deskripsi_kelas'),
+			'harga'=>$this->input->post('harga'),
+			));
 		$data_kelas = $kelas_model->get_by_id($id);
 
 		$list_tag = explode(',', $this->input->post('class_tags'));
@@ -192,12 +224,7 @@ class Kelas extends CI_Controller {
 				$classes_tag->save_as_new();
 			}
 		}
-		$sucses = $data_kelas->update(array(
-			'nama' => $this->input->post('nama_kelas'),
-			'deskripsi'=>$this->input->post('deskripsi_kelas'),
-			'harga'=>$this->input->post('harga'),
-			));
-		redirect('/guru/edit_kelas'.$id, 'refresh');
+		redirect('/guru/edit_kelas/'.$id, 'refresh');
 	}
 
 	public function create_kelas()
@@ -281,15 +308,18 @@ class Kelas extends CI_Controller {
 		
 		$success = $materi_model->save_as_new();
 	
+
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 }
+
+			
 
 	public function delete($id) {
 		$kelas_model = new Course();
 		$kelas_model = $kelas_model->get_by_id($id);
 		$kelas_model = $kelas_model->delete();
-	}
 
+	}
 
 
 	public function delete_topik($id){
@@ -300,8 +330,6 @@ class Kelas extends CI_Controller {
 		$topik_model->judul = $this->input->post('judul_topik');		
 		$topik_model->course_id = $id;
 		$topik_model->teacher_id = $data_kelas->teacher_id;	
-
-		
 
 	}
 

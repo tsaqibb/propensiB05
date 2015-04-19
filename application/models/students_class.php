@@ -46,6 +46,10 @@ class Students_Class extends DataMapper {
 	function set_nonactive_all_partisipan(){
 		$this->where('isActive =',1);
 		$this->update('isActive',0);
+	}
+
+	function get_student_class($var) {
+		return $this->where($var)->get();
 	}	
 
 	//mendaftar kelas

@@ -19,16 +19,16 @@
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
                 <span class="info">Status:
-                <?php if($data_kelas->status == 0) : ?>
+                <?php if($data_kelas->status_kelas == 0) : ?>
                     <b class="rejected"> Rejected</b>
-                <?php elseif($data_kelas->status == 1) : ?>
+                <?php elseif($data_kelas->status_kelas == 1) : ?>
                     <b class="pending"> Pending Approve</b>
-                <?php elseif($data_kelas->status == 2) : ?>
+                <?php elseif($data_kelas->status_kelas == 2) : ?>
                     <b class="approve"> Approve</b>
-                <?php elseif($data_kelas->status == 3) : ?>
+                <?php elseif($data_kelas->status_kelas == 3) : ?>
                     <b class="pending"> Pending Publish</b>
-                <?php elseif($data_kelas->status == 4) : ?>
-                    <b class="publish"> Publish</b>
+                <?php elseif($data_kelas->status_kelas == 4) : ?>
+                    <b class="publish"> Published</b>
                 <?php endif; ?>
                 </span>
                 <div class="panel-body">
@@ -89,15 +89,17 @@
                                         <i class="fa fa-floppy-o"></i>
                                         Save 
                                     </button>
-                                    <?php if($data_kelas->status == 0) : ?>
-                                        <div class="btn btn-default-blue" href="#req_approve" role="tab" data-toggle="tab">
-                                            <i class="fa fa-check"></i>
-                                            Request to approve 
+                                    <?php if($data_kelas->status_kelas == 0) : ?>
+                                        <div> <a href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" class="btn btn-default-blue">
+                                            <i class="fa fa-check"></i>Request to approve</a>
                                         </div>
-                                    <?php elseif($data_kelas->status == 2) : ?>
-                                        <div class="btn btn-default-blue" href="#req_publish" role="tab" data-toggle="tab">
-                                            <i class="fa upload"></i>
-                                            Request to Publish 
+                                    <?php elseif($data_kelas->status_kelas ==2) : ?>
+                                        <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
+                                            <i class="fa fa-upload"></i>Request to Publish</a>
+                                        </div>
+                                    <?php elseif($data_kelas->status_kelas ==4) : ?>
+                                        <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
+                                            <i class="fa fa-exclamation-triangle"></i>Request to Unpublish</a>
                                         </div>
                                     <?php endif; ?>
                                 </div>
