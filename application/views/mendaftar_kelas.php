@@ -15,16 +15,16 @@
     }
 </script>
 
-<div class="container content kelas vendor">
+<div class="container center content kelas vendor">
     <div class="row">
         
-        <div class="col-sm-12 col-md-3">
+       <!--  <div class="col-sm-12 col-md-3"> -->
             
-            <div class="sidebar">
+<!--             <div class="sidebar">
                 <br>
-                <h4 class="text-center">Halo, [Nama User]</h4>
+                <h4 class="text-center">Halo, [Nama User]</h4> -->
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
+                <!-- <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
                         <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
@@ -32,9 +32,9 @@
                         <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
-            </div><!-- sidebar -->
+            </div> --><!-- sidebar -->
 
-        </div>
+        <!-- </div> -->
 
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -155,7 +155,7 @@
                                     Pendaftaran sudah sesuai.<br>
                                     Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
                                     underline">persyaratan dan ketentuan</a> yang berlaku
-                                    </label>
+                                </label>
                                 <br><br>
 
 
@@ -165,7 +165,7 @@
                                 }
                                    /* $("#iagree").change(function(){$("#submit").slideToggle();});*/
                                 </script><br><br><br>
-                                <button id="submit" type="submit" onclick="validate()" class="grey">Lanjutkan</button>           
+                                <button id="submit" type="submit" onclick="" class="grey">Lanjutkan</button>           
                             </form>
                             </div>
                         </div>

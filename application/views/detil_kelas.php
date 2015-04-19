@@ -62,6 +62,9 @@
                             <li role="presentation">
                                 <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
+                            <li role="presentation">
+                                <a role="tab" data-toggle="tab" href="<?php echo base_url();?>kelas">Kembali ke Galeri Kelas</a>
+                            </li>
                             <?php $session_role = $this->session->userdata('user_type'); ?>
                             <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
                                 <li role="presentation">
@@ -173,7 +176,7 @@
                                   <div class="row">
                                     <div class="nama"><?php echo $student->nama; ?>
                                     <br><a href=""><span><?php echo $daftar->student_id; ?></span></a>
-                                        <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
+                                        <a class ="matkul" href=""><?php echo $student->email; ?></a>
                                     </div>
 
                                     <span>
