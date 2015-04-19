@@ -128,8 +128,9 @@
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
                                         <div class="col-md-2">
-                                              <form action="<?php echo base_url();?>kelas/delete_topik/<?php echo $data_kelas->id;?>"
-                                             <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $data_kelas->id;?>"> <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span></a>
+                                              <form action="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>">
+                                                <button role="button" width="70%" class="btn btn-delete" id="button-hapus-topik"><i class="fa fa-times"></i>Hapus Topik</button>
+                                              <!-- <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>-->
                                            </form>
                                         </div>
                                       </div>
@@ -152,25 +153,20 @@
                                           </ul>
                                         <?php endforeach;?>
                                           <ul class="list-groups">
-                                              <a href="#inline1" class="fancybox">
-                                             <button type="button" class="btn btn-default" id="button1" onclick="">Tambah Materi</button>
+                                              <a href="#inline<?php echo $topik->id; ?>" class="fancybox">
+                                             <button role="submit" class="btn btn-default" id="button1" onclick="">Tambah Materi</button>
                                              </a>
                                           </ul>
-                                        </div>
-                                      </div>
-                                      <br/>
-                                    <?php endforeach;?>
-<!-- Pop Up-->
-                                      <div id="inline1" style="width:400px; display: none;">
+                                          <div id="inline<?php echo $topik->id; ?>" style="width:400px; display: none;">
                                         <p class="text-14 bold text-center"> [Nama Topik] </p>
-                                          <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $data_kelas->id;?>" method="POST" enctype="multipart/form-data">
+                                          <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                           <p>
                                           <label for="nama-materi">Nama Materi </label>
-                                            <input type="text" class="form-control" id="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                            <input type="text" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
                                           </p>
                                           <p>
                                           <label for="note-materi">Note Materi </label>
-                                            <input type="text" class="form-control" id="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                            <input type="text" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
                                           </p>
                                           <p>
                                              <label for="nama-materi">Jenis Materi </label>
@@ -194,6 +190,12 @@
                                             <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                             </form> 
                                       </div>
+                                        </div>
+                                      </div>
+                                      <br/>
+                                    <?php endforeach;?>
+<!-- Pop Up-->
+                                      
     <!-- Pop Up-->
 
                                           <!-- <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p> -->
@@ -220,13 +222,13 @@
 
     }
 
-    $('input').tagsinput('add',
-      '<?php
+    $('#class_tags').tagsinput('add',
+      "<?php
       $class_tags = $data_kelas->classes_tag->get();
       $tags = array();
       foreach ($class_tags as $class_tag ) {
         $tag = $class_tag->tag->get();
         array_push($tags, $tag->subjek);
       }
-      $add_tag = implode(',', $tags); echo $add_tag;?>');
+      $add_tag = implode(',', $tags); echo $add_tag;?>");
 </script>

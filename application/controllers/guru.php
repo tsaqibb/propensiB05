@@ -101,6 +101,7 @@ class Guru extends CI_Controller {
 			)
 		);
 		$this->load->view('layout/footer');
+		//redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
 
