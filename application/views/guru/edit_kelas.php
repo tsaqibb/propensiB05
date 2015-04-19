@@ -72,16 +72,6 @@
                                     <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                     <div class="col-sm-8">
                                         <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
-                                            <div class="bootstrap-tagsinput">
-                                                <?php $class_tags = $data_kelas->classes_tag->get();
-                                                    foreach ($class_tags as $class_tag) {
-                                                        echo "<span class='tag label label-info'>";
-                                                        $tag = $class_tag->tag->get();
-                                                        echo $tag->subjek;
-                                                        echo "<span data-role='remove'></span></span>";
-                                                    }
-                                                ?>
-                                                <input type="text" placeholder="" style="width: 3em !important;" size="1"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 right">
@@ -229,4 +219,14 @@
         $(".panel-body").append(a);
 
     }
+
+    $('input').tagsinput('add',
+      '<?php
+      $class_tags = $data_kelas->classes_tag->get();
+      $tags = array();
+      foreach ($class_tags as $class_tag ) {
+        $tag = $class_tag->tag->get();
+        array_push($tags, $tag->subjek);
+      }
+      $add_tag = implode(',', $tags); echo $add_tag;?>');
 </script>

@@ -50,7 +50,10 @@ class Kelas extends CI_Controller {
 
 	public function aksesmateri($id)
 	{	
-
+		if($this->session->userdata('is_logged_in') == FALSE) {
+			redirect();
+			return;
+		}
 		$materi_model = new Resource();
 		$open_materi = $materi_model->get_by_id($id);
 
@@ -341,6 +344,4 @@ class Kelas extends CI_Controller {
 		$topik_model->teacher_id = $data_kelas->teacher_id;	
 
 	}
-
-
 }
