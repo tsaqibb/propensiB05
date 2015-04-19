@@ -28,7 +28,6 @@ class Kelas extends CI_Controller {
 		//melihat list partisipan yang aktid pada suatu kelas
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 
-
 		$list_feedback = $data_kelas->feedback->get();
 
 		$data_topik = $data_kelas->topic->get();
@@ -184,10 +183,10 @@ class Kelas extends CI_Controller {
 		
 		//Save role
 		$session_role = $this->session->userdata('user_type');
-		if($session_role = 'guru') {
+		if($session_role == 'guru') {
 			$feedback_model->role = 1;
 		}
-		else {
+		elseif($session_role == 'admin') {
 			$feedback_model->role = 0;
 		}
 		
@@ -268,15 +267,12 @@ class Kelas extends CI_Controller {
 		$topik_model = new Topic();
 		$topik_model->judul = $this->input->post('judul_topik');		
 		$topik_model->course_id = $id;
-		$topik_model->teacher_id = $data_kelas->teacher_id;
+		$topik_model->teacher_id = $data_kelas->teacher_id;	
 
 		$success = $topik_model->save_as_new();
-		redirect('/guru/edit_kelas', 'refresh');
+		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
-
-
-	
 
 	/*public function aksesmateri($id)
 	{	
@@ -300,23 +296,42 @@ class Kelas extends CI_Controller {
 
 		$topik_model = new Topic();
 
-
 		$materi_model = new Resource();
 		$materi_model->judul = $this->input->post('namamateri');
 		$materi_model->notes = $this->input->post('notemateri');
 		$materi_model->teacher_id = $data_kelas->teacher_id;
-		$materi_model->topic_id = $topik_model->topic_id;
-		
+		$materi_model->url = 'video/'.$this->input->post('myFile');
+
+		$data_topik = $data_kelas->topic->get();
+		$materi_model->topic_id = $data_topik->id;
+		$materi_model->course_id = $data_kelas->id;			
 		
 		$success = $materi_model->save_as_new();
 	
-		redirect('/guru/edit_kelas', 'refresh');
-	}
+
+		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+}
+
+			
 
 	public function delete($id) {
 		$kelas_model = new Course();
 		$kelas_model = $kelas_model->get_by_id($id);
 		$kelas_model = $kelas_model->delete();
-		redirect('guru/kelas');
+
 	}
+
+
+	public function delete_topik($id){
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+
+		$topik_model = new Topic();
+		$topik_model->judul = $this->input->post('judul_topik');		
+		$topik_model->course_id = $id;
+		$topik_model->teacher_id = $data_kelas->teacher_id;	
+
+	}
+
+
 }

@@ -155,54 +155,9 @@
                                         </div> <!-- end topik 1-->
 
 
-    <?php
-    if(isset($_GET['success']))
-    {
-        ?>
-        <label>File Uploaded Successfully...  <a href="view.php">click here to view file.</a></label>
-        <?php
-    }
-    else if(isset($_GET['fail']))
-    {
-        ?>
-        <label>Problem While File Uploading !</label>
-        <?php
-    }
-    else
-    {
-       
-    }
-    ?>
-
-
-    <?php
-    echo basename($path) . "<br/>";
-    $target_dir = "video/";
-    $target_file = $target_dir . basename($_FILES["file"]["name"]);
-    $uploadOk = 1;
-    $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    
 
     
-    if(isset($_POST['submit']))
-
-{
-    echo "berhasil";
-    $name = $_FILES['file']['name'];
-    $temp = $_FILES['file']['tmp_name'];
-
-}
-    move_uploaded_file($temp,"video/".$name);
-    $url = "video/$name";
-    mysql_query("INSERT INTO 'resources' VALUE ('','1','1','3002','1002','$name','$url','gampang')");
-
-
-?>
-
-
-
-
-
-
 
                                     </div> <!-- end panel orange -->                                                                   
                                 </div> <!-- end panel-group accrodion-->
