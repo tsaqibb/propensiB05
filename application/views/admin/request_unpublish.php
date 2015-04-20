@@ -37,7 +37,10 @@
                                         <?php echo "Requested to Unpublish"; ?>
                                     </td>
                                     <td class="center action">
-                                        <?php echo $kelas->teacher->get()->e_mail; ?>
+                                        <?php 
+                                        $alamatemail = $kelas->teacher->get()->email;
+                                        echo $alamatemail 
+                                         ?>
                                     </td>
                                     <td class="center action">
                                         <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Unpublish</a>

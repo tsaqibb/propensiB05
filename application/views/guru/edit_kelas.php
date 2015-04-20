@@ -31,7 +31,7 @@
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
                 <span class="info">Status:
                 <?php if($data_kelas->status_kelas == 0) : ?>
-                    <b class="rejected"> Rejected</b>
+                    <b class="rejected"> Unapproved</b>
                 <?php elseif($data_kelas->status_kelas == 1) : ?>
                     <b class="pending"> Pending Approve</b>
                 <?php elseif($data_kelas->status_kelas == 2) : ?>

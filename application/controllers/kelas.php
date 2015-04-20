@@ -74,6 +74,7 @@ class Kelas extends CI_Controller {
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas + 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
+		$this->session->set_flashdata('status.notice','Request anda sedang diproses.');
 		redirect('/guru/edit_kelas', 'refresh');
 	}
 
@@ -81,9 +82,7 @@ class Kelas extends CI_Controller {
 	{	
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
-
-		
-
+		$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
 
@@ -92,6 +91,7 @@ class Kelas extends CI_Controller {
 
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 4);
+		$this->session->set_flashdata('status.notice','Kelas berhasil dipublish');
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
 
@@ -102,6 +102,7 @@ class Kelas extends CI_Controller {
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas - 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
+		$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
 
@@ -172,7 +173,7 @@ class Kelas extends CI_Controller {
 		}
 		
 		$success = $feedback_model->save_as_new();
-		redirect('kelas/detail/'.$id, 'refresh');
+		redirect('kelas/detail/'.$id.'#feedback', 'refresh');
 	}
 
 	public function update_kelas($id)

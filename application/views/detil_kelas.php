@@ -375,7 +375,7 @@
                                             <div class="panel-footer">
                                                 <div class="container-fluid">
                                                     <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
-                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-lg" placeholder="Berikan pesan Anda di sini...">
+                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-lg" required placeholder="Berikan pesan Anda di sini...">
                                                         <span class="input-group-btn">
                                                             <button role="submit" class="btn btn-primary btn-lg" id="btn-chat">Kirim</button>
                                                         </span>
