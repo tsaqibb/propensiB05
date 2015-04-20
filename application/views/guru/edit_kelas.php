@@ -182,13 +182,13 @@
                                           <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                           <p>
                                           <label for="nama-materi">Nama Materi </label>
-                                            <input type="text" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                            <input type="text" required="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
                                           </p>
                                           <p>
                                           <label for="note-materi">Note Materi </label>
-                                            <input type="text" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                            <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
                                           </p>
-                                          <p>
+                                         <!--  <p>
                                              <label for="nama-materi">Jenis Materi </label>
                                         <div class="row">
                                           <div class="col-md-2">
@@ -204,8 +204,8 @@
                                             </div>
                                           </div>
                                         </div>                                                              
-                                            </p>
-                                            <input type="file"  name="myFile" id="myFile" multiple size="50">
+                                            </p> -->
+                                            <input type="file" required="" name="myFile" id="myFile" multiple size="50">
                                             <br>                                                        
                                             <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                             </form> 

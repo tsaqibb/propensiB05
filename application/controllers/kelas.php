@@ -371,7 +371,7 @@ class Kelas extends CI_Controller {
 		$this->load->library('upload',$config);	
 		$success = $materi_model->save_as_new();	
 
-		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+		//redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 	public function delete($id)
 	{
