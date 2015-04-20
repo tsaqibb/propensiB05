@@ -39,7 +39,17 @@
                     endif;
                 endforeach;
             endif;
-            
+
+            if($type_user == "guru") {
+                if($id_murid == $data_kelas->teacher_id) {
+                    $registered=true;
+                }
+            }
+
+            if($type_user == 'admin') {
+                $registered = true;
+            }
+
             if ($registered == false) :?>
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
             <?php
@@ -63,6 +73,7 @@
                             <li role="presentation">
                                 <a href="#partisipan" aria-controls="partisipan" role="tab" data-toggle="tab">Murid</a>
                             </li>
+
                             <?php $session_role = $this->session->userdata('user_type'); ?>
                             <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
                                 <li role="presentation">
@@ -180,7 +191,7 @@
                                   <div class="row">
                                     <div class="nama"><?php echo $student->nama; ?>
                                     <br><a href=""><span><?php echo $daftar->student_id; ?></span></a>
-                                        <a class ="matkul" href=""><?php echo $student->e_mail; ?></a>
+                                        <a class ="matkul" href=""><?php echo $student->email; ?></a>
                                     </div>
 
                                     <span>

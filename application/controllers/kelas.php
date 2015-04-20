@@ -27,13 +27,8 @@ class Kelas extends CI_Controller {
 			return;
 		}
 		//melihat list partisipan yang aktid pada suatu kelas
-
-
 		$partisipan_all = $data_kelas->courses_student->get();
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
-		
-		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
-		$partisipan_all = $data_kelas->courses_student->get();
 
 		$list_feedback = $data_kelas->feedback->get();
 
@@ -84,35 +79,10 @@ class Kelas extends CI_Controller {
 
 	public function approve($id)
 	{	
-
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 2);
 
-		$config = Array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'saqib.abud@gmail.com', // change it to yours
-			'smtp_pass' => 'allahuakbar', // change it to yours
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1',
-			'wordwrap' => TRUE
-		);
-
-	    $message = 'Hai Hai';
-	    $this->load->library('email', $config);
-      	$this->email->set_newline("\r\n");
-      	$this->email->from('saqib.abud@gmail.com'); // change it to yours
-      	$this->email->to('pravitasari.m@gmail.com');// change it to yours
-      	$this->email->subject('Test E-mail');
-      	$this->email->message($message);
-      	if($this->email->send())
-	    {
-	    	echo 'Email sent.';
-	    } else
-	    {
-	    	show_error($this->email->print_debugger());
-	    }
+		
 
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
@@ -370,23 +340,23 @@ class Kelas extends CI_Controller {
 
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
-
 		$data_kelas = $data_topik->course->get();
-
 
 		$materi_model = new Resource();
 		$materi_model->judul = $this->input->post('namamateri');
 		$materi_model->notes = $this->input->post('notemateri');
-		$materi_model->teacher_id = $data_kelas->teacher_id;
-		//$materi_model->url = $this->input->post('myFile');		
+		$materi_model->teacher_id = $data_kelas->teacher_id;			
 		$materi_model->topic_id = $data_topik->id;
 		$materi_model->course_id = $data_kelas->id;	
-		
+
+		$config['upload_path'] ='./video/';
+		$config['allowed_types'] = 'mp4|jpg|pdf';
+
+		$this->load->library('upload',$config);	
 		$success = $materi_model->save_as_new();	
 
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
-			
 	public function delete($id)
 	{
 		$kelas_model = new Course();
@@ -431,4 +401,17 @@ class Kelas extends CI_Controller {
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
 
+
+	public function delete_materi($id){
+		$materi_model = new Resource();
+		$data_materi  = $materi_model->get_by_id($id);
+		
+		$id_topik = $data_materi->topic->get();
+		$id_kelas = $id_topik->course->get();
+
+		$this->load->database();
+		$this->db->delete('resources',array('id' => $id));
+
+		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
+	}
 }

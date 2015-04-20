@@ -15,16 +15,16 @@
     }
 </script>
 
-<div class="container content kelas vendor">
+<div class="container center content kelas vendor">
     <div class="row">
         
-        <div class="col-sm-12 col-md-3">
+       <!--  <div class="col-sm-12 col-md-3"> -->
             
-            <div class="sidebar">
+<!--             <div class="sidebar">
                 <br>
-                <h4 class="text-center">Halo, [Nama User]</h4>
+                <h4 class="text-center">Halo, [Nama User]</h4> -->
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
+                <!-- <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
                         <a href="#kelas" aria-controls="profil" role="tab" data-toggle="tab"><i class="fa fa-users"></i> Kelas Anda</a>
                     </li>
@@ -32,9 +32,9 @@
                         <a href="#tambah-kelas" aria-controls="tambah-kelas" role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tambah Kelas</a>
                     </li>
                 </ul>
-            </div><!-- sidebar -->
+            </div> --><!-- sidebar -->
 
-        </div>
+        <!-- </div> -->
 
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -149,23 +149,33 @@
                               </div>
                             </div>
                             <div class="checkbox bottom-30">
-                                <form class="form-horizontal" onclick="x()"method="post" action="<?php echo base_url();?>daftar">
+                                <form class="form-horizontal" method="post" action="<?php echo base_url();?>daftar">
                                 <label>
                                     <input value="" name="agree" type="checkbox" id="iagree">
                                     Pendaftaran sudah sesuai.<br>
                                     Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
                                     underline">persyaratan dan ketentuan</a> yang berlaku
-                                    </label>
+                                </label>
                                 <br><br>
 
 
                                <script type="text/javascript">
-                               function x(){
+                               /*function x(){
                                document.getElementById("submit").style.background='orange';
-                                }
-                                   /* $("#iagree").change(function(){$("#submit").slideToggle();});*/
+                                }*/
+                                    $("#iagree").change(function(){
+                                        if($("#submit").attr("style") == "background: grey") {
+                                            $("#submit").attr("style", "background: orange");
+                                            $("#submit").removeAttr("disabled");
+                                        }
+                                        else
+                                        {
+                                            $("#submit").attr("style", "background: grey");
+                                            $("#submit").attr("disabled", "disabled");
+                                        }
+                                    });
                                 </script><br><br><br>
-                                <button id="submit" type="submit" onclick="validate()" class="grey">Lanjutkan</button>           
+                                <button id="submit" type="submit" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
                             </form>
                             </div>
                         </div>
