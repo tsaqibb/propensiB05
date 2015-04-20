@@ -31,7 +31,7 @@ class Kelas extends CI_Controller {
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 
 		$list_feedback = $data_kelas->feedback->get();
-
+		
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
@@ -335,20 +335,34 @@ class Kelas extends CI_Controller {
 		//$kelas_model = new Course();
 		//$data_kelas = $kelas_model->get_by_id($id);
 
-		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);
+		/*$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);*/
 
 
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
 
+		$type = explode('.', $_FILES["myFile"]["name"]);
+		$type = $type[count($type) - 1];
+		$url = "video/".uniqid(rand()).".".$type;
+		if(in_array($type, array("mp4", "jpg", "png"))){
+			if(is_uploaded_file($_FILES["myFile"]["tmp_name"])){
+				if(! move_uploaded_file($_FILES["myFile"]["tmp_name"],$url)){
+					$url="";
+				}
+				 
+			}
+
+		}
 		$materi_model = new Resource();
 		$materi_model->judul = $this->input->post('namamateri');
 		$materi_model->notes = $this->input->post('notemateri');
 		$materi_model->teacher_id = $data_kelas->teacher_id;			
 		$materi_model->topic_id = $data_topik->id;
 		$materi_model->course_id = $data_kelas->id;	
+		$materi_model->url=$url;
+
 
 		$config['upload_path'] ='./video/';
 		$config['allowed_types'] = 'mp4|jpg|pdf';

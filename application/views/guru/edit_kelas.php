@@ -205,7 +205,7 @@
                                           </div>
                                         </div>                                                              
                                             </p>
-                                            <input type="file"  id="myFile" multiple size="50">
+                                            <input type="file"  name="myFile" id="myFile" multiple size="50">
                                             <br>                                                        
                                             <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                             </form> 
