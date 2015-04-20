@@ -62,6 +62,68 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer-admin');
 	}
 
+
+	public function approve($id)
+	{	
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if ($status_kelas == 1) {
+			$kelas_model->where('id =', $id)->update('status_kelas', 2);
+			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+	}
+
+	public function publish($id)
+	{
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if ($status_kelas == 3) {
+			$kelas_model->where('id =', $id)->update('status_kelas', 4);
+			$this->session->set_flashdata('status.notice','Kelas berhasil dipublish');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+	}
+
+	public function reject($id)
+	{	
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if($status_kelas == 1 || 3 || 5) {
+			$status_kelas_new = $status_kelas - 1;
+			$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
+			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+	}
+
+	public function unpublish($id)
+	{	
+		$kelas_model = new Course();
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if ($status_kelas ==  5) {
+			$kelas_model->where('id =', $id)->update('status_kelas', 0);
+			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			redirect('/admin/pendingclasses/', 'refresh');
+		}
+	}
+
 	public function feedback()
 	{
 		$model = new feedback();

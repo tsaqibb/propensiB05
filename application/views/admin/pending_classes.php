@@ -62,13 +62,13 @@
                                     </td>
                                     <td class="center action">
                                         <?php if($kelas->status_kelas=='1') : ?>
-                                            <a href="<?php echo base_url().'kelas/approve/'.$kelas->id; ?>" onclick="konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                            <a href="<?php echo base_url().'kelas/reject/'.$kelas->id; ?>" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
+                                            <a href="<?php echo base_url().'admin/approve/'.$kelas->id; ?>" onclick="konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
+                                            <a href="<?php echo base_url().'admin/reject/'.$kelas->id; ?>" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
                                         <?php endif; ?>
 
                                         <?php if($kelas->status_kelas=='3') : ?>
-                                             <a href="<?php echo base_url().'kelas/publish/'.$kelas->id; ?>" onclick="konfirmasipublish()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
-                                             <a href="<?php echo base_url().'kelas/reject/'.$kelas->id; ?>" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
+                                             <a href="<?php echo base_url().'admin/publish/'.$kelas->id; ?>" onclick="konfirmasipublish()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Publish</a>
+                                             <a href="<?php echo base_url().'admin/reject/'.$kelas->id; ?>" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
                                         <?php endif; ?>
                                     </td>
                                     <td class="center">

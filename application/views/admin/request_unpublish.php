@@ -43,8 +43,8 @@
                                          ?>
                                     </td>
                                     <td class="center action">
-                                        <a href="#" class="ok icon-button" approve=""><i class="fa fa-check"></i>Unpublish</a>
-                                        <a href="#" class="no icon-button"><i class="fa fa-times"></i>Reject</a>   
+                                        <a href="<?php echo base_url().'admin/unpublish/'.$kelas->id; ?>" class="ok icon-button" approve=""><i class="fa fa-check"></i>Unpublish</a>
+                                        <a href="<?php echo base_url().'admin/reject/'.$kelas->id; ?>" class="no icon-button"><i class="fa fa-times"></i>Reject</a>   
                                     </td>
                                     <td class="center">
                                         <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>
