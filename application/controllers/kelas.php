@@ -112,11 +112,19 @@ class Kelas extends CI_Controller {
 		$kelas_model->where('id =', $id)->update('status_kelas', 0);
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
-	public function setAktif($id)
+	public function setAktif($id, $id_kelas)
 	{
 		$this->load->model('courses_student');
-		$this->courses_student->set_active_partisipan($id);
-		redirect('/admin/calonpartisipan/', 'refresh');
+		$this->courses_student->set_active_partisipan($id, $id_kelas);
+		$murid = new Student($id);
+		$kelas = new Course($id);
+	
+		$this->_send_smtp_email([
+			"receiver" => $murid->email,
+			"subject" => "Kelas Online Ruangguru.com",
+			"message" => "Hai $murid->nama, kamu ingin mendaftar di kelas $data_kelas->nama Silakan lunasi pembayaran supaya terdaftar di kelas ini.",
+			]);
+		redirect('/admin/calonpartisipan/');
 	}
 	public function setAllAktif()
 	{
@@ -125,18 +133,26 @@ class Kelas extends CI_Controller {
 		foreach ($data as $cek) {
 			$this->courses_student->set_active_partisipan($cek);
 		}
-		redirect('/admin/calonpartisipan/', 'refresh');
+		redirect('/admin/calonpartisipan/');
 	}
-	public function setNonAktif($id)
+	public function setNonAktif($id, $id_kelas)
 	{
-		$data=explode("_", $id);
+		/*$data=explode("/", $id);
 		$id=$data[0];
-		$course=$data[1];
+		$course=$data[1];*/
 
 		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_partisipan($id);
+		$this->courses_student->set_nonactive_partisipan($id, $id_kelas);
+		$murid = new Student($id);
+		$kelas = new Course($id);
+		// $this->load->controller('daftar');
+		$this->_send_smtp_email([
+			"receiver" => $murid->email,
+			"subject" => "Kelas Online Ruangguru.com",
+			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
+			]);
 
-		redirect('/kelas/detail/'.$course, 'refresh');
+		redirect('/kelas/detail/'.$id_kelas, 'refresh');
 	}
 	public function setAllNonAktif()
 	{
@@ -351,4 +367,32 @@ class Kelas extends CI_Controller {
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
 
+
+function _send_smtp_email($data)
+  {
+    // $data: sender, sender_name, receiver, receiver_name, subject, message
+    extract($data);
+    require_once('application/libraries/mailer/PHPMailerAutoload.php');
+    $mail = new PHPMailer();
+    $mail->IsSMTP();                       // telling the class to use SMTP
+    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
+    $mail->SMTPAuth = true;                // enable SMTP authentication 
+    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
+    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
+    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
+
+    $mail->Username = "online.ruangguru";         // Gmail username
+    $mail->Password = "kelasonlineruangguru";      // Gmail password
+
+    // $mail->CharSet = 'windows-1250';
+    $mail->SetFrom (@$sender, @$sender_name);
+    $mail->Subject = @$subject;
+    $mail->ContentType = 'text/html';
+    $mail->IsHTML(TRUE);
+    $mail->Body = @$message; 
+    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
+    $mail->AddAddress ($receiver, @$receiver_name);
+    // you may also use this format $mail->AddAddress ($recipient);
+    return $mail->Send();
+  }
 }

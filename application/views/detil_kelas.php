@@ -11,11 +11,12 @@
   function konfirmasi()
     {
       var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
-      if (r==true){
+      if (r){
         alert("Deactivated berhasil");
       }
       else{
         alert("Deactivated Anda telah dibatalkan");
+        return false;
       }
     }
 </script>
@@ -181,7 +182,7 @@
                                     <?php
                                     $type_user = $this->session->userdata('user_type');
                                 if ($type_user == "admin"):?>
-                                        <a href="<?php echo base_url()."kelas/setNonAktif/".($daftar->student_id)."_".$course; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
+                                        <a href="<?php echo base_url()."kelas/setNonAktif/".$daftar->student_id."/".$daftar->course_id; ?>" onclick="konfirmasi();" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
                                     <?php endif; ?>
                                     </span>
                                     

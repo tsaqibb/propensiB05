@@ -31,17 +31,18 @@ class Courses_Student extends DataMapper {
 	}
 
 	// mengaktifkan calon partisipan
-	function set_active_partisipan($id){ 
+	function set_active_partisipan($id, $id_kelas){
 		$this->where('student_id =', $id);
+		$this->where('course_id =', $id_kelas);
 		$this->update('isActive',1);
 	}
 
 	//menonaktifkan partisipan kelas
-	function set_nonactive_partisipan($id){
+	function set_nonactive_partisipan($id, $id_kelas){
 		$this->where('student_id =', $id);
+		$this->where('course_id =', $id_kelas);
 		$this->update('isActive',0);
 	}
-
 	//menonaktifkan partisipan kelas
 	function set_nonactive_all_partisipan(){
 		$this->where('isActive =',1);

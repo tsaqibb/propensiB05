@@ -42,19 +42,24 @@
         }
         else{
             alert("Approval Anda telah dibatalkan");
+            return false;
         }
     }
+    /*$("a").click(function(e){
+        if(!confirm("Apakah Anda yakin ingin menyetujui murid tersebut?"))
+            e.preventDefault();
+    });*/
 </script>
 <h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2>
 <br>
 <hr class="line">
 <br>
-<input id="all" class ="checkbox1" type="checkbox" onclick="toggle(this)">
+<!-- <input id="all" class ="checkbox1" type="checkbox" onclick="toggle(this)">
     <strong>select all</strong>
-</input>
+</input> -->
 <span>
-     <form method="POST" action="<?php echo base_url()."kelas/setAllAktif";?>" >
-    <input type="submit" value="Activate all"  class="main-button register2" onclick="validasi()">
+     <!-- <form method="POST" action="<?php echo base_url()."kelas/setAllAktif";?>" >
+    <input type="submit" value="Activate all"  class="main-button register2" onclick="validasi()"> -->
 
 </span>
 <div id="container" class="kelas-online">
@@ -75,7 +80,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th class="center">Check</th>
+                                    <!-- <th class="center">Check</th> -->
                                     <th class="center">Nama</th>
                                     <th class="center">ID Murid</th>
                                     <th class="center">Kelas</th>
@@ -90,10 +95,10 @@
                                 $student = $Calon->student->get();
                                 ?>
                                 <tr>
-                                    <td class ="center">
+                                   <!--  <td class ="center">
                                         <input id ="satu" type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
                                     </td>
-                                        
+                                         -->
                                     <td>
                                         <a href="#"><?php echo $student->nama; ?></a>
                                     </td>
@@ -111,7 +116,7 @@
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="<?php echo base_url()."kelas/setAktif/".$Calon->student_id; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setAktif/".$Calon->student_id."/".$Calon->course_id; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
