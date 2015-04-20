@@ -15,6 +15,12 @@ class User extends CI_Controller {
         $this->load->view('login');
 		$this->load->view('layout/footer');
     }
+    /** login */
+	public function admin(){
+        $this->load->view('layout/header-admin');
+        $this->load->view('admin/login');
+		$this->load->view('layout/footer-admin');
+    }
     
     public function login_submit($role){
         $input['email'] = $this->input->post('email');
@@ -67,7 +73,7 @@ class User extends CI_Controller {
 			$admin = $admin_model->check_login($input);
 	        if(empty($admin->email)){
 	            $this->session->set_flashdata('login_admin_notif','Kombinasi email dan password yang Anda masukkan salah, silahkan coba lagi.');
-	            redirect('user/login');
+	            redirect('user/admin');
 	        }else{
 				$user = array(
 					'type'	=> 'admin',
