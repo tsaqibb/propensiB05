@@ -252,7 +252,8 @@ class Kelas extends CI_Controller {
 		$success = $kelas_model->save_as_new();
 		if($success) {
 			$new_class = new Course();
-			$new_class = $new_class->select_max('id');
+			$new_class->select_max('id');
+			$new_class->get();
 			$list_tag = explode(',', $this->input->post('class_tags'));
 			foreach ($list_tag as $tag_name) {
 				$tag = new Tag();
@@ -268,15 +269,15 @@ class Kelas extends CI_Controller {
 				}
 				$classes_tag = new Classes_tag();
 				$tag_id = $tag->id;
-				//$new_class_id = $new_class->id;
-				$new_class_id = '3002';
+				$new_class_id = $new_class->id;
+				//$new_class_id = '3002';
 				$classes_tag = $classes_tag->where(
 					array('tag_id ='=> $tag_id, 'course_id ='=> $new_class_id))->get();
 				if(empty($classes_tag->id)) {
 					$classes_tag = new Classes_tag();
 					$classes_tag->tag_id = $tag->id;
-					//$classes_tag->course_id = $new_class->id;
-					$classes_tag->course_id = '3002';
+					$classes_tag->course_id = $new_class->id;
+					//$classes_tag->course_id = '3002';
 					$classes_tag->teacher_id = $kelas_model->teacher_id;
 					$success_add_tag = $classes_tag->save_as_new();
 					if(!$success_add_tag) {

@@ -107,8 +107,7 @@
                                                         <span class="pending icon-circle"><i class="fa fa-gears"></i></span>
                                                     <?php endif; ?>
                                                     <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
-                                                        class="cancel icon-circle" title="" data-original-title="Delete"
-                                                        onclick="konfirmasidelete">
+                                                        class="cancel icon-circle delete-class" title="" data-original-title="Delete">
                                                             <i class="fa fa-trash-o"></i>
                                                     </a>
                                                     <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"
@@ -141,10 +140,7 @@
     </div>
 </div> <!-- /container -->
 <script type=text/javascript>
-    function konfirmasidelete(){
-        var r=confirm("Apakah anda yakin untuk hapus kelas ?");
-        if (r==true){
-            alert("Kelas berhasil dihapus");
-        }
-    }
+    $('.delete-class').click(function(){
+        return confirm("Are you sure want to delete class?");
+    });
 </script>
