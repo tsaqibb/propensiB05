@@ -11,11 +11,14 @@ class User extends CI_Controller {
 
 	/** login */
 	public function login(){
+		if($this->session->userdata('is_logged_in') == TRUE) {
+			redirect();
+			return;
+		}
         $this->load->view('layout/header');
         $this->load->view('login');
 		$this->load->view('layout/footer');
     }
-    /** login */
 	public function admin(){
         $this->load->view('layout/header-admin');
         $this->load->view('admin/login');

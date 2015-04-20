@@ -17,13 +17,6 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
-	public function login()
-	{
-		$this->load->view('layout/header-admin');
-		$this->load->view('admin/login');
-		$this->load->view('layout/footer-admin');
-	}
-
 	public function index()
 	{
 		$kelas_model = new Course();

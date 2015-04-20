@@ -40,7 +40,9 @@
                                         ?>
                                     </td>
                                     <td class="center action">
-                                        <?php echo $kelas->teacher->get()->e_mail; ?>
+                                        <?php
+                                        $alamatemail = $kelas->teacher->get()->email;
+                                         echo $alamatemail ?>
                                     </td>
                                     <td class="center">
                                         <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>

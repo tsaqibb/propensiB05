@@ -28,25 +28,36 @@
             $type_user = $this->session->userdata('user_type');
             $id_kelas=$this->session->userdata('course_id');
             $id_murid=$this->session->userdata('user_id');
+            $registered = false;
             
-            if($type_user == "murid" OR ($type_user != "guru" AND $type_user != "admin" AND $type_user != "murid")):
-                $exist = false;
+            if($type_user == "murid"):
                 foreach ($partisipan_all as $partisipan):
                     $student = $partisipan->student->get(); 
                     
                     if($id_murid == $student->id) :
-                        $exist=true;
+                        $registered=true;
                         break;
                     endif;
                 endforeach;
-                if ($exist == false) :?>
+            endif;
 
-                    <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
-                <?php endif;?>
-            <?php elseif($type_user == "guru" OR $type_user == "admin"):?>
-                    <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
-            <?php endif;
-            ?>                
+            if($type_user == "guru") {
+                if($id_murid == $data_kelas->teacher_id) {
+                    $registered=true;
+                }
+            }
+
+            if($type_user == 'admin') {
+                $registered = true;
+            }
+
+            if ($registered == false) :?>
+                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
+            <?php
+            else : ?>
+                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
+            <?php
+            endif; ?>                
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-content">
                         <!-- Nav tabs -->
@@ -121,9 +132,15 @@
                                         foreach ($list_materi as $materi) :
                                         ?>
                                           <ul class="list-groups">
-                                             <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
-                                             <li class="list-group-item"> <?php echo $materi->judul; ?></li>
-                                             </a>
+                                             <?php if($registered) : ?>
+                                                 <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                                    <li class="list-group-item"> <?php echo $materi->judul; ?></li>
+                                                 </a>
+                                             <?php else : ?>
+                                                 <span>
+                                                    <li class="list-group-item"> <?php echo $materi->judul; ?></li>
+                                                 </span>
+                                             <?php endif; ?>
                                           </ul>
                                         <?php endforeach ?>
                                         
@@ -359,7 +376,7 @@
                                             <div class="panel-footer">
                                                 <div class="container-fluid">
                                                     <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
-                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-lg" placeholder="Berikan pesan Anda di sini...">
+                                                        <input name ="pesan" id="pesan" type="text" class="form-control input-lg" required placeholder="Berikan pesan Anda di sini...">
                                                         <span class="input-group-btn">
                                                             <button role="submit" class="btn btn-primary btn-lg" id="btn-chat">Kirim</button>
                                                         </span>

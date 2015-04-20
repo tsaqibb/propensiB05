@@ -1,3 +1,14 @@
+<script type="text/javascript">
+  <?php
+      $class_tags = $data_kelas->classes_tag->get();
+      $tags = array();
+      foreach ($class_tags as $class_tag ) :
+        $tag = $class_tag->tag->get(); ?>    
+  $('#class_tags').tagsinput('add',
+      "<?php echo $tag->subjek; ?>");
+  <?php endforeach; ?>
+    
+</script>
 <div class="container-fluid content kelas vendor">
     <div class="row">
         <div class="col-sm-12 col-md-3">
@@ -20,7 +31,7 @@
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
                 <span class="info">Status:
                 <?php if($data_kelas->status_kelas == 0) : ?>
-                    <b class="rejected"> Rejected</b>
+                    <b class="rejected"> Unapproved</b>
                 <?php elseif($data_kelas->status_kelas == 1) : ?>
                     <b class="pending"> Pending Approve</b>
                 <?php elseif($data_kelas->status_kelas == 2) : ?>
@@ -71,7 +82,14 @@
                                 <div class="form-group">
                                     <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                     <div class="col-sm-8">
-                                        <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
+                                        <input id="class_tags" name="class_tags" type="text" class="form-control" 
+                                          value="<?php
+                                            $class_tags = $data_kelas->classes_tag->get();
+                                            $tags = array();
+                                            foreach ($class_tags as $class_tag ) {
+                                              $tag = $class_tag->tag->get();
+                                              echo $tag->subjek.',';
+                                            }?>">
                                     </div>
                                 </div>
                                 <div class="col-md-12 right">
@@ -164,13 +182,13 @@
                                           <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                           <p>
                                           <label for="nama-materi">Nama Materi </label>
-                                            <input type="text" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                            <input type="text" required="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
                                           </p>
                                           <p>
                                           <label for="note-materi">Note Materi </label>
-                                            <input type="text" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                            <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
                                           </p>
-                                          <p>
+                                         <!--  <p>
                                              <label for="nama-materi">Jenis Materi </label>
                                         <div class="row">
                                           <div class="col-md-2">
@@ -186,8 +204,8 @@
                                             </div>
                                           </div>
                                         </div>                                                              
-                                            </p>
-                                            <input type="file"  id="myFile" multiple size="50">
+                                            </p> -->
+                                            <input type="file" required="" name="myFile" id="myFile" multiple size="50">
                                             <br>                                                        
                                             <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                             </form> 
@@ -221,16 +239,5 @@
         var b = "<a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a>";
         var c = "<button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button>";
         $(".panel-body").append(a);
-
     }
-
-    $('#class_tags').tagsinput('add',
-      "<?php
-      $class_tags = $data_kelas->classes_tag->get();
-      $tags = array();
-      foreach ($class_tags as $class_tag ) {
-        $tag = $class_tag->tag->get();
-        array_push($tags, $tag->subjek);
-      }
-      $add_tag = implode(',', $tags); echo $add_tag;?>");
 </script>

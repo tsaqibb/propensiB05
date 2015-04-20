@@ -30,25 +30,25 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">
-                                            <input id="nama_kelas" name="nama_kelas" type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan">
+                                            <input id="nama_kelas" name="nama_kelas" type="text" class="form-control" id="Namakelas" placeholder="Nama dari kelas yang akan diselenggarakan" required="required">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Deskripsi Kelas</label>
                                         <div class="col-sm-8">
-                                            <textarea id="deskripsi_kelas" name="deskripsi_kelas" class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3"></textarea>
+                                            <textarea id="deskripsi_kelas" name="deskripsi_kelas" class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3" required="required"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Harga</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis">
+                                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis" required="required">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="attachment" class="col-sm-3 control-label">Tags</label>
                                         <div class="col-sm-8">
-                                            <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text">
+                                            <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text" required="required">
                                         </div>
                                     </div>
 

@@ -1,28 +1,18 @@
 <script type=text/javascript>
     function konfirmasiapprove(){
-        var r=confirm("Approve kelas ini?");
-        if (r==true){
-            alert("Approval berhasil");
-        }
+        return confirm("Approve kelas ini?");
     }
 </script>
 
 <script type=text/javascript>
     function konfirmasipublish(){
-        var r=confirm("Publish kelas ini?");
-        if (r==true){
-            alert("Kelas berhasil dipublish");
-        }
+        return confirm("Publish kelas ini?");
     }
 </script>
 
-
 <script type=text/javascript>
     function konfirmasireject(){
-        var r=confirm("Reject kelas ini?");
-        if (r==true){
-            alert("Approval kelas berhasil ditolak");
-        }
+        return confirm("Reject kelas ini?");
     }
 </script>
 
