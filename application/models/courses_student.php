@@ -31,20 +31,27 @@ class Courses_Student extends DataMapper {
 	}
 
 	// mengaktifkan calon partisipan
-	function set_active_partisipan($id, $id_kelas){
+	function set_active_participant($id, $id_kelas){
 		$this->where('student_id =', $id);
 		$this->where('course_id =', $id_kelas);
 		$this->update('isActive',1);
 	}
 
 	//menonaktifkan partisipan kelas
-	function set_nonactive_partisipan($id, $id_kelas){
+	function set_nonactive_participant($id, $id_kelas){
 		$this->where('student_id =', $id);
 		$this->where('course_id =', $id_kelas);
 		$this->update('isActive',0);
 	}
-	//menonaktifkan partisipan kelas
-	function set_nonactive_all_partisipan(){
+	
+	//mengaktifkan semua partisipan kelas
+	function set_active_all_participant(){
+		$this->where('isActive =',0);
+		$this->update('isActive',1);
+	}
+
+	//menonaktifkan semua partisipan kelas
+	function set_nonactive_all_participant(){
 		$this->where('isActive =',1);
 		$this->update('isActive',0);
 	}
@@ -53,10 +60,6 @@ class Courses_Student extends DataMapper {
 		return $this->where($var)->get();
 	}	
 
-	//mendaftar kelas
-	function mendaftar($data){
-		$this->insert('partisipan_kelas', $data);
-	}
 	// --------------------------------------------------------------------
 	// Custom Validation Rules
 	//   Add custom validation rules for this model here.

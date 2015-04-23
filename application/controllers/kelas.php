@@ -26,7 +26,7 @@ class Kelas extends CI_Controller {
 			show_404();
 			return;
 		}
-		//melihat list partisipan yang aktid pada suatu kelas
+
 		$partisipan_all = $data_kelas->courses_student->get();
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 
@@ -35,7 +35,6 @@ class Kelas extends CI_Controller {
 		$data_topik = $data_kelas->topic->get();
 		
 		$this->load->view('layout/header');
-
 		$this->load->view('detil_kelas',
 			array(
 				'data_kelas'=>$data_kelas,
@@ -44,7 +43,6 @@ class Kelas extends CI_Controller {
 				'list_partisipan' => $list_partisipan,
 				'partisipan_all' => $partisipan_all)
 		);
-
 		$this->load->view('layout/footer');
 	}
 
@@ -113,57 +111,53 @@ class Kelas extends CI_Controller {
 		$kelas_model->where('id =', $id)->update('status_kelas', 0);
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
-	public function setAktif($id, $id_kelas)
+	public function setActive($id, $id_kelas)
 	{
 		$this->load->model('courses_student');
-		$this->courses_student->set_active_partisipan($id, $id_kelas);
+		$this->courses_student->set_active_participant($id, $id_kelas);
 		$murid = new Student($id);
 		$kelas = new Course($id);
 	
 		$this->_send_smtp_email([
 			"receiver" => $murid->email,
 			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Hai $murid->nama, kamu ingin mendaftar di kelas $data_kelas->nama Silakan lunasi pembayaran supaya terdaftar di kelas ini.",
+			"message" => "Hai $murid->nama, Jika ingin mendaftar di kelas $data_kelas->nama , silahkan melakukan pembayaran melalui transfer ataupun cash.",
 			]);
 		redirect('/admin/calonpartisipan/');
 	}
-	public function setAllAktif()
+	public function setAllActive()
 	{
 		$data=$this->input->post('id');
 		$this->load->model('courses_student');
 		foreach ($data as $cek) {
-			$this->courses_student->set_active_partisipan($cek);
+			$this->courses_student->set_active_all_participant($cek);
 		}
 		redirect('/admin/calonpartisipan/');
 	}
-	public function setNonAktif($id, $id_kelas)
+	public function setNonActive($id, $id_kelas)
 	{
-		/*$data=explode("/", $id);
-		$id=$data[0];
-		$course=$data[1];*/
 
 		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_partisipan($id, $id_kelas);
+		$this->courses_student->set_nonactive_participant($id, $id_kelas);
 		$murid = new Student($id);
 		$kelas = new Course($id);
-		// $this->load->controller('daftar');
+
 		$this->_send_smtp_email([
 			"receiver" => $murid->email,
 			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
+			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $data_kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
 			]);
 
-		redirect('/kelas/detail/'.$id_kelas, 'refresh');
+		redirect('/kelas/detail/'.$id_kelas);
 	}
-	public function setAllNonAktif()
+	public function setAllNonActive()
 	{
-		//$data=explode("_", $id);
-		//$id=$data[0];
-		//$course=$data[1];
+
 		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_all_partisipan();
-		redirect('/kelas/', 'refresh');
-		//redirect('/kelas/detail/'.$course, 'refresh');
+		$this->courses_student->set_nonactive_all_participant();
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+		redirect('/kelas/detail/'.$data_kelas->id);
 	}
 
 	public function add_feedback($id) 
@@ -446,31 +440,32 @@ class Kelas extends CI_Controller {
 
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
+	// fungsi untuk mengirim email
 	function _send_smtp_email($data)
-	{
-	    // $data: sender, sender_name, receiver, receiver_name, subject, message
-	    extract($data);
-	    require_once('application/libraries/mailer/PHPMailerAutoload.php');
-	    $mail = new PHPMailer();
-	    $mail->IsSMTP();                       // telling the class to use SMTP
-	    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
-	    $mail->SMTPAuth = true;                // enable SMTP authentication 
-	    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
-	    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
-	    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
+  	{
+    // $data: sender, sender_name, receiver, receiver_name, subject, message
+    extract($data);
+    require_once('application/libraries/mailer/PHPMailerAutoload.php');
+    $mail = new PHPMailer();
+    $mail->IsSMTP();                       // telling the class to use SMTP
+    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
+    $mail->SMTPAuth = true;                // enable SMTP authentication 
+    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
+    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
+    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
 
-	    $mail->Username = "online.ruangguru";         // Gmail username
-	    $mail->Password = "kelasonlineruangguru";      // Gmail password
+    $mail->Username = "online.ruangguru";         // Gmail username
+    $mail->Password = "kelasonlineruangguru";      // Gmail password
 
-	    // $mail->CharSet = 'windows-1250';
-	    $mail->SetFrom (@$sender, @$sender_name);
-	    $mail->Subject = @$subject;
-	    $mail->ContentType = 'text/html';
-	    $mail->IsHTML(TRUE);
-	    $mail->Body = @$message; 
-	    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
-	    $mail->AddAddress ($receiver, @$receiver_name);
-	    // you may also use this format $mail->AddAddress ($recipient);
-	    return $mail->Send();
-	}
+    // $mail->CharSet = 'windows-1250';
+    $mail->SetFrom (@$sender, @$sender_name);
+    $mail->Subject = @$subject;
+    $mail->ContentType = 'text/html';
+    $mail->IsHTML(TRUE);
+    $mail->Body = @$message; 
+    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
+    $mail->AddAddress ($receiver, @$receiver_name);
+    // you may also use this format $mail->AddAddress ($recipient);
+    return $mail->Send();
+  }
 }

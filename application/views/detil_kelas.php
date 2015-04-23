@@ -33,8 +33,7 @@
             if($type_user == "murid"):
                 foreach ($partisipan_all as $partisipan):
                     $student = $partisipan->student->get(); 
-                    
-                    if($id_murid == $student->id) :
+                    if($id_murid == $student->id OR $id_murid == $partisipan->student_id):
                         $registered=true;
                         break;
                     endif;
@@ -42,9 +41,7 @@
             endif;
 
             if($type_user == "guru") {
-                if($id_murid == $data_kelas->teacher_id) {
                     $registered=true;
-                }
             }
 
             if($type_user == 'admin') {
@@ -177,12 +174,12 @@
                               <div class="tab-content">
                                 <div class ="row"><h3 class="block-title text-uppercase">Daftar Murid</h3>
                                 <br>
-                                <?php
+                               <!--  <?php
                               $type_user = $this->session->userdata('user_type');
                                 if ($type_user == "admin"):?>
-                                <a href="<?php echo base_url()."kelas/setAllNonAktif/"; ?>" type="button" class="main-button register2" onclick="konfirmasi()">Deactivate all</a>
+                                <a href="<?php echo base_url()."kelas/setAllNonActive/"; ?>" type="button" class="main-button register2" >Deactivate all</a>
                                 
-                           <?php endif; ?>
+                           <?php endif; ?> -->
                                 </div>
                                 <?php foreach ($list_partisipan as $daftar) :
                                     $student = $daftar->student->get();
@@ -195,13 +192,13 @@
                                         <a class ="matkul" href=""><?php echo $student->email; ?></a>
                                     </div>
 
-                                    <span>
+                                    <!-- <span>
                                     <?php
                                     $type_user = $this->session->userdata('user_type');
                                 if ($type_user == "admin"):?>
-                                        <a href="<?php echo base_url()."kelas/setNonAktif/".$daftar->student_id."/".$daftar->course_id; ?>" onclick="konfirmasi();" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
+                                        <a href="<?php echo base_url()."kelas/setNonActive/".$daftar->student_id."/".$daftar->course_id; ?>" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
                                     <?php endif; ?>
-                                    </span>
+                                    </span> -->
                                     
                                     <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                                   </div>

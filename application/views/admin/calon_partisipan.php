@@ -50,17 +50,17 @@
             e.preventDefault();
     });*/
 </script>
+
 <h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2>
 <br>
 <hr class="line">
 <br>
-<!-- <input id="all" class ="checkbox1" type="checkbox" onclick="toggle(this)">
+<input class="checkbox1" type="checkbox" onclick="toggle(this)">
     <strong>select all</strong>
-</input> -->
+</input>
 <span>
-     <!-- <form method="POST" action="<?php echo base_url()."kelas/setAllAktif";?>" >
-    <input type="submit" value="Activate all"  class="main-button register2" onclick="validasi()"> -->
-
+    <form method="POST" action="<?php echo base_url()."kelas/setAllActive";?>" >
+    <input type="submit" value="Activate all"  class="main-button register2">
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -80,10 +80,10 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <!-- <th class="center">Check</th> -->
+                                    <th class="center">Check</th>
                                     <th class="center">Nama</th>
-                                    <th class="center">ID Murid</th>
                                     <th class="center">Kelas</th>
+                                    <th class="center">Harga</th>
                                     <th class="center">Email</th>
                                     <th class="center">Action</th>
                                 </tr>
@@ -95,28 +95,28 @@
                                 $student = $Calon->student->get();
                                 ?>
                                 <tr>
-                                   <!--  <td class ="center">
-                                        <input id ="satu" type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
+                                   <td class ="center">
+                                        <input type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
                                     </td>
-                                         -->
+                                    
                                     <td>
-                                        <a href="#"><?php echo $student->nama; ?></a>
+                                        <a href="#profile"><?php echo $student->nama; ?> (<?php echo $Calon->student_id; ?>)</a>
+                                    </td>
+                                    
+                                    <td>
+                                        <a href="<?php echo base_url()."kelas/detail/".$Calon->course_id;?>"><?php echo $course->nama; ?> (<?php echo $course->id; ?>)</a>
+                                    </td>                                   
+                                    
+                                     <td>
+                                        <?php echo $course->harga; ?>
                                     </td>
 
                                     <td class ="center">
-                                        <?php echo $Calon->student_id; ?>
-                                    </td>
-                                    
-                                    <td>
-                                        <a href="#"><?php echo $course->nama; ?></a>
-                                    </td>                                   
-                                    
-                                    <td class ="center">
-                                        <a href="#"><?php echo $student->e_mail; ?></a>
+                                        <a href="#gmail"><?php echo $student->email; ?></a>
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="<?php echo base_url()."kelas/setAktif/".$Calon->student_id."/".$Calon->course_id; ?>" onclick="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
