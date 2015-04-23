@@ -446,36 +446,31 @@ class Kelas extends CI_Controller {
 
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
-<<<<<<< HEAD
+	function _send_smtp_email($data)
+	{
+	    // $data: sender, sender_name, receiver, receiver_name, subject, message
+	    extract($data);
+	    require_once('application/libraries/mailer/PHPMailerAutoload.php');
+	    $mail = new PHPMailer();
+	    $mail->IsSMTP();                       // telling the class to use SMTP
+	    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
+	    $mail->SMTPAuth = true;                // enable SMTP authentication 
+	    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
+	    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
+	    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
 
+	    $mail->Username = "online.ruangguru";         // Gmail username
+	    $mail->Password = "kelasonlineruangguru";      // Gmail password
 
-function _send_smtp_email($data)
-  {
-    // $data: sender, sender_name, receiver, receiver_name, subject, message
-    extract($data);
-    require_once('application/libraries/mailer/PHPMailerAutoload.php');
-    $mail = new PHPMailer();
-    $mail->IsSMTP();                       // telling the class to use SMTP
-    $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
-    $mail->SMTPAuth = true;                // enable SMTP authentication 
-    $mail->SMTPSecure = "tls";             // sets the prefix to the servier
-    $mail->Host = "smtp.gmail.com";        // sets Gmail as the SMTP server
-    $mail->Port = 587;                     // set the SMTP port for the GMAIL 
-
-    $mail->Username = "online.ruangguru";         // Gmail username
-    $mail->Password = "kelasonlineruangguru";      // Gmail password
-
-    // $mail->CharSet = 'windows-1250';
-    $mail->SetFrom (@$sender, @$sender_name);
-    $mail->Subject = @$subject;
-    $mail->ContentType = 'text/html';
-    $mail->IsHTML(TRUE);
-    $mail->Body = @$message; 
-    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
-    $mail->AddAddress ($receiver, @$receiver_name);
-    // you may also use this format $mail->AddAddress ($recipient);
-    return $mail->Send();
-  }
-=======
->>>>>>> origin/master
+	    // $mail->CharSet = 'windows-1250';
+	    $mail->SetFrom (@$sender, @$sender_name);
+	    $mail->Subject = @$subject;
+	    $mail->ContentType = 'text/html';
+	    $mail->IsHTML(TRUE);
+	    $mail->Body = @$message; 
+	    // you may also use $mail->Body = file_get_contents('your_mail_template.html');
+	    $mail->AddAddress ($receiver, @$receiver_name);
+	    // you may also use this format $mail->AddAddress ($recipient);
+	    return $mail->Send();
+	}
 }
