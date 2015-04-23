@@ -11,8 +11,10 @@ class Daftar extends CI_Controller {
 		$id_murid = $this->session->userdata('user_id');
 		$type_user = $this->session->userdata('user_type');
 
+		// jika user yang mendaftar belom login, maka akan di redirect ke halaman login
 		if($type_user != "murid") redirect('user/login');
 		
+		// jika murid melakukan persetujuan term dan klik tombol daftar
 		if ($this->input->SERVER('REQUEST_METHOD') == 'POST'){
 			$daftar_model = new courses_student();
 			$id_kelas=$this->session->userdata('course_id');
@@ -21,7 +23,6 @@ class Daftar extends CI_Controller {
 			$harga = $data_kelas->harga;
 			$id_guru = $data_kelas->teacher_id;
 
-			
 			/*die("harga: $harga, id_guru: $id_guru");*/
 			$murr = (new Student($id_murid));
 			$data_email = [
@@ -31,11 +32,12 @@ class Daftar extends CI_Controller {
 				"receiver_name" => $murr->nama,
 			];
 
+			// akan dicek jika harga kelas = Rp 0,- maka murid dapat langsung aktif
 			if ($harga==0){
 				$data_email["subject"] = "Registrasi Kelas Berhasil";
-				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas->nama . Kamu sudah terdaftar sebagai peserta resmi kelas ini.";
-				if($this->_send_smtp_email($data_email))
-				{
+				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas->nama . Kamu sudah terdaftar sebagai peserta resmi kelas ini dan dapat mengakses kelas kapan saja. Selamat Belajar.";
+				/*if($this->_send_smtp_email($data_email))
+				{*/
 					$daftar_model->student_id = $id_murid;
 					$daftar_model->course_id = $id_kelas;
 					$daftar_model->teacher_id = $id_guru;
@@ -43,16 +45,17 @@ class Daftar extends CI_Controller {
 
 					$daftar_model->save_as_new();
 					redirect('/kelas/detail/'.$id_kelas );
-				} else
-					redirect('/daftar/');
+				/*} else
+					redirect('/daftar/');*/
 
 			}
 
+			//jika harga kelas tidak gratis maka status murid masih pending dan notifikasi email berisi perintah untuk membayar kelas terlebih dahulu agar admin mengaktifkan status murid
 			else{
 				$data_email["subject"] = "Registrasi Kelas Pending";
-				$data_email["message"] = "Hai $murr->nama, kamu ingin mendaftar di kelas $data_kelas->nama Silakan lunasi pembayaran supaya terdaftar di kelas ini.";
-				if($this->_send_smtp_email($data_email))
-				{
+				$data_email["message"] = "Hai $murr->nama, jika kamu ingin terdaftar di dalam kelas $data_kelas->nama, Silahkan lunasi pembayaran terlebih dahulu melalui transfer maupun langsung ke kantor kami. Terima kasih.";
+				//if($this->_send_smtp_email($data_email))
+				//{
 					$daftar_model->student_id = $id_murid;
 					$daftar_model->course_id = $id_kelas;
 					$daftar_model->teacher_id = $id_guru;
@@ -60,8 +63,8 @@ class Daftar extends CI_Controller {
 
 					$daftar_model->save_as_new();
 					redirect('/kelas/');
-				} else
-					redirect('/kelas/');
+				//} else
+				//	redirect('/kelas/');
 			}
 		}
 		$this->load->view('layout/header');
@@ -69,8 +72,9 @@ class Daftar extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
+	// fungsi untuk mengirim email
 	function _send_smtp_email($data)
-  {
+  	{
     // $data: sender, sender_name, receiver, receiver_name, subject, message
     extract($data);
     require_once('application/libraries/mailer/PHPMailerAutoload.php');
