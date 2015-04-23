@@ -10,13 +10,6 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	public function lama()
-	{
-		$this->load->view('layout/header');
-		$this->load->view('admin/kelas');
-		$this->load->view('layout/footer');
-	}
-
 	public function index()
 	{
 		$kelas_model = new Course();
@@ -28,10 +21,25 @@ class Admin extends CI_Controller {
 
 	public function calonpartisipan()
 	{
-		$partisipan_kelas = new courses_student();
-		$list_partisipan = $partisipan_kelas->get_list_partisipan_nonactive();
+		$partisipan_pending = new courses_student();
+		$list_partisipan = $partisipan_pending->get_list_partisipan_nonactive();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/calon_partisipan', array('list_partisipan' => $list_partisipan));
+		$this->load->view('layout/footer-admin');
+	}
+
+	public function daftarmurid($id)
+	{
+		$this->session->set_userdata('course_id', $id);
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+		if(empty($data_kelas->id)) {
+			show_404();
+			return;
+		}
+		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+		$this->load->view('layout/header-admin');
+		$this->load->view('admin/daftarmurid', array('list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
 	}
 
@@ -131,8 +139,10 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/detil_kelas_admin');
 		$this->load->view('layout/footer');
 	}	
+
+	// fungsi untuk mengirim email
 	function _send_smtp_email($data)
-  {
+  	{
     // $data: sender, sender_name, receiver, receiver_name, subject, message
     extract($data);
     require_once('application/libraries/mailer/PHPMailerAutoload.php');

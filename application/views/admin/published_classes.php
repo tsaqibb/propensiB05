@@ -19,6 +19,7 @@
                                     <th>ID Kelas</th>
                                     <th>Nama Kelas</th>
                                     <th>Status Kelas</th>
+                                    <th>Murid</th>
                                     <th class="center">Guru</th>
                                     <th class="center">Detail</th>
                                 </tr>
@@ -39,6 +40,11 @@
                                         }       
                                         ?>
                                     </td>
+
+                                     <td class="center">
+                                        <a href="<?php echo base_url().'admin/daftarmurid'.$kelas->id; ?>" data-id="6">Daftar<i class="fa fa-arrow-right"></i></a><br>
+                                    </td>
+
                                     <td class="center action">
                                         <?php
                                         $alamatemail = $kelas->teacher->get()->email;
