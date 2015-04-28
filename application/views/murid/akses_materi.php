@@ -28,15 +28,9 @@
 
                 <ul class="list-group">
                    
-                    <li class="list-group-item"><span class="badge"> video</span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
+                    <li class="list-group-item"><span class="badge"> <?php echo $materi->tipe?></span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
 
-                    <!--<li class="list-group-item"><span class="badge"> video</span><a href=""> Fungsi Kuadrat </a></li>  
-                    <li class="list-group-item"><span class="badge">video</span><a href=""> Matriks </a></li>
-                    <li class="list-group-item"><span class="badge"> pdf</span> <a href="">Integral </a></li>
-                    <li class="list-group-item"><span class="badge"> video</span> <a href=""> Lingkaran </a></li>  
-                    <li class="list-group-item"><span class="badge">video</span> <a href="">Trigonometri </a></li> -->
-
-                    <?php
+                   <?php
                      endforeach;
                     ?>
                 </ul>
@@ -59,18 +53,20 @@
               </div>      
             
             <div class="panel content-video">
-              <div class="space-video">
+
+                <?php if($materi->tipe == 'mp4') : ?>
+                <div class="space-video">
                  <video class="videoplayer" controls>                  
                   <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
-                </video> 
-                            
-              </div>
+                </video>                             
+              </div>           
+          <?php elseif($materi->tipe == 'pdf') : ?>
+                         
               <div class="space-pdf">
                   <object data="<?php echo base_url().$open_materi->url; ?>" type="application/pdf" class="pdfviewer">
-                   
                   </object>
               </div>
-
+         <?php endif; ?>
               
             </div>
         </div>

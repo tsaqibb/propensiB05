@@ -148,7 +148,7 @@
                                         </div>
                                         <div class="col-md-2">
                                               <form action="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>">
-                                                <button role="button" width="70%" class="btn btn-delete" id="button-hapus-topik"><i class="fa fa-times"></i>Hapus Topik</button>
+                                                <button role="button" width="70%" class="btn btn-delete-topik" id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-times"></i>Hapus Topik</button>
                                               <!-- <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>-->
                                            </form>
                                         </div>
@@ -168,7 +168,7 @@
                                             </div>
                                             <div class="col-md-3">
                                               <form action="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id; ?>">
-                                                 <button role="button" width="70%" class="btn btn-delete" id="button-hapus-materi"><i class="fa fa-times"></i>Hapus materi</button>
+                                                 <button onclick="hapusMateri()" role="button" width="70%" class="btn btn-delete-materi" id="button-hapus-materi"><i class="fa fa-times"></i>Hapus materi</button>
                                               </form>
                                             </div>
                                           </ul>
@@ -179,7 +179,7 @@
                                              </a>
                                           </ul>
                                           <div id="inline<?php echo $topik->id; ?>" style="width:400px; display: none;">
-                                        <p class="text-14 bold text-center"> [Nama Topik] </p>
+                                        <p class="text-14 bold text-center"> <?php echo $topik->judul;?> </p>
                                           <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                           <p>
                                           <label for="nama-materi">Nama Materi </label>
@@ -234,11 +234,17 @@
     </div>
 </div> <!-- /container -->
 
-<script>
-    function tambahMateri(){
-        var a = "<ul class='list-groups'><a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a></ul>";
-        var b = "<a href='#'><button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button></a>";
-        var c = "<button type='button' class='btn btn-default' id='button1' onclick='tambahTopik()'>Tambah Materi</button>";
-        $(".panel-body").append(a);
-    }
+
+
+
+
+<script type=text/javascript>
+    $('.btn-delete-materi').click(function(){
+        return confirm("Are you sure want to delete materi?");
+    });
+
+    $('.btn-delete-topik').click(function(){
+        return confirm("Are you sure want to delete topik?");
+    });
+
 </script>
