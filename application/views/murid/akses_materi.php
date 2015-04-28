@@ -54,13 +54,13 @@
             
             <div class="panel content-video">
 
-                <?php if($materi->tipe == 'mp4') : ?>
+                <?php if($open_materi->tipe == 'mp4') : ?>
                 <div class="space-video">
                  <video class="videoplayer" controls>                  
                   <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
                 </video>                             
               </div>           
-          <?php elseif($materi->tipe == 'pdf') : ?>
+          <?php elseif($open_materi->tipe == 'pdf') : ?>
                          
               <div class="space-pdf">
                   <object data="<?php echo base_url().$open_materi->url; ?>" type="application/pdf" class="pdfviewer">
