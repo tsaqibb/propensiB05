@@ -60,11 +60,18 @@
             
             <div class="panel content-video">
               <div class="space-video">
-                <video class="videoplayer" controls>                  
+                 <video class="videoplayer" controls>                  
                   <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
-                </video>
-               
+                </video> 
+                            
               </div>
+              <div class="space-pdf">
+                  <object data="<?php echo base_url().$open_materi->url; ?>" type="application/pdf" class="pdfviewer">
+                   
+                  </object>
+              </div>
+
+              
             </div>
         </div>
                

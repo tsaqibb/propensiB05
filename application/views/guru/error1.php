@@ -1,0 +1,1 @@
+gagal di awal

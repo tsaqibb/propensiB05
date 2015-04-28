@@ -349,12 +349,66 @@ class Kelas extends CI_Controller {
 		/*$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);*/
 
+		$max_upload = (int)(ini_get('upload_max_filesize'));
+		$max_post = (int)(ini_get('post_max_size'));
+		$memory_limit = (int)(ini_get('memory_limit'));
+		$upload_mb = min($max_upload, $max_post, $memory_limit);
+	
+		if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '' ){
 
-		$topik_model = new Topic();
-		$data_topik = $topik_model->get_by_id($id);
-		$data_kelas = $data_topik->course->get();
+			unset($config);
+			$config['upload_path'] ='./video/';
+			$config['allowed_types'] = 'pdf|jpg|mp4';
+			$config['max_sixe'] = '100000000000000';
+			$videoName = $_FILES['myFile']['name'];
+			$config['file_name'] = $videoName;
+			$this->load->library('upload' , $config);
+			$this->upload->initialize($config);
 
-		$type = explode('.', $_FILES["myFile"]["name"]);
+			if(!$this->upload->do_upload('myFile')){
+			$error = array('error' => $this->upload->display_errors());
+			$this->load->view('guru/error');
+						
+			}
+
+
+			else{
+
+			$materi_model = new Resource();
+			$materi_model->judul = $this->input->post('namamateri');
+			$materi_model->notes = $this->input->post('notemateri');
+
+			$topik_model = new Topic();
+			$upload_file = $_FILES['myFile']['name'];
+			$data_topik = $topik_model->get_by_id($id);
+			$data_kelas = $data_topik->course->get();
+			$materi_model->teacher_id = $data_kelas->teacher_id;			
+			$materi_model->topic_id = $data_topik->id;
+			$materi_model->course_id = $data_kelas->id;	
+			$materi_model->url = 'video/'.$upload_file;
+			$success = $materi_model->save_as_new();
+
+			if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil membuat materi!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal membuat materi!');
+		}
+
+			redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+			
+			}
+
+	}
+	else{
+		$this->load->view('guru/error1');
+	}
+
+		
+
+		
+
+		/*$type = explode('.', $_FILES["myFile"]["name"]);
 		$type = $type[count($type) - 1];
 		$url = "video/".uniqid(rand()).".".$type;
 		if(in_array($type, array("mp4", "jpg", "png"))){
@@ -365,23 +419,13 @@ class Kelas extends CI_Controller {
 				 
 			}
 
-		}
-		$materi_model = new Resource();
-		$materi_model->judul = $this->input->post('namamateri');
-		$materi_model->notes = $this->input->post('notemateri');
-		$materi_model->teacher_id = $data_kelas->teacher_id;			
-		$materi_model->topic_id = $data_topik->id;
-		$materi_model->course_id = $data_kelas->id;	
-		$materi_model->url=$url;
+		}*/
+		//$materi_model->url=$url;
+		
+		
+			
 
-
-		$config['upload_path'] ='./video/';
-		$config['allowed_types'] = 'mp4|jpg|pdf';
-
-		$this->load->library('upload',$config);	
-		$success = $materi_model->save_as_new();	
-
-		//redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+		
 	}
 	public function delete($id)
 	{
