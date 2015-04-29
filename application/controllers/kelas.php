@@ -115,6 +115,9 @@ class Kelas extends CI_Controller {
 	{
 		$this->load->model('courses_student');
 		$this->courses_student->set_active_participant($id, $id_kelas);
+		/*if($success_active) {
+			$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
+		}*/
 		$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
 		$murid = new Student($id);
 		$kelas = new Course($id_kelas);
@@ -123,7 +126,7 @@ class Kelas extends CI_Controller {
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
-			"subject" => "Status member sudah aktif",
+			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			]);
 		redirect('/admin/calonpartisipan/');
@@ -143,7 +146,7 @@ class Kelas extends CI_Controller {
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
-			"subject" => "Status member sudah aktif",
+			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			]);
 		}

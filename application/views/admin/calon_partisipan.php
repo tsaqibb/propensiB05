@@ -16,6 +16,7 @@
             }
             else{
                 alert("Approval Anda telah dibatalkan");
+                return false;
             }
         }
         else{
@@ -26,6 +27,7 @@
                 }
                 else{
                     alert("Approval Anda telah dibatalkan");
+                    return false;
                 }
             }
             else(alert("Anda belum memilih murid"));
@@ -60,7 +62,7 @@
 </input>
 <span>
     <form method="POST" action="<?php echo base_url()."kelas/setAllActive";?>" >
-    <input type="submit" value="Activate all"  class="main-button register2">
+    <input id = "all" type="submit" value="Activate all"  onclick ="validasi()" class="main-button register2">
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -96,7 +98,7 @@
                                 ?>
                                 <tr>
                                    <td class ="center">
-                                        <input type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
+                                        <input id="satu" type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
                                     </td>
                                     
                                     <td>
@@ -116,7 +118,7 @@
                                     </td>
                                     
                                     <td  class ="center">
-                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick= "konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

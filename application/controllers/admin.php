@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
-			"subject" => "Deactivate Member Kelas $kelas->nama",
+			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
 			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
 			]);
 
@@ -69,7 +69,7 @@ class Admin extends CI_Controller {
 		$this->load->model('courses_student');
 		foreach ($data as $cek) {
 			$this->courses_student->set_nonactive_all_participant($cek);
-			$this->session->set_flashdata('status.notice','Murid berhasil dinonaktifkan');
+			$this->session->set_flashdata('status.notice','Semua murid berhasil dinonaktifkan');
 			/*$kelas_model = new Course();
 			$data_kelas = $kelas_model->get_by_id($id);*/
 			$murid = new Student($id);
@@ -79,7 +79,7 @@ class Admin extends CI_Controller {
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
-			"subject" => "Deactivate Member Kelas $kelas->nama",
+			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
 			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
 			]);
 	}
