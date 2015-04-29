@@ -26,7 +26,7 @@
                                 Detail Kelas
                             </a>
                             <div id="detail_kelas" class="panel-collapse collapse in">
-                                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kelas/create_kelas">
+                                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>guru/create_kelas">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Nama Kelas</label>
                                         <div class="col-sm-8">

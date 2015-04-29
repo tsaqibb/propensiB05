@@ -57,7 +57,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="detil-kelas">
-                              <form class="form-horizontal" method="post" action="<?php echo base_url();?>kelas/update_kelas/<?php echo $data_kelas->id; ?>">
+                              <form class="form-horizontal" method="post" action="<?php echo base_url();?>guru/update_kelas/<?php echo $data_kelas->id; ?>">
                                 <div class="form-group">
                                     <label for="Namakelas" class="col-sm-3 control-label">Nama Kelas</label>
                                     <div class="col-sm-8">

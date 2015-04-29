@@ -44,52 +44,25 @@ class Guru extends CI_Controller {
 	
 	public function tambahkelas()
 	{
-/*		$upload = $this->teacher->insertMateri('resources',array(
-			'id' => ' ',
-			'no_urut_materi' => '',
-			'topic_id' => '',
-			'course_id' => '',
-			'teacher_id' => '',
-			'judul' => '',
-			'url' => '',
-			'notes' => ''
-		));
-
-		if(isset($_FILES['video']['name']) && $_FILES['video']['name'] !=''){
-			
-		}
-
-		$config['upload_path'] = './video/';
-		$config['allowed_types'] = 'mp4';
-
-		$this->load->library('upload' , $config);
-
-
-		//if(! $this->upload->)
-
-
-		if(! $this->upload->)
-*/
-
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_kelas');
 		$this->load->view('layout/footer');
 	}
 
 	public function tambahmateri(){
-		
-
-
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_materi');
 		$this->load->view('layout/footer');
-
 	}
 
 	public function edit_kelas($kelas_id)
 	{
 		$kelas_model = new Course();		
 		$data_kelas = $kelas_model->get_by_id($kelas_id);
+		if($data_kelas->status_kelas % 2 == 1) {
+			redirect();
+			return;
+		}
 		$data_topik = $data_kelas->topic->get();
 		$data_guru = $data_kelas->teacher->get();
 		$this->load->view('layout/header');
@@ -101,8 +74,125 @@ class Guru extends CI_Controller {
 			)
 		);
 		$this->load->view('layout/footer');
-		//redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
+	public function update_kelas($id)
+	{
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);
+		if($this->session->userdata('user_id') != $data_kelas->teacher_id) {
+			redirect();
+			return;
+		}
+		$success_update = $kelas_model->where('id', $id)->update(array(
+			'nama' => $this->input->post('nama_kelas'),
+			'deskripsi'=>$this->input->post('deskripsi_kelas'),
+			'harga'=>$this->input->post('harga'),
+			));
+		
+		//list hasil input tag
+		$input_list_tag = explode(',', $this->input->post('class_tags'));
+		//list tag yang dimiliki
+		$kelas_tags = $data_kelas->classes_tag->get();
+		
+		//loop untuk setiap tag yang sudah dimiliki kelas pada database
+		foreach ($kelas_tags as $kelas_tag) {
+			$tag = $kelas_tag->tag->get();
+			$delete = true;
+			foreach ($input_list_tag as $tag_name) {
+				if($tag->subjek == $tag_name) {
+					$delete = false;
+				}
+			}
+			if($delete) {
+				$classes_tag_model = new Classes_tag();
+				$success_delete_tag = $kelas_tag->delete();
+				if(!$success_delete_tag) {
+					$this->session->set_flashdata('status.error','Gagal hapus tag kelas!');
+				}
+			}
+		}
 
+		//loop untuk setiap tag yg dimasukan
+		foreach ($input_list_tag as $tag_name) {
+			$tag = new Tag();
+			$tag = $tag->where('subjek', $tag_name)->get();
+			//membuat tag baru
+			if(empty($tag->id)) {
+				$tag = new Tag();
+				$tag->subjek = $tag_name;
+				$success = $tag->save_as_new();
+				$tag = $tag->where('subjek', $tag_name)->get();
+			}
+			$classes_tag = new Classes_tag();
+			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
+			if(empty($classes_tag->id)) {
+				$classes_tag = new Classes_tag();
+				$classes_tag->tag_id = $tag->id;
+				$classes_tag->course_id = $kelas_model->id;
+				$classes_tag->teacher_id = $kelas_model->teacher_id;
+				$success_add_tag = $classes_tag->save_as_new();
+				if(!$success_add_tag) {
+					$this->session->set_flashdata('status.error','Gagal tambah tag kelas!');
+				}
+			}
+		}
+		if($success_update) {
+			$this->session->set_flashdata('status.notice','Berhasil update kelas!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal update kelas!');
+		}
+		redirect('/guru/edit_kelas/'.$id, 'refresh');
+	}
+
+	public function create_kelas()
+	{
+		$kelas_model = new Course();
+		$kelas_model->nama = $this->input->post('nama_kelas');
+		$kelas_model->deskripsi = $this->input->post('deskripsi_kelas');
+		$kelas_model->harga = $this->input->post('harga');
+		$kelas_model->teacher_id = $this->session->userdata('user_id');
+		$kelas_model->status_kelas = 0;
+		$success = $kelas_model->save_as_new();
+		if($success) {
+			$new_class = new Course();
+			$new_class->select_max('id');
+			$new_class->get();
+			$list_tag = explode(',', $this->input->post('class_tags'));
+			foreach ($list_tag as $tag_name) {
+				$tag = new Tag();
+				$tag = $tag->where('subjek', $tag_name)->get();
+				if(empty($tag->id)) {
+					$tag = new Tag();
+					$tag->subjek = $tag_name;
+					$success_add_tag = $tag->save_as_new();
+					if(!$success_add_tag) {
+						$this->session->set_flashdata('status.error','Gagal menambahkan objek tag!');
+					}
+					$tag = $tag->where('subjek', $tag_name)->get();
+				}
+				$classes_tag = new Classes_tag();
+				$tag_id = $tag->id;
+				$classes_tag = $classes_tag->where(
+					array('tag_id ='=> $tag_id, 'course_id ='=> $new_class->id))->get();
+				if(empty($classes_tag->id)) {
+					$classes_tag = new Classes_tag();
+					$classes_tag->tag_id = $tag->id;
+					$classes_tag->course_id = $new_class->id;
+					$classes_tag->teacher_id = $kelas_model->teacher_id;
+					$success_add_tag = $classes_tag->save_as_new();
+					if(!$success_add_tag) {
+						$this->session->set_flashdata('status.error','Gagal menambahkan tag kelas!');
+					}
+				}	
+			}
+			$this->session->set_flashdata('status.notice','Berhasil membuat kelas!');
+			redirect('/guru/edit_kelas/'.$new_class->id.'#materi', 'refresh');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal membuat kelas!');
+			redirect('/guru/tambahkelas');
+		}
+	}
 }

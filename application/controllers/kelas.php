@@ -67,13 +67,12 @@ class Kelas extends CI_Controller {
 
 	public function request($id)
 	{	
-
 		$kelas_model = new Course();
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas + 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
 		$this->session->set_flashdata('status.notice','Request anda sedang diproses.');
-		redirect('/guru/edit_kelas', 'refresh');
+		redirect('/guru/kelas', 'refresh');
 	}
 
 	public function approve($id)
@@ -86,7 +85,6 @@ class Kelas extends CI_Controller {
 
 	public function publish($id)
 	{	
-
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 4);
 		$this->session->set_flashdata('status.notice','Kelas berhasil dipublish');
@@ -182,133 +180,6 @@ class Kelas extends CI_Controller {
 		redirect('kelas/detail/'.$id.'#feedback', 'refresh');
 	}
 
-	public function update_kelas($id)
-	{
-		if($this->session->userdata('user_type') != 'guru') {
-			redirect();
-			return;
-		}
-		$kelas_model = new Course();
-		$success_update = $kelas_model->where('id', $id)->update(array(
-			'nama' => $this->input->post('nama_kelas'),
-			'deskripsi'=>$this->input->post('deskripsi_kelas'),
-			'harga'=>$this->input->post('harga'),
-			));
-		$data_kelas = $kelas_model->get_by_id($id);
-		
-		//list hasil input tag
-		$input_list_tag = explode(',', $this->input->post('class_tags'));
-		//list tag yang dimiliki
-		$kelas_tags = $data_kelas->classes_tag->get();
-		
-		//loop untuk setiap tag yang sudah dimiliki kelas pada database
-		foreach ($kelas_tags as $kelas_tag) {
-			$tag = $kelas_tag->tag->get();
-			$delete = true;
-			foreach ($input_list_tag as $tag_name) {
-				if($tag->subjek == $tag_name) {
-					$delete = false;
-				}
-			}
-			if($delete) {
-				$classes_tag_model = new Classes_tag();
-				$success_delete_tag = $kelas_tag->delete();
-				if(!$success_delete_tag) {
-					$this->session->set_flashdata('status.error','Gagal hapus tag kelas!');
-				}
-			}
-		}
-
-		//loop untuk setiap tag yg dimasukan
-		foreach ($input_list_tag as $tag_name) {
-			$tag = new Tag();
-			$tag = $tag->where('subjek', $tag_name)->get();
-			//membuat tag baru
-			if(empty($tag->id)) {
-				$tag = new Tag();
-				$tag->subjek = $tag_name;
-				$success = $tag->save_as_new();
-				$tag = $tag->where('subjek', $tag_name)->get();
-			}
-			$classes_tag = new Classes_tag();
-			$classes_tag = $classes_tag->where('tag_id', $tag->id)->get();
-			if(empty($classes_tag->id)) {
-				$classes_tag = new Classes_tag();
-				$classes_tag->tag_id = $tag->id;
-				$classes_tag->course_id = $kelas_model->id;
-				$classes_tag->teacher_id = $kelas_model->teacher_id;
-				$success_add_tag = $classes_tag->save_as_new();
-				if(!$success_add_tag) {
-					$this->session->set_flashdata('status.error','Gagal tambah tag kelas!');
-				}
-			}
-		}
-		if($success_update) {
-			$this->session->set_flashdata('status.notice','Berhasil update kelas!');
-		}
-		else{
-			$this->session->set_flashdata('status.error','Gagal update kelas!');
-		}
-		redirect('/guru/edit_kelas/'.$id, 'refresh');
-	}
-
-	public function create_kelas()
-	{
-		if($this->session->userdata('user_type') != 'guru') {
-			redirect();
-			return;
-		}
-		$kelas_model = new Course();
-		$kelas_model->nama = $this->input->post('nama_kelas');
-		$kelas_model->deskripsi = $this->input->post('deskripsi_kelas');
-		$kelas_model->harga = $this->input->post('harga');
-		$kelas_model->teacher_id = $this->session->userdata('user_id');
-		$kelas_model->status_kelas = 1;
-		$success = $kelas_model->save_as_new();
-		if($success) {
-			$new_class = new Course();
-			$new_class->select_max('id');
-			$new_class->get();
-			$list_tag = explode(',', $this->input->post('class_tags'));
-			foreach ($list_tag as $tag_name) {
-				$tag = new Tag();
-				$tag = $tag->where('subjek', $tag_name)->get();
-				if(empty($tag->id)) {
-					$tag = new Tag();
-					$tag->subjek = $tag_name;
-					$success_add_tag = $tag->save_as_new();
-					if(!$success_add_tag) {
-						$this->session->set_flashdata('status.error','Gagal menambahkan objek tag!');
-					}
-					$tag = $tag->where('subjek', $tag_name)->get();
-				}
-				$classes_tag = new Classes_tag();
-				$tag_id = $tag->id;
-				$new_class_id = $new_class->id;
-				//$new_class_id = '3002';
-				$classes_tag = $classes_tag->where(
-					array('tag_id ='=> $tag_id, 'course_id ='=> $new_class_id))->get();
-				if(empty($classes_tag->id)) {
-					$classes_tag = new Classes_tag();
-					$classes_tag->tag_id = $tag->id;
-					$classes_tag->course_id = $new_class->id;
-					//$classes_tag->course_id = '3002';
-					$classes_tag->teacher_id = $kelas_model->teacher_id;
-					$success_add_tag = $classes_tag->save_as_new();
-					if(!$success_add_tag) {
-						$this->session->set_flashdata('status.error','Gagal menambahkan tag kelas!');
-					}
-				}	
-			}
-			$this->session->set_flashdata('status.notice','Berhasil membuat kelas!');
-			redirect('/guru/kelas', 'refresh');
-		}
-		else{
-			$this->session->set_flashdata('status.error','Gagal membuat kelas!');
-			redirect('/guru/tambahkelas');
-		}
-	}
-
 	public function create_topik($id) {
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
@@ -357,21 +228,26 @@ class Kelas extends CI_Controller {
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
-
-		
-		if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '' ){
+//var_dump($_FILES['myFile']);exit;
+		ini_set('upload_max_filesize','50M');
+	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '' && $_FILES['myFile']['size']<50000000 ){
 
 			unset($config);
 			$config['upload_path'] ='./video/';
 			$config['allowed_types'] = 'pdf|mp4';
-			$config['max_sixe'] = '100000000000000';
+			$config['max_size'] = '50000000';
 			$videoName = $_FILES['myFile']['name'];
 			$config['file_name'] = $videoName;
+
 			$this->load->library('upload' , $config);
 			$this->upload->initialize($config);
 
-			if(!$this->upload->do_upload('myFile')){
+		if(!$this->upload->do_upload('myFile')){
 			$error = array('error' => $this->upload->display_errors());
+			var_dump($error);
+			var_dump(ini_get('upload_max_filesize'));
+			var_dump($_FILES['myFile']);
+			exit;
 			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
 			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
 			}
@@ -404,9 +280,8 @@ class Kelas extends CI_Controller {
 			
 			}
 
-	}
-	else {
-		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!');
+	} else {
+		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!'.print_r($_FILES,true));
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
