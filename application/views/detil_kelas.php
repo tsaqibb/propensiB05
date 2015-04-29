@@ -32,8 +32,9 @@
             
             if($type_user == "murid"):
                 foreach ($partisipan_all as $partisipan):
-                    $student = $partisipan->student->get(); 
-                    if($id_murid == $student->id OR $id_murid == $partisipan->student_id):
+                    /*$student = $partisipan->student->get();
+                    $id_student = $partisipan->get_by_id($studen);*/
+                    if($id_murid == $partisipan->student_id):
                         $registered=true;
                         break;
                     endif;
@@ -52,7 +53,7 @@
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><a href="<?php echo base_url();?>daftar" class=" fa fa-user btn btn-default main-button register3"> DAFTAR</a></h2>
             <?php
             else : ?>
-                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
+                <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?><div class="regis">You are in</div></h2>
             <?php
             endif; ?>                
                 <div class="panel-body">

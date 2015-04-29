@@ -36,14 +36,18 @@ class Daftar extends CI_Controller {
 			if ($harga==0){
 				$data_email["subject"] = "Registrasi Kelas Berhasil";
 				$data_email["message"] = "Hai $murr->nama, selamat datang di kelas $data_kelas->nama . Kamu sudah terdaftar sebagai peserta resmi kelas ini dan dapat mengakses kelas kapan saja. Selamat Belajar.";
-				/*if($this->_send_smtp_email($data_email))
-				{*/
+					
 					$daftar_model->student_id = $id_murid;
 					$daftar_model->course_id = $id_kelas;
 					$daftar_model->teacher_id = $id_guru;
 					$daftar_model->isActive =1;
 
 					$daftar_model->save_as_new();
+
+				/*if($this->_send_smtp_email($data_email))
+				{*/
+					$this->session->set_flashdata('status.notice','Daftar kelas berhasil!');
+					$this->_send_smtp_email($data_email);
 					redirect('/kelas/detail/'.$id_kelas );
 				/*} else
 					redirect('/daftar/');*/
@@ -62,6 +66,8 @@ class Daftar extends CI_Controller {
 					$daftar_model->isActive =0;
 
 					$daftar_model->save_as_new();
+					$this->session->set_flashdata('status.notice','Daftar kelas berhasil!');
+					$this->_send_smtp_email($data_email);
 					redirect('/kelas/');
 				//} else
 				//	redirect('/kelas/');

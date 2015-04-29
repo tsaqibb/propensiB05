@@ -59,7 +59,7 @@
     <strong>select all</strong>
 </input>
 <span>
-    <form method="POST" action="<?php echo base_url()."kelas/setAllNonActive";?>" >
+    <form method="POST" action="<?php echo base_url()."admin/setAllNonActive/".$list_partisipan->course_id;?>" >
     <input type="submit" value="Deactivate all"  class="main-button register2">
 </span>
 <div id="container" class="kelas-online">
@@ -94,7 +94,7 @@
                                 ?>
                                 <tr>
                                    <td class ="center">
-                                        <input type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
+                                        <input type="checkbox" value="<?php echo $Calon->course_id; ?>" name="id[]"></input>
                                     </td>
                                     
                                     <td>
@@ -106,7 +106,7 @@
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="<?php echo base_url()."kelas/setNonActive/"; ?>" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
+                                        <a href="<?php echo base_url()."admin/setNonActive/".$Calon->student_id."/".$Calon->course_id; ?>" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

@@ -115,13 +115,16 @@ class Kelas extends CI_Controller {
 	{
 		$this->load->model('courses_student');
 		$this->courses_student->set_active_participant($id, $id_kelas);
+		$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
 		$murid = new Student($id);
-		$kelas = new Course($id);
+		$kelas = new Course($id_kelas);
 	
 		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
 			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Hai $murid->nama, Jika ingin mendaftar di kelas $data_kelas->nama , silahkan melakukan pembayaran melalui transfer ataupun cash.",
+			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			]);
 		redirect('/admin/calonpartisipan/');
 	}
@@ -131,35 +134,21 @@ class Kelas extends CI_Controller {
 		$this->load->model('courses_student');
 		foreach ($data as $cek) {
 			$this->courses_student->set_active_all_participant($cek);
+			$this->session->set_flashdata('status.notice','Semua murid berhasil diaktifkan');
+			$murid = new Student($id);
+			$kelas = new Course($id_kelas);
+	
+		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
+			"receiver" => $murid->email,
+			"subject" => "Kelas Online Ruangguru.com",
+			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
+			]);
 		}
 		redirect('/admin/calonpartisipan/');
 	}
-	public function setNonActive($id, $id_kelas)
-	{
-
-		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_participant($id, $id_kelas);
-		$murid = new Student($id);
-		$kelas = new Course($id);
-
-		$this->_send_smtp_email([
-			"receiver" => $murid->email,
-			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $data_kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
-			]);
-
-		redirect('/kelas/detail/'.$id_kelas);
-	}
-	public function setAllNonActive()
-	{
-
-		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_all_participant();
-		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);
-		redirect('/kelas/detail/'.$data_kelas->id);
-	}
-
+	
 	public function add_feedback($id) 
 	{
 		$feedback_model = new Feedback();
