@@ -10,25 +10,28 @@
 <script type=text/javascript>
     function validasi(){
         if (document.getElementById("all").checked){
-            var r=confirm("Apakah Anda yakin ingin menyetujui semua murid tersebut?");
+            var r=confirm("Apakah Anda yakin ingin menonaktifkan semua murid tersebut?");
             if (r==true){
-                alert("Approval berhasil");
+                alert("Deactivate berhasil");
             }
             else{
-                alert("Approval Anda telah dibatalkan");
+                alert("Deactivate Anda telah dibatalkan");
+                return false;
             }
         }
         else{
             if(document.getElementById("satu").checked){
-                var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+                var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
                 if (r==true){
-                    alert("Approval berhasil");
+                    alert("Deactivate berhasil");
                 }
                 else{
-                    alert("Approval Anda telah dibatalkan");
+                    alert("Deactivate Anda telah dibatalkan");
+                    return false;
                 }
             }
             else(alert("Anda belum memilih murid"));
+
         }
     }
 </script>
@@ -36,12 +39,12 @@
 </script>
 <script type=text/javascript>
     function konfirmasi(){
-        var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
+        var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
         if (r==true){
-            alert("Approval berhasil");
+            alert("Deactivate berhasil");
         }
         else{
-            alert("Approval Anda telah dibatalkan");
+            alert("Deactivate Anda telah dibatalkan");
             return false;
         }
     }
@@ -59,8 +62,8 @@
     <strong>select all</strong>
 </input>
 <span>
-    <form method="POST" action="<?php echo base_url()."kelas/setAllNonActive";?>" >
-    <input type="submit" value="Deactivate all"  class="main-button register2">
+    <form method="POST" action="<?php echo base_url()."admin/setAllNonActive/".$list_partisipan->course_id;?>" >
+    <input id="all" onclick="validasi()" type="submit" value="Deactivate all"  class="main-button register2">
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -94,7 +97,7 @@
                                 ?>
                                 <tr>
                                    <td class ="center">
-                                        <input type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
+                                        <input id="satu" type="checkbox" value="<?php echo $Calon->course_id; ?>" name="id[]"></input>
                                     </td>
                                     
                                     <td>
@@ -106,7 +109,7 @@
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="<?php echo base_url()."kelas/setNonActive/"; ?>" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
+                                        <a href="<?php echo base_url()."admin/setNonActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick ="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

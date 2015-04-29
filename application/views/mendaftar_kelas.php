@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="container center content kelas vendor">
+<div class="container content kelas vendor">
     <div class="row">
         
        <!--  <div class="col-sm-12 col-md-3"> -->
@@ -36,7 +36,7 @@
 
         <!-- </div> -->
 
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-12 col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div role="tabpanel" class="sub-vendor">
@@ -58,7 +58,6 @@
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
                             </li>
                         </ul> -->
-                        <a class="btn btn-default main-button register" href="<?php echo base_url();?>kelas">Kembali ke Galeri Kelas</a>
                         <br>
                         
                         <div class="panel-heading heading-label">Term Pendaftaran</div>
@@ -177,6 +176,7 @@
                                 </script><br><br><br>
                                 <button id="submit" type="submit" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
                             </form>
+                            <a class="fa fa-arrow-left btn btn-default main-button" href="<?php echo base_url();?>kelas"> Kembali ke Galeri Kelas</a>
                             </div>
                         </div>
                     </div>

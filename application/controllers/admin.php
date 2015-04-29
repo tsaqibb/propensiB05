@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
@@ -39,8 +40,50 @@ class Admin extends CI_Controller {
 		}
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 		$this->load->view('layout/header-admin');
-		$this->load->view('admin/daftarmurid', array('list_partisipan' => $list_partisipan));
+		$this->load->view('admin/daftarmurid', array('data_kelas'=>$data_kelas,'list_partisipan' => $list_partisipan));
 		$this->load->view('layout/footer-admin');
+	}
+
+	public function setNonActive($id, $id_kelas)
+	{
+
+		$this->load->model('courses_student');
+		$this->courses_student->set_nonactive_participant($id, $id_kelas);
+		$this->session->set_flashdata('status.notice','Murid berhasil dinonaktifkan');
+		$murid = new Student($id);
+		$kelas = new Course($id_kelas);
+
+		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
+			"receiver" => $murid->email,
+			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
+			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
+			]);
+
+		redirect('/admin/daftarmurid/'.$id_kelas);
+	}
+	public function setAllNonActive($id_kelas)
+	{
+		$data=$this->input->post('id');
+		$this->load->model('courses_student');
+		foreach ($data as $cek) {
+			$this->courses_student->set_nonactive_all_participant($cek);
+			$this->session->set_flashdata('status.notice','Semua murid berhasil dinonaktifkan');
+			/*$kelas_model = new Course();
+			$data_kelas = $kelas_model->get_by_id($id);*/
+			$murid = new Student($id);
+			$kelas = new Course($id_kelas);
+
+		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
+			"receiver" => $murid->email,
+			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
+			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
+			]);
+	}
+		redirect('/admin/daftarmurid/'.$id_kelas);
 	}
 
 	public function pendingclasses()

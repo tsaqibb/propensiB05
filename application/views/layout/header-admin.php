@@ -4,6 +4,7 @@
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <title>Ruangguru Administration</title>
+        
         <link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>css/admin.css" type="text/css" media="all" />
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.9.1.min.js"></script>
@@ -17,8 +18,53 @@
 				z-index: -1;
 			}
 		</style>
+		<script type="application/javascript">
+		var sTO = null;
+        $(document).ready(function() {
+            if($('.notification').is('.on')) {
+                var timeout = $('.notification > div').is('.error')?
+                        30000:$('.notification > div').is('.warning')?20000:10000;
+                sTO = setTimeout('removeNotification()', timeout);
+            }
+            $('.close-notif').click(function(e){
+                e.preventDefault();
+                clearTimeout(sTO);
+                removeNotification();
+            });
+        });
+        </script>
     <script type="text/javascript" src="6_S3_"></script></head>
     <body>
+    <?php
+$notice = strlen($this->session->flashdata('status.error'))?'error':
+        (strlen($this->session->flashdata('status.warning'))?'warning':
+                (strlen($this->session->flashdata('status.notice'))?'notice':''));
+?>
+        <div class="notification <?php echo !empty($notice)?'on':'';
+        echo $this->session->flashdata('status.large')=='TRUE'?' large':''; ?>">
+            <div class="<?php echo $notice;?>">
+                <div class="message">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-2 col-xs-12">
+                            <strong id="notification-title">
+                                <?php echo ucfirst($notice) ;?>
+                            </strong>
+                            <span id="notification-message">
+                                <?php echo $this->session->flashdata('status.'.$notice)?>
+                            </span>
+                            <span class="pull-right visible-xs-block close-notif">
+                                <i class="fa fa-close"></i> Close
+                            </span>
+                        </div>
+                        <!-- <div class="col-sm-1 hidden-xs close-notif" style="text-align: right">
+                            <i class="fa fa-close"></i> Close
+                        </div> -->
+                        <div class="col-sm-offset-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Header -->
         <div id="header">
             <div class="shell">

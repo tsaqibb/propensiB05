@@ -1,7 +1,7 @@
 <?php
 
 class Admin extends DataMapper {
-	
+	var $has_many = array('courses_student', 'course');
     function __construct($id = NULL){
 		parent::__construct($email);
     }

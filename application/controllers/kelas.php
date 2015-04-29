@@ -115,13 +115,19 @@ class Kelas extends CI_Controller {
 	{
 		$this->load->model('courses_student');
 		$this->courses_student->set_active_participant($id, $id_kelas);
+		/*if($success_active) {
+			$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
+		}*/
+		$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
 		$murid = new Student($id);
-		$kelas = new Course($id);
+		$kelas = new Course($id_kelas);
 	
 		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
-			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Hai $murid->nama, Jika ingin mendaftar di kelas $data_kelas->nama , silahkan melakukan pembayaran melalui transfer ataupun cash.",
+			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
+			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			]);
 		redirect('/admin/calonpartisipan/');
 	}
@@ -131,35 +137,22 @@ class Kelas extends CI_Controller {
 		$this->load->model('courses_student');
 		foreach ($data as $cek) {
 			$this->courses_student->set_active_all_participant($cek);
+
+			$this->session->set_flashdata('status.notice','Semua murid berhasil diaktifkan');
+			$murid = new Student($id);
+			$kelas = new Course($id_kelas);
+	
+		$this->_send_smtp_email([
+			"sender" => "online.ruangguru@gmail.com",
+			"sender_name" => "Kelas Online ruangguru.com",
+			"receiver" => $murid->email,
+			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
+			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
+			]);
 		}
 		redirect('/admin/calonpartisipan/');
 	}
-	public function setNonActive($id, $id_kelas)
-	{
-
-		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_participant($id, $id_kelas);
-		$murid = new Student($id);
-		$kelas = new Course($id);
-
-		$this->_send_smtp_email([
-			"receiver" => $murid->email,
-			"subject" => "Kelas Online Ruangguru.com",
-			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $data_kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
-			]);
-
-		redirect('/kelas/detail/'.$id_kelas);
-	}
-	public function setAllNonActive()
-	{
-
-		$this->load->model('courses_student');
-		$this->courses_student->set_nonactive_all_participant();
-		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);
-		redirect('/kelas/detail/'.$data_kelas->id);
-	}
-
+	
 	public function add_feedback($id) 
 	{
 		$feedback_model = new Feedback();
@@ -359,13 +352,69 @@ class Kelas extends CI_Controller {
 
 		/*$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);*/
-
-
+		
+		$materi_model = new Resource();
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
 
-		$type = explode('.', $_FILES["myFile"]["name"]);
+		
+		if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '' ){
+
+			unset($config);
+			$config['upload_path'] ='./video/';
+			$config['allowed_types'] = 'pdf|mp4';
+			$config['max_sixe'] = '100000000000000';
+			$videoName = $_FILES['myFile']['name'];
+			$config['file_name'] = $videoName;
+			$this->load->library('upload' , $config);
+			$this->upload->initialize($config);
+
+			if(!$this->upload->do_upload('myFile')){
+			$error = array('error' => $this->upload->display_errors());
+			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
+			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
+			}
+
+			else{
+			
+			$materi_model->judul = $this->input->post('namamateri');
+			$materi_model->notes = $this->input->post('notemateri');			
+			$upload_file = $_FILES['myFile']['name'];	
+
+			$extension = pathinfo($upload_file, PATHINFO_EXTENSION);		
+			
+			$materi_model->teacher_id = $data_kelas->teacher_id;			
+			$materi_model->topic_id = $data_topik->id;
+			$materi_model->course_id = $data_kelas->id;	
+			$materi_model->url = 'video/'.$upload_file;
+			$materi_model->tipe = $extension;
+			$success = $materi_model->save_as_new();
+
+		
+
+				if($success) {
+					$this->session->set_flashdata('status.notice','Berhasil membuat materi!');
+				}
+				else{
+					$this->session->set_flashdata('status.error','Gagal membuat materi!');
+				}
+
+			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');
+			
+			}
+
+	}
+	else {
+		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!');
+		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+	}
+
+		
+
+		
+
+		/*$type = explode('.', $_FILES["myFile"]["name"]);
 		$type = $type[count($type) - 1];
 		$url = "video/".uniqid(rand()).".".$type;
 		if(in_array($type, array("mp4", "jpg", "png"))){
@@ -376,23 +425,13 @@ class Kelas extends CI_Controller {
 				 
 			}
 
-		}
-		$materi_model = new Resource();
-		$materi_model->judul = $this->input->post('namamateri');
-		$materi_model->notes = $this->input->post('notemateri');
-		$materi_model->teacher_id = $data_kelas->teacher_id;			
-		$materi_model->topic_id = $data_topik->id;
-		$materi_model->course_id = $data_kelas->id;	
-		$materi_model->url=$url;
+		}*/
+		//$materi_model->url=$url;
+		
+		
+			
 
-
-		$config['upload_path'] ='./video/';
-		$config['allowed_types'] = 'mp4|jpg|pdf';
-
-		$this->load->library('upload',$config);	
-		$success = $materi_model->save_as_new();	
-
-		//redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+		
 	}
 	public function delete($id)
 	{
@@ -435,6 +474,15 @@ class Kelas extends CI_Controller {
 		$this->load->database();
 		$this->db->delete('topics',array('id' => $id));
 
+		$success = $topik_model->delete();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil menghapus topik!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menghapus topik!');
+		}
+
+
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
 
@@ -449,9 +497,20 @@ class Kelas extends CI_Controller {
 		$this->load->database();
 		$this->db->delete('resources',array('id' => $id));
 
+		$success = $materi_model->delete();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil menghapus materi!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menghapus materi!');
+		}
 		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
 	}
+
+
+
 	// fungsi untuk mengirim email
+
 	function _send_smtp_email($data)
   	{
     // $data: sender, sender_name, receiver, receiver_name, subject, message

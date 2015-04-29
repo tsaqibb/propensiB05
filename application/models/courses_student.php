@@ -4,7 +4,7 @@ class Courses_Student extends DataMapper {
 
 	var $table = 'Courses_Students';
 	var $has_one = array('course','student');
-	var $has_many = array();
+	var $has_many = array('admin');
 
 	var $default_order_by = array('student_id' => 'asc');
     function __construct($id = NULL){
@@ -51,7 +51,8 @@ class Courses_Student extends DataMapper {
 	}
 
 	//menonaktifkan semua partisipan kelas
-	function set_nonactive_all_participant(){
+	function set_nonactive_all_participant($id){
+		$this->where('course_id =', $id);
 		$this->where('isActive =',1);
 		$this->update('isActive',0);
 	}

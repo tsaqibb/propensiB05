@@ -28,15 +28,9 @@
 
                 <ul class="list-group">
                    
-                    <li class="list-group-item"><span class="badge"> video</span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
+                    <li class="list-group-item"><span class="badge"> <?php echo $materi->tipe?></span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
 
-                    <!--<li class="list-group-item"><span class="badge"> video</span><a href=""> Fungsi Kuadrat </a></li>  
-                    <li class="list-group-item"><span class="badge">video</span><a href=""> Matriks </a></li>
-                    <li class="list-group-item"><span class="badge"> pdf</span> <a href="">Integral </a></li>
-                    <li class="list-group-item"><span class="badge"> video</span> <a href=""> Lingkaran </a></li>  
-                    <li class="list-group-item"><span class="badge">video</span> <a href="">Trigonometri </a></li> -->
-
-                    <?php
+                   <?php
                      endforeach;
                     ?>
                 </ul>
@@ -44,7 +38,7 @@
         </div>
 
         <div class="col-sm-12 col-md-9">
-            <div class="panel panel-default panel-content">
+          <div class="panel panel-default panel-content">
                  <div class="panel heading-materi">                                  
                     <div class="bredcrumbs">
                       <ul>
@@ -56,20 +50,36 @@
                         <li>  <?php echo $open_materi->judul; ?> &nbsp;</li>
                       </ul>
                     </div>
-              </div>      
+                  </div>      
             
             <div class="panel content-video">
-              <div class="space-video">
-                <video class="videoplayer" controls>                  
-                  <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
-                </video>
-               
-              </div>
-            </div>
+
+                <?php if($open_materi->tipe == 'mp4') : ?>
+                <div class="space-video">
+                 <video class="videoplayer" controls>                  
+                  <source src="<?php echo base_url().$open_materi->url;?>" type="video/mp4">         
+                </video>                             
+                </div>           
+                <?php elseif($open_materi->tipe == 'pdf') : ?>
+                         
+                <div class="space-pdf">
+                  <object data="<?php echo base_url().$open_materi->url;?>" type="application/pdf" class="pdfviewer">
+                  </object>
+                </div>
+                <?php endif; ?>
+            </div>              
+                      
+          </div> 
+          <div class="notes panel panel-default">
+                <div class="panel panel-warning">
+                    <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
+                </div>
+                <div class="panel-body">
+                <?php echo $open_materi->notes;?>
+                </div>
+          </div>                
         </div>
-               
-            </div>
-        </div>
+      </div>
     </div>
 </div> <!-- /container -->
     

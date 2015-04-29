@@ -42,7 +42,7 @@
                                     </td>
 
                                      <td class="center">
-                                        <a href="<?php echo base_url().'admin/daftarmurid'.$kelas->id; ?>" data-id="6">Daftar<i class="fa fa-arrow-right"></i></a><br>
+                                        <a href="<?php echo base_url().'admin/daftarmurid/'.$kelas->id; ?>" data-id="6">Daftar<i class="fa fa-arrow-right"></i></a><br>
                                     </td>
 
                                     <td class="center action">
