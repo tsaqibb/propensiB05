@@ -77,7 +77,7 @@
                     </div>
                     <!-- End Box Head -->
                     <div class="table">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
                             <thead>
                                 <tr>
                                     <th class="center">Check</th>
@@ -115,7 +115,7 @@
                                         <a href="#gmail"><?php echo $student->email; ?></a>
                                     </td>
                                     
-                                    <td class ="center">
+                                    <td  class ="center">
                                         <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
