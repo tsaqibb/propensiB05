@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-sm-12 col-md-9">
-            <div class="panel panel-default panel-content">
+          <div class="panel panel-default panel-content">
                  <div class="panel heading-materi">                                  
                     <div class="bredcrumbs">
                       <ul>
@@ -50,29 +50,36 @@
                         <li>  <?php echo $open_materi->judul; ?> &nbsp;</li>
                       </ul>
                     </div>
-              </div>      
+                  </div>      
             
             <div class="panel content-video">
 
                 <?php if($open_materi->tipe == 'mp4') : ?>
                 <div class="space-video">
                  <video class="videoplayer" controls>                  
-                  <source src="<?php echo base_url().$open_materi->url; ?>" type="video/mp4">         
+                  <source src="<?php echo base_url().$open_materi->url;?>" type="video/mp4">         
                 </video>                             
-              </div>           
-          <?php elseif($open_materi->tipe == 'pdf') : ?>
+                </div>           
+                <?php elseif($open_materi->tipe == 'pdf') : ?>
                          
-              <div class="space-pdf">
-                  <object data="<?php echo base_url().$open_materi->url; ?>" type="application/pdf" class="pdfviewer">
+                <div class="space-pdf">
+                  <object data="<?php echo base_url().$open_materi->url;?>" type="application/pdf" class="pdfviewer">
                   </object>
-              </div>
-         <?php endif; ?>
-              
-            </div>
+                </div>
+                <?php endif; ?>
+            </div>              
+                      
+          </div> 
+          <div class="notes panel panel-default">
+                <div class="panel panel-warning">
+                    <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
+                </div>
+                <div class="panel-body">
+                <?php echo $open_materi->notes;?>
+                </div>
+          </div>                
         </div>
-               
-            </div>
-        </div>
+      </div>
     </div>
 </div> <!-- /container -->
     

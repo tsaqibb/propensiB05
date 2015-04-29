@@ -167,9 +167,9 @@
                                              </a>
                                             </div>
                                             <div class="col-md-3">
-                                              <form action="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id; ?>">
-                                                 <button onclick="hapusMateri()" role="button" width="70%" class="btn btn-delete-materi" id="button-hapus-materi"><i class="fa fa-times"></i>Hapus materi</button>
-                                              </form>
+                                              <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id; ?>" class="btn-delete-materi">
+                                                 <i class="fa fa-trash-o"></i>
+                                              </a>
                                             </div>
                                           </ul>
                                         <?php endforeach;?>
