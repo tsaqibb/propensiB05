@@ -181,6 +181,9 @@ class Kelas extends CI_Controller {
 		elseif($session_role == 'admin') {
 			$feedback_model->role = 0;
 		}
+		else {
+			redirect();
+		}
 		
 		$success = $feedback_model->save_as_new();
 		redirect('kelas/detail/'.$id.'#feedback', 'refresh');
@@ -188,6 +191,10 @@ class Kelas extends CI_Controller {
 
 	public function update_kelas($id)
 	{
+		if($this->session->userdata('user_type') != 'guru') {
+			redirect();
+			return;
+		}
 		$kelas_model = new Course();
 		$success_update = $kelas_model->where('id', $id)->update(array(
 			'nama' => $this->input->post('nama_kelas'),
@@ -254,6 +261,10 @@ class Kelas extends CI_Controller {
 
 	public function create_kelas()
 	{
+		if($this->session->userdata('user_type') != 'guru') {
+			redirect();
+			return;
+		}
 		$kelas_model = new Course();
 		$kelas_model->nama = $this->input->post('nama_kelas');
 		$kelas_model->deskripsi = $this->input->post('deskripsi_kelas');

@@ -40,7 +40,7 @@
                                                 <td class="statusid">ID</td>
                                                 <td>Nama Kelas</td>
                                                 <td class="statusdetil">Status</td>
-                                                <td class="statusdetil">Go to Web</td>
+                                                <td class="status_action">Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,13 +52,16 @@
                                                 <td>
                                                     <span class="pending icon-circle" title="" data-original-title="Pending Unpublish"><i class="fa fa-ellipsis-h"></i></span>
                                                 </td>
-                                                <?php else: ?>
-                                                <td>
-                                                </td>
-                                                <?php endif; ?>
                                                 <td>
                                                     <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Detil Kelas"><i class="fa fa-arrow-right"></i></a>
                                                 </td>
+                                                <?php else: ?>
+                                                <td></td>
+                                                <td>
+                                                    <a href="<?php echo base_url().'guru/edit_kelas/'.$kelas->id; ?>" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                    <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" class="link icon-circle" title="" data-original-title="Detil Kelas"><i class="fa fa-arrow-right"></i></a>
+                                                </td>
+                                                <?php endif; ?>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
@@ -66,11 +69,9 @@
                                 </div><!-- table-responsive -->
                                 <div id="class-notes">
                                     <p> Catatan: </p>
-                                    <ol>
-                                        <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
-                                        </li>
-                                    </ol>
+                                    <div><span class="manage icon-circle"><i class="fa fa-gears"></i></span> Edit Kelas </div>
+                                    <div><span class="link icon-circle"><i class="fa fa-arrow-right"></i></span> Link untuk melihat Kelas Online yang sudah dibuat </div>
+                                    <div><span class="pending icon-circle"><i class="fa fa-ellipsis-h"></i></span> Kelas dalam keadaan pending untuk dipindahkan ke dalam draft </div>
                                 </div>
                             </div><!-- published -->
                             <div role="tabpanel" class="tab-pane" id="draft">
@@ -103,13 +104,15 @@
                                                 <td>
                                                     <?php if($kelas->status_kelas == 0 || $kelas->status_kelas == 2) : ?>
                                                         <a href="<?php echo base_url().'guru/edit_kelas/'.$kelas->id; ?>" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
+                                                        <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
+                                                            class="cancel icon-circle delete-class" title="" data-original-title="Delete">
+                                                                <i class="fa fa-trash-o"></i>
+                                                        </a>
                                                     <?php else: ?>
                                                         <span class="pending icon-circle"><i class="fa fa-gears"></i></span>
+                                                        <span class="pending icon-circle"><i class="fa fa-trash-o"></i></span>
                                                     <?php endif; ?>
-                                                    <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
-                                                        class="cancel icon-circle delete-class" title="" data-original-title="Delete">
-                                                            <i class="fa fa-trash-o"></i>
-                                                    </a>
+                                                    
                                                     <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"
                                                         class="link icon-circle" title="" data-original-title="Lihat Kelas">
                                                             <i class="fa fa-arrow-right"></i>
@@ -122,11 +125,11 @@
                                 </div><!-- table-responsive -->
                                 <div id="class-notes">
                                     <p> Catatan: </p>
-                                    <ol>
-                                        <li>
-                                            Untuk kelas yang sudah live, Anda tidak diizinkan untuk melakukan perubahan. Jika Anda ingin mengubah detilnya, kelas Anda harus menjadi draft kembali
-                                        </li>
-                                    </ol>
+                                    <div><span class="manage icon-circle"><i class="fa fa-gears"></i></span> Edit Kelas (tidak bisa dilakukan jika dalam proses aproval/publikasi kelas) </div>
+                                    <div><span class="cancel icon-circle"><i class="fa fa-trash-o"></i></span> Menghapus Kelas (tidak bisa dilakukan jika dalam proses aproval/publikasi kelas) </div>
+                                    <div><span class="link icon-circle"><i class="fa fa-arrow-right"></i></span> Link untuk melihat Kelas Online yang sudah dibuat </div>
+                                    <div><span class="pending icon-circle"><i class="fa fa-ellipsis-h"></i></span> Kelas masih dalam proses approval dari pihak ruangguru </div>
+                                    <div><span class="pending icon-circle"><i class="fa fa-upload"></i></span> Kelas masih dalam proses untuk dipublikasikan </div>
                                 </div>
                             </div><!-- pending publish -->
                             <div role="tabpanel" class="tab-pane" id="draft">Kelas tidak tersedia </div><!-- draft -->
