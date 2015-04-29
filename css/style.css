@@ -1196,6 +1196,13 @@ text-align: center;
 /* end tab-detil-kelas */
 
 /*partisipan*/
+.regis{
+  float:right ;
+  color :orange;
+  font-family: ubuntu;
+  font-weight: bold;
+  font-size: 16px;
+}
 .pinkfont{
   color:rgb(225, 0, 101);
   font-weight: bold;
@@ -1347,9 +1354,11 @@ font-weight: bold;
   width: 110px;
   margin-top: 0px;
   padding-top: 10px;
-  padding-bottom: 8px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
-
 .actived-partisipan {
   margin: 0px 0px -50px 60px;
 }
