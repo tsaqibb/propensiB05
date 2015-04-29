@@ -89,6 +89,7 @@ $mimes = array(	'hqx'	=>	'application/mac-binhex40',
 				'mpg'	=>	'video/mpeg',
 				'mpe'	=>	'video/mpeg',
 				'qt'	=>	'video/quicktime',
+				'mp4'	=>	'video/mp4' ,
 				'mov'	=>	'video/quicktime',
 				'avi'	=>	'video/x-msvideo',
 				'movie'	=>	'video/x-sgi-movie',
@@ -98,8 +99,8 @@ $mimes = array(	'hqx'	=>	'application/mac-binhex40',
 				'word'	=>	array('application/msword', 'application/octet-stream'),
 				'xl'	=>	'application/excel',
 				'eml'	=>	'message/rfc822',
-				'json' => array('application/json', 'text/json',
-				'mp4'	=>	'video/mp4')
+				'json' => array('application/json', 'text/json')
+				
 			);
 
 
