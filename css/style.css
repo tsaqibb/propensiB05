@@ -657,7 +657,9 @@ thead {
 .detail-label.label-yellow {
   background-color: #fcb33b;
 }
-.detail-label.label-blue,
+.detail-label.label-blue {
+  background-color: #3bc4e6 !important;
+}
 .panel-default .panel-heading {
   background-color: #fcb33b;
   color: #fff;
@@ -938,6 +940,7 @@ a.remove {
   color:white;
   display: -webkit-box;
   margin: 0;
+  background-color: #fcb33b;
 }
 
 .tab-panemateri .panel-body a {
