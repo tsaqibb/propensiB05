@@ -646,8 +646,8 @@ thead {
 .price-big-wrap:before {
   background-color: #fcb33b;
   content: "";
-  height: 43px;
-  left: -22px;
+  height: 42px;
+  left: -19px;
   position: absolute;
   top: 9px;
   transform: rotate(45deg);
@@ -764,11 +764,11 @@ thead {
   color: #3a3a3a;
   font-size: 18px;
   margin: 0;
+  padding-top: 5px;
 }
 .price-big-wrap .entry-detail-label {
-  font-size: 24px;
-  padding-right: 20px;
-  text-align: right;
+  padding-left: 26px;
+  text-align: center;
 }
 .daftar-label .entry-detail-label {
   display: inline-block;
@@ -922,6 +922,14 @@ a.remove {
   width: 200px;
 }
 
+/* bagian tab-content detail kelas */
+
+.detail-kelas .tab-content {
+
+}
+
+/* end detail kelas */
+
 /* Bagian tab materi */
 
 .tab-materi .panel-group .panel-default .panel-heading .panel-title{
@@ -1023,7 +1031,7 @@ text-align: center;
 /*kelas-anda*/
 .kelas .tab-content {
   border: medium none;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .kelas .nav-tabs {
   border: medium none;
@@ -1222,6 +1230,21 @@ text-align: center;
 .text{
   margin-left: 12px;
 }
+.text-12, .text-12 * {
+  font-size: 12px !important;
+}
+.text-14, .text-14 * {
+  font-size: 14px !important;
+}
+.text-16, .text-16 * {
+  font-size: 16px !important;
+}
+.text-18, .text-18 * {
+  font-size: 18px !important;
+}
+.text-20, .text-20 * {
+  font-size: 20px !important;
+}
 .bluefont{
 color: blue;
 font-weight: bold;
@@ -1233,8 +1256,10 @@ font-weight: bold;
 }
 .btn-orange {
   background-color: #fcb33b;
-  color: #fff;
-  /* border-color: #fcb33b; */
+  color: #fff !important;
+}
+.btn-orange:hover{
+  background: #E39E1F !important;
 }
 .grey {
   color:black;
@@ -1310,7 +1335,7 @@ font-weight: bold;
 }
 .btn-blue, .btn-orange, .btn-payment, .btn-payment2 {
   padding: 8px 12px;
-  border-radius: 22px;
+  border-radius: 5px;
   font-weight: bold;
   font-size: 18px;
 }
