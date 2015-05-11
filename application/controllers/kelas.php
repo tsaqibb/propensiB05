@@ -120,13 +120,13 @@ class Kelas extends CI_Controller {
 		$murid = new Student($id);
 		$kelas = new Course($id_kelas);
 	
-		$this->_send_smtp_email([
+		$this->_send_smtp_email(array(
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
 			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
-			]);
+			));
 		redirect('/admin/calonpartisipan/');
 	}
 	public function setAllActive()
@@ -140,13 +140,13 @@ class Kelas extends CI_Controller {
 			$murid = new Student($id);
 			$kelas = new Course($id_kelas);
 	
-		$this->_send_smtp_email([
+		$this->_send_smtp_email(array(
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
 			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
-			]);
+			));
 		}
 		redirect('/admin/calonpartisipan/');
 	}
@@ -199,24 +199,6 @@ class Kelas extends CI_Controller {
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
-
-	/*public function aksesmateri($id)
-	{	
-
-		$materi_model = new Resource();
-		$open_materi = $materi_model->get_by_id($id);
-
-		$topik = $open_materi->topic->get();
-		$kelas = $topik->course->get();
-		
-		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
-			'topik' => $topik ,
-			'open_materi' => $open_materi));
-		$this->load->view('layout/footer');
-	}
-*/
-
 	public function create_materi($id){
 		//$kelas_model = new Course();
 		//$data_kelas = $kelas_model->get_by_id($id);
@@ -230,7 +212,6 @@ class Kelas extends CI_Controller {
 		$data_kelas = $data_topik->course->get();
 		ini_set('upload_max_filesize','50M');
 	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
-
 			unset($config);
 			$config['upload_path'] ='./video/';
 			$config['allowed_types'] = 'pdf|mp4';
@@ -385,4 +366,21 @@ class Kelas extends CI_Controller {
     // you may also use this format $mail->AddAddress ($recipient);
     return $mail->Send();
   }
+
+
+ 	/* public function aksesmateri($id)
+	{	
+
+		$materi_model = new Resource();
+		$open_materi = $materi_model->get_by_id($id);
+
+		$topik = $open_materi->topic->get();
+		$kelas = $topik->course->get();
+		
+		$this->load->view('layout/header'); 
+		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi));
+		$this->load->view('layout/footer');
+	}*/
 }
