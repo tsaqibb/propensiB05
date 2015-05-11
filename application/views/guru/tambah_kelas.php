@@ -67,7 +67,7 @@
                         </div> <!-- end panel -->
 
 
-                        <div class="panel panel-orange">
+                      <!--  <div class="panel panel-orange">
                             <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading" href="#materi">
                                 <i class="fa fa-chevron-circle-down"></i>
                                 Materi
@@ -113,7 +113,7 @@
                                                             <button type="button" class="btn btn-default" id="button1" >Tambah Materi</button>
                                                         </a>                                                    
                                                 </ul>
-                            <!-- FORM POP UP-->
+                             
                                                 <div id="inline1" style="width:400px; display: none;">
                                                     <p class="text-14 bold text-center"> [Nama Topik] </p>
                                                     <form id="upload-materi" action="<?php echo base_url();?>guru/tambahmateri" method="POST" enctype="multipart/form-data">
@@ -147,22 +147,22 @@
                                                         <button type="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
                                                     </form> 
                                                 </div>
-                            <!-- end FORM POP UP-->
+                            
                                                
                                               
                                                 <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p>
                                             </div>
-                                        </div> <!-- end topik 1-->
-
-
-    
+                                        </div> 
+ 
 
     
 
-                                    </div> <!-- end panel orange -->                                                                   
-                                </div> <!-- end panel-group accrodion-->
-                            </div> <!-- end materi -->
-                        </div>
+    
+
+                                    </div>                                                                    
+                                </div> 
+                            </div> 
+                        </div> -->
                     </div> <!-- end panel-group -->                  
                  </div><!-- panel-body -->
             </div><!-- panel -->
