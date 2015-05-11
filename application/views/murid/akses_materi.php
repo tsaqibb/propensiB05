@@ -28,7 +28,7 @@
 
                 <ul class="list-group">
                    
-                    <li class="list-group-item"><span class="badge"> <?php echo $materi->tipe?></span><a href="<?php echo base_url().'murid/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
+                    <li class="list-group-item"><span class="badge"> <?php echo $materi->tipe?></span><a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
 
                    <?php
                      endforeach;
@@ -70,17 +70,27 @@
             </div>              
                       
           </div> 
-          <div class="notes panel panel-default">
+          <!-- <div class="notes panel panel-default">
                 <div class="panel panel-warning">
                     <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
                 </div>
                 <div class="panel-body">
                 <?php echo $open_materi->notes;?>
                 </div>
-          </div>                
+          </div>   -->  
+          <div class="notes"> 
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                 <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
+                </div>
+                <div class="panel-body">
+                   <?php echo $open_materi->notes;?>
+                </div>
+            </div>
+          </div>           
         </div>
       </div>
-    </div>
+    
 </div> <!-- /container -->
     
    
