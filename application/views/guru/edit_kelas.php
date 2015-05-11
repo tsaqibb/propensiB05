@@ -162,7 +162,7 @@
                                         ?>
                                           <ul class="list-groups"> 
                                             <div class="col-md-8">                                
-                                              <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                              <a href="<?php echo base_url();?>kelas/aksesmateri/<?php echo $materi->id; ?>">
                                              <li class="list-group-item"> <?php echo $materi->judul; ?></li>
                                              </a>
                                             </div>
