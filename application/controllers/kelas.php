@@ -228,9 +228,8 @@ class Kelas extends CI_Controller {
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
-//var_dump($_FILES['myFile']);exit;
 		ini_set('upload_max_filesize','50M');
-	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '' && $_FILES['myFile']['size']<50000000 ){
+	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
 
 			unset($config);
 			$config['upload_path'] ='./video/';
@@ -244,15 +243,10 @@ class Kelas extends CI_Controller {
 
 		if(!$this->upload->do_upload('myFile')){
 			$error = array('error' => $this->upload->display_errors());
-			var_dump($error);
-			var_dump(ini_get('upload_max_filesize'));
-			var_dump($_FILES['myFile']);
-			exit;
 			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
 			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
-			}
-
-			else{
+		}
+		else{
 			
 			$materi_model->judul = $this->input->post('namamateri');
 			$materi_model->notes = $this->input->post('notemateri');			
@@ -281,32 +275,10 @@ class Kelas extends CI_Controller {
 			}
 
 	} else {
-		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!'.print_r($_FILES,true));
+		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!');
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
 
-		
-
-		
-
-		/*$type = explode('.', $_FILES["myFile"]["name"]);
-		$type = $type[count($type) - 1];
-		$url = "video/".uniqid(rand()).".".$type;
-		if(in_array($type, array("mp4", "jpg", "png"))){
-			if(is_uploaded_file($_FILES["myFile"]["tmp_name"])){
-				if(! move_uploaded_file($_FILES["myFile"]["tmp_name"],$url)){
-					$url="";
-				}
-				 
-			}
-
-		}*/
-		//$materi_model->url=$url;
-		
-		
-			
-
-		
 	}
 	public function delete($id)
 	{

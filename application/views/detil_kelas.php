@@ -396,8 +396,8 @@
                         </a>
                     </h5>
                     <h5 class="support">
-                        <a href="mailto:kelas@ruangguru.com">
-                            <i class="fa fa-envelope"></i>kelas@ruangguru.com
+                        <a href="mailto:online@ruangguru.com">
+                            <i class="fa fa-envelope"></i>online@ruangguru.com
                         </a>
                     </h5>
                 </div>
@@ -406,12 +406,13 @@
                 <div class="panel-heading heading-label text-center"><i class="fa fa-male"></i> Penyelenggara</div>
                 <div class="panel-body">
                     <img src="<?php echo base_url(); ?>images/image_300x300.gif" class="img-responsive logo-vendor" alt="">
-                    <h5>
+                    <h4>
                         <?php 
                         $guru = $data_kelas->teacher->get();
                         echo $guru->nama; ?>
-                    </h5>
-                    <p><?php echo $guru->bio; ?></p>
+                    </h4>
+                    <p>
+                    <?php echo substr($guru->bio, 200).'...'; ?></p>
                 </div>
             </div><!-- panel -->
         </div>

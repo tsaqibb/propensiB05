@@ -8,8 +8,9 @@ class Video extends CI_Controller {
 
 	public function _remap() {
 		$file = $this->uri->rsegment(2);
-		if($this->input->get('debug',TRUE) != 'wakuu') {
-			show_404();
+		if($this->session->userdata('is_logged_in') == FALSE) { // Not logged in
+			redirect();
+			return;
 		}
 		if(file_exists(FCPATH.'_video/'.$file)){
 			header('Content-type: video/mp4');
