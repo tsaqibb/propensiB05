@@ -200,12 +200,6 @@ class Kelas extends CI_Controller {
 	}
 
 	public function create_materi($id){
-		//$kelas_model = new Course();
-		//$data_kelas = $kelas_model->get_by_id($id);
-
-		/*$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);*/
-		
 		$materi_model = new Resource();
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
@@ -213,9 +207,8 @@ class Kelas extends CI_Controller {
 		ini_set('upload_max_filesize','50M');
 	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
 			unset($config);
-			$config['upload_path'] ='./video/';
+			$config['upload_path'] ='./_video/';
 			$config['allowed_types'] = 'pdf|mp4';
-			$config['max_size'] = '50000000';
 			$videoName = $_FILES['myFile']['name'];
 			$config['file_name'] = $videoName;
 
@@ -224,6 +217,10 @@ class Kelas extends CI_Controller {
 
 		if(!$this->upload->do_upload('myFile')){
 			$error = array('error' => $this->upload->display_errors());
+			var_dump($error);
+			var_dump(ini_get('upload_max_filesize'));
+			var_dump($_FILES['myFile']);
+			exit;
 			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
 			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
 		}
@@ -256,10 +253,10 @@ class Kelas extends CI_Controller {
 			}
 
 	} else {
-		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!');
+		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
 		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
 	}
-
+		
 	}
 	public function delete($id)
 	{

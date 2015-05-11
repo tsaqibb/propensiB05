@@ -197,7 +197,7 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
                             </span>
                         </li>
                         <li class="dropdown profile-menu">
-                            <a href="#" class="btn btn-orange" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="btn" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-user fa-2x"></i>
                             </a>
                             <ul class="dropdown-menu" role="menu">
