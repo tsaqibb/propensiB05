@@ -166,7 +166,7 @@
                                              </a>
                                             </div>
                                             <div class="col-md-3 ">
-                                              <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id;?>" > 
+                                              <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id;?>" class="btn-delete-materi" > 
                                                  <i class="fa fa-trash fa-5" title="hapus materi"></i>
                                               </a>
                                             </div>
@@ -178,11 +178,13 @@
                                              </a>
                                           </ul>
                                           <div id="inline<?php echo $topik->id; ?>" style="width:400px; display: none;">
-                                              <p class="text-14 bold text-center"> <?php echo $topik->judul;?> </p>
+                                            <div class="panel">
+                                              <h2 class="text-14 bold text-center block-title text-uppercase"> <?php echo $topik->judul;?> </h2>
+                                            </div>
                                                 <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                                 <p>
                                                 <label for="nama-materi">Nama Materi </label>
-                                                  <input type="text" required="" autofocus class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
                                                 </p>
                                                 <p>
                                                 <label for="note-materi">Note Materi </label>
@@ -195,14 +197,14 @@
                                             </form>
                                             <br>
                                             <p class="text-warning"> * Format file yang diizinkan hanya mp4 dan pdf ! </p> 
+                                            <p class="text-warning"> * Untuk penamaan file tidak boleh menggunakan spasi !  </p>
                                           </div>
                                         </div>
                                       </div>
                                       <br/>
                                         <?php endforeach;?>
 
-
-                                          <!-- <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p> -->
+                                        
                                 </div>
                               </div>
                             </div> <!-- end tab panel materi -->
