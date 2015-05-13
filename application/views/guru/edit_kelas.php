@@ -116,25 +116,23 @@
 
                             <div role="tabpanel" class="tab-pane tab-panemateri" id="materi">
                               <div class="panel-group" id="accordion">                                   
-                                <div class="panel panel-btn" >
+                         
 
                                   <form id="create-topik" method="POST" action="<?php echo base_url();?>kelas/create_topik/<?php echo $data_kelas->id;?>">                                 
                                     <div class="row">
-                                      <div class="col-md-5">
+                                      <div class="col-md-7">
                                       </div>                                  
                                       <div class="col-md-3">
-                                        <input class="form-control" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini">
+                                        <input class="form-control form-topik" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini">
                                       </div>
                                       <div class="col-md-2">      
-                                        <button role="submit" class="btn btn-default" id="button1"><i class="fa fa-pencil-square-o"></i>Tambah Topik</button>
+                                        <button role="submit" class="btn btn-primary btn-topik" id="button1"><i class="fa fa-pencil-square-o"></i>Buat Topik</button>
                                       </div>                                  
                                     </div>                             
-                                  </form>
-                                </div>
+                                  </form>                               
                                 <br/>
 
                                 <div class="panel panel-orange">
-
                                    <?php 
                                         $list_topik = $data_topik;                               
                                           foreach ($list_topik as $topik):
@@ -146,11 +144,12 @@
                                           href="#<?php echo $topik->id; ?>"><i class="fa fa-chevron-circle-down"></i>
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
-                                        <div class="col-md-2">
-                                              <form action="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>">
-                                                <button role="button" width="70%" class="btn btn-delete-topik" id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-times"></i>Hapus Topik</button>
-                                              <!-- <span class="hapus-topik pull-right">Hapus Topik <i class="fa fa-times"></i></span>-->
-                                           </form>
+                                        <div class="col-md-2 right">
+                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>" class="btn-delete-topik" >
+                                                <!--<button role="button" width="70%" class="btn btn-delete-topik btn-danger" data-toggle="tooltip" data-original-title="hapus topik" 
+                                                id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-trash" tiltle="hapus topik"></i></button>-->
+                                                <span class="cancel icon-circle" title="Hapus Topik"><i class="fa fa-trash-o"></i></span>                                              
+                                           </a>
                                         </div>
                                       </div>
                                     </div>
@@ -162,13 +161,13 @@
                                         ?>
                                           <ul class="list-groups"> 
                                             <div class="col-md-8">                                
-                                              <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                              <a href="<?php echo base_url();?>kelas/aksesmateri/<?php echo $materi->id; ?>">
                                              <li class="list-group-item"> <?php echo $materi->judul; ?></li>
                                              </a>
                                             </div>
-                                            <div class="col-md-3">
-                                              <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id; ?>" class="btn-delete-materi">
-                                                 <i class="fa fa-trash-o"></i>
+                                            <div class="col-md-3 ">
+                                              <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id;?>" class="btn-delete-materi" > 
+                                                 <i class="fa fa-trash fa-5" title="hapus materi"></i>
                                               </a>
                                             </div>
                                           </ul>
@@ -179,58 +178,40 @@
                                              </a>
                                           </ul>
                                           <div id="inline<?php echo $topik->id; ?>" style="width:400px; display: none;">
-                                        <p class="text-14 bold text-center"> <?php echo $topik->judul;?> </p>
-                                          <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
-                                          <p>
-                                          <label for="nama-materi">Nama Materi </label>
-                                            <input type="text" required="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
-                                          </p>
-                                          <p>
-                                          <label for="note-materi">Note Materi </label>
-                                            <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
-                                          </p>
-                                         <!--  <p>
-                                             <label for="nama-materi">Jenis Materi </label>
-                                        <div class="row">
-                                          <div class="col-md-2">
-                                          </div>
-                                          <div class="col-md-4">
-                                            <div class="radio">
-                                              <label><input type="radio" name="optradio" id="video">Video</label>
+                                            <div class="panel">
+                                              <h2 class="text-14 bold text-center block-title text-uppercase"> <?php echo $topik->judul;?> </h2>
                                             </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <div class="radio">
-                                              <label><input type="radio" name="optradio" id="pdf">Pdf</label>
-                                            </div>
-                                          </div>
-                                        </div>                                                              
-                                            </p> -->
+                                                <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
+                                                <p>
+                                                <label for="nama-materi">Nama Materi </label>
+                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                                </p>
+                                                <p>
+                                                <label for="note-materi">Note Materi </label>
+                                                  <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                                </p>
+                                        
                                             <input type="file" required="" name="myFile" id="myFile" multiple size="50">
                                             <br>                                                        
-                                            <button type="submit" role="submit" id="submit" name="submit" class="btn btn-succes btn-lg">Simpan</button>
-                                            </form> 
-                                      </div>
+                                            <button type="submit" role="submit" id="submit" name="submit" class="btn btn-warning">Simpan</button>
+                                            </form>
+                                            <br>
+                                            <p class="text-warning"> * Format file yang diizinkan hanya mp4 dan pdf ! </p> 
+                                            <p class="text-warning"> * Untuk penamaan file tidak boleh menggunakan spasi !  </p>
+                                          </div>
                                         </div>
                                       </div>
                                       <br/>
-                                    <?php endforeach;?>
-<!-- Pop Up-->
-                                      
-    <!-- Pop Up-->
+                                        <?php endforeach;?>
 
-                                          <!-- <p onclick="tambahMateri()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add more ... </p> -->
+                                        
                                 </div>
                               </div>
                             </div> <!-- end tab panel materi -->
-                          </div> <!--end tab content  -->                                                        
-                           
-                        
-
-                    </div><!-- tabpanel kelas -->
+                          </div> <!--end tab content  -->                                                    
+                        </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
-            </div><!-- panel -->
-        
+            </div><!-- panel -->        
     </div>
 </div> <!-- /container -->
 

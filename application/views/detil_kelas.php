@@ -120,11 +120,11 @@
                   <div class="tab-content">
                     <h5 class="title-label">Daftar Murid</h5>
                     <br>
-                   <!--  <?php
+                    <?php
                   $type_user = $this->session->userdata('user_type');
                     if ($type_user == "admin"):?>
                     <a href="<?php echo base_url()."kelas/setAllNonActive/"; ?>" type="button" class="main-button register2" >Deactivate all</a>
-               <?php endif; ?> -->
+               <?php endif; ?> 
                     </div>
                     <?php foreach ($list_partisipan as $daftar) :
                         $student = $daftar->student->get();
@@ -136,13 +136,13 @@
                         <br><a href=""><span><?php echo $daftar->student_id; ?></span></a>
                             <a class ="matkul" href=""><?php echo $student->email; ?></a>
                         </div>
-                        <!-- <span>
+                         <span>
                         <?php
                         $type_user = $this->session->userdata('user_type');
                     if ($type_user == "admin"):?>
                             <a href="<?php echo base_url()."kelas/setNonActive/".$daftar->student_id."/".$daftar->course_id; ?>" class="approve icon-button"><i class="fa fa-times"></i>Deactivate</a>
                         <?php endif; ?>
-                        </span> -->
+                        </span> 
                         <img src="<?php echo base_url();?>images/user.png" class="img-circle" alt="Circular Image">
                       </div>
                       </div>

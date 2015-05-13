@@ -966,6 +966,23 @@ a.remove {
   width: 100%;
 }
 
+.btn-topik{
+  float:right;
+}
+
+.btn-delete-topik{
+  float:right;
+  border-radius: 5px #fcb33b;
+  background-color: white;
+  padding-left: 20px;
+  color:blue;
+
+}
+
+.form-topik{
+  float:right;
+}
+
 /* end bagian Tab Materi */ 
 
 /* Bagian akses materi */
@@ -1343,6 +1360,8 @@ font-weight: bold;
   position: relative;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .btn-blue, .btn-orange, .btn-payment, .btn-payment2 {
   padding: 8px 12px;

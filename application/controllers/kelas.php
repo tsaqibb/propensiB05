@@ -207,7 +207,7 @@ class Kelas extends CI_Controller {
 		ini_set('upload_max_filesize','50M');
 	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
 			unset($config);
-			$config['upload_path'] ='./_video/';
+			$config['upload_path'] ='./_materi/';
 			$config['allowed_types'] = 'pdf|mp4';
 			$videoName = $_FILES['myFile']['name'];
 			$config['file_name'] = $videoName;
@@ -217,10 +217,10 @@ class Kelas extends CI_Controller {
 
 		if(!$this->upload->do_upload('myFile')){
 			$error = array('error' => $this->upload->display_errors());
-			var_dump($error);
+			/*var_dump($error);
 			var_dump(ini_get('upload_max_filesize'));
 			var_dump($_FILES['myFile']);
-			exit;
+			exit;*/
 			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
 			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
 		}
@@ -235,7 +235,7 @@ class Kelas extends CI_Controller {
 			$materi_model->teacher_id = $data_kelas->teacher_id;			
 			$materi_model->topic_id = $data_topik->id;
 			$materi_model->course_id = $data_kelas->id;	
-			$materi_model->url = 'video/'.$upload_file;
+			$materi_model->url = 'materi/'.$upload_file;
 			$materi_model->tipe = $extension;
 			$success = $materi_model->save_as_new();
 
