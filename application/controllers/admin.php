@@ -160,11 +160,11 @@ class Admin extends CI_Controller {
 		if ($status_kelas == 3) {
 			$kelas_model->where('id =', $id)->update('status_kelas', 4);
 			$this->session->set_flashdata('status.notice','Kelas berhasil dipublish');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
 			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 	}
 
