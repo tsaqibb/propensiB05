@@ -319,6 +319,7 @@ h3 a{ text-decoration: none; }
 .table a.ico{ }
 
 .box { background:#fbfcfc; height:100%; width:700px; padding:1px; margin-bottom:20px; }
+.box.review { width:1000px;}
 .box-head { background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; }
 .box-head .right{ padding-top:5px; line-height:13px;}
 .box-head .right label,
@@ -435,6 +436,9 @@ a.column_edit:hover{
 .center{
     text-align: center !important;
     float:center;
+}
+th.large{
+  width: 300px;
 }
 .bold{
     font-weight: bold;

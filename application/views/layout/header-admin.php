@@ -87,11 +87,21 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
 							</a>
 							<ul>
 								<li>
-									<a href="<?php echo base_url();?>admin/pendingclasses" class="active">
+									<a href="<?php echo base_url();?>admin/pending_classes" class="active">
 										Class Confirmation
 									</a>
 								</li>
+                                <li>
+                                    <a href="<?php echo base_url();?>admin/pending_review" class="active">
+                                        Review Confirmation
+                                    </a>
+                                </li>
 								<li>
+                                    <a href="<?php echo base_url();?>admin/calon_partisipan" class="">
+                                        Calon Murid
+                                    </a>
+                                </li>
+                                <li>
 									<a href="<?php echo base_url();?>admin/requestunpublish" class="">
 										Request to Unpublish
 									</a>
@@ -99,11 +109,6 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
 								<li>
 									<a href="<?php echo base_url();?>admin/publishedclasses" class="">
 										Published Classes
-									</a>
-								</li>
-								<li>
-									<a href="<?php echo base_url();?>admin/calonpartisipan" class="">
-										Calon Murid
 									</a>
 								</li>
 								<li>

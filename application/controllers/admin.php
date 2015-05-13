@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer-admin');
 	}
 
-	public function calonpartisipan()
+	public function calon_partisipan()
 	{
 		$partisipan_pending = new courses_student();
 		$list_partisipan = $partisipan_pending->get_list_partisipan_nonactive();
@@ -86,12 +86,21 @@ class Admin extends CI_Controller {
 		redirect('/admin/daftarmurid/'.$id_kelas);
 	}
 
-	public function pendingclasses()
+	public function pending_classes()
 	{
 		$kelas_pending = new Course();
 		$list_kelas_pending = $kelas_pending->get_list_kelas_pending();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/pending_classes', array('list_kelas_pending' => $list_kelas_pending));
+		$this->load->view('layout/footer-admin');
+	}
+
+	public function pending_review()
+	{
+		$komentar_pending = new Comment();
+		$list_pending_comment = $komentar_pending->get_list_pending_comment()->get();
+		$this->load->view('layout/header-admin');
+		$this->load->view('admin/pending_review', array('list_pending_comment' => $list_pending_comment));
 		$this->load->view('layout/footer-admin');
 	}
 
@@ -121,11 +130,26 @@ class Admin extends CI_Controller {
 		if ($status_kelas == 1) {
 			$kelas_model->where('id =', $id)->update('status_kelas', 2);
 			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
 			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
+		}
+	}
+
+	public function approve_review($id)
+	{	
+		$komentar_model = new Comment();
+		$status = $komentar_model->get_by_id($id)->status;
+		if ($status == 0) {
+			$komentar_model->where('id =', $id)->update('status', 1);
+			$this->session->set_flashdata('status.notice','Review berhasil dikonfirmasi.');
+			redirect('/admin/pending_review/', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('status.notice','Review tidak dapat dikonfitmasi.');
+			redirect('/admin/pending_review/', 'refresh');
 		}
 	}
 
@@ -152,12 +176,21 @@ class Admin extends CI_Controller {
 			$status_kelas_new = $status_kelas - 1;
 			$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
 			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
 			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
+	}
+
+	public function reject_review($id)
+	{	
+		$komentar_model = new Comment();
+		$status = $komentar_model->get_by_id($id)->status;
+		$komentar_model->where('id =', $id)->update('status', -1);
+		$this->session->set_flashdata('status.notice','Review berhasil ditolak.');
+		redirect('/admin/pending_review/', 'refresh');
 	}
 
 	public function unpublish($id)
@@ -167,11 +200,11 @@ class Admin extends CI_Controller {
 		if ($status_kelas ==  5) {
 			$kelas_model->where('id =', $id)->update('status_kelas', 0);
 			$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
 			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
-			redirect('/admin/pendingclasses/', 'refresh');
+			redirect('/admin/pending_classes/', 'refresh');
 		}
 	}
 

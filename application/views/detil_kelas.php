@@ -26,7 +26,7 @@
     $id_murid=$this->session->userdata('user_id');
     $registered = false;
     
-    if($type_user == "murid"):
+    if($type_user == "murid"){
         foreach ($partisipan_all as $partisipan):
             /*$student = $partisipan->student->get();
             $id_student = $partisipan->get_by_id($studen);*/
@@ -35,7 +35,10 @@
                 break;
             endif;
         endforeach;
-    endif;
+    }
+    elseif($type_user == "admin") {
+        $registered =true;
+    }
 ?>
 <div class="container content kelas">
     <div class="row">
@@ -61,8 +64,8 @@
                     <img src="<?php echo base_url(); ?>images/image_300x300.gif" alt="Class Logo" class="img-responsive">
                 </div>
             </div>
-            <div role="tabpanel detail-kelas" class="sub-content">
-                <div class="tab-content" id="description">
+            <div role="tabpanel" class="sub-content detail-kelas">
+                <div class="" id="description">
                     <h5 class="title-label">Deskripsi</h5>
                     <p>
                     <?php echo $data_kelas->deskripsi; ?>
@@ -70,7 +73,7 @@
                 </div><!-- detil-kelas -->
 
                 <!-- start Tab Materi -->
-                <div class="tab-content tab-panemateri" id="materi">
+                <div class="tab-panemateri" id="materi">
                   <h5 class="title-label">Kurikulum</h5>
                   <div class="panel-group" id="accordion">
                     <?php 
@@ -113,7 +116,7 @@
                 </div><!-- end tab materi -->
                     
                 <!--tab partisipan-->
-                <div class="tab-content" id="partisipan">
+                <div id="partisipan">
                   <div class="tab-content">
                     <h5 class="title-label">Daftar Murid</h5>
                     <br>
@@ -145,99 +148,23 @@
                       </div>
                     <?php endforeach; ?> 
                 </div><!-- tab-partisipan -->
-                
-                <!-- tab feedback -->
-                <?php $session_role = $this->session->userdata('user_type'); ?>
-                <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
-                <div class="tab-content" id="feedback">
-                    <h5 class="title-label">Feedback</h5>
+            </div><!-- tabpanel detail-kelas -->
+            
+            <?php $session_role = $this->session->userdata('user_type'); ?>
+            <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
+            <div class="sub-content detail-kelas"><!-- tab feedback -->
+                <div id="feedback">
+                    <h4 class="feedback-title">Feedback</h4>
                     <div class="panel-body-feedback">
                         <div class="chat">
                             <br>
                             <?php foreach ($list_feedback as $feedback) : ?>
-                            <?php if($feedback->role=='0') : ?>
                             <div class="feedback-package">
-                                <div>
-                                    <div class="panel-feedback clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Admin</strong>
-                                            <small class="pull-right text-muted">
-                                                <?php
-                                                    $time_now = strtotime(date('Y-m-d H:i:s'));
-                                                    $time_sent = strtotime($feedback->waktu_kirim);
-                                                    $time_elapsed = ($time_now - $time_sent);                                 
-                                                    $years = 60*60*24*365;
-                                                    $months = 60*60*24*30;
-                                                    $days = 60*60*24;
-                                                    $hours = 60*60;
-                                                    $minutes = 60;
-
-                                                    if(floor($time_elapsed/$years) > 1)
-                                                    {
-                                                        echo floor($time_elapsed/$years)." years ago";
-                                                    }
-                                                    else if(floor($time_elapsed/$years) > 0)
-                                                    {
-                                                        echo floor($time_elapsed/$years)." year ago";
-                                                    }
-                                                    else if(floor($time_elapsed/$months) > 1)
-                                                    {
-                                                        echo floor($time_elapsed/$months)." months ago";
-                                                    }
-                                                    else if(floor(($time_elapsed/$months)) > 0)
-                                                    {
-                                                        echo floor(($time_elapsed/$months))." month ago";
-                                                    }
-                                                    else if(floor(($time_elapsed/$days)) > 1)
-                                                    {
-                                                        echo floor(($time_elapsed/$days))." days ago";
-                                                    }
-                                                    else if (floor(($time_elapsed/$days)) > 0) 
-                                                    {
-                                                        echo floor(($time_elapsed/$days))." day ago";
-                                                    }
-                                                    else if (floor(($time_elapsed/$hours)) > 1) 
-                                                    {
-                                                        echo floor(($time_elapsed/$hours))." hours ago";
-                                                    }
-                                                    else if (floor(($time_elapsed/$hours)) > 0) 
-                                                    {
-                                                        echo floor(($time_elapsed/$hours))." hour ago";
-                                                    }
-                                                    else if (floor(($time_elapsed/$minutes)) > 1) 
-                                                    {
-                                                        echo floor(($time_elapsed/$minutes))." minutes ago";
-                                                    }
-                                                    else if (floor(($time_elapsed/$minutes)) > 0) 
-                                                    {
-                                                        echo floor(($time_elapsed/$minutes))." minute ago";
-                                                    }
-                                                    else if (floor(($time_elapsed)) > 1) 
-                                                    {
-                                                        echo floor(($time_elapsed))." seconds ago";
-                                                    }else
-                                                    {
-                                                        echo "Few seconds ago";
-                                                    }
-                                                ?>
-                                                <span class="fa fa-clock-o"></span>
-                                            </small>
-                                        </div>
-                                        <span class="chat-img pull-left">
-                                            <i class="admin-circle"></i>
-                                        </span>
-                                        <p>
-                                            <?php echo $feedback->pesan; ?>
-                                        </p>
-                                    </div>
-                                </div> <!--feedback package -->
-                                <?php endif; ?>
-                                <?php if($feedback->role=='1') : ?>
-                                <div>
-                                    <div class="panel-tanggapan clearfix">
-                                        <div class="header">
-                                            <span class="fa fa-clock-o"></span>
-                                            <small class="text-muted">
+                            <?php if($feedback->role=='0') : ?>
+                                <div class="panel-feedback clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Admin</strong>
+                                        <small class="pull-right text-muted">
                                             <?php
                                                 $time_now = strtotime(date('Y-m-d H:i:s'));
                                                 $time_sent = strtotime($feedback->waktu_kirim);
@@ -296,36 +223,109 @@
                                                     echo "Few seconds ago";
                                                 }
                                             ?>
-                                            
-                                            </small>
-                                            <strong class="pull-right primary-font"> <span> <?php echo $data_kelas->teacher->get()->nama; ?> </span> </strong>
-                                        </div>
-                                        <span class="chat-img pull-right">
-                                            <i class="guru-circle"></i>
-                                        </span>
-                                        <p class="isi-tanggapan">
-                                            <?php echo $feedback->pesan; ?>
-                                        </p>
-                            </div> <!--feedback package -->
-                            <?php endif; ?>
-                            <?php endforeach; ?>
-                            </div>
-                                <div class="panel-footer">
-                                    <div class="container-fluid">
-                                        <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
-                                            <input name ="pesan" id="pesan" type="text" class="form-control input-lg" required placeholder="Berikan pesan Anda di sini...">
-                                            <span class="input-group-btn">
-                                                <button role="submit" class="btn btn-primary btn-lg" id="btn-chat">Kirim</button>
-                                            </span>
-                                        </form>
+                                            <span class="fa fa-clock-o"></span>
+                                        </small>
                                     </div>
+                                    <span class="chat-img pull-left">
+                                        <i class="admin-circle"></i>
+                                    </span>
+                                    <p>
+                                        <?php echo $feedback->pesan; ?>
+                                    </p>
                                 </div>
+                            <?php endif; ?>
+                            <?php if($feedback->role=='1') : ?>
+                                <div class="panel-tanggapan clearfix">
+                                    <div class="header">
+                                        <span class="fa fa-clock-o"></span>
+                                        <small class="text-muted">
+                                        <?php
+                                            $time_now = strtotime(date('Y-m-d H:i:s'));
+                                            $time_sent = strtotime($feedback->waktu_kirim);
+                                            $time_elapsed = ($time_now - $time_sent);                                 
+                                            $years = 60*60*24*365;
+                                            $months = 60*60*24*30;
+                                            $days = 60*60*24;
+                                            $hours = 60*60;
+                                            $minutes = 60;
+
+                                            if(floor($time_elapsed/$years) > 1)
+                                            {
+                                                echo floor($time_elapsed/$years)." years ago";
+                                            }
+                                            else if(floor($time_elapsed/$years) > 0)
+                                            {
+                                                echo floor($time_elapsed/$years)." year ago";
+                                            }
+                                            else if(floor($time_elapsed/$months) > 1)
+                                            {
+                                                echo floor($time_elapsed/$months)." months ago";
+                                            }
+                                            else if(floor(($time_elapsed/$months)) > 0)
+                                            {
+                                                echo floor(($time_elapsed/$months))." month ago";
+                                            }
+                                            else if(floor(($time_elapsed/$days)) > 1)
+                                            {
+                                                echo floor(($time_elapsed/$days))." days ago";
+                                            }
+                                            else if (floor(($time_elapsed/$days)) > 0) 
+                                            {
+                                                echo floor(($time_elapsed/$days))." day ago";
+                                            }
+                                            else if (floor(($time_elapsed/$hours)) > 1) 
+                                            {
+                                                echo floor(($time_elapsed/$hours))." hours ago";
+                                            }
+                                            else if (floor(($time_elapsed/$hours)) > 0) 
+                                            {
+                                                echo floor(($time_elapsed/$hours))." hour ago";
+                                            }
+                                            else if (floor(($time_elapsed/$minutes)) > 1) 
+                                            {
+                                                echo floor(($time_elapsed/$minutes))." minutes ago";
+                                            }
+                                            else if (floor(($time_elapsed/$minutes)) > 0) 
+                                            {
+                                                echo floor(($time_elapsed/$minutes))." minute ago";
+                                            }
+                                            else if (floor(($time_elapsed)) > 1) 
+                                            {
+                                                echo floor(($time_elapsed))." seconds ago";
+                                            }else
+                                            {
+                                                echo "Few seconds ago";
+                                            }
+                                        ?>
+                                        
+                                        </small>
+                                        <strong class="pull-right primary-font"> <span> <?php echo $data_kelas->teacher->get()->nama; ?> </span> </strong>
+                                    </div>
+                                    <span class="chat-img pull-right">
+                                        <i class="guru-circle"></i>
+                                    </span>
+                                    <p class="isi-tanggapan">
+                                        <?php echo $feedback->pesan; ?>
+                                    </p>
+                                </div>
+                            <?php endif; ?>
+                            </div> <!--feedback package -->                            
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="container-fluid">
+                                <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
+                                    <input name ="pesan" id="pesan" type="text" class="form-control" required placeholder="Berikan pesan Anda di sini...">
+                                    <span class="input-group-btn">
+                                        <button role="submit" class="btn btn-primary" id="btn-chat">Kirim</button>
+                                    </span>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div><!-- tab-feedback -->
                 <?php endif ?>
-            </div><!-- tabpanel kelas -->
+            </div><!-- tabpanel detail-kelas -->
             <div class="review-wrap">
                 <div class="rating-wrap review-item">
                     <h4 class="review-title">Rating</h4>

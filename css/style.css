@@ -10,6 +10,12 @@ body {
 body.have-bar {
   padding-top: 150px;
 }
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
 @media only screen and (min-width: 1024px) {
   .container {
     width: 970px;
@@ -346,14 +352,18 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-color: #fcb33b;
   border-radius: 5px;
   color: #fff;
-  display: inline-block;
-  font-size: 16px;
+  display: block;
+  font-size: 18px;
   border: none;
-  margin: 5px;
+  width: 200px;
+  text-transform: uppercase;
 }
 .main-button:hover {
   background: #E39E1F !important;
   color: #fff !important;
+}
+.main-button.submit {
+  margin: auto;
 }
 .btn-default-blue {
   background-color: #34B9D8 !important;
@@ -559,7 +569,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 .main-button.register{
   display: table;
-  margin: 30px auto 15px;
   width: 200px;
 }
 .main-button .fa {
@@ -587,7 +596,8 @@ thead {
   border-top: 2px solid #ddd;
 }
 
-.review-wrap {
+.review-wrap,
+.detail-kelas {
   border: 1px solid #fcb33b;
   display: inline-block;
   margin: 30px 0;
@@ -602,11 +612,12 @@ thead {
 .review-wrap .testimonial-wrap {
   width: 100%;
 }
-.review-title {
+/*.review-title,
+.feedback-title {
   border-bottom: 2px solid #fcb33b;
   color: #fcb33b;
   padding-bottom: 5px;
-}
+}*/
 .rating-wrap .rate {
   float: left;
   margin-right: 10px;
@@ -1339,7 +1350,8 @@ font-weight: bold;
   font-weight: bold;
   font-size: 18px;
 }
-.review-title {
+.review-title,
+.feedback-title {
   border-bottom: 2px solid #fcb33b;
   color: #fcb33b;
   padding-bottom: 5px;
@@ -1361,9 +1373,8 @@ font-weight: bold;
 }
 .main-button.register {
   display: table;
-  width: 115px;
   color:white;
-  margin-right: 250px;
+  /*margin-right: 250px;*/
   padding-top: 7px;
   padding-bottom: 7px;
   padding-right: 8px;
