@@ -332,19 +332,27 @@
                         <i class="fa fa-star-o fa-3x"></i>
 
                         <span class="rate">
-                                <b>3.0</b> dari 3 review
+                                <b>3.0</b> dari 3 review 
+                                <?php 
+                                ?>
                         </span>
                     </div><!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
                     <?php foreach ($list_review as $review) : ?>
+                    <?php 
+                        $komentar_review = $review->comment->get();
+                        $approval_review = $komentar_review->status;
+                        if($approval_review == '1') : 
+                    ?>
                     <div class="testimonial-item">
                         <h5 class="username">
                             <strong>
                                 <?php 
                                     $student_id_temp = $review->student_id;
-                                    $nama_murid = $list_partisipan->student->get_by_id($student_id_temp)->nama;
+                                    $murid_model_temp = $data_kelas->student->get_by_id($student_id_temp);
+                                    $nama_murid = $murid_model_temp->nama;
                                     echo $nama_murid;
                                 ?>
                             </strong> |
@@ -357,14 +365,8 @@
                             ?>
                         </p>
                     </div>
-                    <div class="testimonial-item">
-                    <?php endforeach; ?>    
-                        <h5 class="username">
-                            <strong>Ivan U.</strong> |
-                            <a href="http://kelas.rg/kelas/buat">Kelas 4</a>
-                        </h5>
-                        <p><b>Judul Review - </b>Review kedua. text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>   
                 </div><!-- testimonial-wrap -->
             </div>
         </div> <!-- col-md-8 -->
