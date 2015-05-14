@@ -31,9 +31,15 @@ class Kelas extends CI_Controller {
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
 
 		$list_feedback = $data_kelas->feedback->get();
-		
+
+		$list_review = $data_kelas->review->get();
+
 		$data_topik = $data_kelas->topic->get();
 		
+		$review_model = new Review();
+		$data_review = $review_model->get_by_id($id);
+
+
 		$this->load->view('layout/header');
 		$this->load->view('detil_kelas',
 			array(
@@ -41,7 +47,9 @@ class Kelas extends CI_Controller {
 				'list_feedback'=>$list_feedback,
 				'data_topik' => $data_topik,
 				'list_partisipan' => $list_partisipan,
-				'partisipan_all' => $partisipan_all)
+				'partisipan_all' => $partisipan_all,
+				'list_review'=> $list_review
+				)
 		);
 		$this->load->view('layout/footer');
 	}

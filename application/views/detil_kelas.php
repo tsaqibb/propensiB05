@@ -145,6 +145,7 @@
             
             <?php $session_role = $this->session->userdata('user_type'); ?>
             <?php if($session_role == 'guru' || $session_role == 'admin') : ?>
+
             <div class="sub-content detail-kelas"><!-- tab feedback -->
                 <div id="feedback">
                     <h4 class="feedback-title">Feedback</h4>
@@ -337,14 +338,27 @@
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
+                    <?php foreach ($list_review as $review) : ?>
                     <div class="testimonial-item">
                         <h5 class="username">
-                            <strong>Siti A.</strong> |
-                            <a href="http://kelas.rg/kelas/web-programming-basic">Web Programming - Basic</a>
+                            <strong>
+                                <?php 
+                                    $student_id_temp = $review->student_id;
+                                    $nama_murid = $list_partisipan->student->get_by_id($student_id_temp)->nama;
+                                    echo $nama_murid;
+                                ?>
+                            </strong> |
+                            <a href="http://kelas.rg/kelas/web-programming-basic"><?php echo $data_kelas->nama; ?></a>
                         </h5>
-                        <p><b>Judul Review - </b>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <p>
+                            <?php
+                                $testimoni = $review->comment->get();
+                                echo $testimoni->komentar;
+                            ?>
+                        </p>
                     </div>
                     <div class="testimonial-item">
+                    <?php endforeach; ?>    
                         <h5 class="username">
                             <strong>Ivan U.</strong> |
                             <a href="http://kelas.rg/kelas/buat">Kelas 4</a>
