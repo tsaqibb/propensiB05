@@ -98,7 +98,7 @@ class Admin extends CI_Controller {
 	public function pending_review()
 	{
 		$komentar_pending = new Comment();
-		$list_pending_comment = $komentar_pending->get_list_pending_comment()->get();
+		$list_pending_comment = $komentar_pending->get_list_pending_comment();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/pending_review', array('list_pending_comment' => $list_pending_comment));
 		$this->load->view('layout/footer-admin');
@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
 			redirect('/admin/pending_review/', 'refresh');
 		}
 		else {
-			$this->session->set_flashdata('status.notice','Review tidak dapat dikonfitmasi.');
+			$this->session->set_flashdata('status.error','Review tidak dapat dikonfitmasi.');
 			redirect('/admin/pending_review/', 'refresh');
 		}
 	}
@@ -179,7 +179,7 @@ class Admin extends CI_Controller {
 			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
-			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			$this->session->set_flashdata('status.error','Status kelas tidak dapat diubah.');
 			redirect('/admin/pending_classes/', 'refresh');
 		}
 	}
@@ -189,7 +189,7 @@ class Admin extends CI_Controller {
 		$komentar_model = new Comment();
 		$status = $komentar_model->get_by_id($id)->status;
 		$komentar_model->where('id =', $id)->update('status', -1);
-		$this->session->set_flashdata('status.notice','Review berhasil ditolak.');
+		$this->session->set_flashdata('status.error','Review berhasil ditolak.');
 		redirect('/admin/pending_review/', 'refresh');
 	}
 
@@ -203,7 +203,7 @@ class Admin extends CI_Controller {
 			redirect('/admin/pending_classes/', 'refresh');
 		}
 		else {
-			$this->session->set_flashdata('status.notice','Status kelas tidak dapat diubah.');
+			$this->session->set_flashdata('status.error','Status kelas tidak dapat diubah.');
 			redirect('/admin/pending_classes/', 'refresh');
 		}
 	}

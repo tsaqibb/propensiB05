@@ -9,6 +9,6 @@ class Comment extends DataMapper {
     }
 
     function get_list_pending_comment() {
-    	return $this->where('status =', '1')->get();
+    	return $this->where('status =', '0')->get();
     }
 }

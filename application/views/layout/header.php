@@ -42,6 +42,9 @@
                 removeNotification();
             });
         });
+        function removeNotification() {
+            $('.notification').slideUp();
+        }
         </script>
 
         <!-- Custom styles for this template -->

@@ -127,7 +127,7 @@ class Kelas extends CI_Controller {
 			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			));
-		redirect('/admin/calonpartisipan/');
+		redirect('/admin/calon_partisipan/');
 	}
 	public function setAllActive()
 	{

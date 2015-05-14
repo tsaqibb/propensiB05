@@ -68,8 +68,8 @@
                                         <?php echo $comment->komentar; ?>
                                     </td>
                                     <td class="center action">
-                                        <a href="<?php echo base_url().'admin/approve_review/'.$comment->id; ?>" onclick="konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                        <a href="<?php echo base_url().'admin/reject_review/'.$comment->id; ?>" onclick="konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
+                                        <a href="<?php echo base_url().'admin/approve_review/'.$comment->id; ?>" onclick="return konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
+                                        <a href="<?php echo base_url().'admin/reject_review/'.$comment->id; ?>" onclick="return konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
                                     </td>
                                     <td class="center">
                                         <a href="<?php echo base_url().'kelas/detail/3002/'.$course->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>

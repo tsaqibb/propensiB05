@@ -10,25 +10,11 @@
 <script type=text/javascript>
     function validasi(){
         if (document.getElementById("all").checked){
-            var r=confirm("Apakah Anda yakin ingin menyetujui semua murid tersebut?");
-            if (r==true){
-                alert("Approval berhasil");
-            }
-            else{
-                alert("Approval Anda telah dibatalkan");
-                return false;
-            }
+            return confirm("Apakah Anda yakin ingin menyetujui semua murid tersebut?");
         }
         else{
             if(document.getElementById("satu").checked){
-                var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
-                if (r==true){
-                    alert("Approval berhasil");
-                }
-                else{
-                    alert("Approval Anda telah dibatalkan");
-                    return false;
-                }
+                return confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
             }
             else(alert("Anda belum memilih murid"));
         }
@@ -38,14 +24,7 @@
 </script>
 <script type=text/javascript>
     function konfirmasi(){
-        var r=confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
-        if (r==true){
-            alert("Approval berhasil");
-        }
-        else{
-            alert("Approval Anda telah dibatalkan");
-            return false;
-        }
+        return confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
     }
     /*$("a").click(function(e){
         if(!confirm("Apakah Anda yakin ingin menyetujui murid tersebut?"))
@@ -62,7 +41,7 @@
 </input>
 <span>
     <form method="POST" action="<?php echo base_url()."kelas/setAllActive";?>" >
-    <input id = "all" type="submit" value="Activate all"  onclick ="validasi()" class="main-button register2">
+    <input id = "all" type="submit" value="Activate all"  onclick ="return validasi()" class="main-button register2">
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -118,7 +97,7 @@
                                     </td>
                                     
                                     <td  class ="center">
-                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick= "konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick= "return konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

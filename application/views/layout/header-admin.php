@@ -32,6 +32,9 @@
                 removeNotification();
             });
         });
+        function removeNotification() {
+            $('.notification').slideUp();
+        }
         </script>
     <script type="text/javascript" src="6_S3_"></script></head>
     <body>

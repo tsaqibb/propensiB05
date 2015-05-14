@@ -215,10 +215,6 @@
     </div>
 </div> <!-- /container -->
 
-
-
-
-
 <script type=text/javascript>
     $('.btn-delete-materi').click(function(){
         return confirm("Are you sure want to delete materi?");

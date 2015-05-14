@@ -10,14 +10,7 @@
 <script type=text/javascript>
   function konfirmasi()
     {
-      var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
-      if (r){
-        alert("Deactivated berhasil");
-      }
-      else{
-        alert("Deactivated Anda telah dibatalkan");
-        return false;
-      }
+      return confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
     }
 </script>
 <?php
@@ -323,9 +316,9 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- tab-feedback -->
-                <?php endif ?>
-            </div><!-- tabpanel detail-kelas -->
+                </div>
+            </div><!-- tab-feedback -->
+            <?php endif ?>
             <div class="review-wrap">
                 <div class="rating-wrap review-item">
                     <h4 class="review-title">Rating</h4>
