@@ -205,7 +205,14 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .block-title-wrap {
   margin-bottom: 30px;
 }
-.block-title {
+.block-title-gallery {
+  border-bottom: 2px solid;
+  color: #fcb33b;
+  font-size: 26px;
+  font-weight: bold;
+  /*margin-left: 33px;*/
+  margin-top: -5px;
+  padding-bottom: 10px;
 }
 .content-grid {
   box-shadow: 0 2px 5px #999;
@@ -218,6 +225,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   height: 200px;
   position: relative;
   background-image: url('../images/image_300x300.gif');
+  margin-top: 20px;
 }
 .diskon-label {
   background-color: #e11667;
@@ -296,7 +304,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .details {
   background-color: #fcb33b;
   border-radius: 0;
-  color: #000;
+  color: #fff;
   padding: 10px 20px;
   position: absolute;
   right: 0;
@@ -329,14 +337,19 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   padding: 10px 15px;
   width: 100%;
 }
-.rating {
+.rating-top {
   float: right;
   text-align: right;
   font-size: 18px;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   padding: 5px 15px;
-  color: #ddd;
+  color: #3bc4e6;
+}
+.rating-right {
+  float: right;
+  text-align: right;
+  line-height: 1.0;
 }
 .rating .blue {
   color: #3bc4e6;
@@ -352,18 +365,30 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-color: #fcb33b;
   border-radius: 5px;
   color: #fff;
-  display: block;
-  font-size: 18px;
+  margin-left: 212px;
   border: none;
-  width: 200px;
-  text-transform: uppercase;
+  /* height: 30px; */
+  text-align: center;
+  /* padding: 6px; */
+  font-size: 14px;
+}
+.main-button-login {
+  background-color: #fcb33b;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 350px;
+  border: none;
+  height: 30px;
+  text-align: center;
+  padding: 6px;
+  font-size: 18px;
 }
 .main-button:hover {
   background: #E39E1F !important;
   color: #fff !important;
 }
 .main-button.submit {
-  margin: auto;
+  margin-left: 500px;
 }
 .btn-default-blue {
   background-color: #34B9D8 !important;
@@ -775,10 +800,10 @@ thead {
   color: #3a3a3a;
   font-size: 18px;
   margin: 0;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 .price-big-wrap .entry-detail-label {
-  padding-left: 26px;
+  /*padding-left: 26px;*/
   text-align: center;
 }
 .daftar-label .entry-detail-label {
@@ -794,8 +819,10 @@ thead {
 }
 .panel-body a {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 3px;
+  margin-right: 60px;
   /*width: 100%;*/
+
 }
 .support a {
   color: #3a3a3a;
@@ -1079,6 +1106,7 @@ text-align: center;
   border-color: #fcb33b #fcb33b transparent;
   color: #fff;
   outline: medium none;
+
 }
 .sub-content .tab-content {
   box-shadow: none !important;
@@ -1244,6 +1272,20 @@ text-align: center;
 /* end tab-detil-kelas */
 
 /*partisipan*/
+.rating {
+  float: right;
+  text-align: right;
+  line-height: 1.0;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 5px 15px;
+  color: #ddd;
+}
+.photo {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px 0px;
+}
 .regis{
   float:right ;
   color :orange;
@@ -1351,9 +1393,8 @@ font-weight: bold;
   font-weight: lighter;
 }
 .nama{
-  text-align: left;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
 }
 .panel-default .panel-heading {
   color: #fff;
@@ -1392,9 +1433,9 @@ font-weight: bold;
 }
 .main-button.register {
   display: table;
-  color:white;
-  /*margin-right: 250px;*/
-  padding-top: 7px;
+  color: white;
+  margin-left: 36px;
+  padding-top: 0px;
   padding-bottom: 7px;
   padding-right: 8px;
   padding-left: 8px;
@@ -1430,24 +1471,27 @@ font-weight: bold;
   margin: 0px 0px -50px 60px;
 }
 .actived-partisipan .img-circle {
-  height: 90px;
-  width: 90px;
+  height: 55px;
+  width: 55px;
   position: relative;
-  left: -30px;
+  left: -70px;
   border: 2px #fcb33b solid;
-  top: -70px;
+  top: -60px;
 }
 .actived-partisipan .nama {
+  text-align: center;
   background-color: #fcb33b;
   opacity:100%;
-  width: 360px;
-  height: 50px;
+  height: 30px;
+  width:240px;
   /*display: inline-block;*/
   border-radius: 15px;
-  padding: 0px 15px 0px 65px;
+  padding: 4px;
   position: relative;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   color: #fff;
+  margin-left:-40px; 
+  margin-bottom: 20px;
 }
 /*end partisipan*/
 
@@ -1461,6 +1505,7 @@ font-weight: bold;
 }
 .sidebar {
   box-shadow: 0 2px 5px #999;
+  padding-right: 13px;
 }
 .profile-image-wrap {
   padding: 20px;
@@ -1553,13 +1598,14 @@ font-weight: bold;
   padding: 15px;
 }
 .vendor .panel-body {
-  padding: 0;
+ /* padding: 0;*/
 }
 .vendor .block-title {
   border-bottom: 2px solid;
   color: #fcb33b;
   font-size: 26px;
-  margin: 0 0 10px;
+  margin-left: 33px;
+  margin-top: -5px;
   padding-bottom: 10px;
 }
 #profil .review-title {
@@ -1578,6 +1624,7 @@ font-weight: bold;
 }
 .kelas .nav.nav-tabs {
   margin-bottom: 10px;
+    margin-left: 14px;
 }
 
 /*Galeri kelas */
@@ -1594,6 +1641,8 @@ text-decoration: none;
   border-radius: 5px;
   background-color: #fcb33b;
   text-decoration: none;
+  margin-left: 33px;
+  width: 100%;
 }
 
 
@@ -1665,7 +1714,8 @@ text-decoration: none;
 .log-reg .main-button.register,
 .log-reg .cancel.btn-default {
   display: inline-block;
-  width: 150px;
+  width: 90px;
+  padding-top: 5px;
 }
 
 /*landing page*/
@@ -1842,10 +1892,10 @@ text-decoration: none;
 	.review {
 	  padding: 10px;
 	}
-	.rating {
+	/*.rating {
 	  font-size: 15px;
     padding: 0 10px 0 10px;
-  }
+  }*/
   
   /*detail*/
   .price-big-wrap:before {
@@ -2048,10 +2098,10 @@ text-decoration: none;
 	  width: 100%;
 	  z-index: -1;
 	}
-	.rating {
+	/*.rating {
 	  float: right;
 	  margin-top: 0;
-	}
+	}*/
   /*detail*/
   .nav-tabs li a {
     font-size: 16px;
