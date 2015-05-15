@@ -332,19 +332,27 @@
                         <i class="fa fa-star-o fa-3x"></i>
 
                         <span class="rate">
-                                <b>3.0</b> dari 3 review
+                                <b>3.0</b> dari 3 review 
+                                <?php 
+                                ?>
                         </span>
                     </div><!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
                     <?php foreach ($list_review as $review) : ?>
+                    <?php 
+                        $komentar_review = $review->comment->get();
+                        $approval_review = $komentar_review->status;
+                        if($approval_review == '1') : 
+                    ?>
                     <div class="testimonial-item">
                         <h5 class="username">
                             <strong>
                                 <?php 
                                     $student_id_temp = $review->student_id;
-                                    $nama_murid = $list_partisipan->student->get_by_id($student_id_temp)->nama;
+                                    $murid_model_temp = $data_kelas->student->get_by_id($student_id_temp);
+                                    $nama_murid = $murid_model_temp->nama;
                                     echo $nama_murid;
                                 ?>
                             </strong> |
@@ -357,7 +365,8 @@
                             ?>
                         </p>
                     </div>
-                    <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php endforeach; ?>   
                 </div><!-- testimonial-wrap -->
             </div>
         </div> <!-- col-md-8 -->
