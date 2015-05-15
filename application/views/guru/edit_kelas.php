@@ -14,7 +14,7 @@
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="text-center">Halo, <?php echo $this->session->userdata('user_name') ?></h4>
+                <h4 class="text-center"><?php echo $this->session->userdata('user_name') ?></h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
@@ -29,7 +29,7 @@
         <div class="col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
-                <span class="info">Status:
+                <span class="info" style="margin-left: 32px;">Status:
                 <?php if($data_kelas->status_kelas == 0) : ?>
                     <b class="rejected"> Unapproved</b>
                 <?php elseif($data_kelas->status_kelas == 1) : ?>
@@ -145,10 +145,10 @@
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
                                         <div class="col-md-2 right">
-                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>" class="btn-delete-topik" >
+                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>"  >
                                                 <!--<button role="button" width="70%" class="btn btn-delete-topik btn-danger" data-toggle="tooltip" data-original-title="hapus topik" 
                                                 id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-trash" tiltle="hapus topik"></i></button>-->
-                                                <span class="cancel icon-circle" title="Hapus Topik"><i class="fa fa-trash-o"></i></span>                                              
+                                               <span class="cancel icon-circle" style="margin-top:3px; margin-left:50px;" title="Hapus Topik"><i class="fa fa-trash-o"></i></span>                                      
                                            </a>
                                         </div>
                                       </div>
@@ -167,14 +167,14 @@
                                             </div>
                                             <div class="col-md-3 ">
                                               <a href="<?php echo base_url();?>kelas/delete_materi/<?php echo $materi->id;?>" class="btn-delete-materi" > 
-                                                 <i class="fa fa-trash fa-5" title="hapus materi"></i>
+                                                 <i class="fa fa-trash fa-5" style="margin-top:10px; margin-left:5px;" title="hapus materi"></i>
                                               </a>
                                             </div>
                                           </ul>
                                         <?php endforeach;?>
                                           <ul class="list-groups">
                                               <a href="#inline<?php echo $topik->id; ?>" class="fancybox">
-                                             <button role="submit" class="btn btn-default" id="button1" onclick="">Tambah Materi</button>
+                                             <button role="submit" class="btn btn-default" id="button1" style="margin-left:14px; margin-top:5px;" onclick="">Tambah Materi</button>
                                              </a>
                                           </ul>
                                           <div id="inline<?php echo $topik->id; ?>" style="width:400px; display: none;">

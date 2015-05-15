@@ -3,7 +3,7 @@
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="profile-name text-center">Halo, <?php echo $this->session->userdata('user_name')?></h4>
+                <h4 class="profile-name text-center"><?php echo $this->session->userdata('user_name')?></h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation">
