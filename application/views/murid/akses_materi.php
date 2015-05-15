@@ -3,12 +3,13 @@
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
                 <br>
-                <h4 class="profile-name text-center">Nama User</h4>
-              
-
+                <h4 class="profile-name text-center">
+                  <span class="name">
+                      <?php echo $this->session->userdata('user_name');?>
+                  </span></h4>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                                        <li >
+                    <li >
                         <a href="<?php echo base_url();?>murid/galerikelas"><i class="fa fa-list"></i> Galeri Kelas</a>
                     </li>
                     <li class="active">
@@ -16,20 +17,17 @@
                     </li>
                 </ul>
             </div><!-- sidebar -->
-
-
-
             <div class="group-materi"> 
                 <h3> &nbsp;Daftar Materi  </h3>
-                 <?php
+                  <?php
                     $list_materi = $topik->resource->get();
                     foreach ($list_materi as $materi) : 
-                    ?>
-
+                  ?>
                 <ul class="list-group">
-                   
-                    <li class="list-group-item"><span class="badge"> <?php echo $materi->tipe?></span><a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a></li>
-
+                    <li class="list-group-item">
+                      <span class="badge"> <?php echo $materi->tipe?></span>
+                      <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a>
+                    </li>
                    <?php
                      endforeach;
                     ?>
@@ -56,9 +54,9 @@
 
                 <?php if($open_materi->tipe == 'mp4') : ?>
                 <div class="space-video">
-                 <video class="videoplayer" controls>                  
-                  <source src="<?php echo base_url().$open_materi->url;?>" type="video/mp4">         
-                </video>                             
+                  <video class="videoplayer" controls>                  
+                    <source src="<?php echo base_url().$open_materi->url;?>" type="video/mp4">         
+                  </video>                             
                 </div>           
                 <?php elseif($open_materi->tipe == 'pdf') : ?>
                          
@@ -70,14 +68,7 @@
             </div>              
                       
           </div> 
-          <!-- <div class="notes panel panel-default">
-                <div class="panel panel-warning">
-                    <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
-                </div>
-                <div class="panel-body">
-                <?php echo $open_materi->notes;?>
-                </div>
-          </div>   -->  
+          
           <div class="notes"> 
             <div class="panel panel-warning">
                 <div class="panel-heading">
@@ -106,4 +97,3 @@
         $('.icon-circle').tooltip();
     });
     </script>
- 
