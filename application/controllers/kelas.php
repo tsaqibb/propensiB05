@@ -21,15 +21,14 @@ class Kelas extends CI_Controller {
 	{
 		$this->session->set_userdata('course_id', $id);
 		$kelas_model = new Course();
+		/*$par = new courses_student();*/
 		$data_kelas = $kelas_model->get_by_id($id);
 		if(empty($data_kelas->id)) {
 			show_404();
 			return;
 		}
-
 		$partisipan_all = $data_kelas->courses_student->get();
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
-
 		$list_feedback = $data_kelas->feedback->get();
 
 		$list_review = $data_kelas->review->get();
@@ -156,7 +155,7 @@ class Kelas extends CI_Controller {
 			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
 			));
 		}
-		redirect('/admin/calonpartisipan/');
+		redirect('/admin/calon_partisipan/');
 	}
 	
 	public function add_feedback($id) 
