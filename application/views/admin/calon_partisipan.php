@@ -21,15 +21,10 @@
     }
 </script>
 
-</script>
 <script type=text/javascript>
     function konfirmasi(){
         return confirm("Apakah Anda yakin ingin menyetujui murid tersebut?");
     }
-    /*$("a").click(function(e){
-        if(!confirm("Apakah Anda yakin ingin menyetujui murid tersebut?"))
-            e.preventDefault();
-    });*/
 </script>
 
 <h2 class="block-title judul text-uppercase">DAFTAR CALON MURID</h2>
@@ -51,21 +46,21 @@
             <!-- Content -->
             <div id="content">
                 <!-- Box -->
-                <div class="box">
+                <div class="box murid">
                     <!-- Box Head -->
-                    <div class="box-head">
+                    <div class="box-head murid">
                         <h2 class="left ">Calon Murid</h2>
                     </div>
                     <!-- End Box Head -->
-                    <div class="table">
+                    <div class="table murid">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" >
                             <thead>
                                 <tr>
                                     <th class="center">Check</th>
-                                    <th class="center">Nama</th>
-                                    <th class="center">Kelas</th>
-                                    <th class="center">Harga</th>
-                                    <th class="center">Email</th>
+                                    <th class="center">Nama Murid (ID)</th>
+                                    <th class="center">Nama Kelas (ID)</th>
+                                    <th class="center">Harga Kelas</th>
+                                    <th class="center">Email Murid</th>
                                     <th class="center">Action</th>
                                 </tr>
                             </thead>
@@ -76,12 +71,12 @@
                                 $student = $Calon->student->get();
                                 ?>
                                 <tr>
-                                   <td class ="center">
+                                   <td>
                                         <input id="satu" type="checkbox" value="<?php echo $Calon->student_id; ?>" name="id[]"></input>
                                     </td>
                                     
                                     <td>
-                                        <a href="#profile"><?php echo $student->nama; ?> (<?php echo $Calon->student_id; ?>)</a>
+                                        <?php echo $student->nama; ?> (<?php echo $Calon->student_id; ?>)
                                     </td>
                                     
                                     <td>
@@ -93,11 +88,11 @@
                                     </td>
 
                                     <td class ="center">
-                                        <a href="#gmail"><?php echo $student->email; ?></a>
+                                        <?php echo $student->email; ?>
                                     </td>
                                     
                                     <td  class ="center">
-                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick= "return konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Activate</a>
+                                        <a href="<?php echo base_url()."kelas/setActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick= "return konfirmasi()" class="approve icon-button" id="satu"><i class="fa fa-check"></i>Activate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

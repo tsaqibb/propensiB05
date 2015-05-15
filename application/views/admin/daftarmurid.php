@@ -10,50 +10,22 @@
 <script type=text/javascript>
     function validasi(){
         if (document.getElementById("all").checked){
-            var r=confirm("Apakah Anda yakin ingin menonaktifkan semua murid tersebut?");
-            if (r==true){
-                alert("Deactivate berhasil");
-            }
-            else{
-                alert("Deactivate Anda telah dibatalkan");
-                return false;
-            }
+            return confirm("Apakah Anda yakin ingin deactivate semua murid tersebut?");
         }
         else{
             if(document.getElementById("satu").checked){
-                var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
-                if (r==true){
-                    alert("Deactivate berhasil");
-                }
-                else{
-                    alert("Deactivate Anda telah dibatalkan");
-                    return false;
-                }
+                return confirm("Apakah Anda yakin ingin deactivate murid tersebut?");
             }
             else(alert("Anda belum memilih murid"));
-
         }
     }
 </script>
 
-</script>
 <script type=text/javascript>
     function konfirmasi(){
-        var r=confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
-        if (r==true){
-            alert("Deactivate berhasil");
-        }
-        else{
-            alert("Deactivate Anda telah dibatalkan");
-            return false;
-        }
+        return confirm("Apakah Anda yakin ingin deactive murid tersebut?");
     }
-    /*$("a").click(function(e){
-        if(!confirm("Apakah Anda yakin ingin menyetujui murid tersebut?"))
-            e.preventDefault();
-    });*/
 </script>
-
 <h2 class="block-title judul text-uppercase">DAFTAR MURID</h2>
 <br>
 <hr class="line">
@@ -63,7 +35,7 @@
 </input>
 <span>
     <form method="POST" action="<?php echo base_url()."admin/setAllNonActive/".$list_partisipan->course_id;?>" >
-    <input id="all" onclick="validasi()" type="submit" value="Deactivate all"  class="main-button register2">
+    <input id="all" onclick="return validasi()" type="submit" value="Deactivate all"  class="main-button register2" style="margin-right: 430px;">
 </span>
 <div id="container" class="kelas-online">
     <div class="shell">
@@ -84,8 +56,8 @@
                             <thead>
                                 <tr>
                                     <th class="center">Check</th>
-                                    <th class="center">Nama</th>
-                                    <th class="center">Email</th>
+                                    <th class="center">Nama Murid (ID)</th>
+                                    <th class="center">Email Murid</th>
                                     <th class="center">Action</th>
                                 </tr>
                             </thead>
@@ -109,7 +81,7 @@
                                     </td>
                                     
                                     <td class ="center">
-                                        <a href="<?php echo base_url()."admin/setNonActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick ="konfirmasi()" class="approve icon-button"><i class="fa fa-check"></i>Deactivate</a>
+                                        <a href="<?php echo base_url()."admin/setNonActive/".$Calon->student_id."/".$Calon->course_id; ?>" onclick ="return konfirmasi()" class="approve icon-button" id="satu"><i class="fa fa-check"></i>Deactivate</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

@@ -77,6 +77,25 @@
   margin-left: 0px;
   font-family: ubuntu;
   font-size: 12px;
+  width:800px;
+}
+.table.review{
+  margin-left: 0px;
+  font-family: ubuntu;
+  font-size: 12px;
+  width:1000px;
+}
+.table.murid{
+  margin-left: 0px;
+  font-family: ubuntu;
+  font-size: 12px;
+  width:1020px;
+}
+.table.unpub{
+  margin-left: 0px;
+  font-family: ubuntu;
+  font-size: 12px;
+  width:1020px;
 }
 .tablep{
   margin-left: 445px;
@@ -86,7 +105,9 @@
   background:#F0FFFF;
   border-bottom: solid 1px #F56B08;   
   padding:10px 10px; 
+  text-align: center;
 }
+
 .checkbox1{
     margin-left: 130px;
 }
@@ -102,8 +123,8 @@
   padding-bottom: 7px;
   padding-right: 8px;
   padding-left: 8px;
-  margin-left: 50px;
-  margin-right: 535px;
+  margin-right: 211px;
+  margin-bottom: 10px;
   border-radius: 5px;
   border: 5px;
 }
@@ -310,17 +331,24 @@ h3 a{ text-decoration: none; }
 #content { width:600px; }
 #sidebar { float:right; width:225px; }
 
-
+.namakelas{
+  text-align: left;
+}
 .table {}
-.table th{ background:#fffdfa url(../images/admin/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
+.table th{ background:#fffdfa url(../images/admin/th.gif) repeat-x 0 0; color:#818181;  padding:7px 10px; border-bottom:solid 1px #d2d1cb; text-align: center;}
 
 .table tr.odd td{ background:#f8f8f8; font-family: ubuntu;}
 .table tr:hover td{ background:#fff9e1; }
 .table a.ico{ }
 
-.box { background:#fbfcfc; height:100%; width:700px; padding:1px; margin-bottom:20px; }
+.box { background:#fbfcfc; height:100%; width:800px; padding:1px; margin-bottom:20px; }
 .box.review { width:1000px;}
-.box-head { background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; }
+.box.murid { width:1020px;}
+.box.unpub { width:1020px;}
+.box-head { background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; width:779px; }
+.box-head.review{ background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; width:980px; }
+.box-head.murid{ background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; width:1000px; }
+.box-head.unpub{ background:#ba4c32; height:45px; color:#fff; padding: 0 10px; line-height:40px; white-space:nowrap; border-bottom:solid 1px #fff; width:1000px; }
 .box-head .right{ padding-top:5px; line-height:13px;}
 .box-head .right label,
 .box-head .right input { float:left; }

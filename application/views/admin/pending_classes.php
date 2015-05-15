@@ -34,21 +34,20 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>ID Kelas</th>
-                                    <th>Nama Kelas</th>
+                                    <th>Nama Kelas (ID)</th>
                                     <th>Status Kelas</th>
                                     <th class="center">Action</th>
-                                    <th class="center">Detail</th>
+                                    <!-- <th class="center">Detail</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($list_kelas_pending as $kelas) : ?>
                                 <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
+                                    <!-- <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                                         <?php echo $kelas->id; ?></a>
-                                    </td>
+                                    </td> -->
                                     <td>
-                                        <?php echo $kelas->nama; ?>
+                                        <div class="namakelas"><a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"><?php echo $kelas->nama; ?> (<?php echo $kelas->id; ?>)</a></div>
                                     </td>
                                     <td>
                                         <?php 
@@ -71,9 +70,9 @@
                                              <a href="<?php echo base_url().'admin/reject/'.$kelas->id; ?>" onclick="return konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>      
                                         <?php endif; ?>
                                     </td>
-                                    <td class="center">
-                                        <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>
-                                    </td>
+                                    <!-- <td class="center">
+                                        <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail Kelas<i class="fa fa-arrow-right"></i></a><br>
+                                    </td> -->
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

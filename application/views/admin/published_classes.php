@@ -16,22 +16,22 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>ID Kelas</th>
-                                    <th>Nama Kelas</th>
+                                    <!-- <th>ID Kelas</th> -->
+                                    <th>Nama Kelas (ID)</th>
                                     <th>Status Kelas</th>
-                                    <th>Murid</th>
-                                    <th class="center">Guru</th>
-                                    <th class="center">Detail</th>
+                                    <th>Daftar Murid</th>
+                                    <th class="center">Email Guru</th>
+                                    <!-- <th class="center">Detail</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($list_kelas_published as $kelas) : ?>
                                 <tr>
-                                    <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
+                                    <!-- <td><a class="fancybox class" data-attd_type="class" data-class_id="2" href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
                                         <?php echo $kelas->id; ?></a>
-                                    </td>
+                                    </td> -->
                                     <td>
-                                        <?php echo $kelas->nama; ?>
+                                        <div class="namakelas"><a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>"><?php echo $kelas->nama; ?> (<?php echo $kelas->id; ?>)</a></div>
                                     </td>
                                     <td>
                                         <?php 
@@ -42,7 +42,7 @@
                                     </td>
 
                                      <td class="center">
-                                        <a href="<?php echo base_url().'admin/daftarmurid/'.$kelas->id; ?>" data-id="6">Daftar<i class="fa fa-arrow-right"></i></a><br>
+                                        <a href="<?php echo base_url().'admin/daftarmurid/'.$kelas->id; ?>" data-id="6">Daftar Murid<i class="fa fa-arrow-right"></i></a><br>
                                     </td>
 
                                     <td class="center action">
@@ -50,9 +50,9 @@
                                         $alamatemail = $kelas->teacher->get()->email;
                                          echo $alamatemail ?>
                                     </td>
-                                    <td class="center">
-                                        <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>
-                                    </td>
+                                    <!-- <td class="center">
+                                        <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>" data-id="6">Detail Kelas<i class="fa fa-arrow-right"></i></a><br>
+                                    </td> -->
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

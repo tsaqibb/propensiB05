@@ -57,9 +57,10 @@ class Courses_Student extends DataMapper {
 		$this->update('isActive',0);
 	}
 
-	function get_student_class($var) {
-		return $this->where($var)->get();
-	}	
+	function get_student(){
+		 return $this->get();
+
+	}
 
 	// --------------------------------------------------------------------
 	// Custom Validation Rules
