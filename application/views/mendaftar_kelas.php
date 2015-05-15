@@ -1,17 +1,10 @@
 <script type=text/javascript>
-    function validate(){
+    function validasi(){
         if (document.getElementById('iagree').checked){
-            var r=confirm("Apakah Anda yakin akan mendaftar?");
-            if (r==true){
-                alert("Terima kasih atas pendaftarannya. Selanjutnya Anda akan mendapatkan email berupa link untuk konfirmasi pendaftaran.");
-            }
-            else{
-                alert("Pendaftaran Anda telah dibatalkan");
-            }
+            return confirm("Apakah Anda yakin akan mendaftar?");
         }
-        else{
-            alert("Anda belum menyetujui term")
-        }
+        else
+            (alert("Anda belum menyetujui term"));
     }
 </script>
 
@@ -58,6 +51,7 @@
                                 <a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a>
                             </li>
                         </ul> -->
+                        <h3 class="block-title text-center" style="margin-left:0px;">Selamat Datang</h3>
                         <br>
                         
                         <div class="panel-heading heading-label">Term Pendaftaran</div>
@@ -150,7 +144,7 @@
                             <div class="checkbox bottom-30">
                                 <form class="form-horizontal" method="post" action="<?php echo base_url();?>daftar">
                                 <label>
-                                    <input value="" name="agree" type="checkbox" id="iagree">
+                                    <input type="checkbox" id="iagree">
                                     Pendaftaran sudah sesuai.<br>
                                     Saya menyepakati <a href="http://ruangguru.com/kebijakan-pembayaran" class="blue 
                                     underline">persyaratan dan ketentuan</a> yang berlaku
@@ -174,9 +168,9 @@
                                         }
                                     });
                                 </script><br><br><br>
-                                <button id="submit" type="submit" class="grey" style="background: grey" disabled="disabled">Lanjutkan</button>           
+                                <button id="submit" type="submit" class="grey" style="background: grey" disabled="disabled" onclick="return validasi()">Lanjutkan</button>           
                             </form>
-                            <a class="fa fa-arrow-left btn btn-default main-button" href="<?php echo base_url();?>kelas"> Kembali ke Galeri Kelas</a>
+                            <a class="fa fa-arrow-left main-button" style="height:30px; margin-left:350px; padding: 6px;" href="<?php echo base_url();?>kelas"> Kembali ke Galeri Kelas</a>
                             </div>
                         </div>
                     </div>

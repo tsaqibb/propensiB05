@@ -10,7 +10,9 @@ class Daftar extends CI_Controller {
 	{
 		$id_murid = $this->session->userdata('user_id');
 		$type_user = $this->session->userdata('user_type');
-
+		$id_kelas=$this->session->userdata('course_id');
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id_kelas);
 		// jika user yang mendaftar belom login, maka akan di redirect ke halaman login
 		if($type_user != "murid") redirect('user/login');
 		
