@@ -305,7 +305,7 @@
                             <?php endif; ?>
                             </div> <!--feedback package -->                            
                             <?php endforeach; ?>
-                        </div>
+                        </div><!--chat -->
                         <div class="panel-footer">
                             <div class="container-fluid">
                                 <form class="form-horizontal input-group" method="post" action="<?php echo base_url(); ?>kelas/add_feedback/<?php echo $data_kelas->id; ?>">
@@ -315,7 +315,7 @@
                                     </span>
                                 </form>
                             </div>
-                        </div>
+                        </div><!-- panel footer-feedback-->
                     </div>
                 </div>
             </div><!-- tab-feedback -->
@@ -357,14 +357,7 @@
                             ?>
                         </p>
                     </div>
-                    <div class="testimonial-item">
-                    <?php endforeach; ?>    
-                        <h5 class="username">
-                            <strong>Ivan U.</strong> |
-                            <a href="http://kelas.rg/kelas/buat">Kelas 4</a>
-                        </h5>
-                        <p><b>Judul Review - </b>Review kedua. text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div><!-- testimonial-wrap -->
             </div>
         </div> <!-- col-md-8 -->
