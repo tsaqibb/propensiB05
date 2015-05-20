@@ -62,7 +62,7 @@
                             <i class="fa fa-chevron-circle-down"></i>
                             <?php echo $topik->judul; ?>
                         </a>
-                        <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse">
+                        <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse in">
                            <div class="panel-body">
                             <?php  $list_materi = $topik->resource->get();
                             foreach ($list_materi as $materi) :

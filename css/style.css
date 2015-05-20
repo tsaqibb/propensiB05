@@ -647,9 +647,6 @@ thead {
   float: left;
   margin-right: 10px;
 }
-.rating-wrap .rating .fa-star {
-  color: #e11447;
-}
 .testimonial-item {
   display: inline-block;
   margin: 15px 0;
@@ -1277,10 +1274,10 @@ text-align: center;
   text-align: right;
   line-height: 1.0;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.5);
+  /*background-color: rgba(0, 0, 0, 0.5);*/
   width: 100%;
   padding: 5px 15px;
-  color: #ddd;
+  color: #3bc4e6;
 }
 .photo {
   background-color: rgba(0, 0, 0, 0.5);

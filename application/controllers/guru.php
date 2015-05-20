@@ -195,4 +195,20 @@ class Guru extends CI_Controller {
 			redirect('/guru/tambahkelas');
 		}
 	}
+
+	public function respond_comment($comment_id, $response) {
+		$komentar_model = new Comment();
+		$komentar = $komentar_model->get_by_id($id);
+		$review = $komentar->review->get();
+		$course = $review->course->get();
+		$teacher = $course->teacher->get();
+		if($teacher->id != $this->id_guru)
+			return;
+		$success = $komentar_model->where('id', $comment_id)->update(array('tanggapan' => $response));
+		if($success)
+			$this->session->set_flashdata('status.notice','Berhasil menangapi komentar.');
+		else
+			$this->session->set_flashdata('status.warning','Gagal menangapi komentar!');
+		redirect('kelas/detail/'.$course->id);
+	}
 }
