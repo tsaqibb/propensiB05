@@ -85,19 +85,17 @@ class Kelas extends CI_Controller {
 			$access_note->save_as_new();
 		}
 
-		$a = $this->access_note->getData($user_id)->result_array();
+		$a = $this->access_note->getData($user_id);
 		/*foreach ($a as $b) {
 			$data[] = $b->resource_id;
 		}*/
-		var_dump($a);
+		
 
 				
 		$this->load->view('layout/header'); 
 		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
 			'topik' => $topik ,
-			'open_materi' => $open_materi,
-			'data' => $data
-						
+			'open_materi' => $open_materi								
 			));
 
 		$this->load->view('layout/footer');

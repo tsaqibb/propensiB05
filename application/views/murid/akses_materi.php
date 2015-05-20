@@ -28,10 +28,10 @@
                     <li class="list-group-item">
                       <span class="badge"> <?php echo $materi->tipe?></span>
                                            
-                              <?php if($data[] = $materi->id) ?>
+                              
                               <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
                              <p class-"text-uppercase"> <?php echo $materi->judul; ?></a> </p>   
-                             <?php endif; ?>
+                             
 
                     </li>                    
               
