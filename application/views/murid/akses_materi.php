@@ -26,8 +26,19 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                       <span class="badge"> <?php echo $materi->tipe?></span>
-                      <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>"> <?php echo $materi->judul; ?> </a>
-                    </li>
+                          <?php foreach ($test as $t)  :?>
+                            <?php if($t->resource_id == $materi->id) : ?>                  
+
+                              <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                       
+                              <p class="text-uppercase"><?php echo $materi->judul; ?></p> </a> 
+                          <?php break; ?>
+                        <?php elseif($t->resource_id != $materi->id) : ?>                          
+                            <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                       
+                          <?php echo $materi->judul; ?> </a>                           
+                       <?php endif; ?>
+                    <?php endforeach;?>
+                    </li>                    
+              
                    <?php
                      endforeach;
                     ?>

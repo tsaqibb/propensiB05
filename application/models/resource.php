@@ -3,7 +3,7 @@
 class Resource extends DataMapper {
 
 	var $has_one = array('topic');
-	//var $has_many = array('topic', 'feedback');
+	var $has_many = array('access_note');
 
 	var $default_order_by = array('id' => 'asc');
     
@@ -17,10 +17,21 @@ class Resource extends DataMapper {
 		return $this->get();
 	}
 
-	/*function insertMateri($namaTable,$data){
-       $result = $this->db->insert($namaTable,$data);
-       return result;
-    }*/
+	public function isAkses( $materi_id,$student_id ){
+ 		  $array = array('resource_id' => $materi_id,'student_id' => $student_id);
+ 		  $this->db->where($array);
+ 		  $data = $this->db->get('access_notes');
+ 		 
+ 		 if($data->num_rows() > 0){
+ 		 	return true;
+ 		 }
+ 		 else
+ 		 {
+ 		 	return false;
+ 		 }
+ 	}
+	
+    
     
 }
 
