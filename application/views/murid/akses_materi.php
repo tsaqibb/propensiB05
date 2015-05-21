@@ -56,7 +56,7 @@
                 ?>
                   <li class="list-group-item">
                     <span class="badge"> <?php echo $materi->tipe?></span>
-
+                  <?php if($this->session->userdata['user_type'] == 'murid') : ?>
                     <?php foreach ($viewed as $accessed) :?>
                       <?php if($materi->id == $accessed->resource_id) : ?>
                         <?php $watched = TRUE; 
@@ -64,7 +64,10 @@
                         ?>
                       <?php endif; ?>
                     <?php endforeach; ?>
+                  <?php endif; ?> 
                       <?php if($watched === TRUE) : ?>
+
+
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
                         <p> <?php echo $materi->judul; ?><i class="fa fa-check"></i></p> 
                       </a>

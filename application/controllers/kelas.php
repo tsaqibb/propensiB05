@@ -66,58 +66,68 @@ class Kelas extends CI_Controller {
 		
 		$access_note = new Access_note();
 		$topik = $open_materi->topic->get();
-
-
-		$kelas = $topik->course->get();	
-		
+		$kelas = $topik->course->get();			
 		$teacher_id = $open_materi->teacher_id;
 		$user_id =  $this->session->userdata['user_id'];
-
-
 		
+
+		if($this->session->userdata['user_type'] == 'admin'){			
+			$this->load->view('layout/header'); 
+			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi										
+			));
+			$this->load->view('layout/footer');
+		}		
 
 
 		if($this->session->userdata['user_type'] == 'guru'){			
 			if($this->session->userdata['user_id'] != $teacher_id){
+				echo "kesi"; 
 				redirect();
 				return;
 			}
-		}
-				
+		}				
 		
 		if($this->session->userdata['user_type'] == 'murid'){
-
-		$courses_student_model = new Courses_student();
-		$data = $courses_student_model->isHaveCourse($kelas->id,$user_id);
+			$courses_student_model = new Courses_student();
+			$data = $courses_student_model->isHaveCourse($kelas->id,$user_id);
 			
-		if($data === FALSE){							
+			if($data === FALSE){							
 				redirect();
 				return;
 			}
 
 			if($this->cekAksesMateri($id,$user_id) === FALSE) {			
-			$access_note->topic_id = $topik->id;			
-			$access_note->resource_id = $id;			
-			$access_note->course_id =  $kelas->id;			
-			$access_note->teacher_id = $teacher_id;			
-			$access_note->student_id = $this->session->userdata['user_id'];		
-			$access_note->save_as_new();
+				$access_note->topic_id = $topik->id;			
+				$access_note->resource_id = $id;			
+				$access_note->course_id =  $kelas->id;			
+				$access_note->teacher_id = $teacher_id;			
+				$access_note->student_id = $this->session->userdata['user_id'];		
+				$access_note->save_as_new();
 			}
-		}
-		
+			$getAccessNote = $this->access_note->getData($user_id);
 
-		$getAccessNote = $this->access_note->getData($user_id);
-				
 
-				
-		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			$this->load->view('layout/header'); 
+			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
 			'topik' => $topik ,
 			'open_materi' => $open_materi,
-			'viewed' => $getAccessote								
+			'viewed' => $getAccessNote								
 			));
+			$this->load->view('layout/footer');
+		}
+		
+			$this->load->view('layout/header'); 
+			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+			'topik' => $topik ,
+			'open_materi' => $open_materi										
+			));
+			$this->load->view('layout/footer');
+				
 
-		$this->load->view('layout/footer');
+				
+		
 	}
 
 	public function cekAksesMateri ($materi_id, $student_id){

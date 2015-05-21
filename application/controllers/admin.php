@@ -53,13 +53,13 @@ class Admin extends CI_Controller {
 		$murid = new Student($id);
 		$kelas = new Course($id_kelas);
 
-		$this->_send_smtp_email([
+		$this->_send_smtp_email(array(
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
 			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
 			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
-			]);
+			));
 
 		redirect('/admin/daftarmurid/'.$id_kelas);
 	}
@@ -75,13 +75,13 @@ class Admin extends CI_Controller {
 			$murid = new Student($id);
 			$kelas = new Course($id_kelas);
 
-		$this->_send_smtp_email([
+		$this->_send_smtp_email(array(
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
 			"receiver" => $murid->email,
 			"subject" => "Status Member Kelas $kelas->nama dinonaktifkan",
 			"message" => "Kepada $murid->nama, Mohon maaf karena kami harus menonaktifkan hak akses Anda pada kelas $kelas->nama . Untuk meminta activate kembali, Anda dapat menghubungi Admin ruangguru pada info@ruangguru.com",
-			]);
+			));
 	}
 		redirect('/admin/daftarmurid/'.$id_kelas);
 	}
