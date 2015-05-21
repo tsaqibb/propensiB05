@@ -63,34 +63,37 @@ class Kelas extends CI_Controller {
 
 		$materi_model = new Resource();
 		$open_materi = $materi_model->get_by_id($id);
+		
 		$access_note = new Access_note();
 		$topik = $open_materi->topic->get();
 
-		$kelas = $topik->course->get();
+
+		$kelas = $topik->course->get();	
+		
 		$teacher_id = $open_materi->teacher_id;
+		$user_id =  $this->session->userdata['user_id'];
+
 
 		
-		
-
-		//var_dump($materi_model);
 
 
 		if($this->session->userdata['user_type'] == 'guru'){			
 			if($this->session->userdata['user_id'] != $teacher_id){
-
 				redirect();
 				return;
 			}
 		}
-		
-		$user_id =  $this->session->userdata['user_id'];	
+				
 		
 		if($this->session->userdata['user_type'] == 'murid'){
-			/*if($this->session->userdata['user_id'] != $student_course->student_id){
-				echo "masuk kesini"; return;
+
+		$courses_student_model = new Courses_student();
+		$data = $courses_student_model->isHaveCourse($kelas->id,$user_id);
+			
+		if($data === FALSE){							
 				redirect();
 				return;
-			}*/
+			}
 
 			if($this->cekAksesMateri($id,$user_id) === FALSE) {			
 			$access_note->topic_id = $topik->id;			
@@ -103,7 +106,7 @@ class Kelas extends CI_Controller {
 		}
 		
 
-		$a = $this->access_note->getData($user_id);
+		$getAccessNote = $this->access_note->getData($user_id);
 				
 
 				
@@ -111,7 +114,7 @@ class Kelas extends CI_Controller {
 		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
 			'topik' => $topik ,
 			'open_materi' => $open_materi,
-			'viewed' => $a								
+			'viewed' => $getAccessote								
 			));
 
 		$this->load->view('layout/footer');
@@ -119,8 +122,8 @@ class Kelas extends CI_Controller {
 
 	public function cekAksesMateri ($materi_id, $student_id){
 		$materi_model = new Resource();
+		//var_dump( $materi_model->isAkses($materi_id,$student_id));
 		return $materi_model->isAkses($materi_id,$student_id);
-
 	}
 
 	public function request($id)

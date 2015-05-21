@@ -62,6 +62,22 @@ class Courses_Student extends DataMapper {
 
 	}
 
+	function isHaveCourse($id_kelas,$id_student){
+		$array = array('course_id' => $id_kelas, 'student_id' => $id_student);
+		$this->db->where($array);
+		$data = $this->db->get('courses_students');
+
+		if($data->num_rows() > 0){
+ 		 	return true;
+ 		 }
+ 		 else
+ 		 {
+ 		 	return false;
+ 		 }
+		
+
+	}	
+
 	// --------------------------------------------------------------------
 	// Custom Validation Rules
 	//   Add custom validation rules for this model here.
