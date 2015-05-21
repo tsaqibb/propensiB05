@@ -1,14 +1,5 @@
 <div id="container">
-            <div class="shell">
-
-                <!-- Small Nav -->
-                <div class="small-nav">
-                    <a href="http://ruang.guru/admin">Administration</a>
-                    <span>&gt;</span>
-                    Login
-                </div>
-                <!-- End Small Nav -->
-                
+            <div class="shell">                
                 <!-- Message Error -->
                 
                 <br>

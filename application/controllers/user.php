@@ -20,6 +20,9 @@ class User extends CI_Controller {
 		$this->load->view('layout/footer');
     }
 	public function admin(){
+		if($this->session->userdata('user_type') == 'admin') {
+			redirect('admin');
+		}
         $this->load->view('layout/header-admin');
         $this->load->view('admin/login');
 		$this->load->view('layout/footer-admin');
@@ -95,6 +98,10 @@ class User extends CI_Controller {
     }
 
     public function logout(){
+	    if($this->session->userdata('user_type') == 'admin') {
+			$this->session->sess_destroy();
+        	redirect('user/admin');
+		}
 	    $this->session->sess_destroy();
         redirect('user/login');
     }

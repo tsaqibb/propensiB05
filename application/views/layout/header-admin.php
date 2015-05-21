@@ -74,11 +74,17 @@ $notice = strlen($this->session->flashdata('status.error'))?'error':
                 <!-- Logo + Top Nav -->
                 <div id="top">
                     <h1><a href="http://ruang.guru/admin">Ruangguru</a></h1>
+<?php
+    if($this->session->userdata('is_logged_in') == TRUE) : // Not logged in
+?>                    
                     <div id="top-navigation">
                         Welcome <strong><?php echo $this->session->userdata('user_name')?></strong>
                         <span>|</span>
                         <a href="<?php echo base_url(); ?>user/logout">Log out</a>
                     </div>
+<?php
+    endif;
+?>
                 </div>
                 <!-- End Logo + Top Nav -->
                 
