@@ -70,7 +70,7 @@
                               <ul class="list-groups">
                                 <?php 
                                 if($registered) : ?>
-                                     <a href="<?php echo base_url();?>murid/aksesmateri/<?php echo $materi->id; ?>">
+                                     <a href="<?php echo base_url();?>kelas/aksesmateri/<?php echo $materi->id; ?>">
                                         <li class="list-group-item"> <?php echo $materi->judul; ?></li>
                                      </a>
                                  <?php else : ?>
