@@ -1,47 +1,5 @@
 <div class="container-fluid content kelas vendor">
     <div class="row">
-        <div class="col-sm-12 col-md-3">
-            <div class="sidebar">
-                <br>
-                <h4 class="profile-name text-center">
-                  <span class="name">
-                      <?php echo $this->session->userdata('user_name');?>
-                  </span></h4>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li >
-                        <a href="<?php echo base_url();?>murid/galerikelas"><i class="fa fa-list"></i> Galeri Kelas</a>
-                    </li>
-                    <li class="active">
-                        <a href=""><i class="fa fa-users"></i> Kelas Anda</a>
-                    </li>
-                </ul>
-            </div><!-- sidebar -->
-            <div class="group-materi"> 
-                <h3> &nbsp;Daftar Materi  </h3>
-                  <?php
-                    $list_materi = $topik->resource->get();
-                    
-                    foreach ($list_materi as $materi) : 
-                  ?>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class="badge"> <?php echo $materi->tipe?></span>
-                                           
-                              
-                              <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
-                             <p class-"text-uppercase"> <?php echo $materi->judul; ?></a> </p>   
-                             
-
-                    </li>                    
-              
-                   <?php
-                     endforeach;
-                    ?>
-                </ul>
-            </div>
-        </div>
-
         <div class="col-sm-12 col-md-9">
           <div class="panel panel-default panel-content">
                  <div class="panel heading-materi">                                  
@@ -87,8 +45,27 @@
             </div>
           </div>           
         </div>
+        <div class="col-sm-12 col-md-3">
+            <div class="group-materi"> 
+              <h3> &nbsp;Daftar Materi  </h3>
+              <ul class="list-group">
+                <?php
+                  $list_materi = $topik->resource->get();
+                  foreach ($list_materi as $materi) : 
+                ?>
+                  <li class="list-group-item">
+                    <span class="badge"> <?php echo $materi->tipe?></span>
+                      <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
+                        <p class-"text-uppercase"> <?php echo $materi->judul; ?></p>
+                      </a>
+                  </li>
+                <?php
+                  endforeach;
+                ?>
+              </ul>
+            </div>
+        </div>
       </div>
-    
 </div> <!-- /container -->
     
    
