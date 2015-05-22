@@ -267,7 +267,7 @@ class Kelas extends CI_Controller {
 		else{
 			$this->session->set_flashdata('status.error','Gagal membuat topik!');
 		}
-		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+		redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
 	}
 
 	public function create_materi($id){
@@ -293,7 +293,7 @@ class Kelas extends CI_Controller {
 			var_dump($_FILES['myFile']);
 			exit;*/
 			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
-			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');					
+			redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');					
 		}
 		else{
 			
@@ -319,13 +319,13 @@ class Kelas extends CI_Controller {
 					$this->session->set_flashdata('status.error','Gagal membuat materi!');
 				}
 
-			redirect('/guru/edit_kelas/'.$data_kelas->id,'refresh');
+			redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');
 			
 			}
 
 	} else {
 		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
-		redirect('/guru/edit_kelas/'.$data_kelas->id, 'refresh');
+		redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
 	}
 		
 	}
@@ -379,7 +379,7 @@ class Kelas extends CI_Controller {
 		}
 
 
-		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
+		redirect('/guru/edit_materi/'.$id_kelas->id,'refresh');
 	}
 
 
@@ -400,7 +400,7 @@ class Kelas extends CI_Controller {
 		else{
 			$this->session->set_flashdata('status.error','Gagal menghapus materi!');
 		}
-		redirect('/guru/edit_kelas/'.$id_kelas->id,'refresh');
+		redirect('/guru/edit_materi/'.$id_kelas->id,'refresh');
 	}
 
 

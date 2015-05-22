@@ -49,10 +49,29 @@ class Guru extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
-	public function tambahmateri(){
-		$this->load->view('layout/header');
+	public function edit_materi($kelas_id){
+		/*$this->load->view('layout/header');
 		$this->load->view('guru/tambah_materi');
+		$this->load->view('layout/footer');*/
+		$kelas_model = new Course();		
+		$data_kelas = $kelas_model->get_by_id($kelas_id);
+		if($data_kelas->status_kelas % 2 == 1) {
+			redirect();
+			return;
+		}
+		$data_topik = $data_kelas->topic->get();
+		$data_guru = $data_kelas->teacher->get();
+		$this->load->view('layout/header');
+		$this->load->view('guru/edit_materi',
+			array(
+				'data_guru'=>$data_guru,
+				'data_kelas'=>$data_kelas,
+				'data_topik'=>$data_topik
+			)
+		);
 		$this->load->view('layout/footer');
+
+
 	}
 
 	public function edit_kelas($kelas_id)

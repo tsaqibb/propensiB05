@@ -64,10 +64,9 @@
                         ?>
                       <?php endif; ?>
                     <?php endforeach; ?>
-                  <?php endif; ?> 
-                      <?php if($watched === TRUE) : ?>
+                  <?php endif; ?>                       
 
-
+                  <?php if($watched === TRUE) : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
                         <p> <?php echo $materi->judul; ?><i class="fa fa-check"></i></p> 
                       </a>
