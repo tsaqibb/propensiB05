@@ -375,7 +375,7 @@
                         <?php endif ?>
 
                         <span class="rate">
-                            <?php echo "$class_rating dari $no_of_review rating $review_exists" ?>
+                            <?php echo "$class_rating dari $no_of_review rating" ?>
                         </span>
                     </div>
                     <br></br>
@@ -404,7 +404,7 @@
                         <?php if($review_exists == true && $review->student_id == $id_murid && $review->course_id == $data_kelas->id) {
                                 $review_val = $review->rating;
                                 if ($review_val == 5) { ?>
-                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <legend>Rating yang Anda berikan</legend>
                                     <input checked type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star"></label>
                                     <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
@@ -417,7 +417,7 @@
                                     <label for="rating-input-1-1" class="rating-star"></label>
                                 <?php }
                                 else if($review_val == 4) { ?>
-                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <legend>Rating yang Anda berikan</legend>
                                     <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star"></label>
                                     <input checked type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
@@ -430,7 +430,7 @@
                                     <label for="rating-input-1-1" class="rating-star"></label>
                                 <?php }
                                 else if($review_val == 3) { ?>
-                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <legend>Rating yang Anda berikan</legend>
                                     <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star"></label>
                                     <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
@@ -443,7 +443,7 @@
                                     <label for="rating-input-1-1" class="rating-star"></label>
                                 <?php }
                                 else if($review_val == 2) { ?>
-                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <legend>Rating yang Anda berikan</legend>
                                     <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star"></label>
                                     <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
@@ -456,7 +456,7 @@
                                     <label for="rating-input-1-1" class="rating-star"></label>
                                 <?php }
                                 else if($review_val == 1) { ?>
-                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <legend>Rating yang Anda berikan</legend>
                                     <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star"></label>
                                     <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
