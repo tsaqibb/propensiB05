@@ -5,6 +5,7 @@ class Kelas extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('access_note');
+		$this->load->library('unit_test');
 	}
 
 	public function index()
@@ -51,7 +52,7 @@ class Kelas extends CI_Controller {
 				'partisipan_all' => $partisipan_all,
 				'list_review'=> $list_review
 				)
-		);
+			);
 		$this->load->view('layout/footer');
 	}
 
@@ -75,9 +76,9 @@ class Kelas extends CI_Controller {
 		if($this->session->userdata['user_type'] == 'admin'){			
 			$this->load->view('layout/header'); 
 			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
-			'topik' => $topik ,
-			'open_materi' => $open_materi										
-			));
+				'topik' => $topik ,
+				'open_materi' => $open_materi										
+				));
 			$this->load->view('layout/footer');
 		}		
 
@@ -88,6 +89,13 @@ class Kelas extends CI_Controller {
 				redirect();
 				return;
 			}
+
+			$this->load->view('layout/header'); 
+			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
+				'topik' => $topik ,
+				'open_materi' => $open_materi										
+				));
+			$this->load->view('layout/footer');
 		}				
 		
 		if($this->session->userdata['user_type'] == 'murid'){
@@ -112,22 +120,17 @@ class Kelas extends CI_Controller {
 
 			$this->load->view('layout/header'); 
 			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
-			'topik' => $topik ,
-			'open_materi' => $open_materi,
-			'viewed' => $getAccessNote								
-			));
+				'topik' => $topik ,
+				'open_materi' => $open_materi,
+				'viewed' => $getAccessNote								
+				));
 			$this->load->view('layout/footer');
 		}
 		
-			$this->load->view('layout/header'); 
-			$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
-			'topik' => $topik ,
-			'open_materi' => $open_materi										
-			));
-			$this->load->view('layout/footer');
-				
+		
+		
 
-				
+		
 		
 	}
 
@@ -191,7 +194,7 @@ class Kelas extends CI_Controller {
 		$this->session->set_flashdata('status.notice','Murid berhasil diaktifkan');
 		$murid = new Student($id);
 		$kelas = new Course($id_kelas);
-	
+		
 		$this->_send_smtp_email(array(
 			"sender" => "online.ruangguru@gmail.com",
 			"sender_name" => "Kelas Online ruangguru.com",
@@ -211,14 +214,14 @@ class Kelas extends CI_Controller {
 			$this->session->set_flashdata('status.notice','Semua murid berhasil diaktifkan');
 			$murid = new Student($id);
 			$kelas = new Course($id_kelas);
-	
-		$this->_send_smtp_email(array(
-			"sender" => "online.ruangguru@gmail.com",
-			"sender_name" => "Kelas Online ruangguru.com",
-			"receiver" => $murid->email,
-			"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
-			"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
-			));
+			
+			$this->_send_smtp_email(array(
+				"sender" => "online.ruangguru@gmail.com",
+				"sender_name" => "Kelas Online ruangguru.com",
+				"receiver" => $murid->email,
+				"subject" => "Status Member Kelas $kelas->nama Sudah Aktif",
+				"message" => "Hai $murid->nama, Selamat sekarang kamu sudah terdaftar di kelas $kelas->nama. Selamat Belajar",
+				));
 		}
 		redirect('/admin/calon_partisipan/');
 	}
@@ -228,9 +231,9 @@ class Kelas extends CI_Controller {
 		$feedback_model = new Feedback();
 		
 		//Save pesan & course_id
-		$feedback_model->pesan = $this->input->post('pesan');
+		$feedback_model->pesan = $this->test_input($this->input->post('pesan'));
 		$feedback_model->course_id = $id;
-
+		
 		//Save teacher_id
 		$kelas_model = new Course();
 		$teacher_id = $kelas_model->get_by_id($id)->teacher_id;
@@ -248,18 +251,32 @@ class Kelas extends CI_Controller {
 			redirect();
 		}
 		
-		$success = $feedback_model->save_as_new();
+
+		//  UNIT TESTTING
+	/*	$test = $this->test_input($this->input->post('pesan'));
+		
+		$expected_result = "&lt;script&gt;location.href('http://www.hacked.com')&lt;/script&gt;" ; 
+		echo $this->unit->run($test,$expected_result);
+
+		exit;*/
+		
+		$success = $feedback_model->save_as_new();		
 		redirect('kelas/detail/'.$id.'#feedback', 'refresh');
 	}
+
+	
+	
 
 	public function create_topik($id) {
 		$kelas_model = new Course();
 		$data_kelas = $kelas_model->get_by_id($id);
 
 		$topik_model = new Topic();
-		$topik_model->judul = $this->input->post('judul_topik');		
+		
+		$topik_model->judul = $this->test_input($this->input->post('judul_topik'));		
 		$topik_model->course_id = $id;
 		$topik_model->teacher_id = $data_kelas->teacher_id;	
+
 
 		$success = $topik_model->save_as_new();
 		if($success) {
@@ -276,8 +293,8 @@ class Kelas extends CI_Controller {
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
-		ini_set('upload_max_filesize','50M');
-	if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
+		//ini_set('upload_max_filesize','50M');
+		if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
 			unset($config);
 			$config['upload_path'] ='./_materi/';
 			$config['allowed_types'] = 'pdf|mp4';
@@ -287,31 +304,25 @@ class Kelas extends CI_Controller {
 			$this->load->library('upload' , $config);
 			$this->upload->initialize($config);
 
-		if(!$this->upload->do_upload('myFile')){
-			$error = array('error' => $this->upload->display_errors());
-			/*var_dump($error);
-			var_dump(ini_get('upload_max_filesize'));
-			var_dump($_FILES['myFile']);
-			exit;*/
-			$this->session->set_flashdata('status.error','Format file tidak sesuai!');
-			redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');					
-		}
-		else{
-			
-			$materi_model->judul = $this->input->post('namamateri');
-			$materi_model->notes = $this->input->post('notemateri');			
-			$upload_file = $_FILES['myFile']['name'];	
+			if(!$this->upload->do_upload('myFile')){
+				$error = array('error' => $this->upload->display_errors());			
+				$this->session->set_flashdata('status.error','Format file tidak sesuai!');
+				redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');					
+			}
+			else{
+				
+				$materi_model->judul = $this->test_input($this->input->post('namamateri'));
+				$materi_model->notes = $this->test_input($this->input->post('notemateri'));			
+				$upload_file = $_FILES['myFile']['name'];	
 
-			$extension = pathinfo($upload_file, PATHINFO_EXTENSION);		
-			
-			$materi_model->teacher_id = $data_kelas->teacher_id;			
-			$materi_model->topic_id = $data_topik->id;
-			$materi_model->course_id = $data_kelas->id;	
-			$materi_model->url = 'materi/'.$upload_file;
-			$materi_model->tipe = $extension;
-			$success = $materi_model->save_as_new();
-
-		
+				$extension = pathinfo($upload_file, PATHINFO_EXTENSION);		
+				
+				$materi_model->teacher_id = $data_kelas->teacher_id;			
+				$materi_model->topic_id = $data_topik->id;
+				$materi_model->course_id = $data_kelas->id;	
+				$materi_model->url = 'materi/'.$upload_file;
+				$materi_model->tipe = $extension;
+				$success = $materi_model->save_as_new();
 
 				if($success) {
 					$this->session->set_flashdata('status.notice','Berhasil membuat materi!');
@@ -320,14 +331,14 @@ class Kelas extends CI_Controller {
 					$this->session->set_flashdata('status.error','Gagal membuat materi!');
 				}
 
-			redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');
-			
+				redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');
+				
 			}
 
-	} else {
-		$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
-		redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
-	}
+		} else {
+			$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
+			redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
+		}
 		
 	}
 	public function delete($id)
@@ -351,18 +362,8 @@ class Kelas extends CI_Controller {
 
 
 	public function delete_topik($id){
-		 
-		/*$topik_model  = new Topic();
-		$data_topik  = $topik_model->get_by_id($id);
-		$data_topik->where('id' , $data_topik->id)->get();
-		$data_topik->delete();
-		redirect('/guru/kelas#draft');	}
-	public function delete_topik($id)
-	{
-		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);
-
-		$id_kelas = $data_topik->course->get();*/
+		
+		
 		$topik_model = new Topic();
 		$data_topik  = $topik_model->get_by_id($id);
 		$judul_topik = $data_topik->judul;
@@ -453,11 +454,11 @@ class Kelas extends CI_Controller {
 	// fungsi untuk mengirim email
 
 	function _send_smtp_email($data)
-  	{
+	{
     // $data: sender, sender_name, receiver, receiver_name, subject, message
-    extract($data);
-    require_once('application/libraries/mailer/PHPMailerAutoload.php');
-    $mail = new PHPMailer();
+		extract($data);
+		require_once('application/libraries/mailer/PHPMailerAutoload.php');
+		$mail = new PHPMailer();
     $mail->IsSMTP();                       // telling the class to use SMTP
     $mail->SMTPDebug = 0;                  // 0 = no output, 1 = errors and messages, 2 = messages only.
     $mail->SMTPAuth = true;                // enable SMTP authentication 
@@ -478,22 +479,14 @@ class Kelas extends CI_Controller {
     $mail->AddAddress ($receiver, @$receiver_name);
     // you may also use this format $mail->AddAddress ($recipient);
     return $mail->Send();
-  }
+}
 
 
- 	/* public function aksesmateri($id)
-	{	
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 
-		$materi_model = new Resource();
-		$open_materi = $materi_model->get_by_id($id);
-
-		$topik = $open_materi->topic->get();
-		$kelas = $topik->course->get();
-		
-		$this->load->view('layout/header'); 
-		$this->load->view('murid/akses_materi', array('kelas' => $kelas, 
-			'topik' => $topik ,
-			'open_materi' => $open_materi));
-		$this->load->view('layout/footer');
-	}*/
 }

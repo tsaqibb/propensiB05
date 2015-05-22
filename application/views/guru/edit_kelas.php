@@ -123,10 +123,10 @@
                                       <div class="col-md-7">
                                       </div>                                  
                                       <div class="col-md-3">
-                                        <input class="form-control form-topik" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini">
+                                        <input class="form-control form-topik" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini" pattern="[a-zA-Z0-9\s]+" >
                                       </div>
                                       <div class="col-md-2">      
-                                        <button role="submit" class="btn btn-primary btn-topik" id="button1"><i class="fa fa-pencil-square-o"></i>Buat Topik</button>
+                                        <button role="submit" class="btn btn-primary btn-topik" id="button1" onclick="spaceFunction()"><i class="fa fa-pencil-square-o"></i>Buat Topik</button>
                                       </div>                                  
                                     </div>                             
                                   </form>                               
@@ -184,11 +184,11 @@
                                                 <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                                 <p>
                                                 <label for="nama-materi">Nama Materi </label>
-                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" pattern="[a-zA-Z0-9\s]+" />
                                                 </p>
                                                 <p>
                                                 <label for="note-materi">Note Materi </label>
-                                                  <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                                  <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" pattern="[a-zA-Z0-9\s]+"/>
                                                 </p>
                                         
                                             <input type="file" required="" name="myFile" id="myFile" multiple size="50">
@@ -209,7 +209,7 @@
                               </div>
                             </div> <!-- end tab panel materi -->
                           </div> <!--end tab content  -->                                                    
-                        </div><!-- tabpanel kelas -->
+                  </div><!-- tabpanel kelas -->
                 </div><!-- panel-body -->
             </div><!-- panel -->        
     </div>
@@ -223,5 +223,13 @@
     $('.btn-delete-topik').click(function(){
         return confirm("Are you sure want to delete topik?");
     });
+
+
+    function spaceFunction(){
+      if(judul_topik.trim() === " " || judul_topik === null ){
+        alert("isi menggunakan alphabet");
+        return false;
+      }
+    }
 
 </script>

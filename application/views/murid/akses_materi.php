@@ -34,8 +34,8 @@
           </div> 
           
           <div class="notes"> 
-            <div class="panel panel-warning">
-                <div class="panel-heading">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-orange">
                  <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
                 </div>
                 <div class="panel-body">
@@ -68,7 +68,7 @@
 
                   <?php if($watched === TRUE) : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
-                        <p> <?php echo $materi->judul; ?><i class="fa fa-check"></i></p> 
+                        <p> <?php echo $materi->judul; ?>&nbsp;<i class="fa fa-check"></i></p> 
                       </a>
                       <?php else : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               

@@ -103,12 +103,12 @@
                     foreach ( $list_topik as $topik ):
                     ?>
                      <div class="panel panel-orange">
-                        <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                        <a data-toggle="collapse collapse" data-parent="#accordion" class="judul-topik panel-heading"
                             href="#topik<?php echo $topik->id; ?>">
                             <i class="fa fa-chevron-circle-down"></i>
                             <?php echo $topik->judul; ?>
                         </a>
-                        <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse in">
+                        <div id="topik<?php echo $topik->id; ?>" class="panel-collapse">
                            <div class="panel-body">
                             <?php  $list_materi = $topik->resource->get();
                             foreach ($list_materi as $materi) :
@@ -144,10 +144,10 @@
             $session_role = $this->session->userdata('user_type');
             $id_guru=$this->session->userdata('user_id');
                 if($id_guru==$data_kelas->teacher_id || $session_role == 'admin') :?>
-                
-            <div class="sub-content detail-kelas"><!-- tab feedback -->
+                 
+            <div class="sub-content detail-kelas feedback-part"><!-- tab feedback -->
                 <div id="feedback">
-                    <h4 class="feedback-title">Feedback</h4>
+                    <h4 class="feedback-title">Feedback</h4>                   
                     <div class="panel-body-feedback">
                         <div class="chat">
                             <br>

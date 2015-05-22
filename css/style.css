@@ -822,6 +822,19 @@ thead {
 .panel-body .panel-body-feedback {
   background-color: #fff;
   border-color: #f8f5fd;
+  position:absolute;
+  top:0;
+  bottom:0;
+    left:0;
+    right:0;
+    overflow-y:auto;
+
+}
+
+ .sub-content.feedback-part{
+ max-height: 500px;
+  overflow:scroll;
+  
 }
 
 .panel-body .feedback-package {
@@ -890,8 +903,8 @@ thead {
 .panel-body a {
   display: inline-block;
   margin-top: 3px;
-  margin-right: 60px;
-  /*width: 100%;*/
+  margin-right: 8px;
+  
 
 }
 .support a {
@@ -1072,9 +1085,6 @@ a.remove {
   border-radius: 5px #fcb33b;
   background-color: white;
   padding-left: 10px;
-
- 
-
 }
 
 .form-topik{
