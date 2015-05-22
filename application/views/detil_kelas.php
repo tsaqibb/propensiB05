@@ -1,3 +1,34 @@
+
+<script>
+  function toggle(source) {
+    checkboxes = document.getElementsByTagName('input');
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+      checkboxes[i].checked = source.checked;
+    }
+  }
+</script>
+
+<script type=text/javascript>
+  function konfirmasi()
+    {
+      return confirm("Apakah Anda yakin ingin menonaktifkan murid tersebut?");
+    }
+</script>
+
+<script type=text/javascript>
+    function konfirmasi_rating(){
+        var star_value;
+        star_value = $('input:radio[name=rating-input-1]:checked').val();
+        return confirm("Rate kelas ini " + star_value + "?");
+    }
+</script>
+
+<script type=text/javascript>
+    function konfirmasi_komentar(){
+        return confirm("Kirim komentar?");
+    }
+</script>
+
 <?php
     $type_user = $this->session->userdata('user_type');
     $id_kelas=$this->session->userdata('course_id');
@@ -14,6 +45,21 @@
     }
     elseif($type_user == "admin" || $type_user == "guru") {
         $registered =true;
+    }
+    $class_rating = 0.0;
+    $total_rates = 0;
+    $no_of_review = 0;
+    $review_exists = false;
+    foreach ($list_review as $review) :
+        if($id_murid == $review->student_id):
+            $review_exists = true;
+        endif;
+        $no_of_review = $no_of_review + 1;
+        $total_rates = $total_rates+$review->rating;
+    endforeach; 
+
+    if ($no_of_review > 0){
+        $class_rating = $total_rates/$no_of_review;
     }
 ?>
 <div class="container content kelas">
@@ -274,22 +320,166 @@
             </div><!-- tab-feedback -->
             <?php endif ?>
             
-            <div class="review-wrap">
+            <div id="review" class="review-wrap">
                 <div class="rating-wrap review-item">
                     <h4 class="review-title">Rating</h4>
                     <div class="rating pull-left">
-                        <i class="fa fa-star fa-3x"></i>
-                        <i class="fa fa-star fa-3x"></i>
-                        <i class="fa fa-star fa-3x"></i>
-                        <i class="fa fa-star-o fa-3x"></i>
-
-                        <i class="fa fa-star-o fa-3x"></i>
+                        <?php if ($class_rating > 0.0 && $class_rating < 0.3) : ?>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
+                        <?php if ($class_rating > 0.2 && $class_rating < 1.5) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
+                        <?php if($class_rating > 1.5 && $class_rating < 2.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
+                        <?php if($class_rating > 2.5 && $class_rating < 3.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
+                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
+                        <?php if($class_rating > 3.9 && $class_rating < 4.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <?php endif ?>
+                        <?php if($class_rating > 4.5) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif ?>
 
                         <span class="rate">
-                                <b>3.0</b> dari 3 review 
-                                <?php 
-                                ?>
+                            <?php echo "$class_rating dari $no_of_review rating $review_exists" ?>
                         </span>
+                    </div>
+                    <br></br>
+                    <div>
+                        <div>
+                        <?php if($review_exists == false) : ?>
+                        <form action="<?php echo base_url(); ?>kelas/add_review/<?php echo $data_kelas->id; ?>" method="POST">
+                            <span class="rating">
+                                <legend>Berikan rating Anda terhadap kelas ini</legend>
+                                <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                <label for="rating-input-1-5" class="rating-star"></label> 
+                                <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                <label for="rating-input-1-4" class="rating-star"></label>
+                                <input type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                <label for="rating-input-1-3" class="rating-star"></label>
+                                <input type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                <label for="rating-input-1-2" class="rating-star"></label>
+                                <input type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                <label for="rating-input-1-1" class="rating-star"></label>
+                            </span>
+                            <span class="rating">
+                                <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
+                            </span>
+                        <?php endif; ?>
+                        <?php foreach ($list_review as $review) : ?>
+                        <?php if($review_exists == true && $review->student_id == $id_murid && $review->course_id == $data_kelas->id) {
+                                $review_val = $review->rating;
+                                if ($review_val == 5) { ?>
+                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <input checked type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star"></label>
+                                    <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                    <label for="rating-input-1-4" class="rating-star"></label>
+                                    <input type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                    <label for="rating-input-1-3" class="rating-star"></label>
+                                    <input type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                    <label for="rating-input-1-2" class="rating-star"></label>
+                                    <input type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                    <label for="rating-input-1-1" class="rating-star"></label>
+                                <?php }
+                                else if($review_val == 4) { ?>
+                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star"></label>
+                                    <input checked type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                    <label for="rating-input-1-4" class="rating-star"></label>
+                                    <input type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                    <label for="rating-input-1-3" class="rating-star"></label>
+                                    <input type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                    <label for="rating-input-1-2" class="rating-star"></label>
+                                    <input type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                    <label for="rating-input-1-1" class="rating-star"></label>
+                                <?php }
+                                else if($review_val == 3) { ?>
+                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star"></label>
+                                    <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                    <label for="rating-input-1-4" class="rating-star"></label>
+                                    <input checked type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                    <label for="rating-input-1-3" class="rating-star"></label>
+                                    <input type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                    <label for="rating-input-1-2" class="rating-star"></label>
+                                    <input type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                    <label for="rating-input-1-1" class="rating-star"></label>
+                                <?php }
+                                else if($review_val == 2) { ?>
+                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star"></label>
+                                    <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                    <label for="rating-input-1-4" class="rating-star"></label>
+                                    <input type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                    <label for="rating-input-1-3" class="rating-star"></label>
+                                    <input checked type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                    <label for="rating-input-1-2" class="rating-star"></label>
+                                    <input type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                    <label for="rating-input-1-1" class="rating-star"></label>
+                                <?php }
+                                else if($review_val == 1) { ?>
+                                    <legend class = "rating">Rating yang Anda berikan</legend>
+                                    <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star"></label>
+                                    <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
+                                    <label for="rating-input-1-4" class="rating-star"></label>
+                                    <input type="radio" value="3" class="rating-input" id="rating-input-1-3" name="rating-input-1"/>
+                                    <label for="rating-input-1-3" class="rating-star"></label>
+                                    <input type="radio" value="2" class="rating-input" id="rating-input-1-2" name="rating-input-1"/>
+                                    <label for="rating-input-1-2" class="rating-star"></label>
+                                    <input checked type="radio" value="1" class="rating-input" id="rating-input-1-1" name="rating-input-1"/>
+                                    <label for="rating-input-1-1" class="rating-star"></label>
+                                <?php } } ?>
+                        <?php endforeach; ?> 
+                        </form>
+                            <br></br>
+                        </div>
+                        
+                        <form method="post" action="<?php echo base_url(); ?>kelas/add_comment/<?php echo $review->id; ?>">
+                            <span class="rating">
+                            <legend>Review</legend>
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Berikan review Anda di sini..." name="comment-review"></textarea>
+                                <button name="komentar_review" role="submit" class="btn btn-primary btn-post-review" onclick="return konfirmasi_komentar()"=>Kirim</button>
+                            </span>
+                        </form>
                     </div><!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
@@ -310,7 +500,7 @@
                                     echo $nama_murid;
                                 ?>
                             </strong> |
-                            <a href="http://kelas.rg/kelas/web-programming-basic"><?php echo $data_kelas->nama; ?></a>
+                            <a href="<?php echo base_url();?>kelas/detail/<?php echo $data_kelas->id; ?>"><?php echo $data_kelas->nama; ?></a>
                         </h5>
                         <p>
                             <?php

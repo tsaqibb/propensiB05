@@ -30,15 +30,16 @@ class Kelas extends CI_Controller {
 		}
 		$partisipan_all = $data_kelas->courses_student->get();
 		$list_partisipan = $data_kelas->courses_student->get_list_partisipan_active();
+
+		$data_topik = $data_kelas->topic->get();
+
+
 		$list_feedback = $data_kelas->feedback->get();
 
 		$list_review = $data_kelas->review->get();
-
-		$data_topik = $data_kelas->topic->get();
 		
 		$review_model = new Review();
 		$data_review = $review_model->get_by_id($id);
-
 
 		$this->load->view('layout/header');
 		$this->load->view('detil_kelas',
@@ -403,6 +404,50 @@ class Kelas extends CI_Controller {
 		redirect('/guru/edit_materi/'.$id_kelas->id,'refresh');
 	}
 
+
+
+  	public function add_review($id) {
+
+  		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id);		
+		$review_model = new Review();
+
+		$review_model->course_id = $id;
+		$review_model->student_id = $this->session->userdata('user_id');
+		$review_model->rating = $_POST['rating-input-1'];  
+
+
+		$success = $review_model->save_as_new();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil menambah review.');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menambah review.');
+		}
+		redirect('/kelas/detail/'.$id.'#review','refresh');
+  	}
+
+  	public function add_comment($id) {
+		
+		$review_model = new Review();
+		$data_review = $review_model->get_by_id($id);
+
+		$id_kelas = $review_model->course_id;
+
+  		$comment_model = new Comment();
+		$comment_model->review_id = $data_review->id;
+		$comment_model->komentar = $_POST['comment-review']; 
+		$comment_model->status = 0;
+
+		$success = $comment_model->save_as_new();
+		if($success) {
+			$this->session->set_flashdata('status.notice','Penambahan review anda menunggu moderasi oleh admin.');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menambah review.');
+		}
+		redirect('/kelas/detail/'.$id_kelas.'#review','refresh');
+  	}
 
 
 	// fungsi untuk mengirim email
