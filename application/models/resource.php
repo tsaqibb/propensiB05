@@ -7,7 +7,7 @@ class Resource extends DataMapper {
 
 	var $default_order_by = array('id' => 'asc');
     
-	var $validation = array(
+	/*var $validation = array(
 	    'judul' => array(
 	        'label' => 'Judul Materi',
 	        'rules' => array('required', 'min_length' => 3, 'max_length' => 100)
@@ -20,7 +20,7 @@ class Resource extends DataMapper {
 	        'label' => 'Judul Materi',
 	        'rules' => array('required', 'min_length' => 3, 'max_length' => 600)
 	    ),
-	);
+	);*/
 
     function __construct($id = NULL)
 	{
