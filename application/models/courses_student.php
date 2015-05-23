@@ -4,7 +4,7 @@ class Courses_Student extends DataMapper {
 
 	var $table = 'Courses_Students';
 	var $has_one = array('course','student');
-	var $has_many = array('admin');
+	var $has_many = array('admin', 'review');
 
 	var $default_order_by = array('student_id' => 'asc');
     function __construct($id = NULL){

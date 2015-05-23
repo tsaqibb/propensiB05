@@ -46,10 +46,10 @@
                             echo character_limiter($guru->nama, 25);
                         ?>
                     </a>
-                <div class="rating-right">
+                <!-- <div class="rating-right">
                     <div class="icon tag"><i class="fa fa-star"></i></div>
                         <b>0</b> (0 review)
-                    </div>
+                    </div> -->
                 </div>
             </div><!-- grid-bottom -->
         </div><!-- content-grid -->

@@ -84,11 +84,16 @@ class Guru extends CI_Controller {
 			redirect();
 			return;
 		}
-		$success_update = $kelas_model->where('id', $id)->update(array(
-			'nama' => $this->input->post('nama_kelas'),
-			'deskripsi'=>$this->input->post('deskripsi_kelas'),
-			'harga'=>$this->input->post('harga'),
-			));
+		try {
+			$success_update = $kelas_model->where('id', $id)->update(array(
+				'nama' => $this->input->post('nama_kelas'),
+				'deskripsi'=>$this->input->post('deskripsi_kelas'),
+				'harga'=>$this->input->post('harga'),
+				));
+		} catch (Exception $e) {
+			$this->session->set_flashdata('status.error','Gagal update kelas! Masukan yang anda masukan salah');
+			redirect('/guru/edit_kelas/'.$id, 'refresh');
+		}
 		
 		//list hasil input tag
 		$input_list_tag = explode(',', $this->input->post('class_tags'));
@@ -157,7 +162,12 @@ class Guru extends CI_Controller {
 		$kelas_model->harga = $this->input->post('harga');
 		$kelas_model->teacher_id = $this->session->userdata('user_id');
 		$kelas_model->status_kelas = 0;
-		$success = $kelas_model->save_as_new();
+		try {
+			$success = $kelas_model->save_as_new();
+		} catch (Exception $e) {
+			$this->session->set_flashdata('status.error','Gagal membuat kelas! Masukan yang anda masukan salah');
+			redirect('/guru/tambahkelas');
+		}
 		if($success) {
 			$new_class = new Course();
 			$new_class->select_max('id');
@@ -194,20 +204,25 @@ class Guru extends CI_Controller {
 			redirect('/guru/edit_kelas/'.$new_class->id.'#materi', 'refresh');
 		}
 		else{
-			$this->session->set_flashdata('status.error','Gagal membuat kelas!');
+			$this->session->set_flashdata('status.error','Gagal membuat kelas! Masukan yang anda masukan salah');
 			redirect('/guru/tambahkelas');
 		}
 	}
 
-	public function respond_comment($comment_id, $response) {
-		$komentar_model = new Comment();
+	public function respond_comment($comment_id) {
+		$komentar_model = new Review();
 		$komentar = $komentar_model->get_by_id($id);
-		$review = $komentar->review->get();
-		$course = $review->course->get();
+		$courses_student = $komentar->courses_student->get();
+		$course = $courses_student->course->get();
 		$teacher = $course->teacher->get();
 		if($teacher->id != $this->id_guru)
 			return;
-		$success = $komentar_model->where('id', $comment_id)->update(array('tanggapan' => $response));
+		try {
+			$success = $komentar_model->where('id', $comment_id)->update(array('tanggapan' => $this->input->post('komentar')));
+		} catch (Exception $e) {
+			$this->session->set_flashdata('status.warning','Gagal menangapi komentar!');
+			redirect('kelas/detail/'.$course->id);
+		}
 		if($success)
 			$this->session->set_flashdata('status.notice','Berhasil menangapi komentar.');
 		else

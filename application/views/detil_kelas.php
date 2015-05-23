@@ -294,9 +294,9 @@
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
-                    <?php foreach ($list_review as $review) : ?>
+                    <?php foreach ($list_partisipan as $course_student) : ?>
                     <?php 
-                        $komentar_review = $review->comment->get();
+                        $komentar_review = $course_student->review->get();
                         $approval_review = $komentar_review->status;
                         if($approval_review == '1') : 
                     ?>
@@ -304,13 +304,12 @@
                         <h5 class="username">
                             <strong>
                                 <?php 
-                                    $student_id_temp = $review->student_id;
-                                    $murid_model_temp = $data_kelas->student->get_by_id($student_id_temp);
-                                    $nama_murid = $murid_model_temp->nama;
+                                    $student = $course_student->student->get();
+                                    $nama_murid = $student->nama;
                                     echo $nama_murid;
                                 ?>
                             </strong> |
-                            <a href="http://kelas.rg/kelas/web-programming-basic"><?php echo $data_kelas->nama; ?></a>
+                            <a href="<?php echo base_url().'kelas/detail/'.$data_kelas->id; ?>"><?php echo $data_kelas->nama; ?></a>
                         </h5>
                         <p>
                             <?php
