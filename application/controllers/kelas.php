@@ -292,11 +292,13 @@ class Kelas extends CI_Controller {
 		$topik_model = new Topic();
 		$data_topik = $topik_model->get_by_id($id);
 		$data_kelas = $data_topik->course->get();
-		//ini_set('upload_max_filesize','50M');
+		ini_set('upload_max_filesize','40M');
 		if(isset($_FILES['myFile']['name']) && $_FILES['myFile']['name'] != '') {
+
 			unset($config);
 			$config['upload_path'] ='./_materi/';
 			$config['allowed_types'] = 'pdf|mp4';
+			$config['upload_max_filesize'] = "40M";
 			$videoName = $_FILES['myFile']['name'];
 			$config['file_name'] = $videoName;
 
@@ -310,8 +312,8 @@ class Kelas extends CI_Controller {
 			}
 			else{
 				
-				$materi_model->judul = $this->test_input($this->input->post('namamateri'));
-				$materi_model->notes = $this->test_input($this->input->post('notemateri'));			
+				$materi_model->judul = $this->input->post('namamateri');
+				$materi_model->notes = $this->input->post('notemateri');			
 				$upload_file = $_FILES['myFile']['name'];	
 
 				$extension = pathinfo($upload_file, PATHINFO_EXTENSION);		
@@ -321,7 +323,18 @@ class Kelas extends CI_Controller {
 				$materi_model->course_id = $data_kelas->id;	
 				$materi_model->url = 'materi/'.$upload_file;
 				$materi_model->tipe = $extension;
+
+				/*var_dump($materi_model->judul);
+				var_dump($materi_model->notes);
+				var_dump($materi_model->teacher_id);
+				var_dump($materi_model->topic_id);
+				var_dump($materi_model->course_id);
+				var_dump($materi_model->url);
+				var_dump($materi_model->tipe);
+				exit;*/
+
 				$success = $materi_model->save_as_new();
+
 
 				if($success) {
 					$this->session->set_flashdata('status.notice','Berhasil membuat materi!');
