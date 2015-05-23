@@ -78,7 +78,7 @@ class Guru extends CI_Controller {
 	{
 		$kelas_model = new Course();		
 		$data_kelas = $kelas_model->get_by_id($kelas_id);
-		if($data_kelas->status_kelas % 2 == 1) {
+		if($data_kelas->status_kelas % 2 == 1 || $data_kelas->teacher_id != $this->session->userdata('user_id')) {
 			redirect();
 			return;
 		}
@@ -131,9 +131,11 @@ class Guru extends CI_Controller {
 				}
 			}
 		}
-
+		
 		//loop untuk setiap tag yg dimasukan
 		foreach ($input_list_tag as $tag_name) {
+			if(empty($tag_name))
+				continue;
 			$tag = new Tag();
 			$tag = $tag->where('subjek', $tag_name)->get();
 			//membuat tag baru
@@ -153,6 +155,7 @@ class Guru extends CI_Controller {
 				$success_add_tag = $classes_tag->save_as_new();
 				if(!$success_add_tag) {
 					$this->session->set_flashdata('status.error','Gagal tambah tag kelas!');
+					redirect('/guru/edit_kelas/'.$id);
 				}
 			}
 		}
