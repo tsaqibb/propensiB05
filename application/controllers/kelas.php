@@ -418,18 +418,24 @@ class Kelas extends CI_Controller {
 	}
 
   	public function add_review($id) {
-  		$course_student_model = new Courses_student();
+  		$course_student = new Courses_student();
+  		$course_student_model = $course_student->get_by_id($id);
   		$review_model = new Review();
-		$review_model->id = $courses_student->id;
+		
+		$review_model->courses_student_id = $course_student_model->id;
 		$review_model->status = 0;
-		$success = $review_model->where('id', $id)->update(array('komentar' => $this->input->post('comment-review'))); 
+		$review_model->komentar = $this->input->post('comment-review');
+		
+		$success = $review_model->save_as_new(); 
 		$success1 = $course_student_model->where('id', $id)->update(array('rating' => $this->input->post('rating-input-1')));
+		
 		if($success && $success1) {
 			$this->session->set_flashdata('status.notice','Berhasil menambah rating, review anda menunggu moderasi');
 		}
 		else{
 			$this->session->set_flashdata('status.error','Gagal menambah review.');
 		}
+
 		$course_student = $course_student_model->get_by_id($id);
 		$course = $course_student->course->get();
 		redirect('/kelas/detail/'.$course->id.'#review','refresh');
