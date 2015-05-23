@@ -306,8 +306,8 @@ class Kelas extends CI_Controller {
 		$kelas_model = $kelas_model->get_by_id($id);
 		$kelas_tag = new Classes_tag();
 		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
-		foreach ($kelas_tags as $kelas_tag) {
-			$kelas_tag->delete();
+		foreach ($kelas_tags as $tag) {
+			$tag->delete();
 		}
 		$success = $kelas_model->delete();
 		if($success) {
