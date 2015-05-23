@@ -96,20 +96,20 @@
 
                 <!-- start Tab Materi -->
                 <div class="tab-panemateri" id="materi">
-                  <h5 class="title-label">Kurikulum</h5>
-                  <div class="panel-group" id="accordion">
+                    <h5 class="title-label">Kurikulum</h5>
+                    <div class="panel-group" id="accordion">
                     <?php 
                     $list_topik = $data_topik;
                     foreach ( $list_topik as $topik ):
                     ?>
-                     <div class="panel panel-orange">
-                        <a data-toggle="collapse collapse" data-parent="#accordion" class="judul-topik panel-heading"
+                        <div class="panel panel-orange">
+                        <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                             href="#topik<?php echo $topik->id; ?>">
                             <i class="fa fa-chevron-circle-down"></i>
                             <?php echo $topik->judul; ?>
                         </a>
-                        <div id="topik<?php echo $topik->id; ?>" class="panel-collapse">
-                           <div class="panel-body">
+                            <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse">
+                                <div class="panel-body">
                             <?php  $list_materi = $topik->resource->get();
                             foreach ($list_materi as $materi) :
                             ?>
@@ -126,17 +126,15 @@
                                  <?php endif; ?>
                               </ul>
                             <?php endforeach ?>
-                           </div><!--panel body-->
-                        </div>
-                     </div><!--panel orange-->
+                                </div><!--panel body-->
+                            </div>
+                        </div><!--panel orange-->
 
                      <?php
                       endforeach;
                      ?>
-
-                  </div> 
-                </div><!-- end tab materi -->
-                    
+                    </div> 
+                </div><!-- end tab materi -->                    
                 
             </div><!-- tabpanel detail-kelas -->
             
