@@ -145,9 +145,8 @@
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
                                         <div class="col-md-2 right">
-                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>"  >
-                                                <!--<button role="button" width="70%" class="btn btn-delete-topik btn-danger" data-toggle="tooltip" data-original-title="hapus topik" 
-                                                id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-trash" tiltle="hapus topik"></i></button>-->
+                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>" class="btn-delete-topik" >
+                                                
                                                <span class="cancel icon-circle" style="margin-top:3px; margin-left:50px;" title="Hapus Topik"><i class="fa fa-trash-o"></i></span>                                      
                                            </a>
                                         </div>
