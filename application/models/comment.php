@@ -8,8 +8,8 @@ class Comment extends DataMapper {
         'komentar' => array(
 	        'label' => 'Komentar',
 	        'rules' => array('required', 'min_length' => 3, 'max_length' => 600)
-    	),
-    )
+    	)
+    );
 
 	function __construct($id = NULL){
 		parent::__construct($id);
