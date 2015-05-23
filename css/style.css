@@ -337,20 +337,92 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   padding: 10px 15px;
   width: 100%;
 }
-.rating-top {
+
+
+/*
+.rating {
+>>>>>>> Stashed changes
   float: right;
   text-align: right;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
   width: 100%;
   padding: 5px 15px;
+<<<<<<< Updated upstream
   color: #3bc4e6;
 }
 .rating-right {
   float: right;
   text-align: right;
   line-height: 1.0;
+=======
+  color: #ddd;
+}*/
+
+/*rating kelas yang baru */
+/*
+.rating {
+    float:left;
+    width:300px;
 }
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}*/
+
+.rating {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+
+}
+.rating-input {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0 0 0 -16px;
+    opacity: 0;
+}
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+    background-position: 0 0;
+}
+.rating-star,
+.rating:hover .rating-star {
+    position: relative;
+    float: right;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
+}
+
 .rating .blue {
   color: #3bc4e6;
 }
@@ -361,6 +433,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   color: #e11667;
   font-weight: normal;
 }
+
 .main-button {
   background-color: #fcb33b;
   border-radius: 5px;
@@ -749,6 +822,19 @@ thead {
 .panel-body .panel-body-feedback {
   background-color: #fff;
   border-color: #f8f5fd;
+  position:absolute;
+  top:0;
+  bottom:0;
+    left:0;
+    right:0;
+    overflow-y:auto;
+
+}
+
+ .sub-content.feedback-part{
+ max-height: 500px;
+  overflow:scroll;
+  
 }
 
 .panel-body .feedback-package {
@@ -817,8 +903,8 @@ thead {
 .panel-body a {
   display: inline-block;
   margin-top: 3px;
-  margin-right: 60px;
-  /*width: 100%;*/
+  margin-right: 8px;
+  
 
 }
 .support a {
@@ -998,9 +1084,7 @@ a.remove {
   float:right;
   border-radius: 5px #fcb33b;
   background-color: white;
-  padding-left: 20px;
-  color:blue;
-
+  padding-left: 10px;
 }
 
 .form-topik{
@@ -1889,10 +1973,19 @@ text-decoration: none;
 	.review {
 	  padding: 10px;
 	}
+<<<<<<< Updated upstream
 	/*.rating {
 	  font-size: 15px;
     padding: 0 10px 0 10px;
   }*/
+=======
+
+  /*
+	.rating {
+	  font-size: 15px;
+    padding: 0 10px 0 10px;
+  } */
+>>>>>>> Stashed changes
   
   /*detail*/
   .price-big-wrap:before {
@@ -2095,10 +2188,20 @@ text-decoration: none;
 	  width: 100%;
 	  z-index: -1;
 	}
+<<<<<<< Updated upstream
 	/*.rating {
 	  float: right;
 	  margin-top: 0;
 	}*/
+=======
+  /*
+	.rating {
+	  float: right;
+	  margin-top: 0;
+	}
+  */
+
+>>>>>>> Stashed changes
   /*detail*/
   .nav-tabs li a {
     font-size: 16px;
@@ -2300,5 +2403,6 @@ text-decoration: none;
       background-color: #555;
   }
 
+ 
 
 }

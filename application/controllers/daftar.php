@@ -70,7 +70,7 @@ class Daftar extends CI_Controller {
 					$daftar_model->save_as_new();
 					$this->session->set_flashdata('status.notice','Daftar kelas berhasil!');
 					$this->_send_smtp_email($data_email);
-					redirect('/kelas/');
+					redirect('/kelas/detail/'.$id_kelas);
 				//} else
 				//	redirect('/kelas/');
 			}

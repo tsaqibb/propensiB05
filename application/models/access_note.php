@@ -14,8 +14,7 @@ class Access_note extends DataMapper {
  	
 
 
- 	function getData($student_id){
- 		
+ 	function getData($student_id){ 		
  		$this->db->where('student_id',$student_id);
  		 $data =  $this->db->get('access_notes');
  		return $data->result();

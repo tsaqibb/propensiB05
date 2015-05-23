@@ -15,7 +15,7 @@ class Review extends DataMapper {
 		parent::__construct($id);
     }
 
-    function get_list_pending_comment() {
-    	return $this->where('status =', '0')->get();
+    function get_by_user_id($id) {
+    	return $this->where('student_id =', $id);
     }
 }

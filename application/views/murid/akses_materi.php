@@ -30,13 +30,12 @@
                   </object>
                 </div>
                 <?php endif; ?>
-            </div>              
-                      
+            </div>                    
           </div> 
           
           <div class="notes"> 
-            <div class="panel panel-warning">
-                <div class="panel-heading">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-orange">
                  <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
                 </div>
                 <div class="panel-body">
@@ -45,6 +44,7 @@
             </div>
           </div>           
         </div>
+
         <div class="col-sm-12 col-md-3">
             <div class="group-materi"> 
               <h3> &nbsp;Daftar Materi  </h3>
@@ -52,12 +52,29 @@
                 <?php
                   $list_materi = $topik->resource->get();
                   foreach ($list_materi as $materi) : 
+                    $watched = FALSE;
                 ?>
                   <li class="list-group-item">
                     <span class="badge"> <?php echo $materi->tipe?></span>
+                  <?php if($this->session->userdata['user_type'] == 'murid') : ?>
+                    <?php foreach ($viewed as $accessed) :?>
+                      <?php if($materi->id == $accessed->resource_id) : ?>
+                        <?php $watched = TRUE; 
+                        break;
+                        ?>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
+                  <?php endif; ?>                       
+
+                  <?php if($watched === TRUE) : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
-                        <p class-"text-uppercase"> <?php echo $materi->judul; ?></p>
+                        <p> <?php echo $materi->judul; ?>&nbsp;<i class="fa fa-check"></i></p> 
                       </a>
+                      <?php else : ?>
+                      <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
+                        <p> <?php echo $materi->judul; ?> </p>
+                      </a>
+                    <?php endif; ?>  
                   </li>
                 <?php
                   endforeach;
