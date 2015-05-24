@@ -548,8 +548,7 @@
                         </h5>
                         <p>
                             <?php
-                                $testimoni = $review->comment->get();
-                                echo $testimoni->komentar;
+                                echo $komentar_review->komentar;
                             ?>
                         </p>
                     </div>
