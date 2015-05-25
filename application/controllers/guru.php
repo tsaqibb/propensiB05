@@ -228,16 +228,44 @@ class Guru extends CI_Controller {
 		}
 	}
 
+	public function delete($id)
+	{
+		$kelas_model = new Course();
+		$kelas = $kelas_model->get_by_id($id);
+		$teacher = $kelas->teacher->get();
+		if($teacher->id != $this->session->userdata('user_id'))
+			redirect();
+		$kelas_tag = new Classes_tag();
+		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
+		foreach ($kelas_tags as $tag) {
+			$tag->delete();
+		}
+		//var_dump($kelas); exit;
+		try {
+			$success = $kelas->delete();
+		} catch (Exception $e) {
+			echo "waw"; exit;
+		}
+		
+		if($success) {
+			$this->session->set_flashdata('status.notice','Berhasil memnghapus kelas!');
+		}
+		else{
+			$this->session->set_flashdata('status.error','Gagal menghapus kelas!');
+		}
+		redirect('guru/kelas');
+	}
+
 	public function respond_comment($comment_id) {
 		$komentar_model = new Review();
-		$komentar = $komentar_model->get_by_id($id);
+		$komentar = $komentar_model->get_by_id($comment_id);
 		$courses_student = $komentar->courses_student->get();
 		$course = $courses_student->course->get();
 		$teacher = $course->teacher->get();
-		if($teacher->id != $this->id_guru)
+		if($teacher->id != $this->session->userdata('user_id'))
 			return;
 		try {
-			$success = $komentar_model->where('id', $comment_id)->update(array('tanggapan' => $this->input->post('komentar')));
+			$success = $komentar_model->where('id', $comment_id)->update(array('tanggapan' => $this->input->post('tanggapan')));
 		} catch (Exception $e) {
 			$this->session->set_flashdata('status.warning','Gagal menangapi komentar!');
 			redirect('kelas/detail/'.$course->id);

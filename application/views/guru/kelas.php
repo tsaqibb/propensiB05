@@ -104,7 +104,7 @@
                                                 <td>
                                                     <?php if($kelas->status_kelas == 0 || $kelas->status_kelas == 2) : ?>
                                                         <a href="<?php echo base_url().'guru/edit_kelas/'.$kelas->id; ?>" class="manage icon-circle" title="" data-original-title="Edit"><i class="fa fa-gears"></i></a>
-                                                        <a href="<?php echo base_url().'kelas/delete/'.$kelas->id; ?>"
+                                                        <a href="<?php echo base_url().'guru/delete/'.$kelas->id; ?>"
                                                             class="cancel icon-circle delete-class" title="" data-original-title="Delete">
                                                                 <i class="fa fa-trash-o"></i>
                                                         </a>

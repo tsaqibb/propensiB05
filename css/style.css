@@ -721,9 +721,13 @@ thead {
   margin-right: 10px;
 }
 .testimonial-item {
+  border-bottom: 1px #fcb33b solid;
   display: inline-block;
   margin: 15px 0;
   width: 100%;
+}
+.testimonial-item .tanggapan{
+  margin: 0 0 0 15px;
 }
 .icon-wrap {
   float: left;
@@ -1137,7 +1141,8 @@ width: 100%;
 }
 .videoplayer{
   width: 100%;
-  height:auto;
+  height: auto;
+  max-height:475px;
 }
 .group-materi{
 padding-top: 20px;

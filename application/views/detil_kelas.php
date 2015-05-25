@@ -67,9 +67,20 @@
 ?>
 <div class="container content kelas">
     <div class="row">
-        <div class="col-md-8"><br>
+        <div class="col-md-8">
             <h2 class="entry-title"><?php echo $data_kelas->nama; ?></h2>
             <div class="add-info">
+                <span class="info-label text-uppercase">Tag :
+                    <?php
+                    $list_classes_tag = $data_kelas->classes_tag->get();
+                    foreach ($list_classes_tag as $classes_tag) :
+                        $tag = $classes_tag->tag->get();
+                    ?>
+                        <a class="#<php echo $tag->subjek; ?>">
+                            <?php echo $tag->subjek; ?>
+                        </a>&nbsp;
+                    <?php endforeach; ?>
+                </span>
             </div><!-- add-info -->
         </div>
         <div class="col-md-8">
@@ -78,17 +89,6 @@
                     <img src="<?php echo base_url(); ?>images/image_300x300.gif" alt="Class Logo" class="img-responsive">
                 </div>
             </div>
-                <span class="info-label text-uppercase">Tag :
-                        <?php
-                        $list_classes_tag = $data_kelas->classes_tag->get();
-                        foreach ($list_classes_tag as $classes_tag) :
-                            $tag = $classes_tag->tag->get();
-                        ?>
-                            <a class="#<php echo $tag->subjek; ?>">
-                                <?php echo $tag->subjek; ?>
-                            </a>&nbsp;
-                        <?php endforeach; ?>
-                </span>
             <div role="tabpanel" class="sub-content detail-kelas">
                 <div class="" id="description">
                     <h5 class="title-label">Deskripsi</h5>
@@ -551,22 +551,39 @@
                                 echo $komentar_review->komentar;
                             ?>
                         </p>
+                        <?php
+                        if($this->session->userdata('user_type') == "guru" &&
+                          $this->session->userdata('user_id') == $data_kelas->teacher_id) :
+                            if(empty($komentar_review->tanggapan)) :
+                        ?>
+                            <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
+                                <span class="rating">
+                                    <textarea class="form-control" rows="5" id="tanggapan" placeholder="Berikan tanggapan Anda di sini..." name="tanggapan"></textarea>
+                                </span>
+                                <span class="rating">
+                                    <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
+                                </span>
+                            </form>
+                        <?php 
+                            else :
+                        ?>    
+                        <div class="tanggapan">
+                            <p>
+                                <strong>
+                                    Tanggapanmu : 
+                                </strong>
+                                <?php
+                                    echo $komentar_review->tanggapan;
+                                ?>
+                            </p>
+                        </div>
+                        <?php 
+                            endif;
+                        endif; ?>
                     </div>
-                    <?php endif; ?>
-                    <?php
-                    if($this->session->userdata('user_type') == "guru" &&
-                      $this->session->userdata('user_id') == $data_kelas->teacher_id) :?>
-                        <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
-                            <span class="rating">
-                                <textarea class="form-control" rows="5" id="comment" placeholder="Berikan tanggapan Anda di sini..." name="comment-review"></textarea>
-                            </span>
-                            <span class="rating">
-                                <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
-                            </span>
-                        </form>
-                        
-                    <?php endif; ?>
-                    <?php endforeach; ?>   
+                    <?php 
+                    endif;
+                    endforeach; ?>   
                 </div><!-- testimonial-wrap -->
             </div>
         </div> <!-- col-md-8 -->

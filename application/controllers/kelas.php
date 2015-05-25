@@ -356,22 +356,26 @@ class Kelas extends CI_Controller {
 	public function delete($id)
 	{
 		$kelas_model = new Course();
-		$kelas_model = $kelas_model->get_by_id($id);
+		$kelas = $kelas_model->get_by_id($id);
 		$kelas_tag = new Classes_tag();
 		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
 		foreach ($kelas_tags as $tag) {
 			$tag->delete();
 		}
-		$success = $kelas_model->delete();
+		try {
+			$success = $kelas->delete();
+		} catch (Exception $e) {
+			echo "waw"; exit;
+		}
+		
 		if($success) {
 			$this->session->set_flashdata('status.notice','Berhasil memnghapus kelas!');
 		}
 		else{
 			$this->session->set_flashdata('status.error','Gagal menghapus kelas!');
 		}
-		redirect('guru/kelas#draft');
+		redirect('guru/kelas');
 	}
-
 
 	public function delete_topik($id){
 		

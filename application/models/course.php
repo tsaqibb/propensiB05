@@ -3,24 +3,10 @@
 class Course extends DataMapper {
 
 	var $has_one = array('teacher', 'review');
-	var $has_many = array('topic', 'feedback', 'courses_student', 'student', 'classes_tag');
+	var $has_many = array('topic', 'feedback', 'courses_student', 'classes_tag');
 	var $default_order_by = array('id' => 'tgl_mulai');
     
-	var $validation = array(
-	    'nama' => array(
-	        'label' => 'Nama kelas',
-	        'rules' => array('required', 'min_length' => 3, 'max_length' => 50)
-	    ),
-	    'deskripsi' => array(
-	        'label' => 'Deskripsi kelas',
-	        'rules' => array('required', 'min_length' => 3, 'max_length' => 600)
-	    ),
-	    'harga' => array(
-	        'label' => 'harga',
-	        'rules' => array('required', 'max_length' => 11)
-	    ),
-	);
-
+	
     function __construct($id = NULL){
 		parent::__construct($id);
     }
