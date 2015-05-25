@@ -323,68 +323,10 @@
             
             <div id="review" class="review-wrap">
                 <div class="rating-wrap review-item">
-                    <h4 class="review-title">Rating</h4>
-                    <div class="rating pull-left">
-                        <?php if ($class_rating > 0.0 && $class_rating < 0.3) : ?>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if ($class_rating > 0.2 && $class_rating < 1.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 1.5 && $class_rating < 2.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 2.5 && $class_rating < 3.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 4.5) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <?php endif; ?>
-                        <span class="rate">
-                            <?php echo "$class_rating dari $no_of_review rating" ?>
-                        </span>
-                    </div>
-                    <br></br>
-                    <div>
-                        <div>
+                    <h4 class="review-title">Berikan review Anda untuk kelas ini</h4>
                         <?php if($review_exists == false && $registered == true) : ?>
                         <form action="<?php echo base_url(); ?>kelas/add_review/<?php echo $list_partisipan->id; ?>" method="POST">
-                            <span class="rating">
-                                <legend>Berikan rating Anda terhadap kelas ini</legend>
+                            <span class="rating">                                
                                 <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                 <label for="rating-input-1-5" class="rating-star"></label> 
                                 <input type="radio" value="4" class="rating-input" id="rating-input-1-4" name="rating-input-1"/>
@@ -523,15 +465,14 @@
                                 <?php } } ?>
                         <?php endforeach; ?> 
                         
-                            <br></br>
-                        </div>
-                    </div><!-- rating -->
+                            <br></br>  
+                    <!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
-                    <?php foreach ($list_partisipan as $course_student) : ?>
-                    <?php 
-                        $komentar_review = $course_student->review->get();
+                    
+                    <?php foreach ($list_partisipan as $data_murid_kelas) :
+                        $komentar_review = $data_murid_kelas->review->get();
                         $approval_review = $komentar_review->status;
                         if($approval_review == '1') : 
                     ?>
@@ -539,8 +480,8 @@
                         <h5 class="username">
                             <strong>
                                 <?php 
-                                    $student = $course_student->student->get();
-                                    $nama_murid = $student->nama;
+                                    $data_murid = $data_murid_kelas->student->get();
+                                    $nama_murid = $data_murid->nama;
                                     echo $nama_murid;
                                 ?>
                             </strong> |
@@ -641,6 +582,66 @@
                     <?php endforeach; ?> 
                 </div>
             </div>
+
+            <div class="panel panel-default blue">
+                <div class="panel-heading heading-label text-center"><i class="fa fa-thumbs-up"></i>Review</div>
+                <div class="panel-body">
+                    <div class="rating-view">
+                        <?php if ($class_rating > 0.0 && $class_rating < 0.3) : ?>
+                        <i class="fa fa-star-o fa-1x"></i>
+                        <i class="fa fa-star-o fa-1x"></i>
+                        <i class="fa fa-star-o fa-1x"></i>
+                        <i class="fa fa-star-o fa-1x"></i>
+                        <i class="fa fa-star-o fa-1x"></i>
+                        <?php endif; ?>
+                        <?php if ($class_rating > 0.2 && $class_rating < 1.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif; ?>
+                        <?php if($class_rating > 1.5 && $class_rating < 2.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif; ?>
+                        <?php if($class_rating > 2.5 && $class_rating < 3.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif; ?>
+                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif; ?>
+                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star-o fa-2x"></i>
+                        <?php endif; ?>
+                        <?php if($class_rating > 4.5) : ?>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <i class="fa fa-star fa-2x"></i>
+                        <?php endif; ?>
+                    </div>
+                    <h4 class="rating-tally">
+                            <?php echo round($class_rating, 2)." dari $no_of_review rating" ?>
+                        </h4>
+                </div>
+            </div><!-- panel -->
         </div>
     </div> <!-- row -->
 </div> <!-- /container -->
