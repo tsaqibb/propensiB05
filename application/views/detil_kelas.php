@@ -381,7 +381,7 @@
                     <br></br>
                     <div>
                         <div>
-                        <?php if($review_exists == false) : ?>
+                        <?php if($review_exists == false && $registered == true) : ?>
                         <form action="<?php echo base_url(); ?>kelas/add_review/<?php echo $data_kelas->id; ?>" method="POST">
                             <span class="rating">
                                 <legend>Berikan rating Anda terhadap kelas ini</legend>
@@ -477,14 +477,14 @@
                             <span class="rating">
                             <legend>Review</legend>
                             <textarea class="form-control" rows="5" id="comment" placeholder="Berikan review Anda di sini..." name="comment-review"></textarea>
-                                <button name="komentar_review" role="submit" class="btn btn-primary btn-post-review" onclick="return konfirmasi_komentar()"=>Kirim</button>
+                                <button name="komentar_review" role="submit" class="btn btn-primary btn-post-review" onclick="return konfirmasi_komentar()">Tambah review</button>
                             </span>
                         </form>
                     </div><!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
-                    <?php foreach ($list_review as $review) : ?>
+                    <?php foreach ($ as $review) : ?>
                     <?php 
                         $komentar_review = $review->comment->get();
                         $approval_review = $komentar_review->status;

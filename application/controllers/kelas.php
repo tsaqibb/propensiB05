@@ -409,22 +409,39 @@ class Kelas extends CI_Controller {
   	public function add_review($id) {
 
   		$kelas_model = new Course();
-		$data_kelas = $kelas_model->get_by_id($id);		
-		$review_model = new Review();
+		$data_kelas = $kelas_model->get_by_id($id);
+		$list_course_student = $data_kelas->courses_student->get();
 
-		$review_model->course_id = $id;
-		$review_model->student_id = $this->session->userdata('user_id');
-		$review_model->rating = $_POST['rating-input-1'];  
+  		$session_role = $this->session->userdata('user_type');
+  		$session_id = $this->session->userdata('user_id');
 
+  		if($session_role == "murid") {
 
-		$success = $review_model->save_as_new();
-		if($success) {
-			$this->session->set_flashdata('status.notice','Berhasil menambah review.');
-		}
-		else{
-			$this->session->set_flashdata('status.error','Gagal menambah review.');
-		}
-		redirect('/kelas/detail/'.$id.'#review','refresh');
+	  		foreach ($list_course_student as $course_students) :
+	            if($session_id == $course_students->student_id) :
+	                $registered=true;
+	                break;
+	            endif;
+	        endforeach;
+	  		
+	  		if($registered == true) {
+	  			
+	  			$review_model = new Review();
+
+				$review_model->course_id = $id;
+				$review_model->student_id = $this->session->userdata('user_id');
+				$review_model->rating = $_POST['rating-input-1'];  
+
+				$success = $review_model->save_as_new();
+				if($success) {
+					$this->session->set_flashdata('status.notice','Berhasil menambah review.');
+				}
+				else{
+					$this->session->set_flashdata('status.error','Gagal menambah review.');
+				}
+				redirect('/kelas/detail/'.$id.'#review','refresh');
+	  		}
+  		}
   	}
 
   	public function add_comment($id) {
