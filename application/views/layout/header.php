@@ -24,6 +24,8 @@
         <script src="<?php echo base_url();?>js/jquery.fancybox.pack.js"></script>
   
         <script type="application/javascript" src="<?php echo base_url()?>js/utility.js"></script>
+        <script type="application/javascript" src="<?php echo base_url();?>ckeditor/ckeditor.js" ></script>
+        <script type="application/javascript" src="<?php echo base_url();?>ckeditor/adapters/jquery.js" ></script>
 
         <!--Add Fancybox -->
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.fancybox.js"></script>
@@ -31,6 +33,7 @@
         <script type="application/javascript">
         var sTO = null;
         $(document).ready(function() {
+            $('.txt_message').ckeditor();
             if($('.notification').is('.on')) {
                 var timeout = $('.notification > div').is('.error')?
                         30000:$('.notification > div').is('.warning')?20000:10000;

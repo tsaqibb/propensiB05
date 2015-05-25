@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Deskripsi Kelas</label>
                             <div class="col-sm-8">
-                                <textarea id="deskripsi_kelas" name="deskripsi_kelas" class="form-control" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3" required="required"></textarea>
+                                <textarea id="deskripsi_kelas" name="deskripsi_kelas" class="form-control txt_message" placeholder="Jelaskan secara singkat materi apa saja yang akan dijelaskan" rows="3" required="required"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

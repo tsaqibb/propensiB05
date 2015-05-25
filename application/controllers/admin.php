@@ -97,7 +97,7 @@ class Admin extends CI_Controller {
 
 	public function pending_review()
 	{
-		$komentar_pending = new Comment();
+		$komentar_pending = new Review();
 		$list_pending_comment = $komentar_pending->get_list_pending_comment();
 		$this->load->view('layout/header-admin');
 		$this->load->view('admin/pending_review', array('list_pending_comment' => $list_pending_comment));
@@ -140,7 +140,7 @@ class Admin extends CI_Controller {
 
 	public function approve_review($id)
 	{	
-		$komentar_model = new Comment();
+		$komentar_model = new Review();
 		$status = $komentar_model->get_by_id($id)->status;
 		if ($status == 0) {
 			$komentar_model->where('id =', $id)->update('status', 1);
@@ -186,7 +186,7 @@ class Admin extends CI_Controller {
 
 	public function reject_review($id)
 	{	
-		$komentar_model = new Comment();
+		$komentar_model = new Review();
 		$status = $komentar_model->get_by_id($id)->status;
 		$komentar_model->where('id =', $id)->update('status', -1);
 		$this->session->set_flashdata('status.error','Review berhasil ditolak.');

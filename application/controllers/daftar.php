@@ -24,9 +24,10 @@ class Daftar extends CI_Controller {
 			$data_kelas = $kelas_model->get_by_id($id_kelas);
 			$harga = $data_kelas->harga;
 			$id_guru = $data_kelas->teacher_id;
-
+			
 			/*die("harga: $harga, id_guru: $id_guru");*/
 			$murr = (new Student($id_murid));
+			
 			$data_email = [
 				"sender" => "online.ruangguru@gmail.com",
 				"sender_name" => "Kelas Online ruangguru.com",
@@ -53,7 +54,6 @@ class Daftar extends CI_Controller {
 					redirect('/kelas/detail/'.$id_kelas );
 				/*} else
 					redirect('/daftar/');*/
-
 			}
 
 			//jika harga kelas tidak gratis maka status murid masih pending dan notifikasi email berisi perintah untuk membayar kelas terlebih dahulu agar admin mengaktifkan status murid
@@ -70,7 +70,7 @@ class Daftar extends CI_Controller {
 					$daftar_model->save_as_new();
 					$this->session->set_flashdata('status.notice','Daftar kelas berhasil!');
 					$this->_send_smtp_email($data_email);
-					redirect('/kelas/');
+					redirect('/kelas/detail/'.$id_kelas);
 				//} else
 				//	redirect('/kelas/');
 			}

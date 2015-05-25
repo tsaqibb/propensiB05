@@ -39,10 +39,10 @@
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($list_pending_comment as $comment) :
-                                    $review = $comment->review->get();
-                                    $course = $review->course->get();
-                                    $student = $review->student->get();
+                                foreach ($list_pending_comment as $review) :
+                                    $course_student = $review->courses_student->get();
+                                    $course = $course_student->course->get();
+                                    $student = $course_student->student->get();
                                     $teacher = $course->teacher->get();
                                 ?>
                                 <tr>
@@ -59,11 +59,11 @@
                                         <?php echo $student->nama." (".$student->id.")"; ?>
                                     </td>
                                     <td>
-                                        <?php echo $comment->komentar; ?>
+                                        <?php echo $review->komentar; ?>
                                     </td>
                                     <td class="center action">
-                                        <a href="<?php echo base_url().'admin/approve_review/'.$comment->id; ?>" onclick="return konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
-                                        <a href="<?php echo base_url().'admin/reject_review/'.$comment->id; ?>" onclick="return konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
+                                        <a href="<?php echo base_url().'admin/approve_review/'.$review->id; ?>" onclick="return konfirmasiapprove()" class="ok icon-button" approve=""><i class="fa fa-check"></i>Approve</a>
+                                        <a href="<?php echo base_url().'admin/reject_review/'.$review->id; ?>" onclick="return konfirmasireject()" class="no icon-button"><i class="fa fa-times"></i>Reject</a>
                                     </td>
                                     <!-- <td class="center">
                                         <a href="<?php echo base_url().'kelas/detail/3002/'.$course->id; ?>" data-id="6">Detail<i class="fa fa-arrow-right"></i></a><br>

@@ -123,7 +123,7 @@
                                       <div class="col-md-7">
                                       </div>                                  
                                       <div class="col-md-3">
-                                        <input class="form-control form-topik" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini">
+                                        <input class="form-control form-topik" required="" name="judul_topik" type="text" id="judul_topik" placeholder="Tuliskan nama topik disini" pattern="[a-zA-Z0-9\s]+">
                                       </div>
                                       <div class="col-md-2">      
                                         <button role="submit" class="btn btn-primary btn-topik" id="button1"><i class="fa fa-pencil-square-o"></i>Buat Topik</button>
@@ -145,9 +145,7 @@
                                              <?php echo $topik->judul;?> </a> 
                                         </div>
                                         <div class="col-md-2">
-                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>" class="btn-delete-topik">
-                                                <!--<button role="button" width="70%" class="btn btn-delete-topik btn-danger" data-toggle="tooltip" data-original-title="hapus topik" 
-                                                id="button-hapus-topik" onclick="hapusTopik()"><i class="fa fa-trash" tiltle="hapus topik"></i></button>-->
+                                              <a href="<?php echo base_url();?>kelas/delete_topik/<?php echo $topik->id;?>" class="btn-delete-topik">  
                                                <span class="cancel icon-circle" style="margin-top:3px; margin-left:50px;" title="Hapus Topik"><i class="fa fa-trash-o"></i></span>                                      
                                            </a>
                                         </div>
@@ -184,11 +182,11 @@
                                                 <form id="upload-materi" action="<?php echo base_url();?>kelas/create_materi/<?php echo $topik->id;?>" method="POST" enctype="multipart/form-data">
                                                 <p>
                                                 <label for="nama-materi">Nama Materi </label>
-                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" />
+                                                  <input type="text" required="" autofocus="" class="form-control" id="namamateri" name="namamateri" placeholder="Tuliskan Judul Materi disini" pattern="[a-zA-Z0-9\s]+"/>
                                                 </p>
                                                 <p>
                                                 <label for="note-materi">Note Materi </label>
-                                                  <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" />
+                                                  <input type="text" required="" class="form-control" id="notemateri" name="notemateri" placeholder="Tuliskan note untuk materi ini" pattern="[a-zA-Z0-9\s]+" />
                                                 </p>
                                         
                                             <input type="file" required="" name="myFile" id="myFile" multiple size="50">

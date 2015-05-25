@@ -16,14 +16,16 @@
                   </div>      
             
             <div class="panel content-video">
-
-                <?php if($open_materi->tipe == 'mp4') : ?>
+                <?php
+                $url_arr = explode('.', $open_materi->url);
+                $ext = array_pop($url_arr);
+                if($ext == 'mp4') : ?>
                 <div class="space-video">
                   <video class="videoplayer" controls>                  
                     <source src="<?php echo base_url().$open_materi->url;?>" type="video/mp4">         
                   </video>                             
                 </div>           
-                <?php elseif($open_materi->tipe == 'pdf') : ?>
+                <?php elseif($ext == 'pdf') : ?>
                          
                 <div class="space-pdf">
                   <object data="<?php echo base_url().$open_materi->url;?>" type="application/pdf" class="pdfviewer">
@@ -34,8 +36,8 @@
           </div> 
           
           <div class="notes"> 
-            <div class="panel panel-warning">
-                <div class="panel-heading">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-orange">
                  <h4 class="text-center"><i class="fa fa-info-circle"></i> Catatan </h4>
                 </div>
                 <div class="panel-body">
@@ -46,16 +48,18 @@
         </div>
 
         <div class="col-sm-12 col-md-3">
-            <div class="group-materi"> 
-              <h3> &nbsp;Daftar Materi  </h3>
+            <div class="group-materi panel panel-default"> 
+              <div class="panel heading-materi">Daftar Materi</div>
               <ul class="list-group">
                 <?php
                   $list_materi = $topik->resource->get();
                   foreach ($list_materi as $materi) : 
                     $watched = FALSE;
+                    $url_arr = explode('.', $materi->url);
+                    $ext = array_pop($url_arr);
                 ?>
                   <li class="list-group-item">
-                    <span class="badge"> <?php echo $materi->tipe?></span>
+                    <span class="badge"> <?php echo $ext?></span>
                   <?php if($this->session->userdata['user_type'] == 'murid') : ?>
                     <?php foreach ($viewed as $accessed) :?>
                       <?php if($materi->id == $accessed->resource_id) : ?>
@@ -68,7 +72,7 @@
 
                   <?php if($watched === TRUE) : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
-                        <p> <?php echo $materi->judul; ?><i class="fa fa-check"></i></p> 
+                        <p style="text-align: left;"> <?php echo $materi->judul; ?>&nbsp;<i class="fa fa-check"></i></p> 
                       </a>
                       <?php else : ?>
                       <a href="<?php echo base_url().'kelas/aksesmateri/'.$materi->id; ?>">                                               
