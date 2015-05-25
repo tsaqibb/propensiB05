@@ -7,7 +7,7 @@ class Review extends DataMapper {
 	var $validation = array(
         'komentar' => array(
 	        'label' => 'Komentar',
-	        'rules' => array('required', 'min_length' => 3, 'max_length' => 600)
+	        'rules' => array('max_length' => 600)
     	),
     );
 

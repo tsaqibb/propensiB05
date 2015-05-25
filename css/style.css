@@ -424,16 +424,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
 }
 
-}
-.rating-star,
-.rating:hover .rating-star {
-    position: relative;
-    float: right;
-    display: block;
-    width: 16px;
-    height: 16px;
-    background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
-}
 
 .rating .blue {
   color: #3bc4e6;
