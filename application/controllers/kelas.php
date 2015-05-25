@@ -422,51 +422,51 @@ class Kelas extends CI_Controller {
 	}
 
   	public function add_review($id) {
-  		$course_student = new Courses_student();
-  		$course_student_model = $course_student->get_by_id($id);
-  		$review_model = new Review();
-		
-		$review_model->courses_student_id = $course_student_model->id;
-		$review_model->status = 0;
-		$review_model->komentar = $this->input->post('comment-review');
-		
-		$success = $review_model->save_as_new(); 
-		$success1 = $course_student_model->where('id', $id)->update(array('rating' => $this->input->post('rating-input-1')));
-		
-		if($success && $success1) {
-			$this->session->set_flashdata('status.notice','Berhasil menambah rating, review anda menunggu moderasi');
-		}
-		else{
-			$this->session->set_flashdata('status.error','Gagal menambah review.');
-		}
+  		$murid_kelas_model = new Courses_student();
+		$murid_kelas = $murid_kelas_model->get_by_id($id);
+		$id_kelas = $murid_kelas->course_id;
+		$kelas_model = new Course();
+		$data_kelas = $kelas_model->get_by_id($id_kelas);
+		$list_course_student = $data_kelas->courses_student->get();
 
-		$course_student = $course_student_model->get_by_id($id);
-		$course = $course_student->course->get();
-		redirect('/kelas/detail/'.$course->id.'#review','refresh');
+  		$session_role = $this->session->userdata('user_type');
+  		$session_id = $this->session->userdata('user_id');
+
+  		if($session_role == "murid") {
+
+  			$registered_student = false;
+	  		foreach ($list_course_student as $course_students) :
+	            if($session_id == $course_students->student_id) :
+	                $registered_student=true;
+	                break;
+	            endif;
+	        endforeach;
+	  		
+	  		if($registered_student == true) {
+
+		  		$review_model = new Review();
+				
+				$review_model->courses_student_id = $id;
+				$review_model->status = 0;
+				$review_model->komentar = $this->input->post('comment-review');
+				$success = $review_model->save_as_new(); 
+				$success1 = $list_course_student->where('id', $id)->update(array('rating' => $this->input->post('rating-input-1')));
+				
+				if($success && $success1) {
+					$this->session->set_flashdata('status.notice','Berhasil menambah rating, review anda menunggu moderasi');
+				}
+				else{
+					$this->session->set_flashdata('status.error','Gagal menambah review.');
+				}
+				redirect('/kelas/detail/'.$id_kelas.'#review','refresh');
+			}
+
+			else{
+				$this->session->set_flashdata('status.error','Anda tidak terdaftar pada kelas ini.');
+				redirect('/kelas/detail/'.$id_kelas.'#review','refresh');
+			}
+  		}
   	}
-
-  	public function add_comment($id) {
-		
-		$review_model = new Review();
-		$data_review = $review_model->get_by_id($id);
-
-		$id_kelas = $review_model->course_id;
-
-  		$comment_model = new Comment();
-		$comment_model->review_id = $data_review->id;
-		$comment_model->komentar = $_POST['comment-review']; 
-		$comment_model->status = 0;
-
-		$success = $comment_model->save_as_new();
-		if($success) {
-			$this->session->set_flashdata('status.notice','Penambahan review anda menunggu moderasi oleh admin.');
-		}
-		else{
-			$this->session->set_flashdata('status.error','Gagal menambah review.');
-		}
-		redirect('/kelas/detail/'.$id_kelas.'#review','refresh');
-  	}
-
 
 	// fungsi untuk mengirim email
 

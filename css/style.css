@@ -412,6 +412,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .rating:hover .rating-star:hover ~ .rating-star,
 .rating-input:checked ~ .rating-star {
     background-position: 0 0;
+
 }
 .rating-star,
 .rating:hover .rating-star {
@@ -423,8 +424,20 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
 }
 
+
 .rating .blue {
   color: #3bc4e6;
+}
+
+.rating-view{
+  color: #fcb33b;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.rating-tally{
+  color: #333;
+  text-align: center;
 }
 .rating-info i {
   margin-right: 3px;
