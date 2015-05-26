@@ -27,6 +27,9 @@
     function konfirmasi_komentar(){
         return confirm("Kirim komentar?");
     }
+    function konfirmasi_tanggapan(){
+        return confirm("Anda yakin ingin memberi tanggapan komentar?");
+    }
 </script>
 
 <?php
@@ -498,12 +501,12 @@
                             if(empty($komentar_review->tanggapan)) :
                         ?>
                             <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
-                                <span class="rating">
+                                <div class="rating">
                                     <textarea class="form-control" rows="5" id="tanggapan" placeholder="Berikan tanggapan Anda di sini..." name="tanggapan"></textarea>
-                                </span>
-                                <span class="rating">
-                                    <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
-                                </span>
+                                </div>
+                                <div class="rating">
+                                    <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_tanggapan()">Kirim</button>
+                                </div>
                             </form>
                         <?php 
                             else :

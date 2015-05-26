@@ -4,12 +4,12 @@ class Review extends DataMapper {
 
 	var $has_one = array('courses_student');
 	
-	var $validation = array(
+	/*var $validation = array(
         'komentar' => array(
 	        'label' => 'Komentar',
 	        'rules' => array('max_length' => 600)
     	),
-    );
+    );*/
 
 	function __construct($id = NULL){
 		parent::__construct($id);

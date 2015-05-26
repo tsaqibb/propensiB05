@@ -5,7 +5,7 @@ class Feedback extends DataMapper {
 	var $has_one = array('course');
 	var $default_order_by = array('waktu_kirim' => 'asc');
 
-	var $validation = array(
+	/*var $validation = array(
 	    'pesan' => array(
 	        'label' => 'Pesan',
 	        'rules' => array('required', 'min_length' => 3, 'max_length' => 20)
@@ -18,7 +18,7 @@ class Feedback extends DataMapper {
 	        'label' => 'Peran',
 	        'rules' => array('required')
 	    ),
-	);
+	);*/
 
 	/**
 	 * Constructor: calls parent constructor
