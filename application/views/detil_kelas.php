@@ -500,14 +500,12 @@
                           $this->session->userdata('user_id') == $data_kelas->teacher_id) :
                             if(empty($komentar_review->tanggapan)) :
                         ?>
+                        <div class="rating">
                             <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
-                                <div class="rating">
-                                    <textarea class="form-control" rows="5" id="tanggapan" placeholder="Berikan tanggapan Anda di sini..." name="tanggapan"></textarea>
-                                </div>
-                                <div class="rating">
-                                    <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_tanggapan()">Kirim</button>
-                                </div>
+                                <textarea class="form-control" rows="5" id="tanggapan" placeholder="Berikan tanggapan Anda di sini..." name="tanggapan"></textarea>
+                                <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_tanggapan()">Kirim</button>
                             </form>
+                        </div>
                         <?php 
                             else :
                         ?>    

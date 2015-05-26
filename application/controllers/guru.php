@@ -240,6 +240,7 @@ class Guru extends CI_Controller {
 		foreach ($kelas_tags as $tag) {
 			$tag->delete();
 		}
+		//echo method_exists($kelas, 'delete')?'ok':'ko';
 		//var_dump($kelas); exit;
 		try {
 			$success = $kelas->delete();
