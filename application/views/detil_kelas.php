@@ -326,8 +326,8 @@
             
             <div id="review" class="review-wrap">
                 <div class="rating-wrap review-item">
+                    <?php if($review_exists == false && $registered == true && $type_user == "murid") : ?>
                     <h4 class="review-title">Berikan review Anda untuk kelas ini</h4>
-                        <?php if($review_exists == false && $registered == true) : ?>
                         <form action="<?php echo base_url(); ?>kelas/add_review/<?php echo $list_partisipan->id; ?>" method="POST">
                             <span class="rating">                                
                                 <input type="radio" value="5" class="rating-input" id="rating-input-1-5" name="rating-input-1">
@@ -467,9 +467,7 @@
                                 </form> 
                                 <?php } } ?>
                         <?php endforeach; ?> 
-                        
-                            <br></br>  
-                    <!-- rating -->
+                    <br></br> <!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
@@ -495,6 +493,7 @@
                                 echo $komentar_review->komentar;
                             ?>
                         </p>
+<<<<<<< Updated upstream
                         <?php
                         if($this->session->userdata('user_type') == "guru" &&
                           $this->session->userdata('user_id') == $data_kelas->teacher_id) :
@@ -522,10 +521,24 @@
                         <?php 
                             endif;
                         endif; ?>
+=======
+>>>>>>> Stashed changes
                     </div>
-                    <?php 
-                    endif;
-                    endforeach; ?>   
+                    <?php endif; ?>
+                    <?php
+                    if($this->session->userdata('user_type') == "guru" &&
+                      $this->session->userdata('user_id') == $data_kelas->teacher_id) :?>
+                        <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
+                            <span class="rating">
+                                <textarea class="form-control" rows="5" id="comment" placeholder="Berikan tanggapan Anda di sini..." name="comment-review"></textarea>
+                            </span>
+                            <span class="rating">
+                                <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
+                            </span>
+                        </form>
+                        
+                    <?php endif; ?>
+                    <?php endforeach; ?>   
                 </div><!-- testimonial-wrap -->
             </div>
         </div> <!-- col-md-8 -->
@@ -631,13 +644,6 @@
                         <i class="fa fa-star fa-2x"></i>
                         <i class="fa fa-star fa-2x"></i>
                         <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <?php endif; ?>
-                        <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
-                        <i class="fa fa-star fa-2x"></i>
                         <i class="fa fa-star-o fa-2x"></i>
                         <?php endif; ?>
                         <?php if($class_rating > 3.5 && $class_rating < 4.6) : ?>
