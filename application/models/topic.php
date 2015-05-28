@@ -13,12 +13,12 @@ class Topic extends DataMapper {
 	//   Uncomment this to always sort by 'name', then by
 	//   id descending (unless overridden)
 	// --------------------------------------------------------------------
-	var $validation = array(
+	/*var $validation = array(
 	    'judul' => array(
 	        'label' => 'Nama Topik',
 	        'rules' => array('required', 'unique_pair'=>'course_id' ,'min_length' => 3, 'max_length' => 100)
 	    ),
-	);
+	);*/
 	
 
 	// --------------------------------------------------------------------

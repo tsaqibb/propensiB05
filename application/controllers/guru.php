@@ -233,8 +233,15 @@ class Guru extends CI_Controller {
 		$kelas_model = new Course();
 		$kelas = $kelas_model->get_by_id($id);
 		$teacher = $kelas->teacher->get();
+		
 		if($teacher->id != $this->session->userdata('user_id'))
 			redirect();
+		$topik = $kelas->topic->get();
+		if(!empty($topik->id)) {
+			$this->session->set_flashdata('status.error','Tolong hapus topik yang ada terlebih dahulu!');
+			redirect('guru/kelas');
+		}
+
 		$kelas_tag = new Classes_tag();
 		$kelas_tags = $kelas_tag->where('course_id', $id)->get();
 		foreach ($kelas_tags as $tag) {
@@ -245,7 +252,7 @@ class Guru extends CI_Controller {
 		try {
 			$success = $kelas->delete();
 		} catch (Exception $e) {
-			echo "waw"; exit;
+			echo"waw";_idt;
 		}
 		
 		if($success) {

@@ -1,7 +1,7 @@
 <div class="container content kelas vendor">
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="block-title-gallery text-center">Galery Kelas</h3>
+            <h3 class="block-title-gallery text-center">Galeri Kelas</h3>
         </div>
     </div>
     <div class="row">

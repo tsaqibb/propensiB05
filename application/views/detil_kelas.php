@@ -493,7 +493,6 @@
                                 echo $komentar_review->komentar;
                             ?>
                         </p>
-<<<<<<< Updated upstream
                         <?php
                         if($this->session->userdata('user_type') == "guru" &&
                           $this->session->userdata('user_id') == $data_kelas->teacher_id) :
@@ -521,22 +520,7 @@
                         <?php 
                             endif;
                         endif; ?>
-=======
->>>>>>> Stashed changes
                     </div>
-                    <?php endif; ?>
-                    <?php
-                    if($this->session->userdata('user_type') == "guru" &&
-                      $this->session->userdata('user_id') == $data_kelas->teacher_id) :?>
-                        <form method="post" action="<?php echo base_url(); ?>guru/respond_comment/<?php echo $komentar_review->id; ?>">
-                            <span class="rating">
-                                <textarea class="form-control" rows="5" id="comment" placeholder="Berikan tanggapan Anda di sini..." name="comment-review"></textarea>
-                            </span>
-                            <span class="rating">
-                                <button name="rating_kelas" type="submit" class="btn btn-primary" id="btn-chat" onclick="return konfirmasi_rating()">Kirim</button>
-                            </span>
-                        </form>
-                        
                     <?php endif; ?>
                     <?php endforeach; ?>   
                 </div><!-- testimonial-wrap -->
