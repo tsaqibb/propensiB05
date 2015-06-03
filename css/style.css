@@ -113,42 +113,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   border: none;
   color: #000;
 }
-.below-nav {
-  background-color: #fcb33b;
-  box-shadow: 0 2px 5px #999;
-  height: 60px;
-  padding: 15px 0;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
-.list-orange {
-  display: block;
-  visibility: visible;
-}
-.nav.nav-pills {
-  float: left;
-  width: 79%;
-}
-.sort.nav {
-  float: right;
-  width: 21%;
-}
-.sort-list {
-  float: left;
-}
-.nav .title-filter {
-  padding-top: 2px;
-}
-.title-filter {
-  font-size: 16px;
-  padding: 5px 10px;
-}
-.profile-menu .btn {
-  padding: 5px;
-  margin: 0;
-  
-}
 
 /* Notifikasi */
 .notification:not(.on) {
@@ -227,48 +191,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-image: url('../images/image_300x300.gif');
   margin-top: 20px;
 }
-.diskon-label {
-  background-color: #e11667;
-  border-radius: 100%;
-  color: #fff;
-  height: 65px;
-  padding-top: 6px;
-  position: absolute;
-  right: 20px;
-  text-align: center;
-  top: 20px;
-  width: 65px;
-  z-index: 1;
-}
-.diskon-label:after {
-  background-color: #e11667;
-  border-bottom-right-radius: 100%;
-  bottom: -14px;
-  content: "";
-  height: 40px;
-  position: absolute;
-  right: 0;
-  width: 41px;
-  z-index: -1;
-}
-.have-bar .diskon-label {
-  height: 45px;
-  padding-top: 3px;
-  right: -20px;
-  top: 0;
-  width: 45px;
-}
-.have-bar .diskon-label:after {
-  bottom: -10px;
-  height: 27px;
-  right: 0;
-  width: 20px;
-}
-.diskon-label h3,
-.diskon-label h5 {
-  margin: 0;
-  font-weight: bold;
-}
 .grid-title-wrap {
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
@@ -288,7 +210,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   color: #3bc4e6;
   margin-right: 5px;
 }
-
 .block-title {
   color: #fcb33b;
   font-weight: 800;
@@ -311,9 +232,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   text-transform: uppercase;
   top: 0;
 }
-.date a {
-  color: #e11667;
-}
 .review .tag {
   text-decoration: underline;
 }
@@ -328,71 +246,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .icon {
   float: left;
 }
-.date {
-  display: inline-block;
-  width: 90%;
-}
 .grid-bottom .nama-guru {
   display: inline-block;
   padding: 10px 15px;
   width: 100%;
 }
-
-
-/*
-.rating {
->>>>>>> Stashed changes
-  float: right;
-  text-align: right;
-  font-size: 18px;
-  background-color: rgba(255, 255, 255, 1);
-  width: 100%;
-  padding: 5px 15px;
-<<<<<<< Updated upstream
-  color: #3bc4e6;
-}
-.rating-right {
-  float: right;
-  text-align: right;
-  line-height: 1.0;
-=======
-  color: #ddd;
-}*/
-
-/*rating kelas yang baru */
-/*
-.rating {
-    float:left;
-    width:300px;
-}
-.rating span { float:right; position:relative; }
-.rating span input {
-    position:absolute;
-    top:0px;
-    left:0px;
-    opacity:0;
-}
-.rating span label {
-    display:inline-block;
-    width:30px;
-    height:30px;
-    text-align:center;
-    color:#FFF;
-    background:#ccc;
-    font-size:30px;
-    margin-right:2px;
-    line-height:30px;
-    border-radius:50%;
-    -webkit-border-radius:50%;
-}
-.rating span:hover ~ span label,
-.rating span:hover label,
-.rating span.checked label,
-.rating span.checked ~ span label {
-    background:#F90;
-    color:#FFF;
-}*/
-
 .rating {
     overflow: hidden;
     display: inline-block;
@@ -423,12 +281,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     height: 16px;
     background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
 }
-
-
 .rating .blue {
   color: #3bc4e6;
 }
-
 .rating-view{
   color: #fcb33b;
   display: flex;
@@ -479,10 +334,17 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .btn-default-blue {
   background-color: #34B9D8 !important;
   color: #fff;
-  margin: 5px;
 }
 .btn-default-blue:hover {
   background-color: #02bfec !important;
+  color: #FFF;
+}
+.btn-default-orange {
+  background-color: #fcb33b !important;
+  color: #fff;
+}
+.btn-default-orange:hover {
+  background-color: rgb(252, 166, 10) !important;
   color: #FFF;
 }
 .right>div {
@@ -501,12 +363,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
    color: #fff;
    font-size: 12px;
    padding: 30px 0;*/
-   
-    
 }
-
-
-
 .footer-label {
   color: #fff;
   font-size: 20px;
@@ -514,11 +371,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin: 0 0 10px;
 
 }
-/*
-.footer .col-sm-4 {
-  margin-bottom: 50px;
-}
-*/
 #socmed-icon img {
   margin: 0 5px;
 }
@@ -565,7 +417,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-bottom: 0;
   padding-bottom: 5px;
 }
-
 
 /*detail page*/
 .entry-title {
@@ -646,9 +497,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 .twitter {
   background-color: #00aced;
 }
-.title-class {
-  
-}
 .title-class .fa {
   font-size: 18px;
   margin-right: 10px;
@@ -686,27 +534,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-right: 5px;
 }
 
-#jadwal .table-responsive {
-  margin-top: 50px;
-}
-td i {
-  margin-right: 5px;
-}
-thead {
-  /*font-family: Roboto Bold;*/
-  text-transform: uppercase;
-}
-.table caption + thead tr:first-child th, 
-.table colgroup + thead tr:first-child th, 
-.table thead:first-child tr:first-child th, 
-.table caption + thead tr:first-child td, 
-.table colgroup + thead tr:first-child td, 
-.table thead:first-child tr:first-child td {
-  background-color: #eee;
-  border-bottom: 2px solid #ddd;
-  border-top: 2px solid #ddd;
-}
-
 .review-wrap,
 .detail-kelas {
   border: 1px solid #fcb33b;
@@ -723,12 +550,6 @@ thead {
 .review-wrap .testimonial-wrap {
   width: 100%;
 }
-/*.review-title,
-.feedback-title {
-  border-bottom: 2px solid #fcb33b;
-  color: #fcb33b;
-  padding-bottom: 5px;
-}*/
 .rating-wrap .rate {
   float: left;
   margin-right: 10px;
@@ -826,16 +647,13 @@ thead {
   padding: 8px;
   position: relative;
 }
-
 .panel-default .isi-tanggapan {
   text-align:justify;
 }
-
 .panel-body {
   padding: 20px;
   background-color: #fff;
 }
-
 .panel-body .panel-body-feedback {
   background-color: #fff;
   border-color: #f8f5fd;
@@ -847,17 +665,13 @@ thead {
     overflow-y:auto;
 
 }
-
- .sub-content.feedback-part{
- max-height: 500px;
+.sub-content.feedback-part{
+  max-height: 500px;
   overflow:scroll;
-  
 }
-
 .panel-body .feedback-package {
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-  }
-
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
 .detail-label {
   border-radius: 5px;
   margin-bottom: 20px;
@@ -921,101 +735,23 @@ thead {
   display: inline-block;
   margin-top: 3px;
   margin-right: 8px;
-  
-
 }
 .support a {
   color: #3a3a3a;
-}
-.table .bold {
-  font-weight: bold;
-}
-.table.sesi td:nth-child(2) {
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-}
-.table.sesi tr:first-child td {
-  border-top: medium none;
-}
-.table.sesi tr:last-child td {
-  border-bottom: medium none;
-}
-.sesi + a {
-  color: #e11447;
-  font-style: italic;
-  margin-top: 0;
 }
 .support .fa {
   color: #3a3a3a;
   font-size: 24px;
   vertical-align: sub;
 }
-.logo-vendor {
-  border-bottom: 1px solid #fcb33b;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-}
-.panel-body .more {
-  /*font-family: Roboto Bold;*/
-  text-decoration: underline;
-  color: #fcb33b;
-}
 
-/*Register page*/
-.form-group label {
-  /*font-family: Roboto Bold;*/
-}
-.radio label {
-  /*font-family: Roboto;*/
-}
-.tab-content .form-control,
-.panel-body .form-control {
+.form-control {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 6px 12px;
 }
 textarea.form-control {
   resize: vertical;
-}
-.jadwal-item {
-  border-bottom: 3px solid #ddd;
-  display: inline-block;
-  margin: 15px 0 30px;
-  padding-bottom: 15px;
-  width: 100%;
-}
-.jadwal-wrap {
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-}
-.jadwal-item .table tbody td {
-  font-size: 12px;
-}
-.jadwal-title {
-  /*font-family: Roboto Bold;*/
-  font-size: 16px;
-  margin: 5px 0;
-}
-a.remove {
-  color: #f75252;
-  margin: 0;
-}
-.sum-label {
-  /*font-family: Roboto Bold;*/
-}
-.sum-price {
-  /*font-family: Roboto;*/
-}
-.btn.btn-default.cek-button {
-  background-color: #fcb33b;
-  border-color: #fcb33b;
-  border-radius: 5px;
-  /*font-family: Roboto Bold;*/
-}
-.sum-total {
-  /*font-family: Roboto Bold;*/
-  margin-top: 40px;
 }
 
 /*tambah-kelas page*/
@@ -1061,15 +797,12 @@ a.remove {
 }
 
 /* bagian tab-content detail kelas */
-
 .detail-kelas .tab-content {
 
 }
-
 /* end detail kelas */
 
 /* Bagian tab materi */
-
 .tab-materi .panel-group .panel-default .panel-heading .panel-title{
   color:white;
 }
@@ -1124,30 +857,22 @@ a.remove {
  font-family: Roboto Condensed bold;
  font-size: 16px;
 }
-
-
 .bredcrumbs ul li a {
   color: #fcb33b;
 }
-
-
 .content-video{
   width: 100%;
 }
-
 .panel.panel-content{
   padding: 0;
 }
-
 .space-video{
   width: 100%;
 }
-
 .space-pdf{
 width: 100%;
 
 }
-
 .pdfviewer{
   width: 100%;
   height:450px;
@@ -1158,7 +883,6 @@ width: 100%;
   max-height:475px;
 }
 .group-materi{
-padding-top: 20px;
 text-align: center;
 }
 .group-materi .heading-materi {
@@ -1176,19 +900,11 @@ text-align: center;
   color:#fcb33b;
   text-align: left;
 }
-
 .panel-orange .hapus-topik{
   text-decoration: none;
   color:grey;
   padding-top: 14px;
-
 } 
-
-
-
-
-
-
 /* end akses materi */
 
 /*kelas-anda*/
@@ -1237,15 +953,12 @@ text-align: center;
 }
 
 /*Tambahan untuk sub content*/
-
 .sub-content td {
   text-align: center;
 }
-
 .sub-content td.nama {
   text-align: left;
 }
-
 .sub-content .icon-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -1282,7 +995,6 @@ text-align: center;
   width: 55px;
   margin-right: 15px;
 } 
-
 .sub-content .guru-circle {
   border-radius: 100%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -1298,7 +1010,6 @@ text-align: center;
   border: 2px #fcb33b solid;
   margin-left: 15px;
 } 
-
 .icon-button {
   border-radius: 20px;
   display: inlin28block;
@@ -1312,7 +1023,6 @@ text-align: center;
   text-align: center;
   line-height: 0.5;
 }
-
 .sub-content .statusid {
   width: 50px;
   text-align: center;
@@ -1371,12 +1081,10 @@ text-align: center;
 /*end sub-content added*/
 
 /* tab-detil-kelas */
-
 #detil .tag {
   border-bottom: 1px #fcb33b solid;
   margin: 1px;
 }
-
 /* end tab-detil-kelas */
 
 /*partisipan*/
@@ -1613,30 +1321,11 @@ font-weight: bold;
 }
 .sidebar {
   box-shadow: 0 2px 5px #999;
-  padding-right: 13px;
+  /*padding-right: 13px;*/
 }
 .profile-image-wrap {
   padding: 20px;
   position: relative;
-}
-.profile-image-wrap a {
-  border: 1px solid;
-  border-radius: 5px;
-  color: #fff;
-  height: 30px;
-  padding-top: 2px;
-  position: absolute;
-  right: 30px;
-  text-align: center;
-  top: 30px;
-  width: 30px;
-}
-.profile-name {
-  font-size: 18px;
-  margin: 0 0 20px;
-}
-.sidebar .progress {
-  margin: 0 20px 20px;
 }
 .sidebar .nav-tabs {
   border-bottom: medium none;
@@ -1686,33 +1375,18 @@ font-weight: bold;
   text-align: center;
   vertical-align: sub;
   width: 25px;
-}.sidebar li .fa-male {
-  padding-top: 2px;
-  vertical-align: text-top;
 }
-.sidebar li .fa-users {
-  font-size: 14px;
-  vertical-align: text-top;
-}
-.sidebar li .fa-plus {
-  padding-top: 3px;
-  vertical-align: text-top;
-}
-.vendor .tab-content,
-.vendor .panel.panel-default {
+.guru .tab-content,
+.guru .panel.panel-default {
   border: medium none;
   box-shadow: 0 2px 5px #999;
   margin: 0 0 30px;
   padding: 15px;
 }
-.vendor .panel-body {
- /* padding: 0;*/
-}
-.vendor .block-title {
+.guru .block-title {
   border-bottom: 2px solid;
   color: #fcb33b;
   font-size: 26px;
-  margin-left: 33px;
   margin-top: -5px;
   padding-bottom: 10px;
 }
@@ -1732,7 +1406,7 @@ font-weight: bold;
 }
 .kelas .nav.nav-tabs {
   margin-bottom: 10px;
-    margin-left: 14px;
+  margin-left: 14px;
 }
 
 /*Galeri kelas */
@@ -1767,193 +1441,20 @@ text-decoration: none;
 }
 .section-row {
   border-bottom: 1px solid #ddd;
-  display: inline-block;
-  padding: 15px;
-  width: 100%;
-}
-.section-row:last-child {
-  border: medium none;
-}
-.section-content.table {
-  padding: 30px 20px;
-}
-.radio.diskon label {
-  margin-right: 30px;
+  color: #fcb33b;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 .form-horizontal .form-inline .form-group {
   margin: 15px 0;
   vertical-align: middle;
   width: 100%;
 }
-.radio.jumlah input[type="number"] {
-  margin: 0 10px;
-}
 .review-title .info {
   color: #333;
   float: right;
   font-size: 14px;
 }
-#diskon .section-heading {
-  margin: 20px 0;
-}
-#profile .section-heading {
-  margin: 20px 0;
-}
-#profile table input {
-  display: inline-block;
-  width: 100px;
-}
-#profile em + input {
-  width: 200px;
-}
-#profile em {
-  display: inline-block;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-/*vendor page*/
-.panel.panel-default.panel-big.panel-yellow {
-  border-color: #fcb33b;
-}
-.panel-heading.heading-label.heading-yellow {
-  background-color: #fcb33b;
-}
-.log-reg .main-button.register,
-.log-reg .cancel.btn-default {
-  display: inline-block;
-  width: 90px;
-  padding-top: 5px;
-}
-
-/*landing page*/
-.hero-landing {
-  background: url("../images/hero.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
-.hero-landing .content {
-  padding: 207px 150px 70px;
-}
-.landing .content .btn {
-  margin: 0 5px 0 0;
-}   
-.partner-list {
-  background-color: #f6f6f6;
-  padding: 30px 0;
-}
-.partner-list .item-list {
-  height: 54px;
-  position: relative;
-}
-.item-list img {
-  bottom: 0;
-  margin: auto;
-  position: absolute;
-  top: 0;
-}
-.landing-title {
-  color: #fcb33b;
-  margin-bottom: 40px;
-}
-.landing .media {
-  margin-bottom: 30px;
-}
-.landing .media-left {
-  padding-right: 25px;
-}
-.landing .media-body,
-.landing .footnote {
-  line-height: 1.3;
-}
-.landing .media-heading {
-  color: #fcb33b;
-  font-size: 16px;
-  font-weight: 700;
-}
-.landing .footnote {
-  margin-top: 10px;
-}
-.footnote a {
-  color: #fcb33b;
-}
-.testimonial {
-  background-color: #f6f6f6;
-  padding: 40px 0;
-}
-.testimonial-wrap {
-  margin: auto;
-  width: 80%;
-}
-.testimoni-title,
-.thumbnail .caption h3,
-.thumbnail .caption a {
-  color: #fcb33b;
-}
-.testimonial-wrap .content {
-  color: #939598;
-  font-style: italic;
-  font-size: 16px;
-}
-.testimonier {
-  color: #939598;
-  font-weight: 700;
-}
-.landing .how {
-  padding: 0;
-}
-.landing .thumbnail {
-  border: medium none;
-  margin: 40px 0;
-  padding: 0;
-}
-.landing .thumbnail img {
-  margin-left: 45px;
-}
-.landing-subtitle {
-  width: 70%;
-  margin: auto;
-  color: #939598;
-}
-.thumbnail .caption {
-  color: #333;
-  font-size: 12px;
-  padding: 9px 0;
-}
-.landing .thumbnail .caption h3 {
-  font-size: 16px;
-  font-weight: 700;
-}
-.landing-label {
-  background-color: #9da240;
-  color: #fff;
-  padding: 25px 0;
-}
-.label-content {
-  display: inline-block;
-  width: auto;
-  font-size: 16px;
-}
-.landing-label .btn-blue {
-  background-color: #fcb33b;
-  color: #fff;
-  margin-left: 20px;
-}
-.landing-form {
-  background-color: #f6f6f6;
-  padding-top: 20px;
-}
-.landing-form-wrap {
-  background-color: #fff;
-  float: none;
-  margin: 0 auto 50px;
-  padding: 20px 30px;
-}
-.landing-form-wrap h3 {
-  margin-bottom: 30px;
-}
-.landing-form .form-control {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-} 
 
 @media (min-width: 1080px) {
   .navbar > .container {
@@ -2000,20 +1501,12 @@ text-decoration: none;
 	.review {
 	  padding: 10px;
 	}
-<<<<<<< Updated upstream
-	/*.rating {
-	  font-size: 15px;
-    padding: 0 10px 0 10px;
-  }*/
-=======
-
   /*
 	.rating {
 	  font-size: 15px;
     padding: 0 10px 0 10px;
   } */
->>>>>>> Stashed changes
-  
+
   /*detail*/
   .price-big-wrap:before {
     background-color: transparent;
@@ -2024,7 +1517,7 @@ text-decoration: none;
     width: 100%;
   }
   
-  /*vendor*/
+  /*courses_student*/
   .log-reg .main-button.register, 
   .log-reg .cancel.btn-default {
     display: inline-block;
@@ -2032,37 +1525,6 @@ text-decoration: none;
     width: 100%;
   }
 
-  /*landing*/
-  .hero-landing {
-    background: url("../images/hero.jpg") no-repeat scroll -220px center / cover  rgba(0, 0, 0, 0);
-    height: 280px;
-  }
-  .hero-landing .content {
-    padding: 180px 30px 0;
-  }
-  .landing .how {
-    padding: 0 15px;
-  }
-  .landing .thumbnail {
-    margin: 40px 30px;
-  }
-  .landing .thumbnail img {
-    margin-left: 75px;
-  }
-  .landing .footnote {
-    text-align: center;
-  }
-
-  /*kelas*/
-  .profile-image-wrap {
-    float: left;
-    width: 37%;
-  }
-  .profile-name {
-    padding: 20px 0 0;
-    text-align: left;
-    width: auto;
-  }
 }
 @media (max-width: 640px) {
 	body,
@@ -2215,20 +1677,7 @@ text-decoration: none;
 	  width: 100%;
 	  z-index: -1;
 	}
-<<<<<<< Updated upstream
-	/*.rating {
-	  float: right;
-	  margin-top: 0;
-	}*/
-=======
-  /*
-	.rating {
-	  float: right;
-	  margin-top: 0;
-	}
-  */
 
->>>>>>> Stashed changes
   /*detail*/
   .nav-tabs li a {
     font-size: 16px;
@@ -2241,14 +1690,6 @@ text-decoration: none;
   }
   .sort-list .fa-phone {
     margin-left: 10px;
-  }
-  .profile-image-wrap {
-    float: none;
-    width: auto;
-  }
-  .profile-name {
-    padding: 0;
-    text-align: center;
   }
   .sidebar {
     margin-bottom: 30px;
@@ -2277,12 +1718,6 @@ text-decoration: none;
   .submit-form .btn.btn-default {
     margin: 10px 5px;
   }
-  /*profile*/
-  .profile .submit-form,
-  .kelas .submit-form {
-    text-align: center;
-  }
-  
   /*register*/
   .panel-default .panel-heading {
     font-size: 22px;
@@ -2296,55 +1731,12 @@ text-decoration: none;
     margin: 10px 15px;
   }
 
-  /*vendor*/
+  /*guru*/
   .log-reg .main-button.register, 
   .log-reg .cancel.btn-default {
     display: inline-block;
     margin: 10px 0;
     width: 100%;
-  }
-
-  /*landing*/
-
-  .partner-list .item-list {
-    text-align: center;
-  }
-  .item-list img {
-    left: 0;
-    right: 0;
-  }
-  .hero-landing {
-    background: #fcb33b;
-    height: 320px;
-  }
-  .hero-landing .content {
-    padding: 0 20px 30px;
-  }
-  .landing .content .btn {
-    margin: 10px 5px 0 0;
-  }
-  .partner-list {
-    text-align: center;
-  }
-  .media-left, .media-right, .media-body {
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-  }
-  .landing .media-left {
-    margin-bottom: 20px;
-    padding-right: 0;
-    width: 100%;
-  }
-  .testimonial-wrap {
-    width: 100%;
-  }
-  .landing-subtitle {
-    line-height: 1.2;
-    width: 100%;
-  }
-  .landing .thumbnail img {
-    margin-left: 55px;
   }
   
 	.footer .col-sm-4,
@@ -2429,7 +1821,4 @@ text-decoration: none;
       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
       background-color: #555;
   }
-
- 
-
 }

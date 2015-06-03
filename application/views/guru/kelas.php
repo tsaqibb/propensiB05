@@ -1,4 +1,4 @@
-<div class="container-fluid content kelas vendor">
+<div class="container content guru">
     <div class="row">
         <div class="col-sm-12 col-md-3">
             <div class="sidebar">
@@ -15,7 +15,7 @@
                 </ul>
             </div><!-- sidebar -->
         </div>
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-9 col-sm-12 kelas">
             <div class="panel panel-default">
                 <h2 class="block-title text-uppercase">Kelas</h2>
                 <div class="panel-body">

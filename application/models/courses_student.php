@@ -2,7 +2,6 @@
 
 class Courses_Student extends DataMapper {
 
-	var $table = 'Courses_Students';
 	var $has_one = array('course','student');
 	var $has_many = array('admin', 'review');
 

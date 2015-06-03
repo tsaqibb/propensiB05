@@ -167,7 +167,6 @@ class Kelas extends CI_Controller {
 
 	public function reject($id)
 	{	
-
 		$kelas_model = new Course();
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
 		$status_kelas_new = $status_kelas - 1;
