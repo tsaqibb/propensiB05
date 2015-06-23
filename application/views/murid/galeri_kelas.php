@@ -11,16 +11,7 @@
     <div class="col-sm-4">
         <div class="content-grid">
         <a href="<?php echo base_url().'kelas/detail/'.$kelas->id; ?>">
-            <div class="grid-top">
-                <!-- <div class="rating-top">
-                    <div class="icon tag">
-                        <i class="fa fa-star blue"></i>
-                        <i class="fa fa-star blue"></i>
-                        <i class="fa fa-star blue"></i>
-                        <i class="fa fa-star blue"></i>
-                        <i class="fa fa-star blue"></i>
-                    </div>
-                </div> --><!-- rating -->
+            <div class="grid-top" style="background-image: url(../images/class/<?php if(!empty($kelas->gambar)) { echo $kelas->gambar; } else { echo 'image_300x300.gif'; }?>)">
                 <div class="grid-title-wrap" style="width: 100%">
                     <h3 class="grid-title"><?php echo $kelas->nama; ?></h3>
                 </div><!-- grid-title-wrap -->

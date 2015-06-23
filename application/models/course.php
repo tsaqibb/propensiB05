@@ -16,17 +16,17 @@ class Course extends DataMapper {
 	}
 
 	function get_published_list_kelas(){
-		$this->where('status_kelas =', 4);
+		$this->where('status_kelas =', 2);
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 
 	function get_list_kelas_pending(){
-		$this->where('status_kelas =', 1)->or_where('status_kelas =', 3);
+		$this->where('status_kelas =', 1);
 		return $this->order_by('status_kelas')->get();
 	}
 
 	function get_list_kelas_request_unpublish(){
-		$this->where('status_kelas =', 5);
+		$this->where('status_kelas =', 3);
 		return $this->order_by('tgl_mulai desc')->get();
 	}
 

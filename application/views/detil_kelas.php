@@ -73,23 +73,37 @@
         <div class="col-md-8">
             <h2 class="entry-title"><?php echo $data_kelas->nama; ?></h2>
             <div class="add-info">
-                <span class="info-label text-uppercase">Tag :
-                    <?php
-                    $list_classes_tag = $data_kelas->classes_tag->get();
+                <div class="info-label">
+                    <i class="fa fa-star"></i> <?php echo $class_rating."/5 (".$no_of_review." reviewers)"; ?> 
+                    <i class="fa fa-user"></i> <?php echo count($list_partisipan); ?>
+                </div>
+                <?php
+                $list_classes_tag = $data_kelas->classes_tag->get();
+                if(!empty($list_classes_tag)) :
+                ?>
+                <span class="tag-label text-uppercase">Tag :
+                <?php
                     foreach ($list_classes_tag as $classes_tag) :
                         $tag = $classes_tag->tag->get();
-                    ?>
+                ?>
                         <a class="#<php echo $tag->subjek; ?>">
                             <?php echo $tag->subjek; ?>
                         </a>&nbsp;
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
                 </span>
+                <?php endif; ?>
             </div><!-- add-info -->
         </div>
         <div class="col-md-8">
             <div class="hero-detail">
-                <div class="photo img-wrap">
-                    <img src="<?php echo base_url(); ?>images/image_300x300.gif" alt="Class Logo" class="img-responsive">
+                <div class="img-wrap">
+                    <img src="<?php echo base_url().'images/class/';
+                    if(!empty($data_kelas->gambar)) {
+                        echo $data_kelas->gambar;
+                    }
+                    else {
+                        echo 'image_300x300.gif';
+                    } ?>" alt="Class Logo" class="img-responsive">
                 </div>
             </div>
             <div role="tabpanel" class="sub-content detail-kelas">
@@ -106,28 +120,31 @@
                     <div class="panel-group" id="accordion">
                     <?php 
                     $list_topik = $data_topik;
+                    $count_topic = 1;
                     foreach ( $list_topik as $topik ):
                     ?>
                         <div class="panel panel-orange">
                         <a data-toggle="collapse" data-parent="#accordion" class="judul-topik panel-heading"
                             href="#topik<?php echo $topik->id; ?>">
                             <i class="fa fa-chevron-circle-down"></i>
-                            <?php echo $topik->judul; ?>
+                            <?php echo $count_topic++.'. '.$topik->judul; ?>
                         </a>
                             <div id="topik<?php echo $topik->id; ?>" class="panel-collapse collapse">
                                 <div class="panel-body">
+                                    <p><?php echo $topik->deskripsi; ?></p>
                             <?php  $list_materi = $topik->resource->get();
+                            $count_materi =1;
                             foreach ($list_materi as $materi) :
                             ?>
                               <ul class="list-groups">
                                 <?php 
                                 if($registered) : ?>
                                      <a href="<?php echo base_url();?>kelas/aksesmateri/<?php echo $materi->id; ?>">
-                                        <li class="list-group-item"> <?php echo $materi->judul; ?></li>
+                                        <li class="list-group-item"> <?php echo $count_materi++.'. '.$materi->judul; ?></li>
                                      </a>
                                  <?php else : ?>
                                      <span>
-                                        <li class="list-group-item"> <?php echo $materi->judul; ?></li>
+                                        <li class="list-group-item"> <?php echo $count_materi++.'. '.$materi->judul; ?></li>
                                      </span>
                                  <?php endif; ?>
                               </ul>
@@ -466,8 +483,7 @@
                                     </span>
                                 </form> 
                                 <?php } } ?>
-                        <?php endforeach; ?> 
-                    <br></br> <!-- rating -->
+                        <?php endforeach; ?> <!-- rating -->
                 </div><!-- rating-wrap -->
                 <div class="testimonial-wrap review-item">
                     <h4 class="review-title">Testimonial</h4>
@@ -483,6 +499,11 @@
                                 <?php 
                                     $data_murid = $data_murid_kelas->student->get();
                                     $nama_murid = $data_murid->nama;
+                                    $nama_arr = explode(' ', $nama_murid);
+                                    $nama_murid = $nama_arr[0];
+                                    if(!empty($nama_arr[1])) {
+                                        $nama_murid = $nama_murid.' '.$nama_arr[1][0].'.';
+                                    }
                                     echo $nama_murid;
                                 ?>
                             </strong> |
@@ -580,7 +601,7 @@
                 </div>
             </div><!-- panel -->
 
-            <div class="panel panel-default blue">
+            <!-- <div class="panel panel-default blue">
                 <div class="panel-heading heading-label text-center"><i class="fa fa-male"></i> Daftar Murid</div>
                 <div class="panel-body">
                     <?php foreach ($list_partisipan as $daftar) :
@@ -596,9 +617,9 @@
                     </div>
                     <?php endforeach; ?> 
                 </div>
-            </div>
+            </div> -->
 
-            <div class="panel panel-default blue">
+            <!-- <div class="panel panel-default blue">
                 <div class="panel-heading heading-label text-center"><i class="fa fa-thumbs-up"></i>Review</div>
                 <div class="panel-body">
                     <div class="rating-view">
@@ -649,7 +670,7 @@
                             <?php echo round($class_rating, 2)." dari $no_of_review rating" ?>
                         </h4>
                 </div>
-            </div><!-- panel -->
+            </div> --><!-- panel -->
         </div>
     </div> <!-- row -->
 </div> <!-- /container -->

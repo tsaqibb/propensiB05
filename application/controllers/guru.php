@@ -25,7 +25,7 @@ class Guru extends CI_Controller {
 		$list_draft_kelas = array();
 
 		foreach ($list_kelas as $kelas) {
-			if($kelas->status_kelas < 4) {
+			if($kelas->status_kelas < 2) {
 				array_push($list_draft_kelas, $kelas);
 			} else {
 				array_push($list_published_kelas, $kelas);
@@ -47,31 +47,6 @@ class Guru extends CI_Controller {
 		$this->load->view('layout/header');
 		$this->load->view('guru/tambah_kelas');
 		$this->load->view('layout/footer');
-	}
-
-	public function edit_materi($kelas_id){
-		/*$this->load->view('layout/header');
-		$this->load->view('guru/tambah_materi');
-		$this->load->view('layout/footer');*/
-		$kelas_model = new Course();		
-		$data_kelas = $kelas_model->get_by_id($kelas_id);
-		if($data_kelas->status_kelas % 2 == 1) {
-			redirect();
-			return;
-		}
-		$data_topik = $data_kelas->topic->get();
-		$data_guru = $data_kelas->teacher->get();
-		$this->load->view('layout/header');
-		$this->load->view('guru/edit_materi',
-			array(
-				'data_guru'=>$data_guru,
-				'data_kelas'=>$data_kelas,
-				'data_topik'=>$data_topik
-			)
-		);
-		$this->load->view('layout/footer');
-
-
 	}
 
 	public function edit_kelas($kelas_id)
@@ -113,7 +88,34 @@ class Guru extends CI_Controller {
 			$this->session->set_flashdata('status.error','Gagal update kelas! Masukan yang anda masukan salah');
 			redirect('/guru/edit_kelas/'.$id, 'refresh');
 		}
-		
+		var_dump($_FILES['myFile']['name']); exit;
+		if(isset($_FILES['class_image']['name']) && $_FILES['class_image']['name'] != '') {
+
+			unset($config);
+			$config['upload_path'] ='./class/';
+			$config['allowed_types'] = 'jpg|png';
+			$config['upload_max_filesize'] = "10M";
+			$config['file_name'] = $id.'_'.$_FILES['class_image']['name'];
+
+			$this->load->library('upload' , $config);
+			$this->upload->initialize($config);
+
+			if(!$this->upload->do_upload('class_image')){
+				$error = array('error' => $this->upload->display_errors());			
+				$this->session->set_flashdata('status.error','Format file tidak sesuai!');
+				redirect('/guru/edit_kelas/'.$id);
+			}
+			else{
+				$success_update = $kelas_model->where('id', $id)->update(array(
+				'gambar' => $_FILES['class_image']['name']
+				));
+			}
+
+		} else {
+			$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
+			redirect('/guru/edit_kelas/'.$data_kelas->id.'#materi', 'refresh');
+		}
+
 		//list hasil input tag
 		$input_list_tag = explode(',', $this->input->post('class_tags'));
 		//list tag yang dimiliki

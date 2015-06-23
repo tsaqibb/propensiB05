@@ -35,7 +35,7 @@
                                     </td>
                                     <td>
                                         <?php 
-                                        if ($kelas->status_kelas=='4') {
+                                        if ($kelas->status_kelas=='2') {
                                             echo "Published"; 
                                         }       
                                         ?>

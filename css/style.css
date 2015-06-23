@@ -188,7 +188,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-size: cover;
   height: 200px;
   position: relative;
-  background-image: url('../images/image_300x300.gif');
+  /*background-image: url('../images/image_300x300.gif');*/
   margin-top: 20px;
 }
 .grid-title-wrap {
@@ -429,12 +429,15 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   padding-bottom: 10px;
 }
 .info-label {
-  color: #fcb33b;
+  color: #02bfec;
 }
-.info-label a {
+.tag-label a {
   color: #333;
   text-decoration: underline;
   text-transform: none;
+}
+.tag-label {
+  color: #fcb33b;
 }
 .hero-detail {
   overflow: hidden;
@@ -534,9 +537,24 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-right: 5px;
 }
 
+thead {
+  /*font-family: Roboto Bold;*/
+  text-transform: uppercase;
+}
+.table caption + thead tr:first-child th, 
+.table colgroup + thead tr:first-child th, 
+.table thead:first-child tr:first-child th, 
+.table caption + thead tr:first-child td, 
+.table colgroup + thead tr:first-child td, 
+.table thead:first-child tr:first-child td {
+  background-color: #eee;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+}
+
 .review-wrap,
 .detail-kelas {
-  border: 1px solid #fcb33b;
+  border: 1px solid #3bc4e6;
   display: inline-block;
   margin: 30px 0;
   padding: 15px;
@@ -605,11 +623,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   background-color: #3bc4e6 !important;
 }
 .panel-default .panel-heading {
-  background-color: #fcb33b;
+  background-color: #3bc4e6;
   color: #fff;
 }
 .panel-default {
-  border-color: #fcb33b;
+  border-color: #3bc4e6;
   border-radius: 5px;
 }
 .panel-default .panel-heading {
@@ -619,7 +637,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   font-size: 20px;
   margin: 0;
   display: block;
-} 
+}
 
 .panel-default .panel-heading-feedback {
   border-radius: 5px;
@@ -1405,8 +1423,8 @@ font-weight: bold;
   vertical-align: middle;
 }
 .kelas .nav.nav-tabs {
-  margin-bottom: 10px;
-  margin-left: 14px;
+/*  margin-bottom: 10px;
+  margin-left: 14px;*/
 }
 
 /*Galeri kelas */

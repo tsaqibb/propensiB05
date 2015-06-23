@@ -31,20 +31,18 @@
                 <h2 class="block-title text-uppercase"><?php echo $data_kelas->nama; ?></h2>
                 <span class="info">Status:
                 <?php if($data_kelas->status_kelas == 0) : ?>
-                    <b class="rejected"> Unapproved</b>
+                    <b class="rejected"> Draft</b>
                 <?php elseif($data_kelas->status_kelas == 1) : ?>
-                    <b class="pending"> Pending Approve</b>
-                <?php elseif($data_kelas->status_kelas == 2) : ?>
-                    <b class="approve"> Approve</b>
-                <?php elseif($data_kelas->status_kelas == 3) : ?>
                     <b class="pending"> Pending Publish</b>
-                <?php elseif($data_kelas->status_kelas == 4) : ?>
+                <?php elseif($data_kelas->status_kelas == 2) : ?>
                     <b class="publish"> Published</b>
+                <?php elseif($data_kelas->status_kelas == 3) : ?>
+                    <b class="publish"> Pending Unpublish</b>
                 <?php endif; ?>
                 </span>
                 <!-- Detil Kelas -->
                 <div class="section-row">Detil Kelas</div>
-                <div role="tabpanel" class="tab-pane active" id="detil-kelas">
+                <div class="sub-content" id="detil-kelas">
                   <form class="form-horizontal" method="post" action="<?php echo base_url();?>guru/update_kelas/<?php echo $data_kelas->id; ?>">
                     <div class="form-group">
                       <label for="Namakelas" class="col-sm-4 control-label">Nama Kelas</label>
@@ -62,10 +60,17 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="Seo" class="col-sm-4 control-label">Harga</label>
+                      <label class="col-sm-4 control-label">Harga</label>
                       <div class="col-sm-8">
                         <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan angka saja, mis: 50000. 0 jika kelas gratis"
                             value="<?php echo $data_kelas->harga; ?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label">Foto</label>
+                      <div class="col-sm-8">
+                        <?php if(!empty($data_kelas->gambar)) echo "<img src='".base_url().$data_kelas->gambar."' class='img-responsive'>"?>
+                        <input type="file" name="myFile" id="myFile" multiple size="50">
                       </div>
                     </div>
                     <div class="form-group">
@@ -89,16 +94,20 @@
                           Save 
                         </button>
                         <?php if($data_kelas->status_kelas == 0) : ?>
-                          <div> <a href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>" class="btn btn-default-blue">
-                            <i class="fa fa-check"></i>Request to approve</a>
-                          </div>
-                        <?php elseif($data_kelas->status_kelas ==2) : ?>
                           <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
                             <i class="fa fa-upload"></i>Request to Publish</a>
                           </div>
-                        <?php elseif($data_kelas->status_kelas ==4) : ?>
+                        <?php elseif($data_kelas->status_kelas ==2) : ?>
                           <div><a class="btn btn-default-blue" href="<?php echo base_url().'kelas/request/'.$data_kelas->id; ?>">
                             <i class="fa fa-exclamation-triangle"></i>Request to Unpublish</a>
+                          </div>
+                        <?php elseif($data_kelas->status_kelas ==1) : ?>
+                          <div class="btn btn-default-blue">
+                            <i class="fa fa-exclamation-triangle"></i>Pending Publish
+                          </div>
+                        <?php elseif($data_kelas->status_kelas ==3) : ?>
+                          <div class="btn btn-default-blue">
+                            <i class="fa fa-exclamation-triangle"></i>Pending Unpublish
                           </div>
                         <?php endif; ?>
                       </div>
@@ -106,8 +115,8 @@
                   </form>
                 </div><!-- end detil Kelas -->
 
-                <h4 class="section-row">Materi</h4>
-                <div class="tab-pane active tab-panemateri" id="materi">
+                <h4 class="section-row" id="materi">Materi</h4>
+                <div class="sub-content tab-panemateri" id="materi">
                   <div class="panel-group" id="accordion">
                       <form id="create-topik" method="POST" action="<?php echo base_url();?>kelas/create_topik/<?php echo $data_kelas->id;?>">                                 
                         <div class="row">

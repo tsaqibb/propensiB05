@@ -38,6 +38,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                      <label class="col-sm-4 control-label">Foto</label>
+                      <div class="col-sm-8">
+                        <input type="file" name="class_image" id="class_image" multiple size="50">
+                      </div>
+                    </div>
+                    <div class="form-group">
                         <label for="attachment" class="col-sm-4 control-label">Tags</label>
                         <div class="col-sm-8">
                             <input style="display: none;" id="class_tags" data-role="tagsinput" class="input-tags" name="class_tags" type="text" required="required">

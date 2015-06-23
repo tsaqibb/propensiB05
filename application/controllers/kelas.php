@@ -143,24 +143,21 @@ class Kelas extends CI_Controller {
 	{	
 		$kelas_model = new Course();
 		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if($status_kelas % 2 == 1)
+			redirect('/guru/kelas', 'refresh');
 		$status_kelas_new = $status_kelas + 1;
 		$kelas_model->where('id =', $id)->update('status_kelas', $status_kelas_new);
 		$this->session->set_flashdata('status.notice','Request anda sedang diproses.');
 		redirect('/guru/kelas', 'refresh');
 	}
 
-	public function approve($id)
-	{	
-		$kelas_model = new Course();
-		$kelas_model->where('id =', $id)->update('status_kelas', 2);
-		$this->session->set_flashdata('status.notice','Kelas berhasil dikonfirmasi.');
-		redirect('/admin/pendingclasses/', 'refresh');
-	}
-
 	public function publish($id)
 	{	
 		$kelas_model = new Course();
-		$kelas_model->where('id =', $id)->update('status_kelas', 4);
+		$status_kelas = $kelas_model->get_by_id($id)->status_kelas;
+		if($status_kelas != 1)
+			redirect('/guru/kelas', 'refresh');
+		$kelas_model->where('id =', $id)->update('status_kelas', 2);
 		$this->session->set_flashdata('status.notice','Kelas berhasil dipublish');
 		redirect('/admin/pendingclasses/', 'refresh');
 	}
@@ -177,7 +174,6 @@ class Kelas extends CI_Controller {
 
 	public function unpublish($id)
 	{	
-
 		$kelas_model = new Course();
 		$kelas_model->where('id =', $id)->update('status_kelas', 0);
 		redirect('/admin/pendingclasses/', 'refresh');
@@ -275,7 +271,6 @@ class Kelas extends CI_Controller {
 		$topik_model->course_id = $id;
 		$topik_model->teacher_id = $data_kelas->teacher_id;	
 
-
 		$success = $topik_model->save_as_new();
 		if($success) {
 			$this->session->set_flashdata('status.notice','Berhasil membuat topik!');
@@ -283,7 +278,7 @@ class Kelas extends CI_Controller {
 		else{
 			$this->session->set_flashdata('status.error','Gagal membuat topik!');
 		}
-		redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
+		redirect('/guru/edit_kelas/'.$data_kelas->id.'#materi', 'refresh');
 	}
 
 	public function create_materi($id){
@@ -307,7 +302,7 @@ class Kelas extends CI_Controller {
 			if(!$this->upload->do_upload('myFile')){
 				$error = array('error' => $this->upload->display_errors());			
 				$this->session->set_flashdata('status.error','Format file tidak sesuai!');
-				redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');					
+				redirect('/guru/edit_kelas/'.$data_kelas->id.'#materi','refresh');					
 			}
 			else{
 				
@@ -342,13 +337,13 @@ class Kelas extends CI_Controller {
 					$this->session->set_flashdata('status.error','Gagal membuat materi!');
 				}
 
-				redirect('/guru/edit_materi/'.$data_kelas->id,'refresh');
+				redirect('/guru/edit_kelas/'.$data_kelas->id.'#materi','refresh');
 				
 			}
 
 		} else {
 			$this->session->set_flashdata('status.error','Ukuran file terlalu besar!' );
-			redirect('/guru/edit_materi/'.$data_kelas->id, 'refresh');
+			redirect('/guru/edit_kelas/'.$data_kelas->id.'#materi', 'refresh');
 		}
 		
 	}
@@ -396,7 +391,7 @@ class Kelas extends CI_Controller {
 		}
 
 
-		redirect('/guru/edit_materi/'.$id_kelas->id,'refresh');
+		redirect('/guru/edit_kelas/'.$id_kelas->id.'#materi','refresh');
 	}
 
 
@@ -417,7 +412,7 @@ class Kelas extends CI_Controller {
 		else{
 			$this->session->set_flashdata('status.error','Gagal menghapus materi!');
 		}
-		redirect('/guru/edit_materi/'.$id_kelas->id,'refresh');
+		redirect('/guru/edit_kelas/'.$id_kelas->id.'#materi','refresh');
 	}
 
   	public function add_review($id) {
